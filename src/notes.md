@@ -1,0 +1,3 @@
+Notes on synthesis:
+
+- Since the behaviors only modify the world state, I think it might be better for each function to accept the world state and return the modified world state. As I was implementing it, it seemed to me that this would be a much cleaner solution because I can just access the participant key as needed. This would maintain one consistent world state and it would avoid logging the same participant multiple times. However, the nuances of this will reveal themselves as I fully synthesize all the behaviors of a design.
