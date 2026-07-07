@@ -83,6 +83,44 @@ def getAssign(target, value):
         value=value
     )
 
+def getAssignWithUid(target, value):
+    """
+        This function generates an assign statement
+        after adding a UID to the target.
+        
+        target = {
+            "uid": uuid.uuid4(),
+            "value": value
+        }
+    """
+    return ast.Assign(
+        targets=[target],
+        value=ast.Dict(
+            keys=[
+                ast.Constant(value="uid"),
+                ast.Constant(value="value"),
+            ],
+            values=[
+                ast.Call(
+                    func=ast.Name(id="str", ctx=ast.Load()),
+                    args=[
+                        ast.Call(
+                            func=ast.Attribute(
+                                value=ast.Name(id="uuid", ctx=ast.Load()),
+                                attr="uuid4",
+                                ctx=ast.Load(),
+                            ),
+                            args=[],
+                            keywords=[],
+                        )
+                    ],
+                    keywords=[],
+                ),
+                value,
+            ],
+        ),
+    )
+
 def getVariableNameWithKeys(name, keys):
     current = ast.Name(id=name, ctx=ast.Load())
 
