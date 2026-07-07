@@ -7,6 +7,7 @@ from src.helper import getFunctionDef
 from src.helper import getConstant
 from src.helper import getName
 from src.helper import getAssign
+from src.helper import getAssignWithUid
 from src.helper import getVariableNameWithKeys
 
 class Synthesizer:
@@ -36,6 +37,9 @@ class Synthesizer:
         
         importNode = ast.parse("from LoggingHelper import semanticLogger").body[0]
         self.tree.body.insert(0, importNode)
+        
+        uuidNode = ast.parse("import uuid").body[0]
+        self.tree.body.insert(0, uuidNode)
 
         directory = os.getcwd()
         with open(os.path.join(directory, "output", 'synthesized.py'), 'w') as f:
@@ -97,7 +101,14 @@ class Synthesizer:
 
         # Get name node and value or constant based on transformation
         value = self.getNodeByType(transformation["valueType"])
-        return getAssign(name, value)
+
+        if (len(transformation["keys"])) > 0:            
+            return getAssign(name, value)
+        else:
+            # This is where a participant is being created so we assign a UID
+            assign_node = getAssignWithUid(name, value)
+            return assign_node
+            
     
     def getBinOpStatement(self, transformation):
         '''
