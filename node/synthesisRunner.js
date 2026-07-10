@@ -3,12 +3,12 @@ import { spawn } from "node:child_process";
 
 function synthesisRunner(synthPackage, args = []) {
     return new Promise((resolve, reject) => {
-        const process = spawn("python3", ["design_instrumenter.py"]);
+        // Testing default execution.
+        const process = spawn("python3", ["design_synthesizer.py","--package","./packages/synthPackage.json"]);
                 let settled = false;
 
         const stdoutChunks = [];
         let stderr = "";
-
 
         process.stdout.on("data", (data) => {
             stdoutChunks.push(data);
@@ -34,14 +34,9 @@ function synthesisRunner(synthPackage, args = []) {
             }
         });
 
-        if (typeof source !== "string") {
-            reject(new Error("source must be a string"));
-            return;
-        }
-
-        process.stdin.write(synthPackage);
+        process.stdin.write(JSON.stringify(synthPackage));
         process.stdin.end();
     });
 }
 
-export default instrumentingRunner;
+export default synthesisRunner;

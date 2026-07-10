@@ -1,6 +1,7 @@
 import path from 'path';
 import {DALEngine} from "dal-engine-core-js-lib-dev";
 import { resolveDesignPath } from "./validateDesignName.js";
+import synthesisRunner from "./synthesisRunner.js"
 import fs from 'fs/promises';
 import unzipper from "unzipper";
 
@@ -15,21 +16,20 @@ const testStreamMode = async (designName, behavior) => {
 
     const activeBehavior = engine.graphs.getActiveGraph();
 
+    let synthPkg = [];
     for (const node of activeBehavior.nodes) {
-        const synthPkg = node.getBehavior().generateSynthesisPackage();
-        console.log(synthPkg);
+        const behaviorSynth = node.getBehavior().generateSynthesisPackage();
+        synthPkg.push(behaviorSynth);
     }
 
-    // try {
-    //     const zipBuffer = await synthesisRunner(instrumentationPkg);
-    //     console.log("Synthesis output:", zipBuffer);
-    //     const directory = await unzipper.Open.buffer(zipBuffer);
-    //     await directory.extract({ path: "./output" });
-    // } catch (err) {
-    //     console.error("Error during synthesis execution:");
-    //     console.error(err);
-    //     process.exit(1);
-    // }
+    try {
+        const synthesizedOutput = await synthesisRunner(synthPkg);
+        console.log("Synthesis output:", synthesizedOutput);
+    } catch (err) {
+        console.error("Error during synthesis execution:");
+        console.error(err);
+        process.exit(1);
+    }
 }
 
 const args = process.argv;
