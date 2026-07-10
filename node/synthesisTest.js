@@ -24,7 +24,7 @@ const testStreamMode = async (designName, behavior) => {
 
     try {
         const synthesizedOutput = await synthesisRunner(synthPkg);
-        console.log("Synthesis output:", synthesizedOutput);
+        console.log("Synthesis output:", synthesizedOutput.toString());
     } catch (err) {
         console.error("Error during synthesis execution:");
         console.error(err);
