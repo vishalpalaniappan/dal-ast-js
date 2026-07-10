@@ -25,19 +25,17 @@ python3 design_synthesizer.py --package ./packages/synthPackage.json
 
 This tool will read each entry in the synth package and for each behavior it will:
 - Create a function with the name
-- Add log statements for the behavior
-- Add log statements for the participants before behavior
+- Add necessary log statements (information that can't be deterministically reproduced by engine)
 - synthesize the program from the transformations
-- Add log statements for the participants after behavior
 
 The actual synthesis from the transformations is done by first reading the type of transformation. Then using that it will populate the AST node and use that to generate the code. I'll start with just the set operation to establish the structure.
 
 For example:
 ```
 {
-    "behavior": "behavior1",
-    "pre_participants": [
-        "book"
+    "behavior": "update_book_name",
+    "environment": [
+        "book_name"
     ],
     "transformations": [
         {
@@ -45,22 +43,21 @@ For example:
             "keys": [
                 "name"
             ],
-            "valueParticipantName": "Harry Potter"
+            "valueParticipantName": {
+                "type": "participant",
+                "value": "book_name"
+            }
         }
-    ],
-    "post_participants": [
-        "book",
-        "name4"
     ]
 }
 ```
 will become
 ```
-def b_behavior1(book):
-    semanticLogger.logBehavior("behavior1")
-    semanticLogger.logPreParticipant("book")
-    book["name"] = "Harry Potter"
-    semanticLogger.logPostParticipant("book")
+def b_update_book_name(worldState, book_name):
+    semanticLogger.logBehavior("update_book_name")
+    semanticLogger.logEnvironment(book_name)
+    worldState["book"]["name"] = book_name
+    return worldState
 ```
 
 Upcoming changes:
