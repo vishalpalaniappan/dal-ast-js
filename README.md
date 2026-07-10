@@ -18,7 +18,7 @@ In this process, the program is deterministically established when the computabl
 
 Example:
 ```
-python3 main.py --package ./packages/synthPackage.json 
+python3 design_synthesizer.py --package ./packages/synthPackage.json 
 ```
 
 # Overview
