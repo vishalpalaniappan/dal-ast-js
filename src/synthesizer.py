@@ -15,6 +15,7 @@ class Synthesizer:
     def __init__(self, packagePath):
         
         if packagePath:
+            self.mode = "path"
             self.packagePath = packagePath
             try:
                 with open(packagePath, 'r') as f:
@@ -25,6 +26,7 @@ class Synthesizer:
         else:
             # Streamming input
             self.model = json.loads(sys.stdin.read())
+            self.mode = "stream"
 
         self.tree = ast.Module(
             body=[],
@@ -51,7 +53,11 @@ class Synthesizer:
         with open(os.path.join(directory, "output", 'synthesized.py'), 'w') as f:
             f.write(ast.unparse(self.tree))
 
-        print(ast.unparse(self.tree))
+        # I'm only writing to file as I develop but once I move it
+        # to the workbench, I will stream the output so that I can
+        # save the synthesized output in the package.
+        # if self.mode == "stream":
+            # sys.stdout.write(ast.unparse(self.tree))
 
         return None
     
