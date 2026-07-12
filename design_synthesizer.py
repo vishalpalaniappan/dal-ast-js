@@ -11,20 +11,27 @@ def main(argv):
 
     args_parser.add_argument(
         "--package",
-        required=True,
+        required=False,
         help="Path to synth package json file"
     )
     
     parsed_args = args_parser.parse_args(argv[1:])
-    package = parsed_args.package
 
-    try:
-        open(package)
-    except Exception as e:
-        print(f"Invalid arguments: {str(e)}", file=sys.stderr)
-        return -1
+    print(parsed_args)
 
-    synth = Synthesizer(package)
+    if ("package" in parsed_args and parsed_args.package):
+        package = parsed_args.package
+
+        try:
+            open(package)
+        except Exception as e:
+            print(f"Invalid arguments: {str(e)}", file=sys.stderr)
+            return -1
+
+        synth = Synthesizer(package)
+    else:
+        synth = Synthesizer(None)
+
     synth.run()
 
 

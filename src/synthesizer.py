@@ -13,19 +13,18 @@ from src.helper import getVariableNameWithKeys
 
 class Synthesizer:
     def __init__(self, packagePath):
-
-        # Disable local path mode temporarily
-
-        # self.packagePath = packagePath
-        # try:
-        #     with open(packagePath, 'r') as f:
-        #         self.model = json.loads(f.read())
-        # except Exception as e:
-        #     print(f"Error loading model: {str(e)}")
-        #     self.model = None
-
-        # Streamming input
-        self.model = json.loads(sys.stdin.read())
+        
+        if packagePath:
+            self.packagePath = packagePath
+            try:
+                with open(packagePath, 'r') as f:
+                    self.model = json.loads(f.read())
+            except Exception as e:
+                print(f"Error loading model: {str(e)}")
+                self.model = None
+        else:
+            # Streamming input
+            self.model = json.loads(sys.stdin.read())
 
         self.tree = ast.Module(
             body=[],

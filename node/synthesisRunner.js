@@ -4,7 +4,7 @@ import { spawn } from "node:child_process";
 function synthesisRunner(synthPackage, args = []) {
     return new Promise((resolve, reject) => {
         // Testing default execution.
-        const process = spawn("python3", ["design_synthesizer.py","--package","./packages/synthPackage.json"]);
+        const process = spawn("python3", ["design_synthesizer.py"]);
                 let settled = false;
 
         const stdoutChunks = [];
