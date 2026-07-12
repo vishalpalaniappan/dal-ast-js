@@ -4,6 +4,8 @@ def getFunctionDef(name, args, body):
     '''
         This function returns a function definition statement.
     '''
+
+    #TODO: Extend arguments to include inputs from substrate
     return ast.FunctionDef(
         name=name,
         args=ast.arguments(
