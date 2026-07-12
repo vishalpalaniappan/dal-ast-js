@@ -2,6 +2,7 @@ import json
 import ast
 import os
 import sys
+from src.helper import getBehaviorLogStmt
 from src.helper import getInputLogStmt
 from src.helper import getFunctionDef
 from src.helper import getConstant
@@ -63,6 +64,8 @@ class Synthesizer:
     def processBehavior(self, node):
         body = []
         args = []
+
+        body.append(getBehaviorLogStmt(node["behavior"]))
 
         # Process transformation here
         for transformation in node["transformations"]:

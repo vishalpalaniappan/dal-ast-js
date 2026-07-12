@@ -24,6 +24,24 @@ def getFunctionDef(name, args, body):
         decorator_list=[]
     )
 
+def getBehaviorLogStmt(name):
+    '''
+        This function returns a log statement for the behavior.
+    '''
+    return ast.Expr(
+        value=ast.Call(
+            func=ast.Attribute(
+                value=ast.Name(id='semanticLogger', ctx=ast.Load()),
+                attr='logBehavior',
+                ctx=ast.Load()
+            ),
+            args=[
+                ast.Name(id=name, ctx=ast.Load()),
+            ],
+            keywords=[]
+        )
+    )
+
 def getInputLogStmt(name):
     '''
         This function returns a log statement for participant
