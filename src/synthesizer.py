@@ -1,6 +1,7 @@
 import json
 import ast
 import os
+import sys
 from src.helper import getPreParticipantLog
 from src.helper import getPostParticipantLog
 from src.helper import getFunctionDef
@@ -12,15 +13,21 @@ from src.helper import getVariableNameWithKeys
 
 class Synthesizer:
     def __init__(self, packagePath):
-        self.packagePath = packagePath
-        try:
-            with open(packagePath, 'r') as f:
-                self.model = json.loads(f.read())
-        except Exception as e:
-            print(f"Error loading model: {str(e)}")
-            self.model = None
 
-        self.tree = module = ast.Module(
+        # Disable local path mode temporarily
+
+        # self.packagePath = packagePath
+        # try:
+        #     with open(packagePath, 'r') as f:
+        #         self.model = json.loads(f.read())
+        # except Exception as e:
+        #     print(f"Error loading model: {str(e)}")
+        #     self.model = None
+
+        # Streamming input
+        self.model = json.loads(sys.stdin.read())
+
+        self.tree = ast.Module(
             body=[],
             type_ignores=[]
         )
@@ -45,18 +52,15 @@ class Synthesizer:
         with open(os.path.join(directory, "output", 'synthesized.py'), 'w') as f:
             f.write(ast.unparse(self.tree))
 
+        print(ast.unparse(self.tree))
+
         return None
     
     def processBehavior(self, node):
         body = []
 
-        # Add log statements for pre participants
-        for participant in node['pre_participants']:
-            logStmt = getPreParticipantLog(participant)
-            body.append(logStmt)
-
         # Process transformation here
-        for transformation in node['transformations']:
+        for transformation in node["transformations"]:
             if (transformation["type"] == "set"):
                 stmt = self.getSetStatement(transformation)
                 if stmt is not None:
@@ -66,13 +70,8 @@ class Synthesizer:
                 if stmt is not None:
                     body.append(stmt)
 
-        # Add log statements for post participants
-        for participant in node['post_participants']:
-            logStmt = getPostParticipantLog(participant)
-            body.append(logStmt)
-
         # Create function
-        return getFunctionDef(node['behavior'], node['pre_participants'], body)
+        return getFunctionDef(node['behavior'], None, body)
     
     def getNodeByType(self, meta):
         '''
