@@ -8,7 +8,7 @@ def getFunctionDef(name, args, body):
         name=name,
         args=ast.arguments(
             posonlyargs=[],
-            args=[ast.arg(arg=arg, annotation=None) for arg in args],
+            args=[ast.arg(arg="worldState", annotation=None)],
             vararg=None,
             kwonlyargs=[],
             kw_defaults=[],
