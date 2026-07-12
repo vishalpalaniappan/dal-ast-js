@@ -5,12 +5,15 @@ def getFunctionDef(name, args, body):
         This function returns a function definition statement.
     '''
 
+    _args = [ast.arg(arg="worldState", annotation=None)]
+    _args.extend(ast.arg(arg=arg, annotation=None) for arg in args)
+
     #TODO: Extend arguments to include inputs from substrate
     return ast.FunctionDef(
         name=name,
         args=ast.arguments(
             posonlyargs=[],
-            args=[ast.arg(arg="worldState", annotation=None)],
+            args=_args,
             vararg=None,
             kwonlyargs=[],
             kw_defaults=[],

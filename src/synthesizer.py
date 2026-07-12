@@ -63,9 +63,11 @@ class Synthesizer:
     
     def processBehavior(self, node):
         body = []
+        args = []
 
         # Process transformation here
         for transformation in node["transformations"]:
+            print(f"Processing set transformation: {transformation}")
             if (transformation["type"] == "set"):
                 stmt = self.getSetStatement(transformation)
                 if stmt is not None:
@@ -74,9 +76,13 @@ class Synthesizer:
                 stmt = self.getBinOpStatement(transformation)
                 if stmt is not None:
                     body.append(stmt)
+            elif (transformation["type"] == "log" and transformation["isInput"]):
+                logStmt = getPreParticipantLog(transformation["participant"])
+                args.append(transformation["participant"])
+                body.append(logStmt)
 
         # Create function
-        return getFunctionDef(node['behavior'], None, body)
+        return getFunctionDef(node['behavior'], args, body)
     
     def getNodeByType(self, meta):
         '''

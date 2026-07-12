@@ -14,12 +14,14 @@ def getFirstLetterOfBookName(worldState):
 def getBookFromBasket(worldState):
     book = {'uid': str(uuid.uuid4()), 'value': 'book'}
 
-def acceptName(worldState):
+def acceptName(worldState, name):
+    semanticLogger.logPreParticipant(name)
 
 def createBasket(worldState):
     basket = {'uid': str(uuid.uuid4()), 'value': 'basket'}
 
-def getChoice(worldState):
+def getChoice(worldState, selectedOption):
+    semanticLogger.logPreParticipant(selectedOption)
     name_choice = {'uid': str(uuid.uuid4()), 'value': 'name_choice'}
     isNameChoice = {'uid': str(uuid.uuid4()), 'value': 'isNameChoice'}
     get_book_choice = {'uid': str(uuid.uuid4()), 'value': 'get_book_choice'}
