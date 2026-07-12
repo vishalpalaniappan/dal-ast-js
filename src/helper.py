@@ -36,7 +36,7 @@ def getBehaviorLogStmt(name):
                 ctx=ast.Load()
             ),
             args=[
-                ast.Name(id=name, ctx=ast.Load()),
+                ast.Constant(value=name),
             ],
             keywords=[]
         )
