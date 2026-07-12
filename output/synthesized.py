@@ -4,7 +4,7 @@ from LoggingHelper import semanticLogger
 def createBook(worldState):
     semanticLogger.logBehavior('createBook')
     book = {'uid': str(uuid.uuid4()), 'value': 'book'}
-    book['name'] = name
+    book['name'] = worldState['name']
 
 def addBookToBasket(worldState):
     semanticLogger.logBehavior('addBookToBasket')

@@ -95,7 +95,7 @@ class Synthesizer:
         if meta["type"] == "constant":
             return getConstant(meta["value"])
         elif meta["type"] == "name":
-            return getName(meta["value"], ast.Load())
+            return getVariableNameWithKeys("worldState", [meta["value"]])
         else:
             print(f"Unsupported type: {meta['type']}")
             return None
