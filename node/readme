@@ -1,0 +1,3 @@
+Usage (from root dir of repo):
+
+`node node/synthesisTest.js lib_man_no_invariant.dal`
