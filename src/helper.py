@@ -42,7 +42,7 @@ def getBehaviorLogStmt(name):
         )
     )
 
-def getInputLogStmt(name):
+def getInputLogStmt(behaviorName, name):
     '''
         This function returns a log statement for participant
         before the behavior.
@@ -51,10 +51,12 @@ def getInputLogStmt(name):
         value=ast.Call(
             func=ast.Attribute(
                 value=ast.Name(id='semanticLogger', ctx=ast.Load()),
-                attr='logPreParticipant',
+                attr='logInput',
                 ctx=ast.Load()
             ),
             args=[
+                ast.Constant(value=behaviorName),
+                ast.Constant(value=name),
                 ast.Name(id=name, ctx=ast.Load()),
             ],
             keywords=[]

@@ -34,6 +34,14 @@ class LoggingHelper:
         entry["argumentValue"] = argumentValue
         logger.info(entry)
 
+    def logInput(self, behaviorId, inputName, inputValue):
+        entry = {}
+        entry["type"] = "behavior"
+        entry["behaviorName"] = behaviorId
+        entry["inputName"] = inputName
+        entry["inputValue"] = inputValue
+        logger.info(entry)
+
     def logBehavior(self, behaviorId):
         entry = {}
         entry["type"] = "behavior"

@@ -79,7 +79,7 @@ class Synthesizer:
                 if stmt is not None:
                     body.append(stmt)
             elif (transformation["type"] == "log" and transformation["isInput"]):
-                logStmt = getInputLogStmt(transformation["participant"])
+                logStmt = getInputLogStmt(node['behavior'], transformation["participant"])
                 args.append(transformation["participant"])
                 body.append(logStmt)
 

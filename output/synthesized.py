@@ -20,7 +20,7 @@ def getBookFromBasket(worldState):
 
 def acceptName(worldState, name):
     semanticLogger.logBehavior(acceptName)
-    semanticLogger.logPreParticipant(name)
+    semanticLogger.logInput('acceptName', 'name', name)
 
 def createBasket(worldState):
     semanticLogger.logBehavior(createBasket)
@@ -28,7 +28,7 @@ def createBasket(worldState):
 
 def getChoice(worldState, selectedOption):
     semanticLogger.logBehavior(getChoice)
-    semanticLogger.logPreParticipant(selectedOption)
+    semanticLogger.logInput('getChoice', 'selectedOption', selectedOption)
     name_choice = {'uid': str(uuid.uuid4()), 'value': 'name_choice'}
     isNameChoice = {'uid': str(uuid.uuid4()), 'value': 'isNameChoice'}
     get_book_choice = {'uid': str(uuid.uuid4()), 'value': 'get_book_choice'}
