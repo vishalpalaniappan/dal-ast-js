@@ -11,7 +11,6 @@ function synthesisRunner(synthPackage, args = []) {
         let stderr = "";
 
         process.stdout.on("data", (data) => {
-            console.log(data.toString())
             stdoutChunks.push(data);
         });
 
