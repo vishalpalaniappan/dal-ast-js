@@ -2,8 +2,7 @@ import json
 import ast
 import os
 import sys
-from src.helper import getPreParticipantLog
-from src.helper import getPostParticipantLog
+from src.helper import getInputLogStmt
 from src.helper import getFunctionDef
 from src.helper import getConstant
 from src.helper import getName
@@ -77,7 +76,7 @@ class Synthesizer:
                 if stmt is not None:
                     body.append(stmt)
             elif (transformation["type"] == "log" and transformation["isInput"]):
-                logStmt = getPreParticipantLog(transformation["participant"])
+                logStmt = getInputLogStmt(transformation["participant"])
                 args.append(transformation["participant"])
                 body.append(logStmt)
 

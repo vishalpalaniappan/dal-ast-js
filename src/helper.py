@@ -24,7 +24,7 @@ def getFunctionDef(name, args, body):
         decorator_list=[]
     )
 
-def getPreParticipantLog(name):
+def getInputLogStmt(name):
     '''
         This function returns a log statement for participant
         before the behavior.
@@ -34,25 +34,6 @@ def getPreParticipantLog(name):
             func=ast.Attribute(
                 value=ast.Name(id='semanticLogger', ctx=ast.Load()),
                 attr='logPreParticipant',
-                ctx=ast.Load()
-            ),
-            args=[
-                ast.Name(id=name, ctx=ast.Load()),
-            ],
-            keywords=[]
-        )
-    )
-
-def getPostParticipantLog(name):
-    '''
-        This function returns a log statement for participant
-        after the behavior.
-    '''
-    return ast.Expr(
-        value=ast.Call(
-            func=ast.Attribute(
-                value=ast.Name(id='semanticLogger', ctx=ast.Load()),
-                attr='logPostParticipant',
                 ctx=ast.Load()
             ),
             args=[
