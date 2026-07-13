@@ -3,7 +3,9 @@ import {DALEngine} from "dal-engine-core-js-lib-dev";
 import { resolveDesignPath } from "./validateDesignName.js";
 import synthesisRunner from "./synthesisRunner.js"
 import fs from 'fs/promises';
+import { writeFile } from "node:fs/promises";
 import unzipper from "unzipper";
+import { json } from 'stream/consumers';
 
 const testStreamMode = async (designName, behavior) => {    
     const resolvedPath = resolveDesignPath(designName);
@@ -21,6 +23,8 @@ const testStreamMode = async (designName, behavior) => {
         const behaviorSynth = node.getBehavior().generateSynthesisPackage();
         synthPkg.push(behaviorSynth);
     }
+
+    await writeFile(`packages/${designName}.json`, JSON.stringify(synthPkg));
 
     try {
         const synthesizedOutput = await synthesisRunner(synthPkg);
