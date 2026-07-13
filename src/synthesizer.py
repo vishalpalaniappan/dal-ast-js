@@ -69,7 +69,6 @@ class Synthesizer:
 
         # Process transformation here
         for transformation in node["transformations"]:
-            print(f"Processing set transformation: {transformation}")
             if (transformation["type"] == "set"):
                 stmt = self.getSetStatement(transformation)
                 if stmt is not None:
@@ -82,6 +81,9 @@ class Synthesizer:
                 logStmt = getInputLogStmt(node['behavior'], transformation["participant"])
                 args.append(transformation["participant"])
                 body.append(logStmt)
+            else:
+                print(f"Unsupported transformation: {transformation}")
+
 
         # Create function
         return getFunctionDef(node['behavior'], args, body)
