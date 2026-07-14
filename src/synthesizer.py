@@ -81,6 +81,9 @@ class Synthesizer:
                 logStmt = getInputLogStmt(node['behavior'], transformation["participant"])
                 args.append(transformation["participant"])
                 body.append(logStmt)
+            elif (transformation["type"] == "getLength"):
+                stmt = self.getGetLengthStatement(transformation=transformation)
+                body.append(stmt)
             else:
                 print(f"Unsupported transformation: {transformation}")
 
@@ -158,5 +161,57 @@ class Synthesizer:
                 left=left,
                 op=op,
                 right=right
+            )
+        )
+    
+    def getGetLengthStatement(self, transformation):
+        '''
+            Synthesis Meta: 
+            {
+                "type":"getLength",
+                "targetParticipantName":"name_length",
+                "valueType":{
+                    "type":"name",
+                    "value":"name"
+                }
+            }
+
+            Output:
+            name_length = len(name)
+
+            TODO:
+            In this case, in the semantic model I establish the type
+            of the participant. getLength is a primitive that has
+            a specific meaning and must be applied to participants with
+            a particular type. It is built from smaller primitives
+            which involve counting the number of entries in this
+            participant but I am abstracting that away and there is an
+            implementation that realizes my meaning directly (len())
+            
+            I could build getLength explicitly, it would essentially be the
+            design for what getLength means and it would be composed of
+            smaller primitives. However, I am establishing getLength as
+            an axiom because it has a unambiguous meaning and an
+            unambiguous implementation that can synthesized. 
+            
+            This is something I will have to revisit later and establish
+            the axioms of the world (is it fair to make length an axiom?).
+            
+            In my actual synthesis, I do need to make sure that the 
+            participant is a valid type for this primitive and then
+            the synthesis is valid. This can be a compilation error
+            during synthesis.
+        '''
+        value = transformation["valueType"]["value"]
+        return ast.Assign(
+            targets=[
+                ast.Name(id=transformation["targetParticipantName"], ctx=ast.Store())
+            ],
+            value=ast.Call(
+                func=ast.Name(id="len", ctx=ast.Load()),
+                args=[
+                    ast.Name(id=value, ctx=ast.Load())
+                ],
+                keywords=[]
             )
         )
