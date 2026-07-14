@@ -193,6 +193,11 @@ class Synthesizer:
             implementation of len() will be synthesized from the meaning
             estbalished through its semantic model and instead of my claim,
             the meaning itself will be self evident through its definition.
+
+            TODO:
+            Add a validation phase to establish that the semantics of the
+            participant meet the requirements of the getLength primitive.
+            This will flag if the design is inconsistent.
         '''
         value = transformation["valueType"]["value"]
         return ast.Assign(
