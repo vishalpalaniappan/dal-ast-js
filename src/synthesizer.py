@@ -110,9 +110,13 @@ class Synthesizer:
     
     def getNodeByType(self, meta):
         '''
-            Returns the node by type:
-            "constant": returns a constant node with the value
-            "name": returns a name node with the value
+            Returns the node by type in AST form:
+            "name": returns a name node with the participant from the world state
+            "string": returns provided value if specified and "" if not specified
+            "list": returns []
+            "number": returns 0
+            "object": returns {}
+            "boolean": returns False
         '''
 
         '''
