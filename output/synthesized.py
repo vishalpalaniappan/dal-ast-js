@@ -36,3 +36,12 @@ def getChoice(worldState, selectedOption):
     get_book_choice = 'g'
     isGetBookChoice = ''
     isGetBookChoice = selectedOption == get_book_choice
+
+def checkNameValidity(worldState):
+    semanticLogger.logBehavior('checkNameValidity')
+    invalid_length = 0
+    name_length = len(name)
+    is_invalid_name = name_length == invalid_length
+    is_valid_name = ''
+    valid = '0'
+    is_valid_name = is_invalid_name == valid

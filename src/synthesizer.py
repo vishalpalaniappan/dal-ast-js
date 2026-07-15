@@ -67,6 +67,17 @@ class Synthesizer:
 
         body.append(getBehaviorLogStmt(node["behavior"]))
 
+        '''
+            TODO:
+             - Add support for select primitive with if statements
+             - Return next selected behavior
+             - Update len and getFromPos to access participants from world state.
+             - More to come.
+
+             Continue adding until synthesized output can be executed, then modify
+             the design executable to use it.
+        '''
+
         # Process transformation here
         for transformation in node["transformations"]:
             if (transformation["type"] == "set"):
@@ -102,6 +113,10 @@ class Synthesizer:
             Returns the node by type:
             "constant": returns a constant node with the value
             "name": returns a name node with the value
+        '''
+
+        '''
+            TODO: Add support for null.
         '''
 
         if meta["type"] == "name":
