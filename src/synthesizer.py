@@ -104,6 +104,7 @@ class Synthesizer:
             if stmt is not None:
                 body.append(stmt)
 
+        body.append(self.getReturnStatement())
         # Create function
         return getFunctionDef(node['behavior'], args, body)
     
@@ -347,5 +348,22 @@ class Synthesizer:
                     getVariableNameWithKeys("worldState", [value])
                 ],
                 keywords=[]
+            )
+        )
+    
+    def getReturnStatement(self):
+        '''
+            return {'worldState': worldState, 'nextBehavior': nextBehavior}
+        '''
+        return ast.Return(
+            value=ast.Dict(
+                keys=[
+                    ast.Constant(value="worldState"),
+                    ast.Constant(value="nextBehavior")
+                ],
+                values=[
+                    ast.Name(id="worldState", ctx=ast.Load()),
+                    ast.Name(id="nextBehavior", ctx=ast.Load())
+                ]
             )
         )

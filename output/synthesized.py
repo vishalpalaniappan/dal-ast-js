@@ -6,10 +6,12 @@ def createBook(worldState):
     book = {}
     book['name'] = worldState['name']
     nextBehavior = 'addBookToBasket'
+    return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def addBookToBasket(worldState):
     semanticLogger.logBehavior('addBookToBasket')
     nextBehavior = 'getChoice'
+    return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def getFirstLetterOfBookName(worldState):
     semanticLogger.logBehavior('getFirstLetterOfBookName')
@@ -17,22 +19,26 @@ def getFirstLetterOfBookName(worldState):
     book_name = ''
     firstLetter = worldState['book_name'][0]
     nextBehavior = 'getChoice'
+    return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def getBookFromBasket(worldState):
     semanticLogger.logBehavior('getBookFromBasket')
     book = None
     book = worldState['basket'][0]
     nextBehavior = 'getFirstLetterOfBookName'
+    return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def acceptName(worldState, name):
     semanticLogger.logBehavior('acceptName')
     semanticLogger.logInput('acceptName', 'name', name)
     nextBehavior = 'checkNameValidity'
+    return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def createBasket(worldState):
     semanticLogger.logBehavior('createBasket')
     basket = []
     nextBehavior = 'getChoice'
+    return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def getChoice(worldState, selectedOption):
     semanticLogger.logBehavior('getChoice')
@@ -47,6 +53,7 @@ def getChoice(worldState, selectedOption):
     isGetBookChoice = selectedOption == get_book_choice
     if isGetBookChoice:
         nextBehavior = 'getBookFromBasket'
+    return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def checkNameValidity(worldState):
     semanticLogger.logBehavior('checkNameValidity')
@@ -62,3 +69,4 @@ def checkNameValidity(worldState):
     is_valid_name = is_invalid_name == valid
     if is_valid_name:
         nextBehavior = 'createBook'
+    return {'worldState': worldState, 'nextBehavior': nextBehavior}
