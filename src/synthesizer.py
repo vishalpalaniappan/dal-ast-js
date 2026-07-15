@@ -87,6 +87,9 @@ class Synthesizer:
             elif (transformation["type"] == "isEqual"):
                 stmt = self.getIsEqualStatement(transformation=transformation)
                 body.append(stmt)
+            elif (transformation["type"] == "getFromPos"):
+                stmt = self.getGetFromPosStatement(transformation=transformation)
+                body.append(stmt)
             else:
                 print(f"Unsupported transformation: {transformation}")
 
@@ -188,6 +191,30 @@ class Synthesizer:
                 comparators=[
                     ast.Name(id=transformation["right"], ctx=ast.Load())
                 ]
+            )
+        )
+    
+    def getGetFromPosStatement(self, transformation):
+        '''
+        Example:
+        {
+            type: "getFromPos",
+            sourceParticipantName: bookName
+            position: 0,
+            targetParticipantName: firstLetter
+        }
+
+        firstLetter = bookName[0]
+        '''
+
+        return ast.Assign(
+            targets=[
+                ast.Name(id=transformation["targetParticipantName"], ctx=ast.Store())
+            ],
+            value=ast.Subscript(
+                value=ast.Name(id=transformation["sourceParticipantName"], ctx=ast.Load()),
+                slice=ast.Constant(value=transformation["position"]),
+                ctx=ast.Load()
             )
         )
     

@@ -13,10 +13,12 @@ def getFirstLetterOfBookName(worldState):
     semanticLogger.logBehavior('getFirstLetterOfBookName')
     firstLetter = {'uid': str(uuid.uuid4()), 'value': 'firstLetter'}
     book_name = {'uid': str(uuid.uuid4()), 'value': 'book_name'}
+    firstLetter = book_name[0]
 
 def getBookFromBasket(worldState):
     semanticLogger.logBehavior('getBookFromBasket')
     book = {'uid': str(uuid.uuid4()), 'value': 'book'}
+    book = basket[0]
 
 def acceptName(worldState, name):
     semanticLogger.logBehavior('acceptName')
