@@ -82,28 +82,23 @@ class Synthesizer:
         for transformation in node["transformations"]:
             if (transformation["type"] == "set"):
                 stmt = self.getSetStatement(transformation)
-                if stmt is not None:
-                    body.append(stmt)
             elif (transformation["type"] == "binop"):
                 stmt = self.getBinOpStatement(transformation)
-                if stmt is not None:
-                    body.append(stmt)
             elif (transformation["type"] == "log" and transformation["isInput"]):
-                logStmt = getInputLogStmt(node['behavior'], transformation["participant"])
+                stmt = getInputLogStmt(node['behavior'], transformation["participant"])
                 args.append(transformation["participant"])
-                body.append(logStmt)
             elif (transformation["type"] == "getLength"):
                 stmt = self.getGetLengthStatement(transformation=transformation)
-                body.append(stmt)
             elif (transformation["type"] == "isEqual"):
                 stmt = self.getIsEqualStatement(transformation=transformation)
-                body.append(stmt)
             elif (transformation["type"] == "getFromPos"):
                 stmt = self.getGetFromPosStatement(transformation=transformation)
-                body.append(stmt)
             else:
                 print(f"Unsupported transformation: {transformation}")
-
+                continue
+            
+            if stmt is not None:
+                body.append(stmt)
 
         # Create function
         return getFunctionDef(node['behavior'], args, body)
@@ -128,6 +123,7 @@ class Synthesizer:
             "number": sets 0
             "object": sets {}
             "boolean": sets False
+            "null": sets None
         '''
         print(f"Processing set transformation: {transformation}")
 
@@ -155,6 +151,8 @@ class Synthesizer:
                 value = ast.Constant(value="")
         elif meta["type"] == "boolean":
             value = ast.Constant(value=False)
+        elif meta["type"] == "null":
+            value = ast.Constant(None)
         else:
             print(f"Unsupported type: {meta['type']}")
             value = None
