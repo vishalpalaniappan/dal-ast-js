@@ -108,44 +108,26 @@ class Synthesizer:
         # Create function
         return getFunctionDef(node['behavior'], args, body)
     
-    def getNodeByType(self, meta):
-        '''
-            Returns the node by type in AST form:
-            "name": returns a name node with the participant from the world state
-            "string": returns provided value if specified and "" if not specified
-            "list": returns []
-            "number": returns 0
-            "object": returns {}
-            "boolean": returns False
-        '''
-
-        '''
-            TODO: Add support for null.
-        '''
-
-        if meta["type"] == "name":
-            # Assigns participant
-            return getVariableNameWithKeys("worldState", [meta["value"]])
-        elif meta["type"] == "list":
-            return ast.List(elts=[], ctx=ast.Load())
-        elif meta["type"] == "number":
-            return ast.Constant(value=0)
-        elif meta["type"] == "object":
-            return ast.Dict(keys=[], values=[])
-        elif meta["type"] == "string":
-            if ("value" in meta):
-                return ast.Constant(value=meta["value"])
-            else:
-                return ast.Constant(value="")
-        elif meta["type"] == "boolean":
-            return ast.Constant(value=False)
-        else:
-            print(f"Unsupported type: {meta['type']}")
-            return None
-    
     def getSetStatement(self, transformation):
         '''
             This function processes a set transformation and returns the corresponding AST node.
+
+            It is used to create a new participant if no value is provided. If a value is provided
+            then it will set that value.
+
+            TODO: In validation phase, use type of participant to determine if design is
+            internally consistent.
+
+            "name": sets a name node with the participant from the world state
+            "string": sets provided value if specified and "" if not specified
+
+            TODO: Add support for null.
+
+            Update the list below so it sets value if it is provided:
+            "list": sets []
+            "number": sets 0
+            "object": sets {}
+            "boolean": sets False
         '''
         print(f"Processing set transformation: {transformation}")
 
@@ -155,7 +137,27 @@ class Synthesizer:
             name = getName(transformation["targetParticipantName"], ast.Store())
 
         # Get name node and value or constant based on transformation
-        value = self.getNodeByType(transformation["valueType"])
+        meta = transformation["valueType"]
+
+        if meta["type"] == "name":
+            # Assigns participant
+            value = getVariableNameWithKeys("worldState", [meta["value"]])
+        elif meta["type"] == "list":
+            value =  ast.List(elts=[], ctx=ast.Load())
+        elif meta["type"] == "number":
+            value =  ast.Constant(value=0)
+        elif meta["type"] == "object":
+            value =  ast.Dict(keys=[], values=[])
+        elif meta["type"] == "string":
+            if ("value" in meta):
+                value = ast.Constant(value=meta["value"])
+            else:
+                value = ast.Constant(value="")
+        elif meta["type"] == "boolean":
+            value = ast.Constant(value=False)
+        else:
+            print(f"Unsupported type: {meta['type']}")
+            value = None
 
         if value == None:
             return None
