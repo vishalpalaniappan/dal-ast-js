@@ -125,12 +125,15 @@ class Synthesizer:
         # Get name node and value or constant based on transformation
         value = self.getNodeByType(transformation["valueType"])
 
-        if (len(transformation["keys"])) > 0:            
-            return getAssign(name, value)
-        else:
-            # This is where a participant is being created so we assign a UID
-            assign_node = getAssignWithUid(name, value)
-            return assign_node
+        return getAssign(name, value)
+
+        # Disble UID temporarily
+        # if (len(transformation["keys"])) > 0:            
+        #     return getAssign(name, value)
+        # else:
+        #     # This is where a participant is being created so we assign a UID
+        #     assign_node = getAssignWithUid(name, value)
+        #     return assign_node
             
     
     def getBinOpStatement(self, transformation):

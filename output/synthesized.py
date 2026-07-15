@@ -3,7 +3,7 @@ from LoggingHelper import semanticLogger
 
 def createBook(worldState):
     semanticLogger.logBehavior('createBook')
-    book = {'uid': str(uuid.uuid4()), 'value': 'book'}
+    book = 'book'
     book['name'] = worldState['name']
 
 def addBookToBasket(worldState):
@@ -11,13 +11,13 @@ def addBookToBasket(worldState):
 
 def getFirstLetterOfBookName(worldState):
     semanticLogger.logBehavior('getFirstLetterOfBookName')
-    firstLetter = {'uid': str(uuid.uuid4()), 'value': 'firstLetter'}
-    book_name = {'uid': str(uuid.uuid4()), 'value': 'book_name'}
+    firstLetter = 'firstLetter'
+    book_name = 'book_name'
     firstLetter = book_name[0]
 
 def getBookFromBasket(worldState):
     semanticLogger.logBehavior('getBookFromBasket')
-    book = {'uid': str(uuid.uuid4()), 'value': 'book'}
+    book = 'book'
     book = basket[0]
 
 def acceptName(worldState, name):
@@ -26,14 +26,14 @@ def acceptName(worldState, name):
 
 def createBasket(worldState):
     semanticLogger.logBehavior('createBasket')
-    basket = {'uid': str(uuid.uuid4()), 'value': 'basket'}
+    basket = 'basket'
 
 def getChoice(worldState, selectedOption):
     semanticLogger.logBehavior('getChoice')
     semanticLogger.logInput('getChoice', 'selectedOption', selectedOption)
-    name_choice = {'uid': str(uuid.uuid4()), 'value': 'name_choice'}
-    isNameChoice = {'uid': str(uuid.uuid4()), 'value': 'isNameChoice'}
+    name_choice = 'name_choice'
+    isNameChoice = 'isNameChoice'
     isNameChoice = selectedOption == name_choice
-    get_book_choice = {'uid': str(uuid.uuid4()), 'value': 'get_book_choice'}
-    isGetBookChoice = {'uid': str(uuid.uuid4()), 'value': 'isGetBookChoice'}
+    get_book_choice = 'get_book_choice'
+    isGetBookChoice = 'isGetBookChoice'
     isGetBookChoice = selectedOption == get_book_choice
