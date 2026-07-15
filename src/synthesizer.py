@@ -133,9 +133,18 @@ class Synthesizer:
         print(f"Processing set transformation: {transformation}")
 
         if (len(transformation["keys"])) > 0:
-            name = getVariableNameWithKeys(transformation["targetParticipantName"], transformation["keys"])
+            _keys = [transformation["targetParticipantName"]]
+            for key in transformation["keys"]:
+                _keys.append(key)
+            name = getVariableNameWithKeys(
+                "worldState",
+                _keys
+            )
         else:
-            name = getName(transformation["targetParticipantName"], ast.Store())
+            name = getVariableNameWithKeys(
+                "worldState", 
+                [transformation["targetParticipantName"]]
+            )
 
         # Get name node and value or constant based on transformation
         meta = transformation["valueType"]
