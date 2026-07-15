@@ -123,22 +123,18 @@ class Synthesizer:
             # Assigns participant
             return getVariableNameWithKeys("worldState", [meta["value"]])
         elif meta["type"] == "list":
-            return ast.List(
-                elts=[],
-                ctx=ast.Load()
-            )
+            return ast.List(elts=[], ctx=ast.Load())
         elif meta["type"] == "number":
             return ast.Constant(value=0)
         elif meta["type"] == "object":
-            return ast.Dict(
-                keys=[],
-                values=[]
-            )
+            return ast.Dict(keys=[], values=[])
         elif meta["type"] == "string":
             if ("value" in meta):
                 return ast.Constant(value=meta["value"])
             else:
                 return ast.Constant(value="")
+        elif meta["type"] == "boolean":
+            return ast.Constant(value=False)
         else:
             print(f"Unsupported type: {meta['type']}")
             return None
