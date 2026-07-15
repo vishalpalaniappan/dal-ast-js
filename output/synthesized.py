@@ -28,9 +28,10 @@ def getBookFromBasket(worldState):
     nextBehavior = 'getFirstLetterOfBookName'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
-def acceptName(worldState, name):
+def acceptName(worldState, name_input):
     semanticLogger.logBehavior('acceptName')
-    semanticLogger.logInput('acceptName', 'name', name)
+    semanticLogger.logInput('acceptName', 'name_input', name_input)
+    worldState['worldState']['name'] = worldState['name_input']
     nextBehavior = 'checkNameValidity'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
@@ -40,9 +41,10 @@ def createBasket(worldState):
     nextBehavior = 'getChoice'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
-def getChoice(worldState, selectedOption):
+def getChoice(worldState, selectedOption_input):
     semanticLogger.logBehavior('getChoice')
-    semanticLogger.logInput('getChoice', 'selectedOption', selectedOption)
+    semanticLogger.logInput('getChoice', 'selectedOption_input', selectedOption_input)
+    worldState['worldState']['selectedOption'] = worldState['selectedOption_input']
     worldState['name_choice'] = 'a'
     worldState['isNameChoice'] = ''
     isNameChoice = selectedOption == name_choice
