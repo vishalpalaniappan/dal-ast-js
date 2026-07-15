@@ -250,7 +250,7 @@ class Synthesizer:
                 ast.Name(id=transformation["targetParticipantName"], ctx=ast.Store())
             ],
             value=ast.Subscript(
-                value=ast.Name(id=transformation["sourceParticipantName"], ctx=ast.Load()),
+                value=getVariableNameWithKeys("worldState", [transformation["sourceParticipantName"]]),
                 slice=ast.Constant(value=transformation["position"]),
                 ctx=ast.Load()
             )
@@ -299,7 +299,7 @@ class Synthesizer:
             value=ast.Call(
                 func=ast.Name(id="len", ctx=ast.Load()),
                 args=[
-                    ast.Name(id=value, ctx=ast.Load())
+                    getVariableNameWithKeys("worldState", [value])
                 ],
                 keywords=[]
             )

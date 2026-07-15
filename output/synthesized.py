@@ -13,11 +13,12 @@ def getFirstLetterOfBookName(worldState):
     semanticLogger.logBehavior('getFirstLetterOfBookName')
     firstLetter = ''
     book_name = ''
-    firstLetter = book_name[0]
+    firstLetter = worldState['book_name'][0]
 
 def getBookFromBasket(worldState):
     semanticLogger.logBehavior('getBookFromBasket')
-    book = basket[0]
+    book = None
+    book = worldState['basket'][0]
 
 def acceptName(worldState, name):
     semanticLogger.logBehavior('acceptName')
@@ -40,7 +41,9 @@ def getChoice(worldState, selectedOption):
 def checkNameValidity(worldState):
     semanticLogger.logBehavior('checkNameValidity')
     invalid_length = 0
-    name_length = len(name)
+    name_length = None
+    is_invalid_name = None
+    name_length = len(worldState['name'])
     is_invalid_name = name_length == invalid_length
     is_valid_name = ''
     valid = '0'
