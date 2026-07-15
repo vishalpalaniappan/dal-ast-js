@@ -17,14 +17,14 @@ def getFirstLetterOfBookName(worldState):
     semanticLogger.logBehavior('getFirstLetterOfBookName')
     worldState['firstLetter'] = ''
     worldState['book_name'] = ''
-    firstLetter = worldState['book_name'][0]
+    worldState['firstLetter'] = worldState['book_name'][0]
     nextBehavior = 'getChoice'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def getBookFromBasket(worldState):
     semanticLogger.logBehavior('getBookFromBasket')
     worldState['book'] = None
-    book = worldState['basket'][0]
+    worldState['book'] = worldState['basket'][0]
     nextBehavior = 'getFirstLetterOfBookName'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 

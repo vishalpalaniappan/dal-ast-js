@@ -261,7 +261,10 @@ class Synthesizer:
 
         return ast.Assign(
             targets=[
-                ast.Name(id=transformation["targetParticipantName"], ctx=ast.Store())
+                 getVariableNameWithKeys(
+                    "worldState", 
+                    [transformation["targetParticipantName"]]
+                )
             ],
             value=ast.Subscript(
                 value=getVariableNameWithKeys("worldState", [transformation["sourceParticipantName"]]),
