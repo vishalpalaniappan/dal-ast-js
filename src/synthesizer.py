@@ -84,6 +84,9 @@ class Synthesizer:
             elif (transformation["type"] == "getLength"):
                 stmt = self.getGetLengthStatement(transformation=transformation)
                 body.append(stmt)
+            elif (transformation["type"] == "isEqual"):
+                stmt = self.getIsEqualStatement(transformation=transformation)
+                body.append(stmt)
             else:
                 print(f"Unsupported transformation: {transformation}")
 
@@ -161,6 +164,30 @@ class Synthesizer:
                 left=left,
                 op=op,
                 right=right
+            )
+        )
+    
+    def getIsEqualStatement(self, transformation):
+        '''
+            {
+                type: "isEqual",
+                targetParticipant: isSameName
+                left: name,
+                right: bookName
+            }
+            
+            isSameName = (name == bookName)
+        '''
+        return ast.Assign(
+            targets=[
+                ast.Name(id=transformation["targetParticipant"], ctx=ast.Store())
+            ],
+            value=ast.Compare(
+                left=ast.Name(id=transformation["left"], ctx=ast.Load()),
+                ops=[ast.Eq()],
+                comparators=[
+                    ast.Name(id=transformation["right"], ctx=ast.Load())
+                ]
             )
         )
     

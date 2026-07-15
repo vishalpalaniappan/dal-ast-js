@@ -31,14 +31,7 @@ def getChoice(worldState, selectedOption):
     semanticLogger.logInput('getChoice', 'selectedOption', selectedOption)
     name_choice = {'uid': str(uuid.uuid4()), 'value': 'name_choice'}
     isNameChoice = {'uid': str(uuid.uuid4()), 'value': 'isNameChoice'}
+    isNameChoice = selectedOption == name_choice
     get_book_choice = {'uid': str(uuid.uuid4()), 'value': 'get_book_choice'}
     isGetBookChoice = {'uid': str(uuid.uuid4()), 'value': 'isGetBookChoice'}
-
-def checkNameValidity(worldState):
-    semanticLogger.logBehavior('checkNameValidity')
-    invalid_length = {'uid': str(uuid.uuid4()), 'value': 'invalid_length'}
-    name_length = {'uid': str(uuid.uuid4()), 'value': 'name_length'}
-    is_invalid_name = {'uid': str(uuid.uuid4()), 'value': 'is_invalid_name'}
-    name_length = len(name)
-    is_valid_name = {'uid': str(uuid.uuid4()), 'value': 'is_valid_name'}
-    valid = {'uid': str(uuid.uuid4()), 'value': 'valid'}
+    isGetBookChoice = selectedOption == get_book_choice
