@@ -88,11 +88,15 @@ class Synthesizer:
                 stmt = getInputLogStmt(node['behavior'], transformation["participant"])
                 args.append(transformation["participant"])
             elif (transformation["type"] == "getLength"):
-                stmt = self.getGetLengthStatement(transformation=transformation)
+                stmt = self.getGetLengthStatement(transformation)
             elif (transformation["type"] == "isEqual"):
-                stmt = self.getIsEqualStatement(transformation=transformation)
+                stmt = self.getIsEqualStatement(transformation)
             elif (transformation["type"] == "getFromPos"):
-                stmt = self.getGetFromPosStatement(transformation=transformation)
+                stmt = self.getGetFromPosStatement(transformation)
+            elif(transformation["type"] == "selectNextBehaviorConditional"):
+                stmt = self.getSelectNextBehavioralConditionalStatement(transformation)
+            elif(transformation["type"] == "selectNextBehavior"):
+                stmt = self.getSelectNextBehaviorStatement(transformation)
             else:
                 print(f"Unsupported transformation: {transformation}")
                 continue
@@ -254,6 +258,47 @@ class Synthesizer:
                 slice=ast.Constant(value=transformation["position"]),
                 ctx=ast.Load()
             )
+        )
+    
+    def getSelectNextBehavioralConditionalStatement(self, transformation):
+        '''
+            {
+                type: "selectNextBehaviorConditional",
+                nextBehavior: "getBookName",
+                hasFlag: true,
+                flagParticipantName: isGetBook,
+            }
+
+            if isGetBook:
+                nextBheavior = "getBookName"
+        '''
+        return ast.If(
+            test=ast.Name(id=transformation["flagParticipantName"], ctx=ast.Load()),
+            body=[
+                ast.Assign(
+                    targets=[
+                        ast.Name(id="nextBehavior", ctx=ast.Store())
+                    ],
+                    value=ast.Constant(value=transformation["nextBehavior"])
+                )
+            ],
+            orelse=[]
+        )
+
+    def getSelectNextBehaviorStatement(self, transformation):
+        '''
+            {
+                type: "selectNextBehavior",
+                nextBehavior: "getBookName",
+            }
+
+            nextBehavior = "getBookName"
+        '''
+        return ast.Assign(
+            targets=[
+                ast.Name(id="nextBehavior", ctx=ast.Store())
+            ],
+            value=ast.Constant(value=transformation["nextBehavior"])
         )
     
     def getGetLengthStatement(self, transformation):
