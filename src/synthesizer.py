@@ -103,10 +103,27 @@ class Synthesizer:
             "constant": returns a constant node with the value
             "name": returns a name node with the value
         '''
-        if meta["type"] == "constant":
-            return getConstant(meta["value"])
-        elif meta["type"] == "name":
+
+        if meta["type"] == "name":
+            # Assigns participant
             return getVariableNameWithKeys("worldState", [meta["value"]])
+        elif meta["type"] == "list":
+            return ast.List(
+                elts=[],
+                ctx=ast.Load()
+            )
+        elif meta["type"] == "number":
+            return ast.Constant(value=0)
+        elif meta["type"] == "object":
+            return ast.Dict(
+                keys=[],
+                values=[]
+            )
+        elif meta["type"] == "string":
+            if ("value" in meta):
+                return ast.Constant(value=meta["value"])
+            else:
+                return ast.Constant(value="")
         else:
             print(f"Unsupported type: {meta['type']}")
             return None
@@ -124,6 +141,9 @@ class Synthesizer:
 
         # Get name node and value or constant based on transformation
         value = self.getNodeByType(transformation["valueType"])
+
+        if value == None:
+            return None
 
         return getAssign(name, value)
 
