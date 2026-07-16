@@ -49,15 +49,15 @@ class Synthesizer:
         uuidNode = ast.parse("import uuid").body[0]
         self.tree.body.insert(0, uuidNode)
 
-        directory = os.getcwd()
-        with open(os.path.join(directory, "output", 'synthesized.py'), 'w') as f:
-            f.write(ast.unparse(self.tree))
+        # directory = os.getcwd()
+        # with open(os.path.join(directory, "output", 'synthesized.py'), 'w') as f:
+        #     f.write(ast.unparse(self.tree))
 
         # I'm only writing to file as I develop but once I move it
         # to the workbench, I will stream the output so that I can
         # save the synthesized output in the package.
-        # if self.mode == "stream":
-            # sys.stdout.write(ast.unparse(self.tree))
+        if self.mode == "stream":
+            sys.stdout.write(ast.unparse(self.tree))
 
         return None
     
