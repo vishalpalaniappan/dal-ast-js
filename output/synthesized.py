@@ -81,7 +81,7 @@ def checkNameValidity(worldState):
     name = ''
     name = worldState['name']
     invalid_length = 0
-    name_length = len(worldState['name'])
+    name_length = len(name)
     is_invalid_name = name_length == invalid_length
     if is_invalid_name:
         nextBehavior = 'acceptName'

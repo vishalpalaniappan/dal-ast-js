@@ -434,7 +434,7 @@ class Synthesizer:
             value=ast.Call(
                 func=ast.Name(id="len", ctx=ast.Load()),
                 args=[
-                    getVariableNameWithKeys("worldState", [value])
+                    getName(value, ctx=ast.Load())
                 ],
                 keywords=[]
             )
