@@ -22,7 +22,7 @@ def getFirstLetterOfBookName(worldState):
     semanticLogger.logBehavior('getFirstLetterOfBookName')
     book = worldState['book']
     book_name = book['name']
-    firstLetter = worldState['book_name'][0]
+    firstLetter = book_name[0]
     worldState['firstLetter'] = firstLetter
     nextBehavior = 'getChoice'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
@@ -30,7 +30,7 @@ def getFirstLetterOfBookName(worldState):
 def getBookFromBasket(worldState):
     semanticLogger.logBehavior('getBookFromBasket')
     basket = worldState['basket']
-    book = worldState['basket'][0]
+    book = basket[0]
     worldState['basket'] = basket
     nextBehavior = 'getFirstLetterOfBookName'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}

@@ -277,7 +277,7 @@ class Synthesizer:
                  ast.Name(id=transformation["targetParticipantName"], ctx=ast.Load())
             ],
             value=ast.Subscript(
-                value=getVariableNameWithKeys("worldState", [transformation["sourceParticipantName"]]),
+                value=getName(transformation["sourceParticipantName"], ctx=ast.Load()),
                 slice=ast.Constant(value=transformation["position"]),
                 ctx=ast.Load()
             )
