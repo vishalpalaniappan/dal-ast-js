@@ -5,26 +5,27 @@ def createBook(worldState):
     semanticLogger.logBehavior('createBook')
     book = {}
     book['name'] = name
+    worldState['book'] = book
     nextBehavior = 'addBookToBasket'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def addBookToBasket(worldState):
     semanticLogger.logBehavior('addBookToBasket')
+    worldState['basket'] = basket
     nextBehavior = 'getChoice'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def getFirstLetterOfBookName(worldState):
     semanticLogger.logBehavior('getFirstLetterOfBookName')
-    firstLetter = ''
-    book_name = ''
-    worldState['firstLetter'] = worldState['book_name'][0]
+    firstLetter = worldState['book_name'][0]
+    worldState['firstLetter'] = firstLetter
     nextBehavior = 'getChoice'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def getBookFromBasket(worldState):
     semanticLogger.logBehavior('getBookFromBasket')
-    book = None
-    worldState['book'] = worldState['basket'][0]
+    book = worldState['basket'][0]
+    worldState['basket'] = basket
     nextBehavior = 'getFirstLetterOfBookName'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
@@ -59,15 +60,6 @@ def getChoice(worldState, selectedOption_input):
 def checkNameValidity(worldState):
     semanticLogger.logBehavior('checkNameValidity')
     invalid_length = 0
-    name_length = None
-    is_invalid_name = None
     name_length = len(worldState['name'])
     is_invalid_name = name_length == invalid_length
-    if is_invalid_name:
-        nextBehavior = 'acceptName'
-    is_valid_name = ''
-    valid = '0'
-    is_valid_name = is_invalid_name == valid
-    if is_valid_name:
-        nextBehavior = 'createBook'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
