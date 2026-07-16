@@ -82,7 +82,7 @@ class Synthesizer:
         for transformation in node["transformations"]:
             if (transformation["type"] == "set"):
                 stmt = self.getSetStatement(transformation)
-            if (transformation["type"] == "get"):
+            elif (transformation["type"] == "get"):
                 stmt = self.getGetStatement(transformation)
             elif (transformation["type"] == "binop"):
                 stmt = self.getBinOpStatement(transformation)
