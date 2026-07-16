@@ -155,7 +155,7 @@ class Synthesizer:
             sourceParticipantName: "basket",
             position: 0,
 
-            book = worldState["book"]
+            basket.pop(0)
         '''
 
         return ast.Expr(
