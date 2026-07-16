@@ -355,6 +355,16 @@ class Synthesizer:
             else:
                 nextBehavior = "behavior2"
         '''
+        elseBlock = []
+        if (transformation["nextBehaviorFalse"]):
+            elseBlock = [
+                ast.Assign(
+                    targets=[
+                        ast.Name(id="nextBehavior", ctx=ast.Store())
+                    ],
+                    value=ast.Constant(value=transformation["nextBehaviorFalse"])
+                )
+            ]
         return ast.If(
             test=ast.Name(id=transformation["flagParticipantName"], ctx=ast.Load()),
             body=[
@@ -365,14 +375,7 @@ class Synthesizer:
                     value=ast.Constant(value=transformation["nextBehaviorTrue"])
                 )
             ],
-            orelse=[
-                ast.Assign(
-                    targets=[
-                        ast.Name(id="nextBehavior", ctx=ast.Store())
-                    ],
-                    value=ast.Constant(value=transformation["nextBehaviorFalse"])
-                )
-            ]
+            orelse=elseBlock
         )
 
     def getSelectNextBehaviorStatement(self, transformation):

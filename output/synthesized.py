@@ -66,14 +66,10 @@ def getChoice(worldState, selectedOption_input):
     isNameChoice = selectedOption_input == name_choice
     if isNameChoice:
         nextBehavior = 'acceptName'
-    else:
-        nextBehavior = None
     get_book_choice = 'g'
     isGetBookChoice = selectedOption_input == get_book_choice
     if isGetBookChoice:
         nextBehavior = 'getBookFromBasket'
-    else:
-        nextBehavior = None
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def checkNameValidity(worldState):
