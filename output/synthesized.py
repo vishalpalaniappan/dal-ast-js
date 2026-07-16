@@ -17,6 +17,7 @@ def addBookToBasket(worldState):
     basket = worldState['basket']
     book = {}
     book = worldState['book']
+    basket.insert(0, book)
     worldState['basket'] = basket
     nextBehavior = 'getChoice'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}

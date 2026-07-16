@@ -101,6 +101,8 @@ class Synthesizer:
                 stmt = self.getSelectNextBehaviorStatement(transformation)
             elif(transformation["type"] == "removeFromPos"):
                 stmt = self.getRemovefromPosStatement(transformation)
+            elif(transformation["type"] == "insert"):
+                stmt = self.getInsertStatement(transformation)
             else:
                 print(f"Unsupported transformation: {transformation}")
                 continue
@@ -111,6 +113,35 @@ class Synthesizer:
         body.append(self.getReturnStatement())
         # Create function
         return getFunctionDef(node['behavior'], args, body)
+    
+    def getInsertStatement(self, transformation):
+        '''
+            type: "insert",
+            targetParticipantName: "basket",
+            keys: [],
+            valueParticipantName: "Harry Potter",
+            index: 3,
+
+            basket.insert(3, "harry potter")
+        '''
+
+        return ast.Expr(
+            value=ast.Call(
+                func=ast.Attribute(
+                    value=getVariableNameWithKeys(
+                        transformation["targetParticipantName"],
+                        transformation["keys"]
+                    ),
+                    attr="insert",
+                    ctx=ast.Load()
+                ),
+                args=[
+                    ast.Constant(value=transformation["index"]),
+                    ast.Name(id=transformation["valueParticipantName"], ctx=ast.Load()),
+                ],
+                keywords=[]
+            )
+        )
     
 
     def getRemovefromPosStatement(self, transformation):
