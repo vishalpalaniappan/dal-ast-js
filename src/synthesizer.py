@@ -99,6 +99,8 @@ class Synthesizer:
                 stmt = self.getSelectNextBehavioralConditionalStatement(transformation)
             elif(transformation["type"] == "selectNextBehavior"):
                 stmt = self.getSelectNextBehaviorStatement(transformation)
+            elif(transformation["type"] == "removeFromPos"):
+                stmt = self.getRemovefromPosStatement(transformation)
             else:
                 print(f"Unsupported transformation: {transformation}")
                 continue
@@ -110,6 +112,30 @@ class Synthesizer:
         # Create function
         return getFunctionDef(node['behavior'], args, body)
     
+
+    def getRemovefromPosStatement(self, transformation):
+        '''
+            type: "removeFromPos",
+            sourceParticipantName: "basket",
+            position: 0,
+
+            book = worldState["book"]
+        '''
+
+        return ast.Expr(
+            value=ast.Call(
+                func=ast.Attribute(
+                    value=ast.Name(id=transformation["sourceParticipantName"], ctx=ast.Load()),
+                    attr="pop",
+                    ctx=ast.Load()
+                ),
+                args=[
+                    ast.Constant(value=transformation["position"])
+                ],
+                keywords=[]
+            )
+        )
+            
     def getGetStatement(self, transformation):
         '''
             targetParticipantName: "book",

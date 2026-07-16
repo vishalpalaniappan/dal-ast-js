@@ -31,6 +31,7 @@ def getBookFromBasket(worldState):
     semanticLogger.logBehavior('getBookFromBasket')
     basket = worldState['basket']
     book = basket[0]
+    basket.pop(0)
     worldState['basket'] = basket
     nextBehavior = 'getFirstLetterOfBookName'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
