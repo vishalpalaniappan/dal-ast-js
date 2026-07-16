@@ -62,7 +62,12 @@ class Synthesizer:
         return None
     
     def processBehavior(self, node):
-        body = []
+        initNextBehavior = getAssign(
+            getName("nextBehavior", ast.Load()),
+            ast.Constant(value=None)
+        )
+
+        body = [initNextBehavior]
         args = []
 
         body.append(getBehaviorLogStmt(node["behavior"]))
