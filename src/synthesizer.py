@@ -73,14 +73,7 @@ class Synthesizer:
         # body.append(getBehaviorLogStmt(node["behavior"]))
 
         '''
-            TODO:
-             - Add support for select primitive with if statements
-             - Return next selected behavior
-             - Update len and getFromPos to access participants from world state.
-             - More to come.
-
-             Continue adding until synthesized output can be executed, then modify
-             the design executable to use it.
+            TODO: Modify the design executable to use synthesized output
         '''
 
         # Process transformation here
