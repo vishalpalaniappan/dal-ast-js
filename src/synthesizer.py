@@ -138,17 +138,14 @@ class Synthesizer:
                 transformation["keys"]
             )
         else:
-            name = getVariableNameWithKeys(
-                "worldState", 
-                [transformation["targetParticipantName"]]
-            )
-
+            name = getName(transformation["targetParticipantName"], ast.Load())
+            
         # Get name node and value or constant based on transformation
         meta = transformation["valueType"]
 
         if meta["type"] == "name":
             # Assigns participant
-            value = getVariableNameWithKeys("worldState", [meta["value"]])
+            value = getName(meta["value"], ast.Load())
         elif meta["type"] == "list":
             value =  ast.List(elts=[], ctx=ast.Load())
         elif meta["type"] == "number":
