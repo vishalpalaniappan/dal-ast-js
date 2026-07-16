@@ -70,7 +70,7 @@ class Synthesizer:
         body = [initNextBehavior]
         args = []
 
-        body.append(getBehaviorLogStmt(node["behavior"]))
+        # body.append(getBehaviorLogStmt(node["behavior"]))
 
         '''
             TODO:
