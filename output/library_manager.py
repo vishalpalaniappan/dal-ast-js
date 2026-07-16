@@ -24,11 +24,12 @@ def main():
         else:
             output = globals()[nextBehavior](worldState)
 
+        if output["nextBehavior"] is None:
+            print("Next behavior not selected by design, exiting program.")
+            break
+
         nextBehavior = output["nextBehavior"]
         print(output)
-
-        if nextBehavior == None:
-            break
 
 
 if __name__ == "__main__":
