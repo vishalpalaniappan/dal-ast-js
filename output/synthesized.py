@@ -66,10 +66,14 @@ def getChoice(worldState, selectedOption_input):
     isNameChoice = selectedOption_input == name_choice
     if isNameChoice:
         nextBehavior = 'acceptName'
+    else:
+        nextBehavior = None
     get_book_choice = 'g'
     isGetBookChoice = selectedOption_input == get_book_choice
     if isGetBookChoice:
         nextBehavior = 'getBookFromBasket'
+    else:
+        nextBehavior = None
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def checkNameValidity(worldState):
@@ -79,4 +83,8 @@ def checkNameValidity(worldState):
     invalid_length = 0
     name_length = len(worldState['name'])
     is_invalid_name = name_length == invalid_length
+    if is_invalid_name:
+        nextBehavior = 'acceptName'
+    else:
+        nextBehavior = 'createBook'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}

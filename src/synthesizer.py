@@ -344,13 +344,16 @@ class Synthesizer:
         '''
             {
                 type: "selectNextBehaviorConditional",
-                nextBehavior: "getBookName",
+                nextBehaviorTrue: "getBookName",
+                nextBehaviorFalse: "behavior2",
                 hasFlag: true,
                 flagParticipantName: isGetBook,
             }
 
             if isGetBook:
                 nextBheavior = "getBookName"
+            else:
+                nextBehavior = "behavior2"
         '''
         return ast.If(
             test=ast.Name(id=transformation["flagParticipantName"], ctx=ast.Load()),
@@ -359,10 +362,17 @@ class Synthesizer:
                     targets=[
                         ast.Name(id="nextBehavior", ctx=ast.Store())
                     ],
-                    value=ast.Constant(value=transformation["nextBehavior"])
+                    value=ast.Constant(value=transformation["nextBehaviorTrue"])
                 )
             ],
-            orelse=[]
+            orelse=[
+                ast.Assign(
+                    targets=[
+                        ast.Name(id="nextBehavior", ctx=ast.Store())
+                    ],
+                    value=ast.Constant(value=transformation["nextBehaviorFalse"])
+                )
+            ]
         )
 
     def getSelectNextBehaviorStatement(self, transformation):
