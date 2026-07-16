@@ -82,6 +82,8 @@ class Synthesizer:
         for transformation in node["transformations"]:
             if (transformation["type"] == "set"):
                 stmt = self.getSetStatement(transformation)
+            if (transformation["type"] == "get"):
+                stmt = self.getGetStatement(transformation)
             elif (transformation["type"] == "binop"):
                 stmt = self.getBinOpStatement(transformation)
             elif (transformation["type"] == "log" and transformation["isInput"]):
@@ -107,6 +109,23 @@ class Synthesizer:
         body.append(self.getReturnStatement())
         # Create function
         return getFunctionDef(node['behavior'], args, body)
+    
+    def getGetStatement(self, transformation):
+        '''
+            targetParticipantName: "book",
+            keys: ["book"],
+            sourceParticipantName: "worldState"
+
+            book = worldState["book"]
+        '''
+        return getAssign(
+            getName(transformation["targetParticipantName"], ast.Load()), 
+            getVariableNameWithKeys(
+                transformation["sourceParticipantName"],
+                transformation["keys"]
+            )
+        )
+        
     
     def getSetStatement(self, transformation):
         '''
