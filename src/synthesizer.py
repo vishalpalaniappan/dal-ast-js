@@ -12,7 +12,7 @@ from src.helper import getAssignWithUid
 from src.helper import getVariableNameWithKeys
 
 class Synthesizer:
-    def __init__(self, packagePath):
+    def __init__(self, packagePath, log):
         
         if packagePath:
             self.mode = "path"
@@ -28,6 +28,7 @@ class Synthesizer:
             self.model = json.loads(sys.stdin.read())
             self.mode = "stream"
 
+        self.log = log
         self.tree = ast.Module(
             body=[],
             type_ignores=[]
@@ -84,23 +85,24 @@ class Synthesizer:
                 stmt = self.getGetStatement(transformation)
             elif (transformation["type"] == "binop"):
                 stmt = self.getBinOpStatement(transformation)
-            elif (transformation["type"] == "log" and transformation["isInput"]):
-                stmt = getInputLogStmt(node['behavior'], transformation["participant"])
-                args.append(transformation["participant"])
-            elif (transformation["type"] == "getLength"):
-                stmt = self.getGetLengthStatement(transformation)
+            elif (transformation["type"] == "insert"):
+                stmt = self.getInsertStatement(transformation)
             elif (transformation["type"] == "isEqual"):
                 stmt = self.getIsEqualStatement(transformation)
+            elif (transformation["type"] == "getLength"):
+                stmt = self.getGetLengthStatement(transformation)
             elif (transformation["type"] == "getFromPos"):
                 stmt = self.getGetFromPosStatement(transformation)
-            elif(transformation["type"] == "selectNextBehaviorConditional"):
-                stmt = self.getSelectNextBehavioralConditionalStatement(transformation)
-            elif(transformation["type"] == "selectNextBehavior"):
-                stmt = self.getSelectNextBehaviorStatement(transformation)
-            elif(transformation["type"] == "removeFromPos"):
+            elif (transformation["type"] == "removeFromPos"):
                 stmt = self.getRemovefromPosStatement(transformation)
-            elif(transformation["type"] == "insert"):
-                stmt = self.getInsertStatement(transformation)
+            elif (transformation["type"] == "selectNextBehavior"):
+                stmt = self.getSelectNextBehaviorStatement(transformation)
+            elif (transformation["type"] == "selectNextBehaviorConditional"):
+                stmt = self.getSelectNextBehavioralConditionalStatement(transformation)
+            elif (transformation["type"] == "log" and transformation["isInput"]):
+                args.append(transformation["participant"])
+                if (self.log):
+                    stmt = getInputLogStmt(node['behavior'], transformation["participant"])
             else:
                 # print(f"Unsupported transformation: {transformation}")
                 continue

@@ -27,7 +27,7 @@ const testStreamMode = async (designName, behavior) => {
     await writeFile(`packages/${designName}.json`, JSON.stringify(synthPkg));
 
     try {
-        const synthesizedOutput = await synthesisRunner(synthPkg);
+        const synthesizedOutput = await synthesisRunner(synthPkg, true);
         console.log("Synthesis output:", synthesizedOutput.toString());
     } catch (err) {
         console.error("Error during synthesis execution:");
