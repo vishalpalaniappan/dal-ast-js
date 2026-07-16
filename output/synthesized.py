@@ -41,6 +41,7 @@ def getBookFromBasket(worldState):
     book = basket[0]
     basket.pop(0)
     worldState['basket'] = basket
+    worldState['book'] = book
     nextBehavior = 'getFirstLetterOfBookName'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
