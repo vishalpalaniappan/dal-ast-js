@@ -4,7 +4,7 @@ from LoggingHelper import semanticLogger
 def createBook(worldState):
     semanticLogger.logBehavior('createBook')
     worldState['book'] = {}
-    worldState['book']['name'] = worldState['name']
+    book['name'] = worldState['name']
     nextBehavior = 'addBookToBasket'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
@@ -31,20 +31,21 @@ def getBookFromBasket(worldState):
 def acceptName(worldState, name_input):
     semanticLogger.logBehavior('acceptName')
     semanticLogger.logInput('acceptName', 'name_input', name_input)
-    worldState['worldState']['name'] = worldState['name_input']
+    worldState['name'] = worldState['name_input']
     nextBehavior = 'checkNameValidity'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def createBasket(worldState):
     semanticLogger.logBehavior('createBasket')
     worldState['basket'] = []
+    worldState['basket'] = worldState['basket']
     nextBehavior = 'getChoice'
     return {'worldState': worldState, 'nextBehavior': nextBehavior}
 
 def getChoice(worldState, selectedOption_input):
     semanticLogger.logBehavior('getChoice')
     semanticLogger.logInput('getChoice', 'selectedOption_input', selectedOption_input)
-    worldState['worldState']['selectedOption'] = worldState['selectedOption_input']
+    worldState['selectedOption'] = worldState['selectedOption_input']
     worldState['name_choice'] = 'a'
     worldState['isNameChoice'] = ''
     isNameChoice = selectedOption == name_choice

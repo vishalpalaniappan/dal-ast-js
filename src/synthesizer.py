@@ -133,12 +133,9 @@ class Synthesizer:
         print(f"Processing set transformation: {transformation}")
 
         if (len(transformation["keys"])) > 0:
-            _keys = [transformation["targetParticipantName"]]
-            for key in transformation["keys"]:
-                _keys.append(key)
             name = getVariableNameWithKeys(
-                "worldState",
-                _keys
+                transformation["targetParticipantName"],
+                transformation["keys"]
             )
         else:
             name = getVariableNameWithKeys(
