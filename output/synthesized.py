@@ -3,6 +3,7 @@ from LoggingHelper import semanticLogger
 
 def createBook(worldState):
     semanticLogger.logBehavior('createBook')
+    name = ''
     name = worldState['name']
     book = {}
     book['name'] = name
@@ -12,7 +13,9 @@ def createBook(worldState):
 
 def addBookToBasket(worldState):
     semanticLogger.logBehavior('addBookToBasket')
+    basket = []
     basket = worldState['basket']
+    book = {}
     book = worldState['book']
     worldState['basket'] = basket
     nextBehavior = 'getChoice'
@@ -20,7 +23,9 @@ def addBookToBasket(worldState):
 
 def getFirstLetterOfBookName(worldState):
     semanticLogger.logBehavior('getFirstLetterOfBookName')
+    book = {}
     book = worldState['book']
+    firstLetter = ''
     book_name = book['name']
     firstLetter = book_name[0]
     worldState['firstLetter'] = firstLetter
@@ -29,7 +34,9 @@ def getFirstLetterOfBookName(worldState):
 
 def getBookFromBasket(worldState):
     semanticLogger.logBehavior('getBookFromBasket')
+    basket = []
     basket = worldState['basket']
+    book = {}
     book = basket[0]
     basket.pop(0)
     worldState['basket'] = basket
@@ -66,6 +73,7 @@ def getChoice(worldState, selectedOption_input):
 
 def checkNameValidity(worldState):
     semanticLogger.logBehavior('checkNameValidity')
+    name = ''
     name = worldState['name']
     invalid_length = 0
     name_length = len(worldState['name'])
