@@ -21,7 +21,7 @@ class Synthesizer:
                 with open(packagePath, 'r') as f:
                     self.model = json.loads(f.read())
             except Exception as e:
-                print(f"Error loading model: {str(e)}")
+                # print(f"Error loading model: {str(e)}")
                 self.model = None
         else:
             # Streamming input
@@ -35,7 +35,7 @@ class Synthesizer:
 
     def run(self):
         if self.model is None:
-            print("No model loaded. Cannot synthesize.")
+            # print("No model loaded. Cannot synthesize.")
             return None
             
         for entry in self.model:
@@ -109,7 +109,7 @@ class Synthesizer:
             elif(transformation["type"] == "insert"):
                 stmt = self.getInsertStatement(transformation)
             else:
-                print(f"Unsupported transformation: {transformation}")
+                # print(f"Unsupported transformation: {transformation}")
                 continue
             
             if stmt is not None:
@@ -211,7 +211,7 @@ class Synthesizer:
             "boolean": sets False
             "null": sets None
         '''
-        print(f"Processing set transformation: {transformation}")
+        # print(f"Processing set transformation: {transformation}")
 
         if (len(transformation["keys"])) > 0:
             name = getVariableNameWithKeys(
@@ -243,7 +243,7 @@ class Synthesizer:
         elif meta["type"] == "null":
             value = ast.Constant(None)
         else:
-            print(f"Unsupported type: {meta['type']}")
+            # print(f"Unsupported type: {meta['type']}")
             value = None
 
         if value == None:
@@ -264,7 +264,7 @@ class Synthesizer:
         '''
             This function processes a binop transformation and returns the corresponding AST node.
         '''
-        print(f"Processing binop transformation: {transformation}")
+        # print(f"Processing binop transformation: {transformation}")
 
         if (len(transformation["targetKeys"])) > 0:
             target = getVariableNameWithKeys(transformation["targetParticipantName"], transformation["targetKeys"])
@@ -285,7 +285,7 @@ class Synthesizer:
         elif transformation["operator"] == "/":
             op = ast.Div()
         else:
-            print(f"Unsupported operator: {transformation['operator']}")
+            # print(f"Unsupported operator: {transformation['operator']}")
             return None
         
         return ast.Assign(
