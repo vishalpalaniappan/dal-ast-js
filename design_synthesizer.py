@@ -23,8 +23,6 @@ def main(argv):
     
     parsed_args = args_parser.parse_args(argv[1:])
 
-    print(parsed_args)
-
     if ("package" in parsed_args and parsed_args.package):
         package = parsed_args.package
 
