@@ -15,7 +15,7 @@ behavior(getValue) {
 
 ## Tree Output
 ```
-Program
+root
     - Design
         - name:sample Design
     - Behavior
