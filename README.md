@@ -1,2 +1,2 @@
 # program-synthesizer-python
-This tool synthesizes a python program that contains the implementation of behaviors specified in the design abstraction language.
+Currently, this tool builds an Abstract Syntax Tree representation of a script written in the Behavioral Scripting Language.
