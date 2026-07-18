@@ -28,3 +28,9 @@ Program
                     - type: list
                     - value: []
 ```
+
+## Synthesis Output
+```
+def getValue():
+    basket = []
+```
