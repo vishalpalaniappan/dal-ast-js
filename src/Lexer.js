@@ -7,9 +7,9 @@ export class DalLexer {
         this.source = [...source];
         this.scannedTokens = [];
         this.accumulate = [];
-        this.run();
         this.lineno = 0;
         this.colno = 0;
+        this.run();
     }
 
     /**
@@ -34,6 +34,8 @@ export class DalLexer {
             this.addAccumulatedIdentifierToken();
             return;
         } else if (character == "\n") {
+            this.lineno++;
+            this.colno = 0;
             return;
         }
 
@@ -74,6 +76,7 @@ export class DalLexer {
             const identifier = this.getToken(character);
             if (character === "\n") {
                 this.lineno++;
+                this.colno = 0;
             }
             if (identifier !== "QUOTE") {
                 this.accumulate.push(character);
