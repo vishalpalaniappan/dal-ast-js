@@ -1,8 +1,10 @@
 let TOKENS = {
-    "LBRACKET": "(",
-    "RBRACKET": ")",
+    "LPAREN": "(",
+    "RPAREN": ")",
     "QUOTE": "\"",
-    "COMMA": ","
+    "COMMA": ",",
+    "LBRACKET": "{",
+    "RBRACKET": "}"
 }
 TOKENS = Object.freeze(TOKENS);
 
