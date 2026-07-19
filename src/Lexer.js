@@ -3,12 +3,12 @@ import TOKENS from "./TOKENS";
 /**
  * This lexer is a simple implementation and on a high
  * level, it works as follows:
- * - Scans current position
+ * - Scans character at current position
  * - If it is not a token:
  *      - adds to identifier accumulator
  * - If it is a token:
- *      - it saves what is in the accumulator to scannedTokens
- *      - then it saves the token to scannedTokens
+ *      - saves what is in the accumulator to scannedTokens
+ *      - saves the token to scannedTokens
  * - If a token is a quote:
  *      - saves quote to scanned token
  *      - scans forward to end of quote while accumulating identifier
@@ -155,8 +155,17 @@ export class DalLexer {
      * ]
      */
     addAccumulatedIdentifierToken () {
+        // Subtract 1 from endColno beause we have to reach token
+        // to identify that the accumulator is done.
         if (this.accumulatedIdentifier.length > 0) {
-            this.addToken("IDENTIFIER", this.accumulatedIdentifier.join(""));
+            this.scannedTokens.push({
+                type: "IDENTIFIER",
+                value: this.accumulatedIdentifier.join(""),
+                startLineno: this.startLineIdentifier,
+                startColno: this.startColIdentifier,
+                endLineno: this.lineno,
+                endColno: this.colno - 1
+            })
             this.accumulatedIdentifier = [];
         }
     }
@@ -167,25 +176,13 @@ export class DalLexer {
      * @param {Number} value Value of token (example identifier)
      */
     addToken (type, value) {
-
-        if (type === "IDENTIFIER") {
-            this.scannedTokens.push({
-                type: type,
-                value: value,
-                startLineno: this.startLineIdentifier,
-                startColno: this.startColIdentifier,
-                endLineno: this.lineno,
-                endColno: this.colno - 1
-            })
-        } else {
-            this.scannedTokens.push({
-                type: type,
-                value: value,
-                startLineno: this.lineno,
-                startColno: this.colno,
-                endLineno: this.lineno,
-                endColno: this.colno
-            })
-        }
+        this.scannedTokens.push({
+            type: type,
+            value: value,
+            startLineno: this.lineno,
+            startColno: this.colno,
+            endLineno: this.lineno,
+            endColno: this.colno
+        })
     }
 }
