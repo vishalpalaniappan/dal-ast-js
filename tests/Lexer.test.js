@@ -2,6 +2,7 @@ import {describe, expect, it} from "vitest";
 import {resolve} from "path"
 import {readFile, unlink, writeFile} from "fs/promises"
 import { DalLexer} from "../src/Lexer";
+import { DalParser } from "../src/Parser";
 
 
 describe("Lexer", () => {
@@ -16,6 +17,8 @@ describe("Lexer", () => {
             tokens_output_path,
             JSON.stringify(lexer.scannedTokens, null, 4)
         );
+
+        const tree = new DalParser(lexer.scannedTokens);
     });
 
 });
