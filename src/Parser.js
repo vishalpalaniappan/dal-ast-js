@@ -15,8 +15,7 @@ import { ArgsParser } from "./ArgsParser";
  * 
  * When following the grammar for the keyword, when body is
  * encountered, the token processor is recursively called
- * and result is appended to the body key of the keywords
- * tree.
+ * and result is appended to the body key of the tree.
  * 
  * The actual commands are very simple in this language
  * because I am always following the format shown below:
