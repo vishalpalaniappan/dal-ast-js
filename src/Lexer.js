@@ -8,6 +8,8 @@ export class DalLexer {
         this.scannedTokens = [];
         this.accumulate = [];
         this.run();
+        this.lineno = 0;
+        this.colno = 0;
     }
 
     /**
@@ -16,6 +18,7 @@ export class DalLexer {
     run() {
         do  {
             this.scanCurrentPosition(this.source[this.currPos]);
+            this.colno++;
         } while (++this.currPos < this.source.length);
 
         console.log(this.scannedTokens);
@@ -27,6 +30,13 @@ export class DalLexer {
      * scanForwardFromPosition until only one match remains.
      */
     scanCurrentPosition(character) {
+        if (character == " ") {
+            this.addAccumulatedIdentifierToken();
+            return;
+        } else if (character == "\n") {
+            return;
+        }
+
         const identifier = this.getToken(character);
         if (identifier) {
             this.addAccumulatedIdentifierToken();
@@ -62,8 +72,12 @@ export class DalLexer {
         do {
             const character = this.source[this.currPos];
             const identifier = this.getToken(character);
+            if (character === "\n") {
+                this.lineno++;
+            }
             if (identifier !== "QUOTE") {
                 this.accumulate.push(character);
+                this.colno++;
                 continue;
             }
             this.addAccumulatedIdentifierToken();
@@ -97,11 +111,8 @@ export class DalLexer {
      * 
      * @param {String} type Type for the token.
      * @param {Number} value Value of token (example identifier)
-     * @param {Number} lineNo Line number in source.
-     * @param {Number} startCol Starting Column.
-     * @param {Number} endCol Ending Column.
      */
-    addToken (type, value, lineNo, startCol, endCol) {
+    addToken (type, value) {
         this.scannedTokens.push({
             type: type,
             value: value

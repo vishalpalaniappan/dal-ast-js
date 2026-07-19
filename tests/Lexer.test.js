@@ -4,7 +4,11 @@ import { DalLexer
  } from "../src/Lexer";
 describe("Lexer", () => {
     it("basic source", () => {
-        const source = "design(\"le,xer\")";
+        const source = `
+        design(\"le,xer\")
+        behavior sample("test") {
+        
+        }`;
         const lexer = new DalLexer(source);
 
     });
