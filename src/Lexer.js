@@ -1,7 +1,33 @@
 import TOKENS from "./TOKENS";
 
+/**
+ * This lexer is a simple implementation and on a high
+ * level, it works as follows:
+ * - Scans current position
+ * - If it is not a token:
+ *      - adds to identifier accumulator
+ * - If it is a token:
+ *      - it saves what is in the accumulator to scannedTokens
+ *      - then it saves the token to scannedTokens
+ * - If a token is a quote:
+ *      - saves quote to scanned token
+ *      - scans forward to end of quote while accumulating identifier
+ *      - saves accumulator to scanned tokens
+ *      - saves quote to scanned tokens
+ * 
+ * I am not scanning for keywords here, I just save them as
+ * identifiers and then in the parse stage I will classify them.
+ * This makes the algorithm very simple.
+ * 
+ * So for example:
+ * ----
+ * design ("name")
+ * IDENTIFIER LPAREN QUOTE IDENTIFIER QUOTE RPAREN
+ * 
+ * I also save the line/col number (starting and ending). This will be
+ * useful for visualization in the workbench.
+ */
 export class DalLexer {
-
     constructor (source) {
         this.currPos = 0;
         this.source = [...source];
@@ -12,7 +38,7 @@ export class DalLexer {
         this.colno = 0;
 
         // Accumulates identifiers until tokens are visited.
-        this.accumulate = [];
+        this.accumulatedIdentifier = [];
         this.startColIdentifier;
         this.startLineIdentifier;
 
@@ -24,7 +50,6 @@ export class DalLexer {
      */
     run() {
         do  {
-            this.colno++;
             this.scanCurrentPosition(this.source[this.currPos]);
         } while (++this.currPos < this.source.length);
 
@@ -37,6 +62,9 @@ export class DalLexer {
      * scanForwardFromPosition until only one match remains.
      */
     scanCurrentPosition(character) {
+        // Starting lineno is 0, so we start at col 1
+        this.colno++;
+
         if (character == " ") {
             this.addAccumulatedIdentifierToken();
             return;
@@ -104,11 +132,11 @@ export class DalLexer {
      * @param {String} character Character to add to accumulate.
      */
     addToAccumulator (character) {
-        if (this.accumulate.length === 0) {
+        if (this.accumulatedIdentifier.length === 0) {
             this.startColIdentifier = this.colno;
             this.startLineIdentifier = this.lineno;
         }
-        this.accumulate.push(character);
+        this.accumulatedIdentifier.push(character);
     }
 
     /**
@@ -126,9 +154,9 @@ export class DalLexer {
      * ]
      */
     addAccumulatedIdentifierToken () {
-        if (this.accumulate.length > 0) {
-            this.addToken("IDENTIFIER", this.accumulate.join(""));
-            this.accumulate = [];
+        if (this.accumulatedIdentifier.length > 0) {
+            this.addToken("IDENTIFIER", this.accumulatedIdentifier.join(""));
+            this.accumulatedIdentifier = [];
         }
     }
 
