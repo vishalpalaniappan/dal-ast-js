@@ -1,4 +1,5 @@
 import KEYWORDS from "./KEYWORDS";
+import grammar from "./grammar.json"
 
 /**
  * This class produces an AST given the scanned tokens.
@@ -39,13 +40,25 @@ export class DalParser {
     }
 
     processToken(token) {
-        if (this.isKeyword(token)) {
-            console.log("Keyword:", token.value);
+        if (KEYWORDS.includes(token.value)) {
+            if (token.value === "design") {
+                this.processDesignKeyword();
+            }
         }
     }
 
-    isKeyword (token) {
-        return KEYWORDS.includes(token.value);
+    getGrammar(keyword) {
+        for (const entry of grammar) {
+            if (entry.value === keyword) {
+                return entry;
+            }
+        }
+    }
+
+    processDesignKeyword () {
+        console.log("Processing design keyword");
+        const grammar = this.getGrammar("design");
+        console.log(grammar);
     }
 
 }
