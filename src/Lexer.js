@@ -68,11 +68,11 @@ export class DalLexer {
             return;
         }
 
-        const identifier = this.getToken(character);
-        if (identifier) {
+        const token = this.getToken(character);
+        if (token) {
             this.addAccumulatedIdentifierToken();
-            this.addToken(identifier);
-            if (identifier === "QUOTE") {
+            this.addToken(token);
+            if (token === "QUOTE") {
                 this.extractStringFromQuotes();
             }
             return;
@@ -138,20 +138,7 @@ export class DalLexer {
     }
 
     /**
-     * Non token strings are added to an array which get processed
-     * when a token is found. For example, design(lexer), in this case,
-     * design will get accumulated and added as an identifier to the
-     * scanned tokens when LBRACKET is scanned. 
-     * 
-     * In the next stage, the parser will identify the keywords from
-     * the identifiers.
-     * 
-     * [
-     *  { type: 'IDENTIFIER', value: 'design' },
-     *  { type: 'LBRACKET', value: undefined },
-     *  { type: 'IDENTIFIER', value: 'lexer' },
-     *  { type: 'RBRACKET', value: undefined },
-     * ]
+     * Add the accumulated identifier to the scannedTokens list.
      */
     addAccumulatedIdentifierToken () {
         // Subtract 1 from endColno beause we have to reach token
@@ -170,7 +157,7 @@ export class DalLexer {
     }
 
     /**
-     * 
+     * Adds the token to the scannedTokens list.
      * @param {String} type Type for the token.
      * @param {Number} value Value of token (example identifier)
      */
