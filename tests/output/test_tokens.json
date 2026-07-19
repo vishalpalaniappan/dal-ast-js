@@ -10,38 +10,38 @@
     {
         "type": "LPAREN",
         "startLineno": 1,
-        "startColno": 7,
-        "endLineno": 1,
-        "endColno": 7
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 1,
         "startColno": 8,
         "endLineno": 1,
         "endColno": 8
     },
     {
+        "type": "QUOTE",
+        "startLineno": 1,
+        "startColno": 9,
+        "endLineno": 1,
+        "endColno": 9
+    },
+    {
         "type": "IDENTIFIER",
         "value": "lexer",
         "startLineno": 1,
-        "startColno": 8,
-        "endLineno": 1,
-        "endColno": 13
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 1,
-        "startColno": 14,
+        "startColno": 10,
         "endLineno": 1,
         "endColno": 14
     },
     {
-        "type": "RPAREN",
+        "type": "QUOTE",
         "startLineno": 1,
         "startColno": 15,
         "endLineno": 1,
         "endColno": 15
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 1,
+        "startColno": 16,
+        "endLineno": 1,
+        "endColno": 16
     },
     {
         "type": "IDENTIFIER",
@@ -77,7 +77,7 @@
         "type": "IDENTIFIER",
         "value": "test",
         "startLineno": 3,
-        "startColno": 17,
+        "startColno": 18,
         "endLineno": 3,
         "endColno": 21
     },
@@ -128,7 +128,7 @@
         "type": "IDENTIFIER",
         "value": "book",
         "startLineno": 4,
-        "startColno": 9,
+        "startColno": 10,
         "endLineno": 4,
         "endColno": 13
     },
@@ -164,7 +164,7 @@
         "type": "IDENTIFIER",
         "value": "name",
         "startLineno": 4,
-        "startColno": 17,
+        "startColno": 18,
         "endLineno": 4,
         "endColno": 21
     },
@@ -200,7 +200,7 @@
         "type": "IDENTIFIER",
         "value": "Harry Potter",
         "startLineno": 4,
-        "startColno": 25,
+        "startColno": 26,
         "endLineno": 4,
         "endColno": 37
     },

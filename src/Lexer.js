@@ -105,6 +105,7 @@ export class DalLexer {
      * Everything inside the quote is part of the string.
      */
     extractStringFromQuotes () {
+        this.colno++;
         this.currPos++;
         do {
             const character = this.source[this.currPos];
@@ -118,7 +119,6 @@ export class DalLexer {
                 this.colno++;
                 continue;
             }
-            this.colno++;
             this.addAccumulatedIdentifierToken();
             this.addToken(identifier);
             break;
