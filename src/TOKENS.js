@@ -4,7 +4,9 @@ let TOKENS = {
     "QUOTE": "\"",
     "COMMA": ",",
     "LBRACE": "{",
-    "RBRACE": "}"
+    "RBRACE": "}",
+    "LBRACKET": "[",
+    "RBRACKET": "]"
 }
 TOKENS = Object.freeze(TOKENS);
 
