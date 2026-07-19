@@ -26,8 +26,21 @@
  */
 export class ArgsParser {
     constructor (tokens) {
-        const groupedTokens = [];
-        const parsedArgs = [];
+        this.tokens = tokens;
+        this.groupedTokens = [];
+        this.parsedArgs = [];
+
+        console.log("Received args:", tokens);
+
+        this.run();
+    }
+
+    run () {
+        this.splitByComma(this.tokens);
+
+        for (const group of this.groupedTokens) {
+            console.log(this.processGroup(group));
+        }
     }
 
     /**
@@ -36,7 +49,19 @@ export class ArgsParser {
      * @param {Array} tokens 
      */
     splitByComma (tokens) {
+        let pos = 0;
+        let group = [];
+        do {
+            const token = this.tokens[pos];
+            if (token.type === "COMMA") {
+                this.groupedTokens.push(group);
+                group = [];
+            } else {
+                group.push(token);
+            }
+        } while (++pos < this.tokens.length);
 
+        this.groupedTokens.push(group);
     }
 
     /**
@@ -45,6 +70,12 @@ export class ArgsParser {
      * @param {Array} tokens 
      */
     processGroup (tokens) {
-
+        if (tokens[0].type === "QUOTE") {
+            const value = `"${tokens[1].value}"`
+            return {
+                type: "string",
+                value: JSON.parse(value)
+            }
+        }
     }
 }

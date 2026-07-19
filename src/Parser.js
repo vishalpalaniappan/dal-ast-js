@@ -1,5 +1,6 @@
 import KEYWORDS from "./KEYWORDS";
 import grammar from "./grammar.json"
+import { ArgsParser } from "./ArgsParser";
 
 /**
  * This class produces an AST given the scanned tokens.
@@ -88,6 +89,7 @@ export class DalParser {
         }
 
         // Process args here, they need to be parsed.
+        new ArgsParser(args);
 
         return {
             "type": "design",
