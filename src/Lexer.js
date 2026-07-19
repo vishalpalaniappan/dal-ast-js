@@ -8,7 +8,7 @@ export class DalLexer {
         this.scannedTokens = [];
 
         // Current line and colno
-        this.lineno = 0;
+        this.lineno = 1;
         this.colno = 0;
 
         // Accumulates identifiers until tokens are visited.
@@ -24,8 +24,8 @@ export class DalLexer {
      */
     run() {
         do  {
-            this.scanCurrentPosition(this.source[this.currPos]);
             this.colno++;
+            this.scanCurrentPosition(this.source[this.currPos]);
         } while (++this.currPos < this.source.length);
 
         console.log(this.scannedTokens);
@@ -90,6 +90,7 @@ export class DalLexer {
                 this.colno++;
                 continue;
             }
+            this.colno++;
             this.addAccumulatedIdentifierToken();
             this.addToken(identifier);
             break;
