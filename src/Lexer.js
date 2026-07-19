@@ -2,15 +2,18 @@ export class DalLexer {
 
     constructor (source) {
         this.currPos = 0;
-        this.source = source;
+        this.source = [...source];
         this.scannedTokens = [];
+        this.run();
     }
 
     /**
      * Runs the lexer from the current position,
      */
     run() {
-        
+        do  {
+            console.log(this.source[this.currPos])
+        } while (++this.currPos < this.source.length)
     }
 
     /**
