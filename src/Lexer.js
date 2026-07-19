@@ -29,10 +29,7 @@ export class DalLexer {
     scanCurrentPosition(character) {
         const identifier = this.getToken(character);
         if (identifier) {
-            if (this.accumulate.length > 0) {
-                this.addToken("IDENTIFIER", this.accumulate.join(""));
-                this.accumulate = [];
-            }
+            this.addAccumulatedIdentifier();
             this.addToken(identifier);
             if (identifier === "QUOTE") {
                 this.extractStringFromQuotes();
@@ -61,17 +58,39 @@ export class DalLexer {
      * Everything inside the quote is part of the string.
      */
     extractStringFromQuotes () {
-        while (++this.currPos < this.source.length) {
+        this.currPos++;
+        do {
             const character = this.source[this.currPos];
             const identifier = this.getToken(character);
             if (identifier !== "QUOTE") {
                 this.accumulate.push(character);
                 continue;
             }
+            this.addAccumulatedIdentifier();
+            this.addToken(identifier);
+            break;
+        } while (this.currPos++ < this.source.length)
+    }
+
+    /**
+     * Non token strings are added to an array which get processed
+     * when a token is found. For example, design(lexer), in this case,
+     * design will get accumulated and added as an identifier to the
+     * scanned tokens when LBRACKET is scanned. In the next stage,
+     * the parser will identify the keywords from the identifiers.
+     * 
+     * [
+     *  { type: 'IDENTIFIER', value: 'design' },
+     *  { type: 'LBRACKET', value: undefined },
+     *  { type: 'IDENTIFIER', value: 'lexer' },
+     *  { type: 'RBRACKET', value: undefined },
+     * ]
+     */
+    addAccumulatedIdentifier () {
+        if (this.accumulate.length > 0) {
             this.addToken("IDENTIFIER", this.accumulate.join(""));
             this.accumulate = [];
-            this.addToken(identifier);
-        } 
+        }
     }
 
     /**
