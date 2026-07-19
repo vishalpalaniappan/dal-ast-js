@@ -96,7 +96,10 @@ export class DalLexer {
 
     /**
      * If a quote is encountered, scan forward until end of quote is found.
-     * Everything inside the quote is part of the string.
+     * Everything inside the quote is part of the string, this ignores any
+     * of the tokens like comma.
+     * 
+     * TODO: Add support for escaped quotes inside quotes.
      */
     extractStringFromQuotes () {
         this.colno++;
