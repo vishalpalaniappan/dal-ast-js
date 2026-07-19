@@ -113,6 +113,7 @@ export class DalLexer {
             if (character === "\n") {
                 this.lineno++;
                 this.colno = 0;
+                continue;
             }
             if (identifier !== "QUOTE") {
                 this.addToAccumulator(character);
