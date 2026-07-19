@@ -29,7 +29,7 @@ export class DalLexer {
     scanCurrentPosition(character) {
         const identifier = this.getToken(character);
         if (identifier) {
-            this.addAccumulatedIdentifier();
+            this.addAccumulatedIdentifierToken();
             this.addToken(identifier);
             if (identifier === "QUOTE") {
                 this.extractStringFromQuotes();
@@ -66,7 +66,7 @@ export class DalLexer {
                 this.accumulate.push(character);
                 continue;
             }
-            this.addAccumulatedIdentifier();
+            this.addAccumulatedIdentifierToken();
             this.addToken(identifier);
             break;
         } while (this.currPos++ < this.source.length)
@@ -86,7 +86,7 @@ export class DalLexer {
      *  { type: 'RBRACKET', value: undefined },
      * ]
      */
-    addAccumulatedIdentifier () {
+    addAccumulatedIdentifierToken () {
         if (this.accumulate.length > 0) {
             this.addToken("IDENTIFIER", this.accumulate.join(""));
             this.accumulate = [];
