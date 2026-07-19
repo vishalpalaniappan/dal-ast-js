@@ -1,1 +1,228 @@
-[{"type":"IDENTIFIER","value":"design","startLineno":0,"startColno":0,"endLineno":0,"endColno":5},{"type":"LPAREN","startLineno":0,"startColno":6,"endLineno":0,"endColno":6},{"type":"QUOTE","startLineno":0,"startColno":7,"endLineno":0,"endColno":7},{"type":"IDENTIFIER","value":"lexer","startLineno":0,"startColno":7,"endLineno":0,"endColno":11},{"type":"QUOTE","startLineno":0,"startColno":12,"endLineno":0,"endColno":12},{"type":"RPAREN","startLineno":0,"startColno":13,"endLineno":0,"endColno":13},{"type":"IDENTIFIER","value":"behavior","startLineno":2,"startColno":1,"endLineno":2,"endColno":8},{"type":"IDENTIFIER","value":"sample","startLineno":2,"startColno":10,"endLineno":2,"endColno":15},{"type":"LPAREN","startLineno":2,"startColno":16,"endLineno":2,"endColno":16},{"type":"QUOTE","startLineno":2,"startColno":17,"endLineno":2,"endColno":17},{"type":"IDENTIFIER","value":"test","startLineno":2,"startColno":17,"endLineno":2,"endColno":20},{"type":"QUOTE","startLineno":2,"startColno":21,"endLineno":2,"endColno":21},{"type":"RPAREN","startLineno":2,"startColno":22,"endLineno":2,"endColno":22},{"type":"LBRACE","startLineno":2,"startColno":24,"endLineno":2,"endColno":24},{"type":"IDENTIFIER","value":"set","startLineno":3,"startColno":5,"endLineno":3,"endColno":7},{"type":"LPAREN","startLineno":3,"startColno":8,"endLineno":3,"endColno":8},{"type":"QUOTE","startLineno":3,"startColno":9,"endLineno":3,"endColno":9},{"type":"IDENTIFIER","value":"book","startLineno":3,"startColno":9,"endLineno":3,"endColno":12},{"type":"QUOTE","startLineno":3,"startColno":13,"endLineno":3,"endColno":13},{"type":"COMMA","startLineno":3,"startColno":14,"endLineno":3,"endColno":14},{"type":"LBRACKET","startLineno":3,"startColno":15,"endLineno":3,"endColno":15},{"type":"QUOTE","startLineno":3,"startColno":16,"endLineno":3,"endColno":16},{"type":"IDENTIFIER","value":"name","startLineno":3,"startColno":16,"endLineno":3,"endColno":19},{"type":"QUOTE","startLineno":3,"startColno":20,"endLineno":3,"endColno":20},{"type":"RBRACKET","startLineno":3,"startColno":21,"endLineno":3,"endColno":21},{"type":"COMMA","startLineno":3,"startColno":22,"endLineno":3,"endColno":22},{"type":"QUOTE","startLineno":3,"startColno":23,"endLineno":3,"endColno":23},{"type":"IDENTIFIER","value":"Harry Potter","startLineno":3,"startColno":23,"endLineno":3,"endColno":34},{"type":"QUOTE","startLineno":3,"startColno":35,"endLineno":3,"endColno":35},{"type":"RPAREN","startLineno":3,"startColno":36,"endLineno":3,"endColno":36},{"type":"RBRACE","startLineno":4,"startColno":1,"endLineno":4,"endColno":1}]
+[
+    {
+        "type": "IDENTIFIER",
+        "value": "design",
+        "startLineno": 1,
+        "startColno": 1,
+        "endLineno": 1,
+        "endColno": 6
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 1,
+        "startColno": 7,
+        "endLineno": 1,
+        "endColno": 7
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 1,
+        "startColno": 8,
+        "endLineno": 1,
+        "endColno": 8
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "lexer",
+        "startLineno": 1,
+        "startColno": 8,
+        "endLineno": 1,
+        "endColno": 13
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 1,
+        "startColno": 14,
+        "endLineno": 1,
+        "endColno": 14
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 1,
+        "startColno": 15,
+        "endLineno": 1,
+        "endColno": 15
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "behavior",
+        "startLineno": 3,
+        "startColno": 1,
+        "endLineno": 3,
+        "endColno": 8
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "sample",
+        "startLineno": 3,
+        "startColno": 10,
+        "endLineno": 3,
+        "endColno": 15
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 3,
+        "startColno": 16,
+        "endLineno": 3,
+        "endColno": 16
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 3,
+        "startColno": 17,
+        "endLineno": 3,
+        "endColno": 17
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "test",
+        "startLineno": 3,
+        "startColno": 17,
+        "endLineno": 3,
+        "endColno": 21
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 3,
+        "startColno": 22,
+        "endLineno": 3,
+        "endColno": 22
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 3,
+        "startColno": 23,
+        "endLineno": 3,
+        "endColno": 23
+    },
+    {
+        "type": "LBRACE",
+        "startLineno": 3,
+        "startColno": 25,
+        "endLineno": 3,
+        "endColno": 25
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "set",
+        "startLineno": 4,
+        "startColno": 5,
+        "endLineno": 4,
+        "endColno": 7
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 4,
+        "startColno": 8,
+        "endLineno": 4,
+        "endColno": 8
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 4,
+        "startColno": 9,
+        "endLineno": 4,
+        "endColno": 9
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "book",
+        "startLineno": 4,
+        "startColno": 9,
+        "endLineno": 4,
+        "endColno": 13
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 4,
+        "startColno": 14,
+        "endLineno": 4,
+        "endColno": 14
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 4,
+        "startColno": 15,
+        "endLineno": 4,
+        "endColno": 15
+    },
+    {
+        "type": "LBRACKET",
+        "startLineno": 4,
+        "startColno": 16,
+        "endLineno": 4,
+        "endColno": 16
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 4,
+        "startColno": 17,
+        "endLineno": 4,
+        "endColno": 17
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "name",
+        "startLineno": 4,
+        "startColno": 17,
+        "endLineno": 4,
+        "endColno": 21
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 4,
+        "startColno": 22,
+        "endLineno": 4,
+        "endColno": 22
+    },
+    {
+        "type": "RBRACKET",
+        "startLineno": 4,
+        "startColno": 23,
+        "endLineno": 4,
+        "endColno": 23
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 4,
+        "startColno": 24,
+        "endLineno": 4,
+        "endColno": 24
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 4,
+        "startColno": 25,
+        "endLineno": 4,
+        "endColno": 25
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "Harry Potter",
+        "startLineno": 4,
+        "startColno": 25,
+        "endLineno": 4,
+        "endColno": 37
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 4,
+        "startColno": 38,
+        "endLineno": 4,
+        "endColno": 38
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 4,
+        "startColno": 39,
+        "endLineno": 4,
+        "endColno": 39
+    },
+    {
+        "type": "RBRACE",
+        "startLineno": 5,
+        "startColno": 1,
+        "endLineno": 5,
+        "endColno": 1
+    }
+]

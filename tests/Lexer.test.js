@@ -12,7 +12,10 @@ describe("Lexer", () => {
 
         
         const tokens_output_path = resolve(__dirname, "./output/test_tokens.json")
-        await writeFile(tokens_output_path, JSON.stringify(lexer.scannedTokens));
+        await writeFile(
+            tokens_output_path,
+            JSON.stringify(lexer.scannedTokens, null, 4)
+        );
     });
 
 });
