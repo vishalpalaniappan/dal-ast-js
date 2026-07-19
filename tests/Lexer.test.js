@@ -5,7 +5,7 @@ import { DalLexer
 describe("Lexer", () => {
     it("basic source", () => {
         const source = `
-        design(\"le,xer\")
+        design("le,xer")
         behavior sample("test") {
             set("book",["name"],"Harr Potter")
         }`;

@@ -6,9 +6,16 @@ export class DalLexer {
         this.currPos = 0;
         this.source = [...source];
         this.scannedTokens = [];
-        this.accumulate = [];
+
+        // Current line and colno
         this.lineno = 0;
         this.colno = 0;
+
+        // Accumulates identifiers until tokens are visited.
+        this.accumulate = [];
+        this.startColIdentifier;
+        this.startLineIdentifier;
+
         this.run();
     }
 
@@ -48,7 +55,7 @@ export class DalLexer {
             }
             return;
         }
-        this.accumulate.push(character);
+        this.addToAccumulator(character);
     }
 
     /**
@@ -79,7 +86,7 @@ export class DalLexer {
                 this.colno = 0;
             }
             if (identifier !== "QUOTE") {
-                this.accumulate.push(character);
+                this.addToAccumulator(character);
                 this.colno++;
                 continue;
             }
@@ -87,6 +94,20 @@ export class DalLexer {
             this.addToken(identifier);
             break;
         } while (this.currPos++ < this.source.length)
+    }
+
+    /**
+     * Adds to accumulator. Saves starting position
+     * of accumulated identifier.
+     * 
+     * @param {String} character Character to add to accumulate.
+     */
+    addToAccumulator (character) {
+        if (this.accumulate.length === 0) {
+            this.startColIdentifier = this.colno;
+            this.startLineIdentifier = this.lineno;
+        }
+        this.accumulate.push(character);
     }
 
     /**
@@ -116,9 +137,25 @@ export class DalLexer {
      * @param {Number} value Value of token (example identifier)
      */
     addToken (type, value) {
-        this.scannedTokens.push({
-            type: type,
-            value: value
-        })
+
+        if (type === "IDENTIFIER") {
+            this.scannedTokens.push({
+                type: type,
+                value: value,
+                startLineno: this.startLineIdentifier,
+                startColno: this.startColIdentifier,
+                endLineno: this.lineno,
+                endColno: this.colno - 1
+            })
+        } else {
+            this.scannedTokens.push({
+                type: type,
+                value: value,
+                startLineno: this.lineno,
+                startColno: this.colno,
+                endLineno: this.lineno,
+                endColno: this.colno
+            })
+        }
     }
 }
