@@ -15,7 +15,6 @@ export class DalLexer {
      */
     run() {
         do  {
-            console.log(this.source[this.currPos])
             this.scanCurrentPosition(this.source[this.currPos]);
         } while (++this.currPos < this.source.length);
 
@@ -28,18 +27,33 @@ export class DalLexer {
      * scanForwardFromPosition until only one match remains.
      */
     scanCurrentPosition(character) {
-        for (const [identifier, value] of Object.entries(TOKENS)) {
-            if (value[0] !== character) {
-                continue;
-            }
+        const identifier = this.getToken(character);
+        if (identifier) {
             if (this.accumulate.length > 0) {
                 this.addToken("IDENTIFIER", this.accumulate.join(""));
                 this.accumulate = [];
             }
             this.addToken(identifier);
+            if (identifier === "QUOTE") {
+                this.extractStringFromQuotes();
+            }
             return;
         }
         this.accumulate.push(character);
+    }
+
+    /**
+     * Finds the identifier given the character.
+     * @param {String} character Character from scan.
+     * @returns 
+     */
+    getToken (character) {
+        for (const [identifier, value] of Object.entries(TOKENS)) {
+            if (value[0] !== character) {
+                continue;
+            }
+            return identifier;
+        }
     }
 
     /**
@@ -47,7 +61,17 @@ export class DalLexer {
      * Everything inside the quote is part of the string.
      */
     extractStringFromQuotes () {
-
+        while (++this.currPos < this.source.length) {
+            const character = this.source[this.currPos];
+            const identifier = this.getToken(character);
+            if (identifier !== "QUOTE") {
+                this.accumulate.push(character);
+                continue;
+            }
+            this.addToken("IDENTIFIER", this.accumulate.join(""));
+            this.accumulate = [];
+            this.addToken(identifier);
+        } 
     }
 
     /**
