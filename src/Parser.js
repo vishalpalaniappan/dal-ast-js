@@ -29,14 +29,15 @@ export class DalParser {
 
     constructor (tokens) {
         this.tokens = tokens;
-        this.currentPosition = 0;
+        this.currPos = 0;
         this.run();
     }
 
     run () {
-        for (const token of this.tokens) {
+        do {
+            const token = this.tokens[this.currPos];
             this.processToken(token);
-        }
+        } while (++this.currPos < this.tokens.length)
     }
 
     processToken(token) {
@@ -58,7 +59,40 @@ export class DalParser {
     processDesignKeyword () {
         console.log("Processing design keyword");
         const grammar = this.getGrammar("design");
-        console.log(grammar);
+
+        const token = this.tokens[++this.currPos];
+        if (token.type !== "LPAREN") {
+            throw new Error("Expected LPAREN, Syntax error")
+        }
+
+        const args = [];
+        let foundRParen = false;
+        do {
+            const token = this.tokens[++this.currPos];
+            if (token.type === "RPAREN") {
+                foundRParen = true;
+                break;
+            } else {
+                args.push(token);
+            }
+        } while (this.currPos < this.tokens.length)
+
+        // This is a crude attempt to see if brackets are closed
+        // It has obvious flaws, if the parenthesis isn't closed and
+        // then another identifier opens and closes parenthesis, it
+        // will keep moving forward until it reaches it. 
+        // 
+        // There is a better way to do this, so this will get replaced.
+        if (!foundRParen) {
+            throw new Error("Expected RPAREN, Syntax error")
+        }
+
+        // Process args here, they need to be parsed.
+
+        return {
+            "type": "design",
+            "design_name": []
+        }
     }
 
 }
