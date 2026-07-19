@@ -7,7 +7,7 @@ describe("Lexer", () => {
         const source = `
         design(\"le,xer\")
         behavior sample("test") {
-        
+            set("book",["name"],"Harr Potter")
         }`;
         const lexer = new DalLexer(source);
 
