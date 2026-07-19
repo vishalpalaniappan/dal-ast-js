@@ -1,0 +1,25 @@
+{
+    "name": "dal-ast-js",
+    "version": "0.0.0-dev",
+    "main": "dist/index.cjs",
+    "module": "dist/index.esm.js",
+    "type": "module",
+    "scripts": {
+        "test": "vitest",
+        "test:watch": "vitest --watch",
+        "test:run": "vitest run"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vishalpalaniappan/program-synthesizer-python.git"
+    },
+    "author": "Vishal Palaniappan",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/vishalpalaniappan/program-synthesizer-python/issues"
+    },
+    "homepage": "https://github.com/vishalpalaniappan/program-synthesizer-python",
+    "devDependencies": {
+        "vitest": "^4.0.18"
+    }
+}
