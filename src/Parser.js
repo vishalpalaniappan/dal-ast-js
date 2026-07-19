@@ -44,7 +44,8 @@ export class DalParser {
     processToken(token) {
         if (KEYWORDS.includes(token.value)) {
             if (token.value === "design") {
-                this.processDesignKeyword();
+                const output = this.processDesignKeyword();
+                console.log(output);
             }
         }
     }
@@ -89,11 +90,11 @@ export class DalParser {
         }
 
         // Process args here, they need to be parsed.
-        new ArgsParser(args);
+        const parsedArgs = new ArgsParser(args).run();
 
         return {
             "type": "design",
-            "design_name": []
+            "args": parsedArgs
         }
     }
 
