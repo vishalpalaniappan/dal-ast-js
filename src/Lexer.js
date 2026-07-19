@@ -2,7 +2,7 @@ import TOKENS from "./TOKENS";
 
 /**
  * This lexer works as follows:
- * - Scans character at current position
+ * - Reads character at current position
  * - If it is not a token:
  *      - adds to identifier accumulator
  * - If it is a token:
@@ -124,8 +124,8 @@ export class DalLexer {
     }
 
     /**
-     * Adds to accumulator. Saves starting position
-     * of accumulated identifier.
+     * Adds to accumulator. Saves starting position of
+     * identifier being accumulated.
      * 
      * @param {String} character Character to add to accumulate.
      */
@@ -141,8 +141,10 @@ export class DalLexer {
      * Non token strings are added to an array which get processed
      * when a token is found. For example, design(lexer), in this case,
      * design will get accumulated and added as an identifier to the
-     * scanned tokens when LBRACKET is scanned. In the next stage,
-     * the parser will identify the keywords from the identifiers.
+     * scanned tokens when LBRACKET is scanned. 
+     * 
+     * In the next stage, the parser will identify the keywords from
+     * the identifiers.
      * 
      * [
      *  { type: 'IDENTIFIER', value: 'design' },
