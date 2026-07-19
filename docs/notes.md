@@ -15,7 +15,7 @@ behavior(getValue) {
 
 ## Tree Output
 ```
-root
+SemanticModel
     - Design
         - name:sample Design
     - Behavior
