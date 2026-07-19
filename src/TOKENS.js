@@ -3,8 +3,8 @@ let TOKENS = {
     "RPAREN": ")",
     "QUOTE": "\"",
     "COMMA": ",",
-    "LBRACKET": "{",
-    "RBRACKET": "}"
+    "LBRACE": "{",
+    "RBRACE": "}"
 }
 TOKENS = Object.freeze(TOKENS);
 
