@@ -4,7 +4,7 @@ import { DalLexer
  } from "../src/Lexer";
 describe("Lexer", () => {
     it("basic source", () => {
-        const source = "design(lexer)";
+        const source = "design(\"lexer\")";
         const lexer = new DalLexer(source);
 
     });
