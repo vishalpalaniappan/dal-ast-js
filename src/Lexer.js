@@ -1,8 +1,7 @@
 import TOKENS from "./TOKENS";
 
 /**
- * This lexer is a simple implementation and on a high
- * level, it works as follows:
+ * This lexer works as follows:
  * - Scans character at current position
  * - If it is not a token:
  *      - adds to identifier accumulator
@@ -19,8 +18,7 @@ import TOKENS from "./TOKENS";
  * identifiers and then in the parse stage I will classify them.
  * This makes the algorithm very simple.
  * 
- * So for example:
- * ----
+ * Example:
  * design ("name")
  * IDENTIFIER LPAREN QUOTE IDENTIFIER QUOTE RPAREN
  * 
@@ -46,23 +44,19 @@ export class DalLexer {
     }
 
     /**
-     * Runs the lexer from the current position,
+     * Runs the lexer from the current position.
      */
     run() {
         do  {
-            this.scanCurrentPosition(this.source[this.currPos]);
+            const character = this.source[this.currPos];
+            this.processCurrentPosition(character);
         } while (++this.currPos < this.source.length);
-
-        console.log(this.scannedTokens);
     }
 
     /**
-     * Scans the current position to determine tokens
-     * that match. If multiple matches are found, it calls
-     * scanForwardFromPosition until only one match remains.
+     * Processes the character at the current position.
      */
-    scanCurrentPosition(character) {
-        // Starting lineno is 0, so we start at col 1
+    processCurrentPosition(character) {
         this.colno++;
 
         if (character == " ") {
@@ -89,7 +83,7 @@ export class DalLexer {
     /**
      * Finds the identifier given the character.
      * @param {String} character Character from scan.
-     * @returns 
+     * @returns {String|null} Identifier if valid token, else null.
      */
     getToken (character) {
         for (const [identifier, value] of Object.entries(TOKENS)) {
