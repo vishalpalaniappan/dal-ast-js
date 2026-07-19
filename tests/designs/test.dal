@@ -2,4 +2,9 @@ design ("lexer")
 
 behavior sample("test") {
     set("book",["name"],"Harry Potter")
+    get("name")
+}
+
+behavior sample2("test3") {
+    
 }
