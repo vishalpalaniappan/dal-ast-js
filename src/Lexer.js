@@ -43,10 +43,10 @@ export class DalLexer {
     }
 
     /**
-     * If multiple tokens are a match for current character, then
-     * scan forward until only one token remains.
+     * If a quote is encountered, scan forward until end of quote is found.
+     * Everything inside the quote is part of the string.
      */
-    scanForwardFromPosition () {
+    extractStringFromQuotes () {
 
     }
 
