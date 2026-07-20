@@ -1,20 +1,20 @@
 design ("add_book_to_basket")
 
 behavior createBasket() {
-    create(basket, "list)
+    create(name=basket, type="list", role="basket")
     select getName
 }
 
 behavior getName() {
-    create(name, "string")
+    create(name=name, type="string", role="name")
     getInput(name)
-    set(worldState,["name"],name)
+    set(worldState, ["name"], name)
     select createBook
 }
 
 behavior createBook() {
     get(name, worldState, ["name"])
-    create(book, "object")
+    create(name=book, type="object", role="book")
     set(book, ["name"], name)
     select addBookToBasket
 }
