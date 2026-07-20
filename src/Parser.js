@@ -6,16 +6,21 @@ import { ArgsParser } from "./ArgsParser";
  * This class produces an AST given the scanned tokens.
  * 
  * Steps:
- * - Visit token and calls process token
- * - Check if identifier
- *      - if identifier, check if keyword
- *          - if keyword, follow grammar for keyword
- *          - if not keyword, follow grammar for instruction
- *      - if not identifier, syntax error
+ * - Process current token
+ * - Visit keyword and create node 
+ * - Parse the args and save node metadata
+ * - If node has a body (if, behavior), add to stack
+ * - If node doesn't have body, add to body of stack top
+ * - When rbrace is encountered, pop stack and add
+ *   to body of top of stack.
  * 
- * When following the grammar for the keyword, when body is
- * encountered, the token processor is recursively called
- * and result is appended to the body key of the tree.
+ * It is a very simple algorithm because my language is basic.
+ * I create stack to track the nested body being processed. 
+ * I use rbrace as marker to finish a nested block and build the tree.
+ * 
+ * Note: This was the first way I thought to implement this
+ * but I think there is a better way, I am going to iterate
+ * on this.
  * 
  * The actual commands are very simple in this language
  * because I am always following the format shown below:
