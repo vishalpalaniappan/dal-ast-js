@@ -16,6 +16,7 @@ behavior createBook() {
     get(name, worldState, ["name"])
     create(name=book, type="object", role="book")
     set(book, ["name"], name)
+    remove(worldState, ["name"])
     select addBookToBasket
 }
 
@@ -24,6 +25,7 @@ behavior addBookToBasket() {
     get(basket, worldState, ["basket"])
     insert(basket, book, 0)
     set(basket, worldState, ["basket"])
+    remove(worldState, ["book"])
     select getName
 }
 
