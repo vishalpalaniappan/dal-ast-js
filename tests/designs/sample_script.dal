@@ -1,0 +1,32 @@
+design ("add_book_to_basket")
+
+behavior createBasket() {
+    create(basket, "list)
+    select getName
+}
+
+behavior getName() {
+    create(name, "string")
+    getInput(name)
+    set(worldState,["name"],name)
+    select createBook
+}
+
+behavior createBook() {
+    get(name, worldState, ["name"])
+    create(book, "object")
+    set(book, ["name"], name)
+    select addBookToBasket
+}
+
+behavior addBookToBasket() {
+    get(book, worldState, ["book"])
+    get(basket, worldState, ["basket"])
+    insert(basket, book, 0)
+    select getName
+}
+
+main {
+    start(createBasket)
+    run()
+}
