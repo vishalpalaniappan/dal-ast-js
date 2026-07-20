@@ -71,7 +71,9 @@ export class DalParser {
             this.processIf();
         } else if (token.value === "else") {
             this.processElse();
-        } else if (token.type === "IDENTIFIER") {
+        } else if (token.value === "for") {
+            this.processFor();
+        }else if (token.type === "IDENTIFIER") {
             this.processCmd(token.value);
         }
     }
@@ -147,6 +149,25 @@ export class DalParser {
     processElse () {
         const node = {
             type: "else",
+            body: []
+        }
+        this.stack.push(node)
+    }
+
+    /**
+     * Processes for block.
+     * 
+     * for (<participan>, <start>,<end>) {
+     * 
+     * }
+     */
+    processFor () {
+        const parsedArgs = new ArgsParser(this.getArgs()).run();
+        const node = {
+            type: "for",
+            participant: parsedArgs[0],
+            start: parsedArgs[1],
+            end: parsedArgs[2],
             body: []
         }
         this.stack.push(node)

@@ -303,10 +303,114 @@
         "endColno": 5
     },
     {
+        "type": "IDENTIFIER",
+        "value": "for",
+        "startLineno": 12,
+        "startColno": 5,
+        "endLineno": 12,
+        "endColno": 7
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 12,
+        "startColno": 9,
+        "endLineno": 12,
+        "endColno": 9
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "counter",
+        "startLineno": 12,
+        "startColno": 10,
+        "endLineno": 12,
+        "endColno": 16
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 12,
+        "startColno": 17,
+        "endLineno": 12,
+        "endColno": 17
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "0",
+        "startLineno": 12,
+        "startColno": 19,
+        "endLineno": 12,
+        "endColno": 19
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 12,
+        "startColno": 20,
+        "endLineno": 12,
+        "endColno": 20
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "10",
+        "startLineno": 12,
+        "startColno": 22,
+        "endLineno": 12,
+        "endColno": 23
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 12,
+        "startColno": 24,
+        "endLineno": 12,
+        "endColno": 24
+    },
+    {
+        "type": "LBRACE",
+        "startLineno": 12,
+        "startColno": 26,
+        "endLineno": 12,
+        "endColno": 26
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "square",
+        "startLineno": 13,
+        "startColno": 9,
+        "endLineno": 13,
+        "endColno": 14
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 13,
+        "startColno": 16,
+        "endLineno": 13,
+        "endColno": 16
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "counter",
+        "startLineno": 13,
+        "startColno": 17,
+        "endLineno": 13,
+        "endColno": 23
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 13,
+        "startColno": 24,
+        "endLineno": 13,
+        "endColno": 24
+    },
+    {
         "type": "RBRACE",
-        "startLineno": 11,
+        "startLineno": 14,
+        "startColno": 5,
+        "endLineno": 14,
+        "endColno": 5
+    },
+    {
+        "type": "RBRACE",
+        "startLineno": 15,
         "startColno": 1,
-        "endLineno": 11,
+        "endLineno": 15,
         "endColno": 1
     }
 ]

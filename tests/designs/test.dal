@@ -8,4 +8,8 @@ behavior sample("test") {
     } else {
         subtract(1,2)
     }
+
+    for (counter, 0, 10) {
+        square (counter)
+    }
 }
