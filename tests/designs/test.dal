@@ -4,6 +4,6 @@ behavior sample("test") {
     design ("lexer")
 
     if (isEqual) {
-        design ("test")
+        add (1,2)
     }
 }

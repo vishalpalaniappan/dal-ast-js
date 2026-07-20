@@ -39,11 +39,16 @@
                     ],
                     "body": [
                         {
-                            "type": "design",
-                            "design_name": [
+                            "type": "cmd",
+                            "command": "add",
+                            "args": [
                                 {
-                                    "type": "string",
-                                    "value": "test"
+                                    "type": "number",
+                                    "value": 1
+                                },
+                                {
+                                    "type": "number",
+                                    "value": 2
                                 }
                             ]
                         }

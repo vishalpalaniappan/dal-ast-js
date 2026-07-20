@@ -70,6 +70,8 @@ export class DalParser {
             this.processBehavior();
         } else if (token.value === "if") {
             this.processIf();
+        } else if (token.type === "IDENTIFIER") {
+            this.processCmd(token.value);
         }
     }
 
@@ -119,6 +121,21 @@ export class DalParser {
         const node = {
             "type": "design",
             "design_name": parsedArgs
+        }
+        this.stack[this.stack.length - 1].body.push(node); 
+    }
+
+    /**
+     * Process design keyword.
+     * 
+     * cmd(args1, arg2...argN)
+     */
+    processCmd (cmd) {
+        const parsedArgs = new ArgsParser(this.getArgs()).run();
+        const node = {
+            "type": "cmd",
+            "command": cmd,
+            "args": parsedArgs
         }
         this.stack[this.stack.length - 1].body.push(node); 
     }
