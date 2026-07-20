@@ -53,11 +53,6 @@
         "value": "else",
         "order": [
             {
-                "token": "LPAREN",
-                "endToken": "RPAREN",
-                "contentType": "args"
-            },
-            {
                 "token": "LBRACE",
                 "endToken": "RBRACE",
                 "contentType": "body"

@@ -2,8 +2,7 @@ let KEYWORDS = [
     "design",
     "behavior",
     "if",
-    "else",
-    "elif"
+    "else"
 ]
 KEYWORDS = Object.freeze(KEYWORDS);
 
