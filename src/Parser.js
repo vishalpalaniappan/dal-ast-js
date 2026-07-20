@@ -35,10 +35,11 @@ export class DalParser {
     constructor (tokens) {
         this.tokens = tokens;
         this.currPos = 0;
-        this.stack = [{
+        this.ast = {
             type: "root",
             body: []
-        }];
+        }
+        this.stack = [this.ast];
         this.run();
     }
 
@@ -47,7 +48,6 @@ export class DalParser {
             const token = this.tokens[this.currPos];
             this.processToken(token);
         } while (++this.currPos < this.tokens.length);
-        this.ast = this.stack[0];
     }
 
     processToken(token) {
