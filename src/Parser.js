@@ -19,7 +19,8 @@ import { ArgsParser } from "./ArgsParser";
  * 
  * Note: This was the first way I thought to implement this
  * but I think there is a better way, I am going to iterate
- * on this.
+ * on this. This approach does not identify syntax errors 
+ * properly.
  * 
  * The actual commands are very simple in this language
  * because I am always following the format shown below:
@@ -49,6 +50,15 @@ export class DalParser {
         } while (++this.currPos < this.tokens.length);
     }
 
+    /**
+     * Process the current token.
+     * 
+     * RBRACE indicates current block is over.
+     * behavior and if are blocks and have a body
+     * design is a statement.
+     * 
+     * @param {String} token 
+     */
     processToken(token) {
         let output;
         if (token.type === "RBRACE") {
@@ -63,59 +73,86 @@ export class DalParser {
         }
     }
 
+    /**
+     * Processes the behavior block.
+     * 
+     * behavior <behavior_name>(args1, arg2...argN) {
+     * 
+     * }
+     */
     processBehavior () {
-        console.log("Processing behavior keyword");
-
-        let token = this.tokens[++this.currPos];
-        const behaviorName = token.value;
-
-        const args = this.getArgs()
-        const parsedArgs = new ArgsParser(args).run();
-        
-        // Left Brace
-        token = this.tokens[++this.currPos];
-
+        const behaviorName = this.tokens[++this.currPos].value;
+        const parsedArgs = new ArgsParser(this.getArgs()).run();
         const node = {
             type: "behavior",
             behaviorName: behaviorName,
             args: parsedArgs,
             body: []
         }
-
         this.stack.push(node)
     }
 
+    /**
+     * Processes if block.
+     * 
+     * if (condition) {
+     * 
+     * }
+     */
     processIf () {
-        const args = this.getArgs()
-        const parsedArgs = new ArgsParser(args).run();
-        
-        // Left Brace
-        const token = this.tokens[++this.currPos];
-
+        const parsedArgs = new ArgsParser(this.getArgs()).run();
         const node = {
             type: "if",
             args: parsedArgs,
             body: []
         }
-
         this.stack.push(node)
     }
 
+    /**
+     * Process design keyword.
+     * 
+     * design(<design_name>)
+     */
     processDesignKeyword () {
-        const args = this.getArgs()
-        const parsedArgs = new ArgsParser(args).run();
-
+        const parsedArgs = new ArgsParser(this.getArgs()).run();
         const node = {
             "type": "design",
             "design_name": parsedArgs
         }
-
         this.stack[this.stack.length - 1].body.push(node); 
     }
 
+    /**
+     * Parse the args.
+     * 
+     * command("test",varName, 123,["count"])
+     * 
+     * "args": [
+     *      {
+     *          "type": "string",
+     *          "value": "test"
+     *      },
+     *      {
+     *           "type": "name",
+     *          "value": "varName"
+     *      },
+     *      {
+     *          "type": "number",
+     *          "value": 123
+     *      },
+     *      {
+     *          "type": "list",
+     *          "value": [
+     *              "count"
+     *          ]
+     *      }
+     *  ]
+     * 
+     * @returns {Object} Returns the processed args.
+     */
     getArgs () {
         const token = this.tokens[++this.currPos];
-        console.log(token);
         if (token.type !== "LPAREN") {
             throw new Error("Expected LPAREN, Syntax error")
         }
