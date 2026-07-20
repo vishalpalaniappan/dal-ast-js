@@ -1,0 +1,35 @@
+{
+    "type": "root",
+    "body": [
+        {
+            "type": "design",
+            "design_name": [
+                {
+                    "type": "string",
+                    "value": "lexer"
+                }
+            ]
+        },
+        {
+            "type": "behavior",
+            "behaviorName": "sample",
+            "args": [
+                {
+                    "type": "string",
+                    "value": "test"
+                }
+            ],
+            "body": [
+                {
+                    "type": "design",
+                    "design_name": [
+                        {
+                            "type": "string",
+                            "value": "lexer"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

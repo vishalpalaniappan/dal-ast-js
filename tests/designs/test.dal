@@ -1,10 +1,5 @@
-design ("lexer", asf["asf"], 1.234, 234, ["time","apple"], {"a":1})
+design ("lexer")
 
 behavior sample("test") {
-    set("book",["name"],"Harry Potter")
-    get("name")
-}
-
-behavior sample2("test3") {
-    
+    design ("lexer")
 }

@@ -18,7 +18,12 @@ describe("Lexer", () => {
             JSON.stringify(lexer.scannedTokens, null, 4)
         );
 
-        const tree = new DalParser(lexer.scannedTokens);
+        const parser = new DalParser(lexer.scannedTokens);
+        const ast_output_path = resolve(__dirname, "./output/ast.json")
+        await writeFile(
+            ast_output_path,
+            JSON.stringify(parser.ast, null, 4)
+        );
     });
 
 });
