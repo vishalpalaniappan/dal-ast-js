@@ -147,10 +147,98 @@
         "endColno": 20
     },
     {
+        "type": "IDENTIFIER",
+        "value": "if",
+        "startLineno": 6,
+        "startColno": 5,
+        "endLineno": 6,
+        "endColno": 6
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 6,
+        "startColno": 8,
+        "endLineno": 6,
+        "endColno": 8
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "isEqual",
+        "startLineno": 6,
+        "startColno": 9,
+        "endLineno": 6,
+        "endColno": 15
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 6,
+        "startColno": 16,
+        "endLineno": 6,
+        "endColno": 16
+    },
+    {
+        "type": "LBRACE",
+        "startLineno": 6,
+        "startColno": 18,
+        "endLineno": 6,
+        "endColno": 18
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "design",
+        "startLineno": 7,
+        "startColno": 9,
+        "endLineno": 7,
+        "endColno": 14
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 7,
+        "startColno": 16,
+        "endLineno": 7,
+        "endColno": 16
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 7,
+        "startColno": 17,
+        "endLineno": 7,
+        "endColno": 17
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "test",
+        "startLineno": 7,
+        "startColno": 18,
+        "endLineno": 7,
+        "endColno": 21
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 7,
+        "startColno": 22,
+        "endLineno": 7,
+        "endColno": 22
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 7,
+        "startColno": 23,
+        "endLineno": 7,
+        "endColno": 23
+    },
+    {
         "type": "RBRACE",
-        "startLineno": 5,
+        "startLineno": 8,
+        "startColno": 5,
+        "endLineno": 8,
+        "endColno": 5
+    },
+    {
+        "type": "RBRACE",
+        "startLineno": 9,
         "startColno": 1,
-        "endLineno": 5,
+        "endLineno": 9,
         "endColno": 1
     }
 ]

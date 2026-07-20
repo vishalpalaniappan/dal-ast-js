@@ -2,4 +2,8 @@ design ("lexer")
 
 behavior sample("test") {
     design ("lexer")
+
+    if (isEqual) {
+        design ("test")
+    }
 }

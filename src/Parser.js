@@ -54,6 +54,8 @@ export class DalParser {
             this.processDesignKeyword();
         } else  if (token.value === "behavior") {
             this.processBehavior();
+        }else  if (token.value === "if") {
+            this.processIf();
         }
     }
 
@@ -88,6 +90,25 @@ export class DalParser {
         this.stack.push(node)
     }
 
+    processIf () {
+        console.log("Processing if keyword");
+        const grammar = this.getGrammar("if");
+
+        const args = this.getArgs()
+        const parsedArgs = new ArgsParser(args).run();
+        
+        // Left Brace
+        const token = this.tokens[++this.currPos];
+
+        const node = {
+            type: "if",
+            args: parsedArgs,
+            body: []
+        }
+
+        this.stack.push(node)
+    }
+
     processDesignKeyword () {
         console.log("Processing design keyword");
         const grammar = this.getGrammar("design");
@@ -105,6 +126,7 @@ export class DalParser {
 
     getArgs () {
         const token = this.tokens[++this.currPos];
+        console.log(token);
         if (token.type !== "LPAREN") {
             throw new Error("Expected LPAREN, Syntax error")
         }

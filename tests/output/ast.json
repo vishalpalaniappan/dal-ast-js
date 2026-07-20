@@ -28,6 +28,26 @@
                             "value": "lexer"
                         }
                     ]
+                },
+                {
+                    "type": "if",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "isEqual"
+                        }
+                    ],
+                    "body": [
+                        {
+                            "type": "design",
+                            "design_name": [
+                                {
+                                    "type": "string",
+                                    "value": "test"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
