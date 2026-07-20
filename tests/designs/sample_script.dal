@@ -1,4 +1,4 @@
-design ("add_book_to_basket")
+design("add_book_to_basket")
 
 behavior createBasket() {
     create(name=basket, type="list", role="basket")
@@ -23,6 +23,7 @@ behavior addBookToBasket() {
     get(book, worldState, ["book"])
     get(basket, worldState, ["basket"])
     insert(basket, book, 0)
+    set(basket, worldState, ["basket"])
     select getName
 }
 
