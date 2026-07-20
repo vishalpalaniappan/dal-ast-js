@@ -1,0 +1,131 @@
+{
+    "type": "root",
+    "body": [
+        {
+            "type": "design",
+            "design_name": [
+                {
+                    "type": "string",
+                    "value": "lexer"
+                }
+            ]
+        },
+        {
+            "type": "behavior",
+            "behaviorName": "sample",
+            "args": [
+                {
+                    "type": "string",
+                    "value": "test"
+                }
+            ],
+            "body": [
+                {
+                    "type": "design",
+                    "design_name": [
+                        {
+                            "type": "string",
+                            "value": "lexer"
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "isEqual"
+                        }
+                    ],
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "add",
+                            "args": [
+                                {
+                                    "type": "number",
+                                    "value": 1
+                                },
+                                {
+                                    "type": "number",
+                                    "value": 2
+                                }
+                            ]
+                        }
+                    ],
+                    "else": {
+                        "type": "else",
+                        "body": [
+                            {
+                                "type": "cmd",
+                                "command": "subtract",
+                                "args": [
+                                    {
+                                        "type": "number",
+                                        "value": 1
+                                    },
+                                    {
+                                        "type": "number",
+                                        "value": 2
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "for",
+                    "participant": {
+                        "type": "name",
+                        "value": "counter"
+                    },
+                    "start": {
+                        "type": "number",
+                        "value": 0
+                    },
+                    "end": {
+                        "type": "number",
+                        "value": 10
+                    },
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "square",
+                            "args": [
+                                {
+                                    "type": "name",
+                                    "value": "counter"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "while",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "condition"
+                        }
+                    ],
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "customCommand",
+                            "args": [
+                                {
+                                    "type": "string",
+                                    "value": "arg1"
+                                },
+                                {
+                                    "type": "string",
+                                    "value": "arg2"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
