@@ -1,7 +1,7 @@
 design("add_book_to_basket")
 
 behavior createBasket() {
-    create(name=basket, type="list", role="basket")
+    create(name=basket, type="list", role="basket", accepts="book")
     select getName
 }
 
