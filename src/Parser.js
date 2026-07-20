@@ -1,5 +1,4 @@
 import KEYWORDS from "./KEYWORDS";
-import grammar from "./grammar.json"
 import { ArgsParser } from "./ArgsParser";
 
 /**
@@ -57,24 +56,15 @@ export class DalParser {
             this.stack[this.stack.length - 1].body.push(node); 
         } else if (token.value === "design") {
             this.processDesignKeyword();
-        } else  if (token.value === "behavior") {
+        } else if (token.value === "behavior") {
             this.processBehavior();
-        }else  if (token.value === "if") {
+        } else if (token.value === "if") {
             this.processIf();
-        }
-    }
-
-    getGrammar(keyword) {
-        for (const entry of grammar) {
-            if (entry.value === keyword) {
-                return entry;
-            }
         }
     }
 
     processBehavior () {
         console.log("Processing behavior keyword");
-        const grammar = this.getGrammar("behavior");
 
         let token = this.tokens[++this.currPos];
         const behaviorName = token.value;
@@ -96,9 +86,6 @@ export class DalParser {
     }
 
     processIf () {
-        console.log("Processing if keyword");
-        const grammar = this.getGrammar("if");
-
         const args = this.getArgs()
         const parsedArgs = new ArgsParser(args).run();
         
@@ -115,9 +102,6 @@ export class DalParser {
     }
 
     processDesignKeyword () {
-        console.log("Processing design keyword");
-        const grammar = this.getGrammar("design");
-
         const args = this.getArgs()
         const parsedArgs = new ArgsParser(args).run();
 
