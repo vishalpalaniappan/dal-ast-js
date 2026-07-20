@@ -12,4 +12,8 @@ behavior sample("test") {
     for (counter, 0, 10) {
         square (counter)
     }
+
+    while (condition) {
+        customCommand ("arg1", "arg2")
+    }
 }

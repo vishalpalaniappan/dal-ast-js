@@ -407,10 +407,127 @@
         "endColno": 5
     },
     {
+        "type": "IDENTIFIER",
+        "value": "while",
+        "startLineno": 16,
+        "startColno": 5,
+        "endLineno": 16,
+        "endColno": 9
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 16,
+        "startColno": 11,
+        "endLineno": 16,
+        "endColno": 11
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "condition",
+        "startLineno": 16,
+        "startColno": 12,
+        "endLineno": 16,
+        "endColno": 20
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 16,
+        "startColno": 21,
+        "endLineno": 16,
+        "endColno": 21
+    },
+    {
+        "type": "LBRACE",
+        "startLineno": 16,
+        "startColno": 23,
+        "endLineno": 16,
+        "endColno": 23
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "customCommand",
+        "startLineno": 17,
+        "startColno": 9,
+        "endLineno": 17,
+        "endColno": 21
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 17,
+        "startColno": 23,
+        "endLineno": 17,
+        "endColno": 23
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 17,
+        "startColno": 24,
+        "endLineno": 17,
+        "endColno": 24
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "arg1",
+        "startLineno": 17,
+        "startColno": 25,
+        "endLineno": 17,
+        "endColno": 28
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 17,
+        "startColno": 29,
+        "endLineno": 17,
+        "endColno": 29
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 17,
+        "startColno": 30,
+        "endLineno": 17,
+        "endColno": 30
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 17,
+        "startColno": 32,
+        "endLineno": 17,
+        "endColno": 32
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "arg2",
+        "startLineno": 17,
+        "startColno": 33,
+        "endLineno": 17,
+        "endColno": 36
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 17,
+        "startColno": 37,
+        "endLineno": 17,
+        "endColno": 37
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 17,
+        "startColno": 38,
+        "endLineno": 17,
+        "endColno": 38
+    },
+    {
         "type": "RBRACE",
-        "startLineno": 15,
+        "startLineno": 18,
+        "startColno": 5,
+        "endLineno": 18,
+        "endColno": 5
+    },
+    {
+        "type": "RBRACE",
+        "startLineno": 19,
         "startColno": 1,
-        "endLineno": 15,
+        "endLineno": 19,
         "endColno": 1
     }
 ]

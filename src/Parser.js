@@ -73,6 +73,8 @@ export class DalParser {
             this.processElse();
         } else if (token.value === "for") {
             this.processFor();
+        } else if (token.value === "while") {
+            this.processWhile();
         }else if (token.type === "IDENTIFIER") {
             this.processCmd(token.value);
         }
@@ -133,6 +135,23 @@ export class DalParser {
         const parsedArgs = new ArgsParser(this.getArgs()).run();
         const node = {
             type: "if",
+            args: parsedArgs,
+            body: []
+        }
+        this.stack.push(node)
+    }
+
+    /**
+     * Processes while block.
+     * 
+     * while (condition) {
+     * 
+     * }
+     */
+    processWhile () {
+        const parsedArgs = new ArgsParser(this.getArgs()).run();
+        const node = {
+            type: "while",
             args: parsedArgs,
             body: []
         }

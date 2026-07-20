@@ -99,6 +99,31 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "while",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "condition"
+                        }
+                    ],
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "customCommand",
+                            "args": [
+                                {
+                                    "type": "string",
+                                    "value": "arg1"
+                                },
+                                {
+                                    "type": "string",
+                                    "value": "arg2"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }

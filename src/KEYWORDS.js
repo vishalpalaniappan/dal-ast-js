@@ -3,7 +3,8 @@ let KEYWORDS = [
     "behavior",
     "if",
     "else",
-    "for"
+    "for",
+    "while"
 ]
 KEYWORDS = Object.freeze(KEYWORDS);
 
