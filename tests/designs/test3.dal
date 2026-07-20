@@ -1,0 +1,7 @@
+design ("lexer")
+
+behavior sample(a,b) {
+    while (isValid) {
+        design ("test")
+    }
+}
