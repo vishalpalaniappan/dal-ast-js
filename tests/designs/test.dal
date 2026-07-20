@@ -5,5 +5,7 @@ behavior sample("test") {
 
     if (isEqual) {
         add (1,2)
+    } else {
+        subtract(1,2)
     }
 }

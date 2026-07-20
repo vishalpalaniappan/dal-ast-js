@@ -62,16 +62,42 @@ export class DalParser {
     processToken(token) {
         let output;
         if (token.type === "RBRACE") {
-            const node = this.stack.pop();
-            this.stack[this.stack.length - 1].body.push(node); 
+            this.closeBlock();
         } else if (token.value === "design") {
             this.processDesignKeyword();
         } else if (token.value === "behavior") {
             this.processBehavior();
         } else if (token.value === "if") {
             this.processIf();
+        } else if (token.value === "else") {
+            this.processElse();
         } else if (token.type === "IDENTIFIER") {
             this.processCmd(token.value);
+        }
+    }
+
+
+    /**
+     * Closes the nested block by removing it from
+     * the top of the stack and adding it to the new
+     * node at the top of the stack.
+     * 
+     * It uses the RBRACE identifier to determine if
+     * the top block is closed. 
+     * 
+     * For if statements, it appends the elif and else
+     * blocks to the if block that was already processed
+     * so that they can be synthesized in a single AST node.
+     */
+    closeBlock () {
+        const node = this.stack.pop();
+
+        if (node.type === "else") {
+            const body = this.stack[this.stack.length - 1].body;
+            const ifNode = body[body.length - 1]
+            ifNode["else"] = node;
+        } else {
+            this.stack[this.stack.length - 1].body.push(node); 
         }
     }
 
@@ -106,6 +132,21 @@ export class DalParser {
         const node = {
             type: "if",
             args: parsedArgs,
+            body: []
+        }
+        this.stack.push(node)
+    }
+
+    /**
+     * Processes else block.
+     * 
+     * else (condition) {
+     * 
+     * }
+     */
+    processElse () {
+        const node = {
+            type: "else",
             body: []
         }
         this.stack.push(node)

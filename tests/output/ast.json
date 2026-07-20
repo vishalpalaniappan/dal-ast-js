@@ -52,7 +52,26 @@
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "else": {
+                        "type": "else",
+                        "body": [
+                            {
+                                "type": "cmd",
+                                "command": "subtract",
+                                "args": [
+                                    {
+                                        "type": "number",
+                                        "value": 1
+                                    },
+                                    {
+                                        "type": "number",
+                                        "value": 2
+                                    }
+                                ]
+                            }
+                        ]
+                    }
                 }
             ]
         }
