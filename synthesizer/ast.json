@@ -15,17 +15,32 @@
             "behaviorName": "sample",
             "args": [
                 {
-                    "type": "string",
-                    "value": "test"
+                    "type": "name",
+                    "value": "a"
+                },
+                {
+                    "type": "name",
+                    "value": "b"
                 }
             ],
             "body": [
                 {
-                    "type": "design",
-                    "design_name": [
+                    "type": "while",
+                    "args": [
                         {
-                            "type": "string",
-                            "value": "lexer"
+                            "type": "name",
+                            "value": "isValid"
+                        }
+                    ],
+                    "body": [
+                        {
+                            "type": "design",
+                            "design_name": [
+                                {
+                                    "type": "string",
+                                    "value": "test"
+                                }
+                            ]
                         }
                     ]
                 }

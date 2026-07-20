@@ -1,4 +1,5 @@
 design = 'lexer'
 
 def behavior(worldState):
-    design = 'lexer'
+    while isValid:
+        design = 'test'

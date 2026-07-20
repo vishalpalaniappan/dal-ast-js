@@ -77,6 +77,12 @@ class Synthesizer:
                 ],
                 value=ast.Constant(value=dalAstNode["design_name"][0]["value"])
             )
+        elif (dalAstNode["type"] == "while"):
+            return ast.While(
+                test=ast.Name(id=dalAstNode["args"][0]["value"], ctx=ast.Load()),
+                body=[],
+                orelse=[]
+            )
 
 
     
