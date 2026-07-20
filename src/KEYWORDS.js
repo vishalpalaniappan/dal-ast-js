@@ -1,6 +1,7 @@
 let KEYWORDS = [
     "design",
-    "behavior"
+    "behavior",
+    "if"
 ]
 KEYWORDS = Object.freeze(KEYWORDS);
 
