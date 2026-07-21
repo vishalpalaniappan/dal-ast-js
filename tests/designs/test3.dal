@@ -1,6 +1,7 @@
 design ("lexer")
 
 behavior sample(a,b) {
+    getInput(name)
     while (isValid) {
         design ("reusing commands I support")
     }

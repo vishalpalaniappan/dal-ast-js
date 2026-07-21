@@ -25,6 +25,16 @@
             ],
             "body": [
                 {
+                    "type": "cmd",
+                    "command": "getInput",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "name"
+                        }
+                    ]
+                },
+                {
                     "type": "while",
                     "args": [
                         {

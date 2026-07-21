@@ -34,12 +34,13 @@ class Synthesizer:
         '''
         self.printTree(indent, dalAstNode["type"])
         astNodeBody = self.getAstNode(dalAstNode)
-        ast.fix_missing_locations(astNodeBody)
-        astOut.body.append(astNodeBody)
+        if astNodeBody:
+            ast.fix_missing_locations(astNodeBody)
+            astOut.body.append(astNodeBody)
         
-        if "body" in dalAstNode:
-            for node in dalAstNode["body"]:
-                self.processTree(node, astNodeBody, indent + 1)
+            if "body" in dalAstNode:
+                for node in dalAstNode["body"]:
+                    self.processTree(node, astNodeBody, indent + 1)
 
     def printTree(self, indent, value):
         '''
@@ -83,6 +84,19 @@ class Synthesizer:
                 body=[],
                 orelse=[]
             )
+        elif (dalAstNode["type"] == "cmd"):
+            if (dalAstNode["command"] == "getInput"):
+                name = dalAstNode["args"][0]["value"]
+                return ast.Assign(
+                    targets=[
+                        ast.Name(id=name, ctx=ast.Store())
+                    ],
+                    value=ast.Call(
+                        func=ast.Name(id="input", ctx=ast.Load()),
+                        args=[],
+                        keywords=[]
+                    )
+                )
 
 
     
