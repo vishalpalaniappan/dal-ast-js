@@ -2,6 +2,12 @@ design ("lexer")
 
 behavior sample(a,b) {
     while (isValid) {
-        design ("test")
+        design ("reusing commands I support")
+    }
+}
+
+behavior sample2(test) {
+    while (notDone) {
+        design ("reusing commands I support")
     }
 }

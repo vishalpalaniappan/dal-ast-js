@@ -38,7 +38,39 @@
                             "design_name": [
                                 {
                                     "type": "string",
-                                    "value": "test"
+                                    "value": "reusing commands I support"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "behavior",
+            "behaviorName": "sample2",
+            "args": [
+                {
+                    "type": "name",
+                    "value": "test"
+                }
+            ],
+            "body": [
+                {
+                    "type": "while",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "notDone"
+                        }
+                    ],
+                    "body": [
+                        {
+                            "type": "design",
+                            "design_name": [
+                                {
+                                    "type": "string",
+                                    "value": "reusing commands I support"
                                 }
                             ]
                         }
