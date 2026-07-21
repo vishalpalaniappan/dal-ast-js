@@ -7,7 +7,7 @@ import { DalParser } from "../src/Parser";
 
 describe("Lexer", () => {
     it("basic source", async () => {
-        const filePath = resolve(__dirname, "./designs/test3.dal")
+        const filePath = resolve(__dirname, "./designs/test.dal")
         const source = await readFile(filePath)
         const lexer = new DalLexer(source.toString());
 

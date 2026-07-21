@@ -13,130 +13,102 @@
         {
             "type": "behavior",
             "behaviorName": "sample",
-            "args": [
-                {
-                    "type": "name",
-                    "value": "a"
-                },
-                {
-                    "type": "name",
-                    "value": "b"
-                }
-            ],
             "body": [
                 {
-                    "type": "cmd",
-                    "command": "getInput",
-                    "args": [
+                    "type": "design",
+                    "design_name": [
                         {
-                            "type": "name",
-                            "value": "name"
+                            "type": "string",
+                            "value": "lexer"
                         }
                     ]
                 },
                 {
-                    "type": "cmd",
-                    "command": "set",
+                    "type": "if",
                     "args": [
                         {
                             "type": "name",
-                            "value": "isValid"
-                        },
-                        {
-                            "type": "list",
-                            "value": []
-                        },
-                        {
-                            "type": "name",
-                            "value": "true"
-                        }
-                    ]
-                },
-                {
-                    "type": "while",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "isValid"
+                            "value": "isEqual"
                         }
                     ],
                     "body": [
                         {
                             "type": "cmd",
-                            "command": "set",
+                            "command": "add",
+                            "args": [
+                                {
+                                    "type": "number",
+                                    "value": 1
+                                },
+                                {
+                                    "type": "number",
+                                    "value": 2
+                                }
+                            ]
+                        }
+                    ],
+                    "else": {
+                        "type": "else",
+                        "body": [
+                            {
+                                "type": "cmd",
+                                "command": "subtract",
+                                "args": [
+                                    {
+                                        "type": "number",
+                                        "value": 1
+                                    },
+                                    {
+                                        "type": "number",
+                                        "value": 2
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "for",
+                    "participant": {
+                        "type": "name",
+                        "value": "counter"
+                    },
+                    "start": {
+                        "type": "number",
+                        "value": 0
+                    },
+                    "end": {
+                        "type": "number",
+                        "value": 10
+                    },
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "square",
                             "args": [
                                 {
                                     "type": "name",
-                                    "value": "sampleVar"
-                                },
-                                {
-                                    "type": "list",
-                                    "value": []
-                                },
-                                {
-                                    "type": "string",
-                                    "value": "this is a string"
+                                    "value": "counter"
                                 }
                             ]
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "type": "behavior",
-            "behaviorName": "sample2",
-            "args": [
-                {
-                    "type": "name",
-                    "value": "test"
-                }
-            ],
-            "body": [
-                {
-                    "type": "cmd",
-                    "command": "set",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "notDone"
-                        },
-                        {
-                            "type": "list",
-                            "value": []
-                        },
-                        {
-                            "type": "name",
-                            "value": "false"
-                        }
-                    ]
                 },
                 {
                     "type": "while",
                     "args": [
                         {
                             "type": "name",
-                            "value": "notDone"
+                            "value": "condition"
                         }
                     ],
                     "body": [
                         {
-                            "type": "cmd",
-                            "command": "set",
-                            "args": [
+                            "type": "design",
+                            "design_name": [
                                 {
-                                    "type": "name",
-                                    "value": "sampleVar2"
-                                },
-                                {
-                                    "type": "list",
-                                    "value": []
-                                },
-                                {
-                                    "type": "list",
-                                    "value": [
-                                        "this is a list"
-                                    ]
+                                    "type": "string",
+                                    "value": "arg1"
                                 }
                             ]
                         }

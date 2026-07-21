@@ -60,59 +60,29 @@
         "endColno": 15
     },
     {
-        "type": "LPAREN",
-        "startLineno": 3,
-        "startColno": 16,
-        "endLineno": 3,
-        "endColno": 16
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "a",
+        "type": "LBRACE",
         "startLineno": 3,
         "startColno": 17,
         "endLineno": 3,
         "endColno": 17
     },
     {
-        "type": "COMMA",
-        "startLineno": 3,
-        "startColno": 18,
-        "endLineno": 3,
-        "endColno": 18
-    },
-    {
         "type": "IDENTIFIER",
-        "value": "b",
-        "startLineno": 3,
-        "startColno": 19,
-        "endLineno": 3,
-        "endColno": 19
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 3,
-        "startColno": 20,
-        "endLineno": 3,
-        "endColno": 20
-    },
-    {
-        "type": "LBRACE",
-        "startLineno": 3,
-        "startColno": 22,
-        "endLineno": 3,
-        "endColno": 22
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "getInput",
+        "value": "design",
         "startLineno": 4,
         "startColno": 5,
+        "endLineno": 4,
+        "endColno": 10
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 4,
+        "startColno": 12,
         "endLineno": 4,
         "endColno": 12
     },
     {
-        "type": "LPAREN",
+        "type": "QUOTE",
         "startLineno": 4,
         "startColno": 13,
         "endLineno": 4,
@@ -120,125 +90,66 @@
     },
     {
         "type": "IDENTIFIER",
-        "value": "name",
+        "value": "lexer",
         "startLineno": 4,
         "startColno": 14,
-        "endLineno": 4,
-        "endColno": 17
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 4,
-        "startColno": 18,
         "endLineno": 4,
         "endColno": 18
     },
     {
+        "type": "QUOTE",
+        "startLineno": 4,
+        "startColno": 19,
+        "endLineno": 4,
+        "endColno": 19
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 4,
+        "startColno": 20,
+        "endLineno": 4,
+        "endColno": 20
+    },
+    {
         "type": "IDENTIFIER",
-        "value": "set",
-        "startLineno": 5,
+        "value": "if",
+        "startLineno": 6,
         "startColno": 5,
-        "endLineno": 5,
-        "endColno": 7
+        "endLineno": 6,
+        "endColno": 6
     },
     {
         "type": "LPAREN",
-        "startLineno": 5,
+        "startLineno": 6,
         "startColno": 8,
-        "endLineno": 5,
+        "endLineno": 6,
         "endColno": 8
     },
     {
         "type": "IDENTIFIER",
-        "value": "isValid",
-        "startLineno": 5,
+        "value": "isEqual",
+        "startLineno": 6,
         "startColno": 9,
-        "endLineno": 5,
+        "endLineno": 6,
         "endColno": 15
     },
     {
-        "type": "COMMA",
-        "startLineno": 5,
+        "type": "RPAREN",
+        "startLineno": 6,
         "startColno": 16,
-        "endLineno": 5,
+        "endLineno": 6,
         "endColno": 16
-    },
-    {
-        "type": "LBRACKET",
-        "startLineno": 5,
-        "startColno": 17,
-        "endLineno": 5,
-        "endColno": 17
-    },
-    {
-        "type": "RBRACKET",
-        "startLineno": 5,
-        "startColno": 18,
-        "endLineno": 5,
-        "endColno": 18
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 5,
-        "startColno": 19,
-        "endLineno": 5,
-        "endColno": 19
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "true",
-        "startLineno": 5,
-        "startColno": 20,
-        "endLineno": 5,
-        "endColno": 23
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 5,
-        "startColno": 24,
-        "endLineno": 5,
-        "endColno": 24
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "while",
-        "startLineno": 6,
-        "startColno": 5,
-        "endLineno": 6,
-        "endColno": 9
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 6,
-        "startColno": 11,
-        "endLineno": 6,
-        "endColno": 11
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "isValid",
-        "startLineno": 6,
-        "startColno": 12,
-        "endLineno": 6,
-        "endColno": 18
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 6,
-        "startColno": 19,
-        "endLineno": 6,
-        "endColno": 19
     },
     {
         "type": "LBRACE",
         "startLineno": 6,
-        "startColno": 21,
+        "startColno": 18,
         "endLineno": 6,
-        "endColno": 21
+        "endColno": 18
     },
     {
         "type": "IDENTIFIER",
-        "value": "set",
+        "value": "add",
         "startLineno": 7,
         "startColno": 9,
         "endLineno": 7,
@@ -247,74 +158,39 @@
     {
         "type": "LPAREN",
         "startLineno": 7,
-        "startColno": 12,
-        "endLineno": 7,
-        "endColno": 12
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "sampleVar",
-        "startLineno": 7,
         "startColno": 13,
         "endLineno": 7,
-        "endColno": 21
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 7,
-        "startColno": 22,
-        "endLineno": 7,
-        "endColno": 22
-    },
-    {
-        "type": "LBRACKET",
-        "startLineno": 7,
-        "startColno": 23,
-        "endLineno": 7,
-        "endColno": 23
-    },
-    {
-        "type": "RBRACKET",
-        "startLineno": 7,
-        "startColno": 24,
-        "endLineno": 7,
-        "endColno": 24
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 7,
-        "startColno": 25,
-        "endLineno": 7,
-        "endColno": 25
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 7,
-        "startColno": 26,
-        "endLineno": 7,
-        "endColno": 26
+        "endColno": 13
     },
     {
         "type": "IDENTIFIER",
-        "value": "this is a string",
+        "value": "1",
         "startLineno": 7,
-        "startColno": 27,
+        "startColno": 14,
         "endLineno": 7,
-        "endColno": 42
+        "endColno": 14
     },
     {
-        "type": "QUOTE",
+        "type": "COMMA",
         "startLineno": 7,
-        "startColno": 43,
+        "startColno": 15,
         "endLineno": 7,
-        "endColno": 43
+        "endColno": 15
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "2",
+        "startLineno": 7,
+        "startColno": 16,
+        "endLineno": 7,
+        "endColno": 16
     },
     {
         "type": "RPAREN",
         "startLineno": 7,
-        "startColno": 44,
+        "startColno": 17,
         "endLineno": 7,
-        "endColno": 44
+        "endColno": 17
     },
     {
         "type": "RBRACE",
@@ -324,60 +200,75 @@
         "endColno": 5
     },
     {
-        "type": "RBRACE",
+        "type": "IDENTIFIER",
+        "value": "else",
+        "startLineno": 8,
+        "startColno": 7,
+        "endLineno": 8,
+        "endColno": 10
+    },
+    {
+        "type": "LBRACE",
+        "startLineno": 8,
+        "startColno": 12,
+        "endLineno": 8,
+        "endColno": 12
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "subtract",
         "startLineno": 9,
-        "startColno": 1,
+        "startColno": 9,
         "endLineno": 9,
-        "endColno": 1
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "behavior",
-        "startLineno": 11,
-        "startColno": 1,
-        "endLineno": 11,
-        "endColno": 8
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "sample2",
-        "startLineno": 11,
-        "startColno": 10,
-        "endLineno": 11,
         "endColno": 16
     },
     {
         "type": "LPAREN",
-        "startLineno": 11,
+        "startLineno": 9,
         "startColno": 17,
-        "endLineno": 11,
+        "endLineno": 9,
         "endColno": 17
     },
     {
         "type": "IDENTIFIER",
-        "value": "test",
-        "startLineno": 11,
+        "value": "1",
+        "startLineno": 9,
         "startColno": 18,
-        "endLineno": 11,
-        "endColno": 21
+        "endLineno": 9,
+        "endColno": 18
     },
     {
-        "type": "RPAREN",
-        "startLineno": 11,
-        "startColno": 22,
-        "endLineno": 11,
-        "endColno": 22
-    },
-    {
-        "type": "LBRACE",
-        "startLineno": 11,
-        "startColno": 24,
-        "endLineno": 11,
-        "endColno": 24
+        "type": "COMMA",
+        "startLineno": 9,
+        "startColno": 19,
+        "endLineno": 9,
+        "endColno": 19
     },
     {
         "type": "IDENTIFIER",
-        "value": "set",
+        "value": "2",
+        "startLineno": 9,
+        "startColno": 20,
+        "endLineno": 9,
+        "endColno": 20
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 9,
+        "startColno": 21,
+        "endLineno": 9,
+        "endColno": 21
+    },
+    {
+        "type": "RBRACE",
+        "startLineno": 10,
+        "startColno": 5,
+        "endLineno": 10,
+        "endColno": 5
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "for",
         "startLineno": 12,
         "startColno": 5,
         "endLineno": 12,
@@ -386,204 +277,192 @@
     {
         "type": "LPAREN",
         "startLineno": 12,
-        "startColno": 8,
+        "startColno": 9,
         "endLineno": 12,
-        "endColno": 8
+        "endColno": 9
     },
     {
         "type": "IDENTIFIER",
-        "value": "notDone",
+        "value": "counter",
         "startLineno": 12,
-        "startColno": 9,
-        "endLineno": 12,
-        "endColno": 15
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 12,
-        "startColno": 16,
+        "startColno": 10,
         "endLineno": 12,
         "endColno": 16
     },
     {
-        "type": "LBRACKET",
+        "type": "COMMA",
         "startLineno": 12,
         "startColno": 17,
         "endLineno": 12,
         "endColno": 17
     },
     {
-        "type": "RBRACKET",
-        "startLineno": 12,
-        "startColno": 18,
-        "endLineno": 12,
-        "endColno": 18
-    },
-    {
-        "type": "COMMA",
+        "type": "IDENTIFIER",
+        "value": "0",
         "startLineno": 12,
         "startColno": 19,
         "endLineno": 12,
         "endColno": 19
     },
     {
-        "type": "IDENTIFIER",
-        "value": "false",
+        "type": "COMMA",
         "startLineno": 12,
         "startColno": 20,
         "endLineno": 12,
-        "endColno": 24
+        "endColno": 20
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "10",
+        "startLineno": 12,
+        "startColno": 22,
+        "endLineno": 12,
+        "endColno": 23
     },
     {
         "type": "RPAREN",
         "startLineno": 12,
-        "startColno": 25,
+        "startColno": 24,
         "endLineno": 12,
-        "endColno": 25
+        "endColno": 24
+    },
+    {
+        "type": "LBRACE",
+        "startLineno": 12,
+        "startColno": 26,
+        "endLineno": 12,
+        "endColno": 26
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "square",
+        "startLineno": 13,
+        "startColno": 9,
+        "endLineno": 13,
+        "endColno": 14
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 13,
+        "startColno": 16,
+        "endLineno": 13,
+        "endColno": 16
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "counter",
+        "startLineno": 13,
+        "startColno": 17,
+        "endLineno": 13,
+        "endColno": 23
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 13,
+        "startColno": 24,
+        "endLineno": 13,
+        "endColno": 24
+    },
+    {
+        "type": "RBRACE",
+        "startLineno": 14,
+        "startColno": 5,
+        "endLineno": 14,
+        "endColno": 5
     },
     {
         "type": "IDENTIFIER",
         "value": "while",
-        "startLineno": 13,
+        "startLineno": 16,
         "startColno": 5,
-        "endLineno": 13,
+        "endLineno": 16,
         "endColno": 9
     },
     {
         "type": "LPAREN",
-        "startLineno": 13,
+        "startLineno": 16,
         "startColno": 11,
-        "endLineno": 13,
+        "endLineno": 16,
         "endColno": 11
     },
     {
         "type": "IDENTIFIER",
-        "value": "notDone",
-        "startLineno": 13,
+        "value": "condition",
+        "startLineno": 16,
         "startColno": 12,
-        "endLineno": 13,
-        "endColno": 18
+        "endLineno": 16,
+        "endColno": 20
     },
     {
         "type": "RPAREN",
-        "startLineno": 13,
-        "startColno": 19,
-        "endLineno": 13,
-        "endColno": 19
-    },
-    {
-        "type": "LBRACE",
-        "startLineno": 13,
+        "startLineno": 16,
         "startColno": 21,
-        "endLineno": 13,
+        "endLineno": 16,
         "endColno": 21
     },
     {
-        "type": "IDENTIFIER",
-        "value": "set",
-        "startLineno": 14,
-        "startColno": 9,
-        "endLineno": 14,
-        "endColno": 11
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 14,
-        "startColno": 12,
-        "endLineno": 14,
-        "endColno": 12
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "sampleVar2",
-        "startLineno": 14,
-        "startColno": 13,
-        "endLineno": 14,
-        "endColno": 22
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 14,
+        "type": "LBRACE",
+        "startLineno": 16,
         "startColno": 23,
-        "endLineno": 14,
+        "endLineno": 16,
         "endColno": 23
     },
     {
-        "type": "LBRACKET",
-        "startLineno": 14,
-        "startColno": 24,
-        "endLineno": 14,
-        "endColno": 24
+        "type": "IDENTIFIER",
+        "value": "design",
+        "startLineno": 17,
+        "startColno": 9,
+        "endLineno": 17,
+        "endColno": 14
     },
     {
-        "type": "RBRACKET",
-        "startLineno": 14,
-        "startColno": 25,
-        "endLineno": 14,
-        "endColno": 25
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 14,
-        "startColno": 26,
-        "endLineno": 14,
-        "endColno": 26
-    },
-    {
-        "type": "LBRACKET",
-        "startLineno": 14,
-        "startColno": 27,
-        "endLineno": 14,
-        "endColno": 27
+        "type": "LPAREN",
+        "startLineno": 17,
+        "startColno": 16,
+        "endLineno": 17,
+        "endColno": 16
     },
     {
         "type": "QUOTE",
-        "startLineno": 14,
-        "startColno": 28,
-        "endLineno": 14,
-        "endColno": 28
+        "startLineno": 17,
+        "startColno": 17,
+        "endLineno": 17,
+        "endColno": 17
     },
     {
         "type": "IDENTIFIER",
-        "value": "this is a list",
-        "startLineno": 14,
-        "startColno": 29,
-        "endLineno": 14,
-        "endColno": 42
+        "value": "arg1",
+        "startLineno": 17,
+        "startColno": 18,
+        "endLineno": 17,
+        "endColno": 21
     },
     {
         "type": "QUOTE",
-        "startLineno": 14,
-        "startColno": 43,
-        "endLineno": 14,
-        "endColno": 43
-    },
-    {
-        "type": "RBRACKET",
-        "startLineno": 14,
-        "startColno": 44,
-        "endLineno": 14,
-        "endColno": 44
+        "startLineno": 17,
+        "startColno": 22,
+        "endLineno": 17,
+        "endColno": 22
     },
     {
         "type": "RPAREN",
-        "startLineno": 14,
-        "startColno": 45,
-        "endLineno": 14,
-        "endColno": 45
+        "startLineno": 17,
+        "startColno": 23,
+        "endLineno": 17,
+        "endColno": 23
     },
     {
         "type": "RBRACE",
-        "startLineno": 15,
+        "startLineno": 18,
         "startColno": 5,
-        "endLineno": 15,
+        "endLineno": 18,
         "endColno": 5
     },
     {
         "type": "RBRACE",
-        "startLineno": 16,
+        "startLineno": 19,
         "startColno": 1,
-        "endLineno": 16,
+        "endLineno": 19,
         "endColno": 1
     }
 ]

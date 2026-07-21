@@ -1,6 +1,6 @@
 design ("lexer")
 
-behavior sample("test") {
+behavior sample {
     design ("lexer")
 
     if (isEqual) {
@@ -14,6 +14,6 @@ behavior sample("test") {
     }
 
     while (condition) {
-        customCommand ("arg1", "arg2")
+        design ("arg1")
     }
 }
