@@ -4,8 +4,9 @@ def sample(worldState):
     name = input()
     isValid = 'true'
     while isValid:
-        design = 'reusing commands I support'
+        sampleVar = 'this is a string'
 
 def sample2(worldState):
+    notDone = 'false'
     while notDone:
-        design = 'reusing commands I support'
+        sampleVar2 = ['this is a list']

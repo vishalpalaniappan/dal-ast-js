@@ -4,12 +4,13 @@ behavior sample(a,b) {
     getInput(name)
     set(isValid,[],true)
     while (isValid) {
-        design ("reusing commands I support")
+        set(sampleVar,[],"this is a string")
     }
 }
 
 behavior sample2(test) {
+    set(notDone,[],false)
     while (notDone) {
-        design ("reusing commands I support")
+        set(sampleVar2,[],["this is a list"])
     }
 }

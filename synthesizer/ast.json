@@ -62,11 +62,20 @@
                     ],
                     "body": [
                         {
-                            "type": "design",
-                            "design_name": [
+                            "type": "cmd",
+                            "command": "set",
+                            "args": [
+                                {
+                                    "type": "name",
+                                    "value": "sampleVar"
+                                },
+                                {
+                                    "type": "list",
+                                    "value": []
+                                },
                                 {
                                     "type": "string",
-                                    "value": "reusing commands I support"
+                                    "value": "this is a string"
                                 }
                             ]
                         }
@@ -85,6 +94,24 @@
             ],
             "body": [
                 {
+                    "type": "cmd",
+                    "command": "set",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "notDone"
+                        },
+                        {
+                            "type": "list",
+                            "value": []
+                        },
+                        {
+                            "type": "name",
+                            "value": "false"
+                        }
+                    ]
+                },
+                {
                     "type": "while",
                     "args": [
                         {
@@ -94,11 +121,22 @@
                     ],
                     "body": [
                         {
-                            "type": "design",
-                            "design_name": [
+                            "type": "cmd",
+                            "command": "set",
+                            "args": [
                                 {
-                                    "type": "string",
-                                    "value": "reusing commands I support"
+                                    "type": "name",
+                                    "value": "sampleVar2"
+                                },
+                                {
+                                    "type": "list",
+                                    "value": []
+                                },
+                                {
+                                    "type": "list",
+                                    "value": [
+                                        "this is a list"
+                                    ]
                                 }
                             ]
                         }
