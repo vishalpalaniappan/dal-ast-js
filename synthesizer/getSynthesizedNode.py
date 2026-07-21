@@ -9,9 +9,7 @@ def getSynthesizedNode(dalAstNode):
             name=dalAstNode["behaviorName"],
             args=ast.arguments(
                 posonlyargs=[],
-                args=[
-                    ast.arg(arg="worldState")
-                ],
+                args=[],
                 kwonlyargs=[],
                 kw_defaults=[],
                 defaults=[],
