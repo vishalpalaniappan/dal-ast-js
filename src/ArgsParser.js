@@ -52,6 +52,9 @@ export class ArgsParser {
     }
 
     run () {
+        if (this.tokens.length === 0) {
+            return this.parsedArgs;
+        }
         this.splitByComma(this.tokens);
         for (const group of this.groupedTokens) {
             this.parsedArgs.push(this.processGroup(group));
