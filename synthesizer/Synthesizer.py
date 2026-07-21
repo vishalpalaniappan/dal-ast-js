@@ -54,7 +54,7 @@ class Synthesizer:
         '''
         if (dalAstNode["type"] == "behavior"):
             return ast.FunctionDef(
-                name=dalAstNode["type"],
+                name=dalAstNode["behaviorName"],
                 args=ast.arguments(
                     posonlyargs=[],
                     args=[
