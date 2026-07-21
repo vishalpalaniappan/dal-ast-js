@@ -29,12 +29,14 @@ def getSynthesizedNode(dalAstNode):
             ],
             value=ast.Constant(value=dalAstNode["design_name"][0]["value"])
         )
+
     elif (dalAstNode["type"] == "while"):
         return ast.While(
             test=ast.Name(id=dalAstNode["args"][0]["value"], ctx=ast.Load()),
             body=[],
             orelse=[]
         )
+
     elif (dalAstNode["type"] == "cmd"):
         if (dalAstNode["command"] == "getInput"):
             name = dalAstNode["args"][0]["value"]
@@ -48,8 +50,8 @@ def getSynthesizedNode(dalAstNode):
                     keywords=[]
                 )
             )
+
         elif (dalAstNode["command"] == "set"):
-            print(dalAstNode["command"])
             name = dalAstNode["args"][0]["value"]
             value = dalAstNode["args"][2]["value"]
             return ast.Assign(

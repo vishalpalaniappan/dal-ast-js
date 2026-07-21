@@ -1,11 +1,13 @@
 import ast
+from pathlib import Path
 from getSynthesizedNode import getSynthesizedNode
+
 
 class Synthesizer:
     
     def __init__(self, dalAst):
         self.dalAst = dalAst
-        self.ast = ast.Module(
+        self.pythonAst = ast.Module(
             body=[],
             type_ignores=[]
         )
@@ -16,17 +18,13 @@ class Synthesizer:
         '''
         # Process each node in the DAL ast.
         for node in self.dalAst["body"]:
-            self.processTree(node, self.ast, 0)
+            self.processTree(node, self.pythonAst, 0)
 
-        src = ast.unparse(self.ast)
+        outputFile = Path(__file__).parent / "output" / "synthesized.py"
+        with open(outputFile,"w+") as f:
+            f.write(ast.unparse(self.pythonAst))
 
-        print("\nAST Output:\n------")
-        print(src)
-
-        with open("synthesized.py","w+") as f:
-            f.write(src)
-
-    def processTree(self, dalAstNode, astOut, indent):
+    def processTree(self, dalAstNode, pythonAstNode, indent):
         '''
             Process the tree node. If there is a body, process
             each node in the body.
@@ -37,7 +35,7 @@ class Synthesizer:
         astNodeBody = getSynthesizedNode(dalAstNode)
         if astNodeBody:
             ast.fix_missing_locations(astNodeBody)
-            astOut.body.append(astNodeBody)
+            pythonAstNode.body.append(astNodeBody)
         
             if "body" in dalAstNode:
                 for node in dalAstNode["body"]:
