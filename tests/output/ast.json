@@ -35,6 +35,24 @@
                     ]
                 },
                 {
+                    "type": "cmd",
+                    "command": "set",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "isValid"
+                        },
+                        {
+                            "type": "list",
+                            "value": []
+                        },
+                        {
+                            "type": "name",
+                            "value": "true"
+                        }
+                    ]
+                },
+                {
                     "type": "while",
                     "args": [
                         {

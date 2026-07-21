@@ -97,6 +97,16 @@ class Synthesizer:
                         keywords=[]
                     )
                 )
+            elif (dalAstNode["command"] == "set"):
+                print(dalAstNode["command"])
+                name = dalAstNode["args"][0]["value"]
+                value = dalAstNode["args"][2]["value"]
+                return ast.Assign(
+                    targets=[
+                        ast.Name(id=name, ctx=ast.Store())
+                    ],
+                    value=ast.Constant(value=value)
+                )
 
 
     

@@ -1,6 +1,8 @@
 design = 'lexer'
 
 def sample(worldState):
+    name = input()
+    isValid = 'true'
     while isValid:
         design = 'reusing commands I support'
 
