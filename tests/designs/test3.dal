@@ -1,6 +1,6 @@
 design ("lexer")
 
-behavior sample(a,b) {
+behavior sample {
     getInput(name)
     set(isValid,[],true)
     while (isValid) {
@@ -8,7 +8,7 @@ behavior sample(a,b) {
     }
 }
 
-behavior sample2(test) {
+behavior sample2 {
     set(notDone,[],false)
     while (notDone) {
         set(sampleVar2,[],["this is a list"])

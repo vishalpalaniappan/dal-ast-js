@@ -1,19 +1,19 @@
 design("add_book_to_basket")
 
-behavior createBasket() {
+behavior createBasket {
     create(name=basket, type="list", role="basket", accepts="book")
     set(worldState, ["basket"], basket)
     select getName
 }
 
-behavior getName() {
+behavior getName {
     create(name=name, type="string", role="name")
     getInput(name)
     set(worldState, ["name"], name)
     select createBook
 }
 
-behavior createBook() {
+behavior createBook {
     get(name, worldState, ["name"])
     create(name=book, type="object", role="book")
     set(book, ["name"], name)
@@ -21,7 +21,7 @@ behavior createBook() {
     select addBookToBasket
 }
 
-behavior addBookToBasket() {
+behavior addBookToBasket {
     get(book, worldState, ["book"])
     get(basket, worldState, ["basket"])
     insert(basket, book, 0)
