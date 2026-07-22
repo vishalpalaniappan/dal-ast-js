@@ -1,4 +1,5 @@
 import ast
+from helper import getVariableNameWithKeys
 
 def getSynthesizedNode(dalAstNode):
     '''
@@ -16,7 +17,11 @@ def getSynthesizedNode(dalAstNode):
                 vararg=None,
                 kwarg=None
             ),
-            body=[],
+            body=[
+                ast.Global(
+                    names=["worldState"]
+                )
+            ],
             decorator_list=[]
         )
 
@@ -51,10 +56,12 @@ def getSynthesizedNode(dalAstNode):
 
         elif (dalAstNode["command"] == "set"):
             name = dalAstNode["args"][0]["value"]
+            keys = dalAstNode["args"][1]["value"]
             value = dalAstNode["args"][2]["value"]
+            print(name, keys, value)
             return ast.Assign(
                 targets=[
-                    ast.Name(id=name, ctx=ast.Store())
+                    getVariableNameWithKeys(name, keys)
                 ],
                 value=ast.Constant(value=value)
             )
