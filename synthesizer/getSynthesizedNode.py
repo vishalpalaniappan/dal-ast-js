@@ -154,7 +154,7 @@ def getCmdGetAst(node):
     keys = node["args"][2]["value"]
     return ast.Assign(
         value=getVariableNameWithKeys(source, keys),
-        targets=[ast.Name(id=target, ctx=ast.Load())]
+        targets=[ast.Name(id=target, ctx=ast.Store())]
     )
 
 def getCmdSelectAst(node):
