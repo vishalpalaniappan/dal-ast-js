@@ -137,6 +137,11 @@ export class ArgsParser {
             value = parseFloat(value)
         } else {
             type = "name";
+            if (value === "true") {
+                value = true;
+            } else if (value === "false") {
+                value = false;
+            }
         }
 
         return {
