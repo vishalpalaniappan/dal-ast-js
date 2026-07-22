@@ -1,6 +1,6 @@
 ## Planning
 
-- Lexer tokensizes the script
+- Lexer tokenizes the script
 - Parser uses the grammar to build the AST.
 - Grammar establishes how to build tree from tokens.
 
