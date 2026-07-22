@@ -1,14 +1,11 @@
-design = 'lexer'
+design = 'library_manager'
 
-def sample():
+def createBasket():
+    global worldState
+    basket = []
+    worldState['basket'] = 'basket'
+
+def getName():
     global worldState
     name = input()
-    isValid['test'] = 'true'
-    while isValid:
-        sampleVar = 'this is a string'
-
-def sample2():
-    global worldState
-    notDone = 'false'
-    while notDone:
-        sampleVar2 = ['this is a list']
+    worldState['name'] = 'name'
