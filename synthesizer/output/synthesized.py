@@ -8,8 +8,7 @@ def createBasket():
 
 def getChoice():
     global worldState
-    choice = input('Get user choice (a for add book, g for get book, else exit)')
-    print(f'User Choice: {choice}')
+    choice = input('\nGet user choice (a(add book), g(get book), else exit): ')
     isAdd = choice == 'a'
     isGet = choice == 'g'
     worldState['choice'] = choice
@@ -26,7 +25,7 @@ def displayChoice():
 
 def getName():
     global worldState
-    name = input('Please enter book name')
+    name = input('\nPlease enter book name: ')
     worldState['name'] = name
     return 'createBook'
 

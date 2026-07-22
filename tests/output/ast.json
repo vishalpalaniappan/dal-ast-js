@@ -100,17 +100,7 @@
                         },
                         {
                             "type": "string",
-                            "value": "Get user choice (a for add book, g for get book, else exit)"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "display",
-                    "args": [
-                        {
-                            "type": "string",
-                            "value": "f'User Choice: {choice}'"
+                            "value": "\nGet user choice (a for add book, g for get book, else exit): "
                         }
                     ]
                 },
@@ -292,7 +282,7 @@
                         },
                         {
                             "type": "string",
-                            "value": "Please enter book name"
+                            "value": "\nPlease enter book name: "
                         }
                     ]
                 },
