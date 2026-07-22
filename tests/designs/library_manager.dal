@@ -35,7 +35,7 @@ behavior addBookToBasket {
 
 behavior showBasket {
     get(basket, worldState, ["basket"])
-    display(basket)
+    display("f'Basket Contents: {basket}'")
     select(getName)
 }
 

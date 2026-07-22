@@ -425,8 +425,8 @@
                     "command": "display",
                     "args": [
                         {
-                            "type": "name",
-                            "value": "basket"
+                            "type": "string",
+                            "value": "f'Basket Contents: {basket}'"
                         }
                     ]
                 },

@@ -1907,19 +1907,33 @@
         "endColno": 12
     },
     {
-        "type": "IDENTIFIER",
-        "value": "basket",
+        "type": "QUOTE",
         "startLineno": 38,
         "startColno": 13,
         "endLineno": 38,
-        "endColno": 18
+        "endColno": 13
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "f'Basket Contents: {basket}'",
+        "startLineno": 38,
+        "startColno": 14,
+        "endLineno": 38,
+        "endColno": 41
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 38,
+        "startColno": 42,
+        "endLineno": 38,
+        "endColno": 42
     },
     {
         "type": "RPAREN",
         "startLineno": 38,
-        "startColno": 19,
+        "startColno": 43,
         "endLineno": 38,
-        "endColno": 19
+        "endColno": 43
     },
     {
         "type": "IDENTIFIER",
