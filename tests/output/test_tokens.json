@@ -134,33 +134,55 @@
         "endColno": 17
     },
     {
-        "type": "RBRACKET",
+        "type": "QUOTE",
         "startLineno": 5,
         "startColno": 18,
         "endLineno": 5,
         "endColno": 18
     },
     {
-        "type": "COMMA",
+        "type": "IDENTIFIER",
+        "value": "test",
         "startLineno": 5,
         "startColno": 19,
         "endLineno": 5,
-        "endColno": 19
+        "endColno": 22
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 5,
+        "startColno": 23,
+        "endLineno": 5,
+        "endColno": 23
+    },
+    {
+        "type": "RBRACKET",
+        "startLineno": 5,
+        "startColno": 24,
+        "endLineno": 5,
+        "endColno": 24
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 5,
+        "startColno": 25,
+        "endLineno": 5,
+        "endColno": 25
     },
     {
         "type": "IDENTIFIER",
         "value": "true",
         "startLineno": 5,
-        "startColno": 20,
+        "startColno": 26,
         "endLineno": 5,
-        "endColno": 23
+        "endColno": 29
     },
     {
         "type": "RPAREN",
         "startLineno": 5,
-        "startColno": 24,
+        "startColno": 30,
         "endLineno": 5,
-        "endColno": 24
+        "endColno": 30
     },
     {
         "type": "IDENTIFIER",

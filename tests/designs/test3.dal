@@ -2,7 +2,7 @@ design ("lexer")
 
 behavior sample {
     getInput(name)
-    set(isValid,[],true)
+    set(isValid,["test"],true)
     while (isValid) {
         set(sampleVar,[],"this is a string")
     }
