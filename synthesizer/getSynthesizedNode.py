@@ -178,7 +178,7 @@ def getCmdIsEqualAst(node):
     '''
         Command: isEqual(choice, "a", isAdd)
 
-        Synthesized: isAdd = choice == isAdd
+        Synthesized: isAdd = choice == "a"
     '''
     output = node["args"][2]["value"]
 
