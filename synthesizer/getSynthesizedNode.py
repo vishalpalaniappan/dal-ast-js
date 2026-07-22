@@ -5,8 +5,8 @@ def getSynthesizedNode(node):
     '''
         Get the AST node given the dalAST metadata.
 
+        DAL Identifiers: get<Identifier>Ast
         Commands: getCmd<CommandName>Ast
-        Default: get<Primitive>Ast
     '''
     type = node["type"]
     if (type == "cmd"):
