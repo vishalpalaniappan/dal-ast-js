@@ -7,7 +7,7 @@ def getVariableNameWithKeys(name, keys):
         current = ast.Subscript(
             value=current,
             slice=ast.Constant(value=key),
-            ctx=ast.Load()
+            ctx=ast.Store()
         )
 
     return current
