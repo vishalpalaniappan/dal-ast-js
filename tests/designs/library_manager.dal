@@ -4,6 +4,13 @@ behavior createBasket {
     create(name=basket, type="list", role="basket", accepts="book")
     set("basket",[],[])
     set(worldState, ["basket"], basket)
+    select(getChoice)
+}
+
+behavior getChoice {
+    getInput(choice, "Get user choice (a for add book, g for get book)")
+    display("f'User Choice: {choice}'")
+    isEqual(choice, "a", isAdd)
     select(getName)
 }
 

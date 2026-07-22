@@ -80,6 +80,64 @@
                     "args": [
                         {
                             "type": "name",
+                            "value": "getChoice"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "behavior",
+            "behaviorName": "getChoice",
+            "body": [
+                {
+                    "type": "cmd",
+                    "command": "getInput",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "choice"
+                        },
+                        {
+                            "type": "string",
+                            "value": "Get user choice (a for add book, g for get book)"
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "display",
+                    "args": [
+                        {
+                            "type": "string",
+                            "value": "f'User Choice: {choice}'"
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "isEqual",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "choice"
+                        },
+                        {
+                            "type": "string",
+                            "value": "a"
+                        },
+                        {
+                            "type": "name",
+                            "value": "isAdd"
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "select",
+                    "args": [
+                        {
+                            "type": "name",
                             "value": "getName"
                         }
                     ]

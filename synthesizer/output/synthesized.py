@@ -4,6 +4,12 @@ def createBasket():
     global worldState
     basket = []
     worldState['basket'] = basket
+    return 'getChoice'
+
+def getChoice():
+    global worldState
+    choice = input('Get user choice (a for add book, g for get book)')
+    print(f'User Choice: {choice}')
     return 'getName'
 
 def getName():
