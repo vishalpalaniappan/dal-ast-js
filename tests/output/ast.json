@@ -230,7 +230,7 @@
                 },
                 {
                     "type": "cmd",
-                    "command": "getFromPos",
+                    "command": "removeFromPos",
                     "args": [
                         {
                             "type": "name",

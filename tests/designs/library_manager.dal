@@ -22,7 +22,7 @@ behavior getChoice {
 
 behavior getBookFromBasket {
     get(basket, worldState, ["basket"])
-    getFromPos(book, basket, 0)
+    removeFromPos(book, basket, 0)
     set(worldState, ["book"], book)
     select(getFirstLetterOfBookName)
 }

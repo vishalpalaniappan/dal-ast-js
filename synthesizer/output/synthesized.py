@@ -20,7 +20,7 @@ def getChoice():
 def getBookFromBasket():
     global worldState
     basket = worldState['basket']
-    book = basket[0]
+    book = basket.pop(0)
     worldState['book'] = book
     return 'getFirstLetterOfBookName'
 

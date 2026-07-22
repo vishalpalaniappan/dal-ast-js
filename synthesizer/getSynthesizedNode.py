@@ -237,6 +237,32 @@ def getCmdGetFromPosAst(node):
         )
     )
 
+def getCmdRemoveFromPosAst(node):
+    '''
+        Command: removeFromPos(book, basket, 0)
+
+        Synthesized:
+        book = basket(0)
+    '''
+    target = node["args"][0]["value"]
+    source = node["args"][1]["value"]
+    index = node["args"][2]["value"]
+
+    return ast.Assign(
+        targets=[
+            ast.Name(id=target, ctx=ast.Store())
+        ],
+        value=ast.Call(
+            func=ast.Attribute(
+                value=ast.Name(id=source, ctx=ast.Load()),
+                attr="pop",
+                ctx=ast.Load()
+            ),
+            args=[ast.Constant(value=index)],
+            keywords=[]
+        )
+    )
+
 
 def getCmdRunAst(node):
     '''
