@@ -143,3 +143,14 @@ def getCmdGetAst(node):
         value=getVariableNameWithKeys(source, keys),
         targets=[ast.Name(id=target, ctx=ast.Load())]
     )
+
+def getCmdSelectAst(node):
+    '''
+        Command: select(<nextBehavior>)
+
+        Synthesized: return <nextBehavior>
+    '''
+    returnValue = node["args"][0]["value"]
+    return ast.Return(
+        value=ast.Constant(value=returnValue)
+    )
