@@ -10,6 +10,7 @@ def getChoice():
     global worldState
     choice = input('Get user choice (a for add book, g for get book)')
     print(f'User Choice: {choice}')
+    isAdd = choice == 'a'
     return 'getName'
 
 def getName():

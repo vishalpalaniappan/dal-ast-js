@@ -174,6 +174,36 @@ def getCmdDisplayAst(node):
         )
     )
 
+def getCmdIsEqualAst(node):
+    '''
+        Command: isEqual(choice, "a", isAdd)
+
+        Synthesized: isAdd = choice == isAdd
+    '''
+    output = node["args"][2]["value"]
+
+    if (node["args"][0]["type"] == "name"):
+        cmp1 = ast.Name(id=node["args"][0]["value"], ctx=ast.Store())
+    else:
+        cmp1 = ast.Constant(value=node["args"][0]["value"])
+
+    if (node["args"][1]["type"] == "name"):
+        cmp2 = ast.Name(id=node["args"][1]["value"], ctx=ast.Store())
+    else:
+        cmp2 = ast.Constant(value=node["args"][1]["value"])
+
+    return ast.Assign(
+        targets=[
+            ast.Name(id=output, ctx=ast.Store())
+        ],
+        value=ast.Compare(
+            left=cmp1,
+            ops=[ast.Eq()],
+            comparators=[cmp2],
+        ),
+    )
+
+
 def getCmdRunAst(node):
     '''
         Command: run(<startBehavior>)
