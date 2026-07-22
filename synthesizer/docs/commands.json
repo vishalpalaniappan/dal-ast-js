@@ -1,0 +1,8 @@
+{
+    "set": {
+        "description": "set(<target>,<keys>,<value>)"
+    },
+    "create": {
+        "description": "create(<name>,<type>,<role>)"
+    }
+}
