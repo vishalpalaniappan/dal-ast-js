@@ -31,9 +31,16 @@ class Synthesizer:
 
             Writes the synthesized ast node to the ast tree.
         '''
-        self.printTree(indent, dalAstNode["type"])
+        # self.printTree(indent, dalAstNode["type"])
         astNodeBody = getSynthesizedNode(dalAstNode)
-        if astNodeBody:
+
+        if astNodeBody is None:
+            if dalAstNode['type'] == "cmd":
+                type = dalAstNode['type'] + "," + dalAstNode['command']
+            else:
+                type = dalAstNode['type']
+            print(f"Unable to synthesize node of type {type}")
+        else:
             ast.fix_missing_locations(astNodeBody)
             pythonAstNode.body.append(astNodeBody)
         
