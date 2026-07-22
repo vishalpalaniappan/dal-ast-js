@@ -9,9 +9,19 @@ behavior createBasket {
 
 behavior getName {
     create(name=name, type="string", role="name")
-    getInput(name)
+    getInput(name, "Please enter book name")
     set(worldState, ["name"], name)
     select(createBook)
+}
+
+behavior createBook {
+    get(name, worldState, ["name"])
+    create(name=book, type="object", role="book")
+    set(book, [], {})
+    set(book, ["name"], name)
+    set(worldState, ["book"], book)
+    remove(worldState, ["name"])
+    select(addBookToBasket)
 }
 
 behavior addBookToBasket {
@@ -22,3 +32,5 @@ behavior addBookToBasket {
     remove(worldState, ["book"])
     select(getName)
 }
+
+run(createBasket)

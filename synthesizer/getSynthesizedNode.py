@@ -74,13 +74,14 @@ def getCmdGetInputAst(node):
         <output> = input()
     '''
     name = node["args"][0]["value"]
+    prompt = node["args"][1]["value"]
     return  ast.Assign(
         targets=[
             ast.Name(id=name, ctx=ast.Store())
         ],
         value=ast.Call(
             func=ast.Name(id="input", ctx=ast.Load()),
-            args=[],
+            args=[ast.Constant(value=prompt)],
             keywords=[]
         )
     )
@@ -153,4 +154,74 @@ def getCmdSelectAst(node):
     returnValue = node["args"][0]["value"]
     return ast.Return(
         value=ast.Constant(value=returnValue)
+    )
+
+def getCmdRunAst(node):
+    '''
+        Command: run(<startBehavior>)
+
+        Synthesized:
+
+        if __name__ == "__main__":
+            nextBehavior = <startBehavior>
+            while nextBehavior:
+                nextBehavior = globals()[nextBehavior]()
+    '''
+    nextBehavior = node["args"][0]["value"]
+    return ast.If(
+        test=ast.Compare(
+            left=ast.Name(id="__name__", ctx=ast.Load()),
+            ops=[ast.Eq()],
+            comparators=[
+                ast.Constant(value="__main__")
+            ],
+        ),
+        body=[
+            ast.Assign(
+                targets=[
+                    ast.Name(id="nextBehavior", ctx=ast.Store())
+                ],
+                value=ast.Constant(value=nextBehavior),
+            ),
+            ast.Assign(
+                targets=[
+                    ast.Name(id="worldState", ctx=ast.Store())
+                ],
+                value=ast.Dict(
+                    keys=[],
+                    values=[]
+                )
+            ),
+            ast.While(
+                test=ast.Name(id="nextBehavior", ctx=ast.Load()),
+                body=[
+                    ast.Assign(
+                        targets=[
+                            ast.Name(id="nextBehavior", ctx=ast.Store())
+                        ],
+                        value=ast.Call(
+                            func=ast.Subscript(
+                                value=ast.Call(
+                                    func=ast.Name(
+                                        id="globals",
+                                        ctx=ast.Load(),
+                                    ),
+                                    args=[],
+                                    keywords=[],
+                                ),
+                                slice=ast.Name(
+                                    id="nextBehavior",
+                                    ctx=ast.Load(),
+                                ),
+                                ctx=ast.Load(),
+                            ),
+                            args=[],
+                            keywords=[],
+                        ),
+                    )
+                ],
+                orelse=[],
+            ),
+        ],
+        orelse=[],
     )

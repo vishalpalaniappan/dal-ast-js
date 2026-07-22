@@ -8,9 +8,17 @@ def createBasket():
 
 def getName():
     global worldState
-    name = input()
+    name = input('Please enter book name')
     worldState['name'] = name
     return 'createBook'
+
+def createBook():
+    global worldState
+    name = worldState['name']
+    book = {}
+    book['name'] = name
+    worldState['book'] = book
+    return 'addBookToBasket'
 
 def addBookToBasket():
     global worldState
@@ -19,3 +27,9 @@ def addBookToBasket():
     basket.insert(0, book)
     worldState['basket'] = basket
     return 'getName'
+
+if __name__ == '__main__':
+    nextBehavior = 'createBasket'
+    worldState = {}
+    while nextBehavior:
+        nextBehavior = globals()[nextBehavior]()

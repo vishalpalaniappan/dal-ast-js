@@ -115,6 +115,10 @@
                         {
                             "type": "name",
                             "value": "name"
+                        },
+                        {
+                            "type": "string",
+                            "value": "Please enter book name"
                         }
                     ]
                 },
@@ -145,6 +149,134 @@
                         {
                             "type": "name",
                             "value": "createBook"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "behavior",
+            "behaviorName": "createBook",
+            "body": [
+                {
+                    "type": "cmd",
+                    "command": "get",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "name"
+                        },
+                        {
+                            "type": "name",
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "name"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "create",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "name=book"
+                        },
+                        {
+                            "type": "name",
+                            "value": "type=\"object\""
+                        },
+                        {
+                            "type": "name",
+                            "value": "role=\"book\""
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "set",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "book"
+                        },
+                        {
+                            "type": "list",
+                            "value": []
+                        },
+                        {
+                            "type": "object",
+                            "value": {}
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "set",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "book"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "name"
+                            ]
+                        },
+                        {
+                            "type": "name",
+                            "value": "name"
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "set",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "book"
+                            ]
+                        },
+                        {
+                            "type": "name",
+                            "value": "book"
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "remove",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "name"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "select",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "addBookToBasket"
                         }
                     ]
                 }
@@ -261,6 +393,16 @@
                             "value": "getName"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "type": "cmd",
+            "command": "run",
+            "args": [
+                {
+                    "type": "name",
+                    "value": "createBasket"
                 }
             ]
         }
