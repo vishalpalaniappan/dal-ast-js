@@ -19,4 +19,8 @@ To run specific test case:
 npm run test tests/Lexer.test.js
 ```
 
-Once it is ready, I will publish to NPM and import into design workbench.
+This library will likely be integated into the workbench directly and will be maintaned there.
+
+# Synthesizer
+
+This repo also contains a synthesizer that can take the generated AST and synthesize it into an implementation.
