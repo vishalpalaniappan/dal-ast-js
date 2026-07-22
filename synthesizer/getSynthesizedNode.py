@@ -91,12 +91,18 @@ def getCmdSetAst(node):
     '''
     name = node["args"][0]["value"]
     keys = node["args"][1]["value"]
-    value = node["args"][2]["value"]
+    rawValue = node["args"][2]["value"]
+
+    if (node["args"][2]["type"] == "name"):
+        value = ast.Name(id=rawValue, ctx=ast.Store())
+    else:
+        value = ast.Constant(value=rawValue)
+
     return ast.Assign(
         targets=[
             getVariableNameWithKeys(name, keys)
         ],
-        value=ast.Constant(value=value)
+        value=value,
     )
 
 def getCmdInsertAst(node):
