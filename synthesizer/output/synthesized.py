@@ -26,8 +26,13 @@ def addBookToBasket():
     basket = worldState['basket']
     basket.insert(0, book)
     worldState['basket'] = basket
-    return 'getName'
+    return 'showBasket'
 
+def showBasket():
+    global worldState
+    basket = worldState['basket']
+    print(basket)
+    return 'getName'
 if __name__ == '__main__':
     nextBehavior = 'createBasket'
     worldState = {}

@@ -156,6 +156,23 @@ def getCmdSelectAst(node):
         value=ast.Constant(value=returnValue)
     )
 
+def getCmdDisplayAst(node):
+    '''
+        Command: display(<prompt>)
+
+        Synthesized: print(<prompt>)
+    '''
+    display = node["args"][0]["value"]
+    return ast.Expr(
+        value=ast.Call(
+            func=ast.Name(id="print", ctx=ast.Load()),
+            args=[
+                ast.Name(id=display, ctx=ast.Load())
+            ],
+            keywords=[]
+        )
+    )
+
 def getCmdRunAst(node):
     '''
         Command: run(<startBehavior>)

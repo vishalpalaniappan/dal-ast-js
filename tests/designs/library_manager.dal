@@ -30,6 +30,12 @@ behavior addBookToBasket {
     insert(basket, [], book, 0)
     set(worldState, ["basket"], basket)
     remove(worldState, ["book"])
+    select(showBasket)
+}
+
+behavior showBasket {
+    get(basket, worldState, ["basket"])
+    display(basket)
     select(getName)
 }
 

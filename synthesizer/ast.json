@@ -390,6 +390,52 @@
                     "args": [
                         {
                             "type": "name",
+                            "value": "showBasket"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "behavior",
+            "behaviorName": "showBasket",
+            "body": [
+                {
+                    "type": "cmd",
+                    "command": "get",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "basket"
+                        },
+                        {
+                            "type": "name",
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "basket"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "display",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "basket"
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "select",
+                    "args": [
+                        {
+                            "type": "name",
                             "value": "getName"
                         }
                     ]
