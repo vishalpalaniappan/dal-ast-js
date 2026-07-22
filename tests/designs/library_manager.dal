@@ -16,8 +16,24 @@ behavior getChoice {
         select(getName)
     }
     if (isGet) {
-        select(displayChoice)
+        select(getBookFromBasket)
     }
+}
+
+behavior getBookFromBasket {
+    get(basket, worldState, ["basket"])
+    getFromPos(book, basket, 0)
+    set(worldState, ["book"], book)
+    select(getFirstLetterOfBookName)
+}
+
+behavior getFirstLetterOfBookName {
+    get(book, worldState, ["book"])
+    get(name, book, ["name"])
+    getFromPos(firstLetter, name, 0)
+    display("f'Got book named {name} and it has first letter {firstLetter}'")
+    set(worldState, ["firstLetter"], firstLetter)
+    select(getChoice)
 }
 
 behavior displayChoice {

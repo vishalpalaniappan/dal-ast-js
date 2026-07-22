@@ -8,14 +8,30 @@ def createBasket():
 
 def getChoice():
     global worldState
-    choice = input('\nGet user choice (a(add book), g(get book), else exit): ')
+    choice = input('\nGet user choice (a for add book, g for get book, else exit): ')
     isAdd = choice == 'a'
     isGet = choice == 'g'
     worldState['choice'] = choice
     if isAdd:
         return 'getName'
     if isGet:
-        return 'displayChoice'
+        return 'getBookFromBasket'
+
+def getBookFromBasket():
+    global worldState
+    basket = worldState['basket']
+    book = basket[0]
+    worldState['book'] = book
+    return 'getFirstLetterOfBookName'
+
+def getFirstLetterOfBookName():
+    global worldState
+    book = worldState['book']
+    name = book['name']
+    firstLetter = name[0]
+    print(f'Got book named {name} and it has first letter {firstLetter}')
+    worldState['firstLetter'] = firstLetter
+    return 'getChoice'
 
 def displayChoice():
     global worldState

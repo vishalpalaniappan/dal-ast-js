@@ -215,6 +215,28 @@ def getCmdIsEqualAst(node):
         ),
     )
 
+def getCmdGetFromPosAst(node):
+    '''
+        Command: getFromPos(book, basket, 0)
+
+        Synthesized:
+        book = basket[0]
+    '''
+    target = node["args"][0]["value"]
+    source = node["args"][1]["value"]
+    index = node["args"][2]["value"]
+
+    return ast.Assign(
+        targets=[
+            ast.Name(id=target, ctx=ast.Store())
+        ],
+        value=ast.Subscript(
+            value=ast.Name(id=source, ctx=ast.Load()),
+            slice=ast.Constant(value=index),
+            ctx=ast.Load()
+        )
+    )
+
 
 def getCmdRunAst(node):
     '''

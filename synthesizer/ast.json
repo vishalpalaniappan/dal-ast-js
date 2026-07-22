@@ -196,9 +196,187 @@
                             "args": [
                                 {
                                     "type": "name",
-                                    "value": "displayChoice"
+                                    "value": "getBookFromBasket"
                                 }
                             ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "behavior",
+            "behaviorName": "getBookFromBasket",
+            "body": [
+                {
+                    "type": "cmd",
+                    "command": "get",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "basket"
+                        },
+                        {
+                            "type": "name",
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "basket"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "getFromPos",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "book"
+                        },
+                        {
+                            "type": "name",
+                            "value": "basket"
+                        },
+                        {
+                            "type": "number",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "set",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "book"
+                            ]
+                        },
+                        {
+                            "type": "name",
+                            "value": "book"
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "select",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "getFirstLetterOfBookName"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "behavior",
+            "behaviorName": "getFirstLetterOfBookName",
+            "body": [
+                {
+                    "type": "cmd",
+                    "command": "get",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "book"
+                        },
+                        {
+                            "type": "name",
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "book"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "get",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "name"
+                        },
+                        {
+                            "type": "name",
+                            "value": "book"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "name"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "getFromPos",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "firstLetter"
+                        },
+                        {
+                            "type": "name",
+                            "value": "name"
+                        },
+                        {
+                            "type": "number",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "display",
+                    "args": [
+                        {
+                            "type": "string",
+                            "value": "f'Got book named {name} and it has first letter {firstLetter}'"
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "set",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "firstLetter"
+                            ]
+                        },
+                        {
+                            "type": "name",
+                            "value": "firstLetter"
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "select",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "getChoice"
                         }
                     ]
                 }
