@@ -107,7 +107,7 @@ def getCmdSetAst(node):
     rawValue = node["args"][2]["value"]
 
     if (node["args"][2]["type"] == "name"):
-        value = ast.Name(id=rawValue, ctx=ast.Store())
+        value = ast.Name(id=rawValue, ctx=ast.Load())
     else:
         value = ast.Constant(value=rawValue)
 
