@@ -123,3 +123,17 @@ def getCmdInsertAst(node):
             keywords=[]
         )
     )
+
+def getCmdGetAst(node):
+    '''
+        Command: get(<target>, <source>, <keys>)
+
+        Synthesized: <target> = <source>[<keys>]
+    '''
+    target = node["args"][0]["value"]
+    source = node["args"][1]["value"]
+    keys = node["args"][2]["value"]
+    return ast.Assign(
+        value=getVariableNameWithKeys(source, keys),
+        targets=[ast.Name(id=target, ctx=ast.Load())]
+    )

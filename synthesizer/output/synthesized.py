@@ -12,5 +12,7 @@ def getName():
 
 def addBookToBasket():
     global worldState
+    book = worldState['book']
+    basket = worldState['basket']
     basket.insert(0, book)
     worldState['basket'] = 'basket'
