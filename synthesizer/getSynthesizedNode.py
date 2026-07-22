@@ -195,12 +195,12 @@ def getCmdIsEqualAst(node):
     output = node["args"][2]["value"]
 
     if (node["args"][0]["type"] == "name"):
-        cmp1 = ast.Name(id=node["args"][0]["value"], ctx=ast.Store())
+        cmp1 = ast.Name(id=node["args"][0]["value"], ctx=ast.Load())
     else:
         cmp1 = ast.Constant(value=node["args"][0]["value"])
 
     if (node["args"][1]["type"] == "name"):
-        cmp2 = ast.Name(id=node["args"][1]["value"], ctx=ast.Store())
+        cmp2 = ast.Name(id=node["args"][1]["value"], ctx=ast.Load())
     else:
         cmp2 = ast.Constant(value=node["args"][1]["value"])
 
