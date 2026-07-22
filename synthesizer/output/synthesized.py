@@ -8,10 +8,21 @@ def createBasket():
 
 def getChoice():
     global worldState
-    choice = input('Get user choice (a for add book, g for get book)')
+    choice = input('Get user choice (a for add book, g for get book, else exit)')
     print(f'User Choice: {choice}')
     isAdd = choice == 'a'
-    return 'getName'
+    isGet = choice == 'g'
+    worldState['choice'] = choice
+    if isAdd:
+        return 'getName'
+    if isGet:
+        return 'displayChoice'
+
+def displayChoice():
+    global worldState
+    choice = worldState['choice']
+    print(f'User Choice: {choice}')
+    return 'getChoice'
 
 def getName():
     global worldState
@@ -39,7 +50,7 @@ def showBasket():
     global worldState
     basket = worldState['basket']
     print(f'Basket Contents: {basket}')
-    return 'getName'
+    return 'getChoice'
 if __name__ == '__main__':
     nextBehavior = 'createBasket'
     worldState = {}

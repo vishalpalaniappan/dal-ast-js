@@ -8,10 +8,22 @@ behavior createBasket {
 }
 
 behavior getChoice {
-    getInput(choice, "Get user choice (a for add book, g for get book)")
-    display("f'User Choice: {choice}'")
+    getInput(choice, "Get user choice (a for add book, g for get book, else exit)")
     isEqual(choice, "a", isAdd)
-    select(getName)
+    isEqual(choice, "g", isGet)
+    set(worldState, ["choice"], choice)
+    if (isAdd) {
+        select(getName)
+    }
+    if (isGet) {
+        select(displayChoice)
+    }
+}
+
+behavior displayChoice {
+    get(choice, worldState, ["choice"])
+    display("f'User Choice: {choice}'")
+    select(getChoice)
 }
 
 behavior getName {
@@ -43,7 +55,7 @@ behavior addBookToBasket {
 behavior showBasket {
     get(basket, worldState, ["basket"])
     display("f'Basket Contents: {basket}'")
-    select(getName)
+    select(getChoice)
 }
 
 run(createBasket)

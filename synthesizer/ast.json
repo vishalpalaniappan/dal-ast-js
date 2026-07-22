@@ -100,7 +100,7 @@
                         },
                         {
                             "type": "string",
-                            "value": "Get user choice (a for add book, g for get book)"
+                            "value": "Get user choice (a for add book, g for get book, else exit)"
                         }
                     ]
                 },
@@ -134,11 +134,127 @@
                 },
                 {
                     "type": "cmd",
+                    "command": "isEqual",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "choice"
+                        },
+                        {
+                            "type": "string",
+                            "value": "g"
+                        },
+                        {
+                            "type": "name",
+                            "value": "isGet"
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "set",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "choice"
+                            ]
+                        },
+                        {
+                            "type": "name",
+                            "value": "choice"
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "isAdd"
+                        }
+                    ],
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "select",
+                            "args": [
+                                {
+                                    "type": "name",
+                                    "value": "getName"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "if",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "isGet"
+                        }
+                    ],
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "select",
+                            "args": [
+                                {
+                                    "type": "name",
+                                    "value": "displayChoice"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "behavior",
+            "behaviorName": "displayChoice",
+            "body": [
+                {
+                    "type": "cmd",
+                    "command": "get",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "choice"
+                        },
+                        {
+                            "type": "name",
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "choice"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "display",
+                    "args": [
+                        {
+                            "type": "string",
+                            "value": "f'User Choice: {choice}'"
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
                     "command": "select",
                     "args": [
                         {
                             "type": "name",
-                            "value": "getName"
+                            "value": "getChoice"
                         }
                     ]
                 }
@@ -494,7 +610,7 @@
                     "args": [
                         {
                             "type": "name",
-                            "value": "getName"
+                            "value": "getChoice"
                         }
                     ]
                 }

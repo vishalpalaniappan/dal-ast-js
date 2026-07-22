@@ -65,6 +65,18 @@ def getWhileAst(node):
         orelse=[]
     )
 
+def getIfAst(node):
+    '''
+        if <condition>:
+            <body>
+    '''
+    condition = node["args"][0]["value"]
+    return ast.If(
+        test=ast.Name(id=condition, ctx=ast.Load()),
+        body=[],
+        orelse=[],
+    )
+
 def getCmdGetInputAst(node):
     '''
         This is a registered synthesis. I am claiming
