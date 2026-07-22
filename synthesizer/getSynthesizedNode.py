@@ -1,21 +1,23 @@
 import ast
 from helper import getVariableNameWithKeys
 
-def getSynthesizedNode(dalAstNode):
+def getSynthesizedNode(node):
     '''
         Get the AST node given the dalAST metadata.
+
+        Commands: getCmd<CommandName>Ast
+        Default: get<Primitive>Ast
     '''
-    if (dalAstNode["type"] == "behavior"):
-        return getBehaviorAst(dalAstNode)
-    elif (dalAstNode["type"] == "design"):
-        return getDesignAst(dalAstNode)
-    elif (dalAstNode["type"] == "while"):
-        return getWhileAst(dalAstNode)
-    elif (dalAstNode["type"] == "cmd"):
-        if (dalAstNode["command"] == "getInput"):
-            return getCmdGetInputAst(dalAstNode)
-        elif (dalAstNode["command"] == "set"):
-            return getCmdSetAst(dalAstNode)
+    type = node["type"]
+    if (type == "cmd"):
+        cmd = node["command"]
+        funcName = f"getCmd{cmd[0].upper() +cmd[1:]}Ast"
+    else:
+        funcName = f"get{type[0].upper() +type[1:]}Ast"
+
+    if (funcName in globals()):
+        return globals()[funcName](node)
+
 
 def getBehaviorAst(node):
     '''
