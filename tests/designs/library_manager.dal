@@ -13,3 +13,12 @@ behavior getName {
     set(worldState, ["name"], name)
     select(createBook)
 }
+
+behavior addBookToBasket {
+    get(book, worldState, ["book"])
+    get(basket, worldState, ["basket"])
+    insert(basket, [], book, 0)
+    set(worldState, ["basket"], basket)
+    remove(worldState, ["book"])
+    select(getName)
+}

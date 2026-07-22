@@ -149,6 +149,120 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "behavior",
+            "behaviorName": "addBookToBasket",
+            "body": [
+                {
+                    "type": "cmd",
+                    "command": "get",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "book"
+                        },
+                        {
+                            "type": "name",
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "book"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "get",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "basket"
+                        },
+                        {
+                            "type": "name",
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "basket"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "insert",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "basket"
+                        },
+                        {
+                            "type": "list",
+                            "value": []
+                        },
+                        {
+                            "type": "name",
+                            "value": "book"
+                        },
+                        {
+                            "type": "number",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "set",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "basket"
+                            ]
+                        },
+                        {
+                            "type": "name",
+                            "value": "basket"
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "remove",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "book"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "select",
+                    "args": [
+                        {
+                            "type": "name",
+                            "value": "getName"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

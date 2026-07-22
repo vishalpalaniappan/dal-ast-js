@@ -9,3 +9,8 @@ def getName():
     global worldState
     name = input()
     worldState['name'] = 'name'
+
+def addBookToBasket():
+    global worldState
+    basket.insert(0, book)
+    worldState['basket'] = 'basket'
