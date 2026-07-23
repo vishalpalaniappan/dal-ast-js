@@ -18,6 +18,33 @@ def getSynthesizedNode(node):
     if (funcName in globals()):
         return globals()[funcName](node)
 
+def getCmdLogAst(node):
+    '''
+        log(<behavior>, <name>, <type>, <value>)
+
+        semanticLogger.logParticipant(<behavior>, <name>, <type>, <value>)
+    
+    '''
+    behavior = node["args"][0]["value"]
+    name = node["args"][0]["value"]
+    type = node["args"][0]["value"]
+    value = node["args"][0]["value"]
+    return ast.Expr(
+        value=ast.Call(
+            func=ast.Attribute(
+                value=ast.Name(id="semanticLogger", ctx=ast.Load()),
+                attr="logParticipant",
+                ctx=ast.Load(),
+            ),
+            args=[
+                ast.Constant(value=behavior),
+                ast.Constant(value=name),
+                ast.Constant(value=type),
+                ast.Name(id=value, ctx=ast.Load()),
+            ],
+            keywords=[],
+        )
+    )
 
 def getBehaviorAst(node):
     '''

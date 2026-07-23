@@ -106,6 +106,28 @@
                 },
                 {
                     "type": "cmd",
+                    "command": "log",
+                    "args": [
+                        {
+                            "type": "string",
+                            "value": "getChoice"
+                        },
+                        {
+                            "type": "string",
+                            "value": "choice"
+                        },
+                        {
+                            "type": "string",
+                            "value": "string"
+                        },
+                        {
+                            "type": "name",
+                            "value": "choice"
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
                     "command": "isEqual",
                     "args": [
                         {
@@ -461,6 +483,28 @@
                         {
                             "type": "string",
                             "value": "\nPlease enter book name: "
+                        }
+                    ]
+                },
+                {
+                    "type": "cmd",
+                    "command": "log",
+                    "args": [
+                        {
+                            "type": "string",
+                            "value": "getName"
+                        },
+                        {
+                            "type": "string",
+                            "value": "name"
+                        },
+                        {
+                            "type": "string",
+                            "value": "string"
+                        },
+                        {
+                            "type": "name",
+                            "value": "name"
                         }
                     ]
                 },
