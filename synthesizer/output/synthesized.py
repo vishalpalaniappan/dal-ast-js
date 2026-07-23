@@ -1,3 +1,4 @@
+from LoggingHelper import semanticLogger
 design = 'library_manager'
 
 def createBasket():
@@ -9,6 +10,7 @@ def createBasket():
 def getChoice():
     global worldState
     choice = input('\nGet user choice (a for add book, g for get book, else exit): ')
+    semanticLogger.logParticipant('getChoice', 'getChoice', 'getChoice', getChoice)
     isAdd = choice == 'a'
     isGet = choice == 'g'
     worldState['choice'] = choice
@@ -42,6 +44,7 @@ def displayChoice():
 def getName():
     global worldState
     name = input('\nPlease enter book name: ')
+    semanticLogger.logParticipant('getName', 'getName', 'getName', getName)
     worldState['name'] = name
     return 'createBook'
 
