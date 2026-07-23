@@ -1,8 +1,6 @@
 {
     "name": "dal-ast-js",
     "version": "0.0.0-dev",
-    "main": "dist/index.cjs",
-    "module": "dist/index.esm.js",
     "type": "module",
     "scripts": {
         "test": "vitest",
