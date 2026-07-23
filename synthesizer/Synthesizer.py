@@ -51,7 +51,7 @@ class Synthesizer:
             f.write(ast.unparse(self.pythonAst))
 
         # Copyt logging helper
-        src = Path(__file__).parent / "helpers" / "LoggingHelper.py"
+        src = Path(__file__).parent / "output_helpers" / "LoggingHelper.py"
         dst = Path(__file__).parent / "output" / "LoggingHelper.py"
         shutil.copy(src, dst)
 
