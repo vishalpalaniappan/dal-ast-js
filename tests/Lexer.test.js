@@ -1,8 +1,9 @@
 import {describe, expect, it} from "vitest";
 import {resolve} from "path"
 import {readFile, unlink, writeFile} from "fs/promises"
-import { DalLexer} from "../src/Lexer";
+import { DesignValidator } from "../src/DesignValidator";
 import { DalParser } from "../src/Parser";
+import { DalLexer} from "../src/Lexer";
 
 
 describe("Lexer", () => {
@@ -24,6 +25,9 @@ describe("Lexer", () => {
             ast_output_path,
             JSON.stringify(parser.ast, null, 4)
         );
+
+        const validator = new DesignValidator(parser.ast);
+        validator.run();
     });
 
 });
