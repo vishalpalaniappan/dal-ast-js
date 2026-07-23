@@ -1,7 +1,7 @@
 import ast
 from pathlib import Path
 from getSynthesizedNode import getSynthesizedNode
-
+import shutil
 
 class Synthesizer:
     
@@ -23,9 +23,38 @@ class Synthesizer:
         importNode = ast.parse("from LoggingHelper import semanticLogger").body[0]
         self.pythonAst.body.insert(0, importNode)
 
+        self.writeToOutputFolder()
+
+
+    def writeToOutputFolder(self):
+        '''
+            Writes the synthesized output to output folder and
+            also adds the logging helper.
+
+            If the output folder has files, clear it.
+        '''
+        outputFolder = Path(__file__).parent / "output"
+
+        # Make folder if it doesn't exist
+        outputFolder.mkdir(parents=True, exist_ok=True)
+
+        # Clear the output folder (assuming it existed)
+        for item in outputFolder.iterdir():
+            if item.is_dir():
+                shutil.rmtree(item)
+            else:
+                item.unlink()
+
+        # Write the synthesized output
         outputFile = Path(__file__).parent / "output" / "synthesized.py"
         with open(outputFile,"w+") as f:
             f.write(ast.unparse(self.pythonAst))
+
+        # Copyt logging helper
+        src = Path(__file__).parent / "LoggingHelper.py"
+        dst = Path(__file__).parent / "output" / "LoggingHelper.py"
+        shutil.copy(src, dst)
+
 
     def processTree(self, dalAstNode, pythonAstNode, indent):
         '''
