@@ -10,7 +10,7 @@ def createBasket():
 def getChoice():
     global worldState
     choice = input('\nGet user choice (a for add book, g for get book, else exit): ')
-    semanticLogger.logParticipant('getChoice', 'getChoice', 'getChoice', getChoice)
+    semanticLogger.logParticipant('getChoice', 'choice', 'string', choice)
     isAdd = choice == 'a'
     isGet = choice == 'g'
     worldState['choice'] = choice
@@ -44,7 +44,7 @@ def displayChoice():
 def getName():
     global worldState
     name = input('\nPlease enter book name: ')
-    semanticLogger.logParticipant('getName', 'getName', 'getName', getName)
+    semanticLogger.logParticipant('getName', 'name', 'string', name)
     worldState['name'] = name
     return 'createBook'
 

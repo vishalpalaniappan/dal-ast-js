@@ -26,9 +26,9 @@ def getCmdLogAst(node):
     
     '''
     behavior = node["args"][0]["value"]
-    name = node["args"][0]["value"]
-    type = node["args"][0]["value"]
-    value = node["args"][0]["value"]
+    name = node["args"][1]["value"]
+    type = node["args"][2]["value"]
+    value = node["args"][3]["value"]
     return ast.Expr(
         value=ast.Call(
             func=ast.Attribute(
