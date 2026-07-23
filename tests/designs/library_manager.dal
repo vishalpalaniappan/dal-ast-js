@@ -9,6 +9,7 @@ behavior createBasket {
 
 behavior getChoice {
     getInput(choice, "\nGet user choice (a for add book, g for get book, else exit): ")
+    log(choice)
     isEqual(choice, "a", isAdd)
     isEqual(choice, "g", isGet)
     set(worldState, ["choice"], choice)
@@ -45,6 +46,7 @@ behavior displayChoice {
 behavior getName {
     create(name=name, type="string", role="name")
     getInput(name, "\nPlease enter book name: ")
+    log(name)
     set(worldState, ["name"], name)
     select(createBook)
 }
