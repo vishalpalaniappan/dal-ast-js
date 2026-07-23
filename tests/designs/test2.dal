@@ -1,5 +1,0 @@
-design ("lexer")
-
-behavior sample {
-    set("book",["name"],"Harry Potter")
-}
