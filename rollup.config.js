@@ -1,7 +1,7 @@
 import resolve from "@rollup/plugin-node-resolve";
 
 export default {
-    input: "src/DALEngine.js",
+    input: "src/DalAstGenerator.js",
     output: [
         {
             file: "dist/index.cjs",
