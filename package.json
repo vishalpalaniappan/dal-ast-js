@@ -1,8 +1,11 @@
 {
     "name": "dal-ast-js",
     "version": "0.0.0-dev",
+    "main": "dist/index.cjs",
+    "module": "dist/index.esm.js",
     "type": "module",
     "scripts": {
+        "build": "rollup -c",
         "test": "vitest",
         "test:watch": "vitest --watch",
         "test:run": "vitest run"
@@ -18,6 +21,8 @@
     },
     "homepage": "https://github.com/vishalpalaniappan/program-synthesizer-python",
     "devDependencies": {
-        "vitest": "^4.0.18"
+        "@rollup/plugin-node-resolve": "^16.0.3",
+        "vitest": "^4.0.18",
+        "rollup": "^4.57.1"
     }
 }
