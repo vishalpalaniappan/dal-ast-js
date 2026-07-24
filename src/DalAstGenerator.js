@@ -22,13 +22,14 @@ export class DalAstGenerator {
         this.ast = null;
     }
 
-    run () {
+    run (source) {
         try {
-            const lexer = new DalLexer(source.toString());
+            const lexer = new DalLexer(source);
             const parser = new DalParser(lexer.scannedTokens);
             this.ast = parser.ast;
         } catch(e) {
             console.error("Error generating the AST:", e);
         }
+        return this.ast;
     }
 }

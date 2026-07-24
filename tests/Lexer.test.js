@@ -4,6 +4,7 @@ import {readFile, unlink, writeFile} from "fs/promises"
 import { DesignValidator } from "../src/DesignValidator";
 import { DalParser } from "../src/Parser";
 import { DalLexer} from "../src/Lexer";
+import { DalAstGenerator } from "../src/DalAstGenerator";
 
 
 describe("Lexer", () => {
@@ -28,6 +29,17 @@ describe("Lexer", () => {
 
         const validator = new DesignValidator(parser.ast);
         validator.run();
+    });
+
+    it("tests direct ast generation", async () => {
+        const filePath = resolve(__dirname, "./designs/library_manager.dal")
+        const source = await readFile(filePath)
+        const ast = new DalAstGenerator().run(source.toString());
+        const ast_output_path = resolve(__dirname, "./output/ast_direct_gen.json")
+        await writeFile(
+            ast_output_path,
+            JSON.stringify(ast, null, 4)
+        );
     });
 
 });
