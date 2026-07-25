@@ -1,4 +1,4 @@
-# program-synthesizer-python
+# DAL Implementation Synthesizer
 This tool current works in two stages:
 - In the first stage, it accepts a design defined in a Design Abstraction Language (DAL) and produces an Abstract Syntax Tree (AST). 
 - In the second stage it synthesizes the AST into a python program.
