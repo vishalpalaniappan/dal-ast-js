@@ -24,21 +24,33 @@
         "synthesized": "<target> = <source>[<keys>]"
     },
     "select": {
-        "description": "select(<nextBehavior>)"
+        "description": "Selects the next behavior to exhibit.",
+        "syntax": "select(<nextBehavior>)",
+        "synthesized": "return \"<nextBehavior>\""
     },
     "display": {
-        "description": "display(<prompt>)"
+        "description": "Prints the promopt to screen (prompt is an f string)",
+        "example": "display(\"f'Got book named {name} and it has first letter {firstLetter}'\")",
+        "syntax": "display(<prompt>)",
+        "synthesized": "print(\"<prompt>\")"
     },
     "isEqual": {
-        "description": "isEqual(<cmp1>, <cmp2>, <result>)"
+        "description": "Checks the equality of cmp1 and cmp2 and stores result.",
+        "syntax": "isEqual(<cmp1>, <cmp2>, <result>)",
+        "synthesized": "<result> = <cmp1> == <cmp2>"
     },
     "getFromPos": {
-        "description": "getFromPos(<target>, <source>, <pos>)"
+        "description": "Get the value at pos from source and saves it in target.",
+        "syntax": "getFromPos(<target>, <source>, <pos>)",
+        "synthesized": "<target> = <source>[<pos>]"
     },
     "removeFromPos": {
-        "description": "getFromPos(<target>, <source>, <pos>)"
+        "description": "Removes the value at pos from source and saves it in target.",
+        "syntax": "getFromPos(<target>, <source>, <pos>)",
+        "synthesized": "<target> = <source>.pop(<pos>"
     },
     "run": {
-        "description": "See geCmdRunAst in getSynthesizedNode.py"
+        "description": "Synthesizes the block which runs the desig.",
+        "syntax": "See geCmdRunAst in getSynthesizedNode.py"
     }
 }
