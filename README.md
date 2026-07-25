@@ -1,4 +1,4 @@
-# DAL Implementation Synthesizer
+# DAL Abstract Syntax Tree Library
 This tool a design defined in a Design Abstraction Language (DAL) and produces an Abstract Syntax Tree (AST). 
 
 To achieve this it implements the following tools:
