@@ -26,31 +26,9 @@ class LoggingHelper:
         entry["participantValue"] = participantValue
         logger.info(entry)
 
-    def logArgument(self, behaviorId, argumentName, argumentValue):
-        entry = {}
-        entry["type"] = "argument"
-        entry["behaviorName"] = behaviorId
-        entry["argumentName"] = argumentName
-        entry["argumentValue"] = argumentValue
-        logger.info(entry)
-
-    def logInput(self, behaviorId, inputName, inputValue):
-        entry = {}
-        entry["type"] = "behavior"
-        entry["behaviorName"] = behaviorId
-        entry["inputName"] = inputName
-        entry["inputValue"] = inputValue
-        logger.info(entry)
-
     def logBehavior(self, behaviorId):
         entry = {}
         entry["type"] = "behavior"
-        entry["behaviorName"] = behaviorId
-        logger.info(entry)
-
-    def logFailure(self, behaviorId):
-        entry = {}
-        entry["type"] = "failure"
         entry["behaviorName"] = behaviorId
         logger.info(entry)
 
