@@ -23,6 +23,7 @@ export class DalAstGenerator {
     }
 
     run (source) {
+        this.ast = null;
         try {
             const lexer = new DalLexer(source);
             const parser = new DalParser(lexer.scannedTokens);
