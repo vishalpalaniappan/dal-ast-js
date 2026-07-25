@@ -1,18 +1,27 @@
 {
     "set": {
-        "description": "set(<target>,<keys>,<value>)"
+        "description": "Set the value of the target with the given keys",
+        "syntax": "set(<target>,<keys>,<value>)",
+        "synthesized": "target[<keys>] = <value>"
     },
     "create": {
-        "description": "create(<name>,<type>,<role>)"
+        "description": "Design metadata, declares participants.",
+        "syntax": "create(<name>,<type>,<role>)"
     },
     "log": {
-        "description": "log(<behavior>, <name>, <type>, <value>)"
+        "description": "Adds a log statement for the given participant.",
+        "syntax": "log(<behavior>, <name>, <type>, <value>)",
+        "synthesized": "semanticLogger.logParticipant(<behavior>, <name>, <type>, <value>)"
     },
     "insert": {
-        "description": "insert(<target>, <keys>,  <value>, <index>)"
+        "description": "Inserts the value at the given index in the target with the provided keys",
+        "syntax": "insert(<target>, <keys>,  <value>, <index>)",
+        "synthesized": " <target>[<keys>].insert(<index>, <value>)"
     },
     "get": {
-        "description": "get(<target>, <source>, <keys>)"
+        "description": "Get the value from the source provided the keys and save in target.",
+        "syntax": "get(<target>, <source>, <keys>)",
+        "synthesized": "<target> = <source>[<keys>]"
     },
     "select": {
         "description": "select(<nextBehavior>)"
