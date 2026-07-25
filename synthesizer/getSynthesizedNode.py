@@ -215,7 +215,7 @@ def getCmdDisplayAst(node):
 
 def getCmdIsEqualAst(node):
     '''
-        Command: isEqual(choice, "a", isAdd)
+        Command: isEqual(<cmp1>, <cmp2>, <result>)
 
         Synthesized: isAdd = choice == "a"
     '''
@@ -269,7 +269,7 @@ def getCmdRemoveFromPosAst(node):
         Command: removeFromPos(book, basket, 0)
 
         Synthesized:
-        book = basket(0)
+        book = basket.pop(0)
     '''
     target = node["args"][0]["value"]
     source = node["args"][1]["value"]
