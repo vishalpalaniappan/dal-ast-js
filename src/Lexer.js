@@ -28,7 +28,7 @@ import TOKENS from "./TOKENS";
 export class DalLexer {
     constructor (source) {
         this.currPos = 0;
-        this.source = [...source];
+        this.source = source;
         this.scannedTokens = [];
 
         // Current line and colno
