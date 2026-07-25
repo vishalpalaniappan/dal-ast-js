@@ -4,5 +4,32 @@
     },
     "create": {
         "description": "create(<name>,<type>,<role>)"
+    },
+    "log": {
+        "description": "log(<behavior>, <name>, <type>, <value>)"
+    },
+    "insert": {
+        "description": "insert(<target>, <keys>,  <value>, <index>)"
+    },
+    "get": {
+        "description": "get(<target>, <source>, <keys>)"
+    },
+    "select": {
+        "description": "select(<nextBehavior>)"
+    },
+    "display": {
+        "description": "display(<prompt>)"
+    },
+    "isEqual": {
+        "description": "isEqual(<cmp1>, <cmp2>, <result>)"
+    },
+    "getFromPos": {
+        "description": "getFromPos(<target>, <source>, <pos>)"
+    },
+    "removeFromPos": {
+        "description": "getFromPos(<target>, <source>, <pos>)"
+    },
+    "run": {
+        "description": "See geCmdRunAst in getSynthesizedNode.py"
     }
 }
