@@ -1,0 +1,174 @@
+import TOKENS from "./TOKENS";
+
+/**
+ * This lexer works as follows:
+ * - Reads character at current position
+ * - If it is not a token:
+ *      - adds to identifier accumulator
+ * - If it is a token:
+ *      - saves what is in the accumulator to scannedTokens
+ *      - saves the token to scannedTokens
+ * - If a token is a quote:
+ *      - saves quote to scanned token
+ *      - scans forward to end of quote while accumulating identifier
+ *      - saves accumulator to scanned tokens
+ *      - saves quote to scanned tokens
+ * 
+ * I am not scanning for keywords here, I just save them as
+ * identifiers and then in the parse stage I will classify them.
+ * This makes the algorithm very simple.
+ * 
+ * Example:
+ * design ("name")
+ * IDENTIFIER LPAREN QUOTE IDENTIFIER QUOTE RPAREN
+ * 
+ * I also save the line/col number (starting and ending). This will be
+ * useful for visualization in the workbench.
+ */
+export class DalLexer {
+    constructor (source) {
+        this.currPos = 0;
+        this.source = source;
+        this.scannedTokens = [];
+
+        // Current line and colno
+        this.lineno = 1;
+        this.colno = 0;
+
+        // Accumulates identifiers until tokens are visited.
+        this.accumulatedIdentifier = [];
+        this.startColIdentifier;
+        this.startLineIdentifier;
+
+        this.run();
+    }
+
+    /**
+     * Runs the lexer from the current position.
+     */
+    run() {
+        do  {
+            const character = this.source[this.currPos];
+            this.processCurrentPosition(character);
+        } while (++this.currPos < this.source.length);
+    }
+
+    /**
+     * Processes the character at the current position.
+     */
+    processCurrentPosition(character) {
+        this.colno++;
+
+        if (character == " ") {
+            this.addAccumulatedIdentifierToken();
+            return;
+        } else if (character == "\n") {
+            this.lineno++;
+            this.colno = 0;
+            return;
+        }
+
+        const token = this.getToken(character);
+        if (token) {
+            this.addAccumulatedIdentifierToken();
+            this.addToken(token);
+            if (token === "QUOTE") {
+                this.extractStringFromQuotes();
+            }
+            return;
+        }
+        this.addToAccumulator(character);
+    }
+
+    /**
+     * Finds the identifier given the character.
+     * @param {String} character Character from scan.
+     * @returns {String|null} Identifier if valid token, else null.
+     */
+    getToken (character) {
+        for (const [identifier, value] of Object.entries(TOKENS)) {
+            if (value[0] !== character) {
+                continue;
+            }
+            return identifier;
+        }
+    }
+
+    /**
+     * If a quote is encountered, scan forward until end of quote is found.
+     * Everything inside the quote is part of the string, this ignores any
+     * of the tokens like comma.
+     * 
+     * TODO: Add support for escaped quotes inside quotes.
+     */
+    extractStringFromQuotes () {
+        this.colno++;
+        this.currPos++;
+        do {
+            const character = this.source[this.currPos];
+            const identifier = this.getToken(character);
+            if (character === "\n") {
+                this.lineno++;
+                this.colno = 0;
+                continue;
+            }
+            if (identifier !== "QUOTE") {
+                this.addToAccumulator(character);
+                this.colno++;
+                continue;
+            }
+            this.addAccumulatedIdentifierToken();
+            this.addToken(identifier);
+            break;
+        } while (this.currPos++ < this.source.length)
+    }
+
+    /**
+     * Adds to accumulator. Saves starting position of
+     * identifier being accumulated.
+     * 
+     * @param {String} character Character to add to accumulate.
+     */
+    addToAccumulator (character) {
+        if (this.accumulatedIdentifier.length === 0) {
+            this.startColIdentifier = this.colno;
+            this.startLineIdentifier = this.lineno;
+        }
+        this.accumulatedIdentifier.push(character);
+    }
+
+    /**
+     * Add the accumulated identifier to the scannedTokens list.
+     */
+    addAccumulatedIdentifierToken () {
+        // Subtract 1 from endColno beause we have to reach token
+        // to identify that the accumulator is done.
+        if (this.accumulatedIdentifier.length > 0) {
+            this.scannedTokens.push({
+                type: "IDENTIFIER",
+                value: this.accumulatedIdentifier.join(""),
+                startLineno: this.startLineIdentifier,
+                startColno: this.startColIdentifier,
+                endLineno: this.lineno,
+                endColno: this.colno - 1
+            })
+            this.accumulatedIdentifier = [];
+        }
+    }
+
+    /**
+     * Adds the token to the scannedTokens list.
+     * @param {String} type Type for the token.
+     * @param {Number} value Value of token (example identifier)
+     */
+    addToken (type, value) {
+        this.scannedTokens.push({
+            type: type,
+            value: value,
+            startLineno: this.lineno,
+            startColno: this.colno,
+            endLineno: this.lineno,
+            endColno: this.colno
+        })
+    }
+}

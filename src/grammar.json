@@ -1,0 +1,57 @@
+[
+    {
+        "token": "IDENTIFIER",
+        "value": "design",
+        "description": "design(\"lexer\")",
+        "order": [
+            {
+                "token": "LPAREN",
+                "endToken": "RPAREN",
+                "contentType": "args"
+            }
+        ]
+    },
+    {
+        "token": "IDENTIFIER",
+        "value": "behavior",
+        "order": [
+            {
+                "token": "IDENTIFIER",
+                "type": "string",
+                "identity": "behaviorName"
+            },
+            {
+                "token": "LBRACE",
+                "endToken": "RBRACE",
+                "contentType": "body"
+            }
+        ]
+    },
+    {
+        "token": "IDENTIFIER",
+        "value": "if",
+        "order": [
+            {
+                "token": "LPAREN",
+                "endToken": "RPAREN",
+                "contentType": "args"
+            },
+            {
+                "token": "LBRACE",
+                "endToken": "RBRACE",
+                "contentType": "body"
+            }
+        ]
+    },
+    {
+        "token": "IDENTIFIER",
+        "value": "else",
+        "order": [
+            {
+                "token": "LBRACE",
+                "endToken": "RBRACE",
+                "contentType": "body"
+            }
+        ]
+    }
+]

@@ -1,0 +1,19 @@
+design ("lexer")
+
+behavior sample {
+    design ("lexer")
+
+    if (isEqual) {
+        add (1,2)
+    } else {
+        subtract(1,2)
+    }
+
+    for (counter, 0, 10) {
+        square (counter)
+    }
+
+    while (condition) {
+        design ("arg1")
+    }
+}
