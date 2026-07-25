@@ -49,6 +49,6 @@ This will be streamlined by integrating everything into the workbench. It will a
 
 You can use GitHub issues to [report a bug][bug-report] or [request a feature][feature-req].
 
-[feature-req]: https://github.com/vishalpalaniappan/program-synthesizer-python/issues
+[bug-report]: https://github.com/vishalpalaniappan/program-synthesizer-python/issues
 [feature-req]: https://github.com/vishalpalaniappan/program-synthesizer-python/issues
 
