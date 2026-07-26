@@ -1,5 +1,5 @@
 # DAL Abstract Syntax Tree Library
-This tool takes a design defined in a Design Abstraction Language (DAL) and produces an Abstract Syntax Tree (AST). 
+This tool currently takes a design defined in a Design Abstraction Language (DAL) and produces an Abstract Syntax Tree (AST). 
 
 To achieve this it implements the following tools:
 - Lexer
@@ -8,10 +8,10 @@ To achieve this it implements the following tools:
 This tool will be extended to also do the following:
 - Syntactic Validation: 
     - Provide metadata about the result of the lexing and parsing to identify syntax errors. This will be used by the workbench to visually provide feedback in realtime.
-- Semantic Diagnostics: 
+- Semantic Validation: 
     - Validate the design by ensuring that it is internally consistent in realtime.
 
-This initial commit contains a working workflow but it is clearly not complete. I wanted to commit a working example to the repo to establish the workflow with the engine/workbench before I move forward. In the next commit, I will move the synthesizer into its own repo and rename this repo to `dal-ast-js` before I continue developing.
+This initial commit contains a working workflow but it is clearly not complete. I wanted to commit a working example to the repo to establish the workflow with the engine/workbench before I move forward. 
 
 Some relevant files:
 - [Library Manager Design](./tests/designs/library_manager.dal)
