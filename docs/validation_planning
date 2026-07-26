@@ -1,0 +1,12 @@
+## Syntax Validation Planning
+- For a given keyword, it is easy to identify if the tokens match the pattern that is established in the grammar.
+- How should I detect when blocks are not closed?
+- I think there is actually a simple answer to this, since I am creating a stack for each nested block I encounter. I can tell at the end which stacks were not closed.
+- I also cannot encounter an opening brace when I am inside a block without a new entry in the stack being created.
+- Since I've already gathered the line numbers, its easy to visually identify exactly where the syntax error is.
+
+It would be great to have a formatting class that will pretty print the script as well.
+
+## Semantic Validation Planning
+- I think this is very simple because it just requires setting up the rules and then seeing if they are enforced.
+- If the rule isn't specified, that is also relevant information.
