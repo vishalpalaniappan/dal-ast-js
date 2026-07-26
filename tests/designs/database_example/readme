@@ -1,0 +1,3 @@
+In this design, there are no primitive transformations. The design is synthesizing opaque registered transformations, it can say that this transformation failed but not why. 
+
+If everything was specified in the design, the design can tell you exactly where it failed because the implementation was directly synthesized from the design but even if is opaque, it can introduce invariants.

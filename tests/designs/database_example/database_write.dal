@@ -1,0 +1,23 @@
+design ("database")
+
+behavior createDatabaseConnection {
+    initializeConnection() 
+    select(createTable)    
+}
+
+behavior createTable {
+    createTable()
+    select(receiveMessage)
+}
+
+behavior receiveName {
+    getInput(name, "\nAdd Name: ")
+    select(writeToDatabase)
+}
+
+behavior writeToDatabase {
+    writeToDatabase()
+    select(receiveMessage)
+}
+
+run(createDatabaseConnection)
