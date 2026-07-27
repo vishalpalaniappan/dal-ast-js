@@ -9,7 +9,7 @@ import { DalAstGenerator } from "../src/DalAstGenerator";
 
 describe("Lexer", () => {
     it("basic source", async () => {
-        const filePath = resolve(__dirname, "./designs/database_example/reverse_name_persist.dal")
+        const filePath = resolve(__dirname, "./designs/reverse_name_persist.dal")
         const source = await readFile(filePath)
         const lexer = new DalLexer(source.toString());
 
