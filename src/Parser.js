@@ -208,11 +208,16 @@ export class DalParser {
      * Process design keyword.
      * 
      * cmd(args1, arg2...argN)
+     * 
+     * Type:
+     * _cmd -> "registeredCmd"
+     * cmd -> "cmd"
      */
     processCmd (cmd) {
         const parsedArgs = new ArgsParser(this.getArgs()).run();
+        const type = (cmd[0] === "_")?"registeredCmd":"cmd";
         const node = {
-            "type": "cmd",
+            "type": type,
             "command": cmd,
             "args": parsedArgs
         }
