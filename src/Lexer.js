@@ -92,7 +92,6 @@ export class DalLexer {
         do  {
             const character = this.source[this.currPos];
             if (character == "\n") {
-                console.log("SCANNED NEW LINE");
                 return;
             }
         } while (++this.currPos < this.source.length);
