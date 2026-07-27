@@ -23,7 +23,7 @@ behavior b_createTable {
 
 behavior b_commitConnection {
     get(connection, worldState, ["connection"])
-    commitConnection(null, connection)
+    _commitConnection(null, connection)
     select(b_receiveName)
 }
 
