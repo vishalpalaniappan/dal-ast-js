@@ -59,10 +59,13 @@ export class DalLexer {
     processCurrentPosition(character) {
         this.colno++;
 
-        if (character == " ") {
+        if (character === " " || character === "\t" || character === "\r") {
             this.addAccumulatedIdentifierToken();
             return;
-        } else if (character == "\n") {
+        }
+
+        if (character === "\n") {
+            this.addAccumulatedIdentifierToken();
             this.lineno++;
             this.colno = 0;
             return;
@@ -88,13 +91,27 @@ export class DalLexer {
      * Scan to new line to ignore comment.
      * @returns {null}
      */
-    scanToNewLine () {
-        do  {
+    scanToNewLine() {
+        while (this.currPos < this.source.length) {
             const character = this.source[this.currPos];
-            if (character == "\n") {
+
+            if (character === "\n") {
+                this.lineno++;
+                this.colno = 0;
                 return;
             }
-        } while (++this.currPos < this.source.length);
+
+            if (character === "\r") {
+                if (this.source[this.currPos + 1] === "\n") {
+                    this.currPos++;
+                }
+                this.lineno++;
+                this.colno = 0;
+                return;
+            }
+
+            this.currPos++;
+        }
     }
 
     /**
