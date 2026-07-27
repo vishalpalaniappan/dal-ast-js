@@ -141,6 +141,9 @@ export class ArgsParser {
                 value = true;
             } else if (value === "false") {
                 value = false;
+            } else if (value === "null") {
+                type = "null";
+                value = null;
             }
         }
 
