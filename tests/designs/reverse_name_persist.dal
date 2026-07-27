@@ -1,7 +1,7 @@
 design ("reverse_name_persist")
 
-# Example comment that is ignored.
-behavior b_createDatabaseConnection {
+#Example comment that is ignored.
+behavior b_createDatabaseConnection 
     create(name=connection, type="object", role="connection")
     _connectToDatabase(connection) 
     set(worldState, ["connection"], connection)
