@@ -9,7 +9,7 @@ import { DalAstGenerator } from "../src/DalAstGenerator";
 
 describe("Lexer", () => {
     it("basic source", async () => {
-        const filePath = resolve(__dirname, "./designs/library_manager.dal")
+        const filePath = resolve(__dirname, "./designs/database_example/reverse_name_persist.dal")
         const source = await readFile(filePath)
         const lexer = new DalLexer(source.toString());
 
@@ -32,7 +32,7 @@ describe("Lexer", () => {
     });
 
     it("tests direct ast generation", async () => {
-        const filePath = resolve(__dirname, "./designs/library_manager.dal")
+        const filePath = resolve(__dirname, "./designs/reverse_name_persist.dal")
         const source = await readFile(filePath)
         const ast = new DalAstGenerator().run(source.toString());
         const ast_output_path = resolve(__dirname, "./output/ast_direct_gen.json")
