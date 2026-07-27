@@ -70,6 +70,10 @@ export class DalLexer {
 
         const token = this.getToken(character);
         if (token) {
+            if (token === "HASH") {
+                this.scanToNewLine();
+                return;
+            }
             this.addAccumulatedIdentifierToken();
             this.addToken(token);
             if (token === "QUOTE") {
@@ -78,6 +82,20 @@ export class DalLexer {
             return;
         }
         this.addToAccumulator(character);
+    }
+
+    /**
+     * Scan to new line to ignore comment.
+     * @returns {null}
+     */
+    scanToNewLine () {
+        do  {
+            const character = this.source[this.currPos];
+            if (character == "\n") {
+                console.log("SCANNED NEW LINE");
+                return;
+            }
+        } while (++this.currPos < this.source.length);
     }
 
     /**
