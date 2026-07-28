@@ -13,10 +13,12 @@ export class DesignValidator {
     constructor (ast) {
         this.ast = ast;
         this.currentBehavior;
+        this.behaviors = [];
     }
 
     run() {
         this.processTree(this.ast);
+        console.log(JSON.stringify(this.behaviors, null, 4));
     }
 
     processTree(node) {
@@ -24,22 +26,32 @@ export class DesignValidator {
             for (const child of node["body"]) {
                 if (child["type"] === "behavior") {
                     this.currentBehavior = child;
+                    this.processBehavior(child);
                 }
                 this.processTree(child)
             }
-            // Process else blocks in if statements.
-            if ("else" in node) {
-                this.processTree(node["else"]);
-            }
-        } else {
-            this.processNode(node);
         }
-
     }
 
-    processNode(node) {
-        if (node.type === "cmd" && node.command === "create") {
-            console.log(`Participant ${node.args[0].value} created in behavior ${this.currentBehavior["behaviorName"]}`, )
+    processBehavior(behavior) {
+        const behaviorName = behavior["behaviorName"];
+        const transformations = [];
+        const createdParticipants = [];
+        let nextBehaviorName;
+        for (const child of behavior["body"]) {
+            if (child["type"] === "cmd" && child["command"] === "select") {
+                nextBehaviorName = child["args"][0]["value"];
+            }
+            if (child["type"] === "cmd" && child["command"] === "create") {
+                createdParticipants.push(child.args);
+            }
         }
+
+        this.behaviors.push({
+            behavior: this.currentBehavior["behaviorName"],
+            createdParticipants: createdParticipants,
+            transformations: [],
+            nextBehavior: nextBehaviorName
+        })
     }
 }
