@@ -1,12 +1,10 @@
-// This will evaluate the semantic world for inconsistencies.
-// Example: Type mistmatch, invalid participants etc. 
-
-// This requires knowledge about the actual transformations semantics, so I will establish that before moving forward with the validation. 
-// The synthesis development can happen in parallel because it doesn't impact this process.
-
 /**
- * Note: This is not a working implementation, it is just the skeleton to
- * traverse the tree. This will developed further in followup PRs.
+ * This class accepts the AST of the DAL script and does the following:
+ * - Identifies semantic correctness (unavailable participants etc.)
+ * - Establishes the internal consistency of the design
+ * - Identifies if the design is underspecified
+ * - Extracts directed graph used to build visual representation
+ * - Identifies invariants from the transformations
  */
 export class DesignValidator {
 
