@@ -57,6 +57,18 @@ export class DesignValidator {
             }
         }
 
+        /**
+         * I am grouping the primitive and opaque transformations
+         * separately. I know the exact ast mapping for the primitive
+         * transformation and I can automatically identify the invariant
+         * that is defined by the transformation.
+         * 
+         * However, I will allow convention to specify a transformation
+         * and the invariants that it enforces on the participants.
+         * This will allow a solution that can scale more easily. 
+         * Even if I have opaque transformations, I can define its
+         * semantics at the boundary.
+         **/ 
         this.behaviors.push({
             behavior: this.currentBehavior["behaviorName"],
             createdParticipants: createdParticipants,
