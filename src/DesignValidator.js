@@ -35,22 +35,33 @@ export class DesignValidator {
 
     processBehavior(behavior) {
         const behaviorName = behavior["behaviorName"];
-        const transformations = [];
+        const primitiveTransformations = [];
+        const opaqueTransformations = [];
         const createdParticipants = [];
         let nextBehaviorName;
         for (const child of behavior["body"]) {
-            if (child["type"] === "cmd" && child["command"] === "select") {
-                nextBehaviorName = child["args"][0]["value"];
-            }
-            if (child["type"] === "cmd" && child["command"] === "create") {
-                createdParticipants.push(child.args);
+
+            const cmd = child["command"];
+            const type = child["type"];
+
+            if (type === "cmd") {
+                if (cmd === "select") {
+                    nextBehaviorName = child["args"][0]["value"];
+                } else if (cmd === "create") {
+                    createdParticipants.push(child.args);
+                } else {
+                    primitiveTransformations.push(cmd);
+                }
+            } else if (type === "registeredCmd") {
+                opaqueTransformations.push(cmd);
             }
         }
 
         this.behaviors.push({
             behavior: this.currentBehavior["behaviorName"],
             createdParticipants: createdParticipants,
-            transformations: [],
+            primitiveTransformations: primitiveTransformations,
+            opaqueTransformations: opaqueTransformations,
             nextBehavior: nextBehaviorName
         })
     }
