@@ -1,3 +1,5 @@
+import { DesignGraph } from "./DesignGraph";
+
 /**
  * This class accepts the AST of the DAL script and does the following:
  * - Identifies semantic correctness (unavailable participants etc.)
@@ -11,7 +13,7 @@ export class DesignValidator {
     constructor (ast) {
         this.ast = ast;
         this.currentBehavior;
-        this.behaviors = [];
+        this.semanticGraph = new DesignGraph();
         this.entryBehavior;
     }
 
@@ -70,7 +72,7 @@ export class DesignValidator {
          * Even if I have opaque transformations, I can define its
          * semantics at the boundary.
          **/ 
-        this.behaviors.push({
+        this.semanticGraph.addBehavior({
             behavior: this.currentBehavior["behaviorName"],
             createdParticipants: createdParticipants,
             primitiveTransformations: primitiveTransformations,
