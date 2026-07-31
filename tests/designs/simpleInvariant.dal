@@ -1,4 +1,4 @@
-design ("lexer")
+design ("simple_invariant_test")
 
 behavior getName {
     getInput(name, "Provide Name")
@@ -19,6 +19,7 @@ behavior getName {
 behavior getFirstLetterOfName {
     get(name, worldState, ["name"])
     getFromPos(firstLetter, name, 0)
+    display("'First Letter: {firstLetter}'")
     set(worldState, ["firstLetter"], firstLetter)
     select(getName)
 }
