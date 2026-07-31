@@ -13,10 +13,33 @@
 export class DesignGraph {
 
     constructor () {
-        this.behaviors = [];
+        this.behaviors = {};
+        this.currBehavior;
     }
 
+    /**
+     * Adds a behavior to the design.
+     * @param {Object} behavior Object containing design info.
+     */
     addBehavior (behavior) {
-        this.behaviors.push(behavior)
+        this.behaviors[behavior.name] = behavior;
+    }
+
+    /**
+     * Adds a behavior to enter the design.
+     * @param {String} behaviorName Name of behavior.
+     */
+    addEntryBehavior (behaviorName) {
+        this.entryBehavoior = behaviorName;
+    }
+
+    /**
+     * Simple visitor to start walking the design.
+     * 
+     * Visits each behavior starting from the
+     * entry behavior and following the next
+     * behavior that is selected.
+     */
+    visit () {
     }
 }

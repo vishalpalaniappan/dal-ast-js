@@ -14,7 +14,6 @@ export class DesignValidator {
         this.ast = ast;
         this.currentBehavior;
         this.semanticGraph = new DesignGraph();
-        this.entryBehavior;
     }
 
     run() {
@@ -51,7 +50,7 @@ export class DesignValidator {
                 } else if (cmd === "create") {
                     createdParticipants.push(child.args);
                 } else if (cmd === "run") {
-                    this.entryBehavior = child["args"][0]["value"];
+                    this.semanticGraph.addEntryBehavior(child["args"][0]["value"]);
                 } else {
                     primitiveTransformations.push(cmd);
                 }
@@ -73,7 +72,7 @@ export class DesignValidator {
          * semantics at the boundary.
          **/ 
         this.semanticGraph.addBehavior({
-            behavior: this.currentBehavior["behaviorName"],
+            name: this.currentBehavior["behaviorName"],
             createdParticipants: createdParticipants,
             primitiveTransformations: primitiveTransformations,
             opaqueTransformations: opaqueTransformations,
