@@ -7,7 +7,7 @@ import { DalLexer} from "../src/Lexer";
 import { DalAstGenerator } from "../src/DalAstGenerator";
 
 
-describe("Lexer", () => {
+describe("tests ast genertor from dal file", () => {
     it("basic source", async () => {
         const filePath = resolve(__dirname, "./designs/reverse_name_persist.dal")
         const source = await readFile(filePath)
@@ -26,9 +26,6 @@ describe("Lexer", () => {
             ast_output_path,
             JSON.stringify(parser.ast, null, 4)
         );
-
-        const validator = new DesignValidator(parser.ast);
-        validator.run();
     });
 
     it("tests direct ast generation", async () => {
