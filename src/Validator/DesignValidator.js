@@ -12,6 +12,7 @@ export class DesignValidator {
         this.ast = ast;
         this.currentBehavior;
         this.behaviors = [];
+        this.entryBehavior;
     }
 
     run() {
@@ -47,6 +48,8 @@ export class DesignValidator {
                     nextBehaviorName = child["args"][0]["value"];
                 } else if (cmd === "create") {
                     createdParticipants.push(child.args);
+                } else if (cmd === "run") {
+                    this.entryBehavior = child["args"][0]["value"];
                 } else {
                     primitiveTransformations.push(cmd);
                 }
