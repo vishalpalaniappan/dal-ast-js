@@ -8,16 +8,16 @@ behavior addNewLineToDisplay {
 behavior getName {
     create(name=name, type="string", role="name", description="Any name")
     getInput(name, "Provide Name: ")
-    #invariant {
+    invariant {
         # Prevent reaching getFirstLetterOfName behavior
         # if invariant is violated
         #prevent(getFirstLetterOfName)
-        #getLength(nameLength, name)
-        #isGreaterThan(isValid, nameLength, 0)
-        #if (isValid) {
-        #    assert(true)
-        #}
-    #}
+        getLength(nameLength, name)
+        isGreaterThan(isValid, nameLength, 0)
+        if (isValid) {
+            #assert(true)
+        }
+    }
     set(worldState, ["name"], name)
     select(getFirstLetterOfName)
 }
