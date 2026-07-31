@@ -6,6 +6,7 @@ behavior addNewLineToDisplay {
 }
 
 behavior getName {
+    create(name=name, type="string", role="name", description="Any name")
     getInput(name, "Provide Name: ")
     invariant {
         # Prevent reaching getFirstLetterOfName behavior
@@ -22,6 +23,7 @@ behavior getName {
 }
 
 behavior getFirstLetterOfName {
+    create(name=firstLetter, type="string", role="firstLetter", description="First letter of a name.")
     get(name, worldState, ["name"])
     getFromPos(firstLetter, name, 0)
     display("f'First Letter: {firstLetter}'")
