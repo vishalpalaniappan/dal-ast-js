@@ -7,9 +7,9 @@ import { DalLexer} from "../src/Lexer";
 import { DalAstGenerator } from "../src/DalAstGenerator";
 
 
-describe("Lexer", () => {
+describe("tests the semantic validation of design", () => {
     it("basic source", async () => {
-        const filePath = resolve(__dirname, "./designs/reverse_name_persist.dal")
+        const filePath = resolve(__dirname, "./designs/simpleInvariant.dal")
         const source = await readFile(filePath)
         const lexer = new DalLexer(source.toString());
         
