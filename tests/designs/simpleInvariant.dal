@@ -3,12 +3,11 @@ design ("lexer")
 behavior getName {
     getInput(name, "Provide Name")
     invariant {
+        protect(getFirstLetterOfName)
         getLength(nameLength, name)
         isGreaterThan(isValid, nameLength, 0)
         if (isValid) {
             assert(true)
-        } else {
-            assert(false)
         }
     }
     set(worldState, ["name"], name)
