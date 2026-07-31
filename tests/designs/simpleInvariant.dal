@@ -1,0 +1,24 @@
+design ("lexer")
+
+behavior getName {
+    getInput(name, "Provide Name")
+    invariant {
+        getLength(nameLength, name)
+        isGreaterThan(isValid, nameLength, 0)
+        if (isValid) {
+            assert(true)
+        } else {
+            assert(false)
+        }
+    }
+    set(worldState, ["name"], name)
+    select(getFirstLetterOfName)
+}
+
+behavior getFirstLetterOfName {
+    get(name, worldState, ["name"])
+    getFromPos(firstLetter, name, 0)
+    set(worldState, ["firstLetter"], firstLetter)
+    select(getName)
+}
+
