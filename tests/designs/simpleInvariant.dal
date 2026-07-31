@@ -1,7 +1,12 @@
 design ("simple_invariant_test")
 
+behavior addNewLineToDisplay {
+    display("f''")
+    select(getName)
+}
+
 behavior getName {
-    getInput(name, "Provide Name")
+    getInput(name, "Provide Name: ")
     invariant {
         # Prevent reaching getFirstLetterOfName behavior
         # if invariant is violated
@@ -11,7 +16,7 @@ behavior getName {
         if (isValid) {
             assert(true)
         }
-    }
+    #}
     set(worldState, ["name"], name)
     select(getFirstLetterOfName)
 }
@@ -19,8 +24,10 @@ behavior getName {
 behavior getFirstLetterOfName {
     get(name, worldState, ["name"])
     getFromPos(firstLetter, name, 0)
-    display("'First Letter: {firstLetter}'")
+    display("f'First Letter: {firstLetter}'")
     set(worldState, ["firstLetter"], firstLetter)
-    select(getName)
+    select(addNewLineToDisplay)
 }
+
+run(addNewLineToDisplay)
 
