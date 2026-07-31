@@ -3,7 +3,9 @@ design ("lexer")
 behavior getName {
     getInput(name, "Provide Name")
     invariant {
-        protect(getFirstLetterOfName)
+        # Prevent reaching getFirstLetterOfName behavior
+        # if invariant is violated
+        prevent(getFirstLetterOfName)
         getLength(nameLength, name)
         isGreaterThan(isValid, nameLength, 0)
         if (isValid) {
