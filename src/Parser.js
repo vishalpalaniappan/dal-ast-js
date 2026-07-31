@@ -75,7 +75,9 @@ export class DalParser {
             this.processFor();
         } else if (token.value === "while") {
             this.processWhile();
-        }else if (token.type === "IDENTIFIER") {
+        } else if (token.value === "invariant") {
+            this.processInvariant();
+        } else if (token.type === "IDENTIFIER") {
             this.processCmd(token.value);
         }
     }
@@ -134,6 +136,22 @@ export class DalParser {
         const node = {
             type: "if",
             args: parsedArgs,
+            body: []
+        }
+        this.stack.push(node)
+    }
+
+    /**
+     * Processes while block.
+     * 
+     * while (condition) {
+     * 
+     * }
+     */
+    processInvariant () {
+        const node = {
+            type: "invariant",
+            args: [],
             body: []
         }
         this.stack.push(node)
