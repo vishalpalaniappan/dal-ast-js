@@ -11,11 +11,11 @@ behavior getName {
     invariant name_length {
         # Log the inv metadata and the violation, it will be used by engine to determine
         # root cause and if behavior prevents behavior in semantically invalid state.
-        log(type="inv_prevent", inv_name="name_length", prevent="getFirstLetterOfName")
+        log("invariant", "getName", "name_length", "name")
         getLength(inv_nameLength, name)
         isGreaterThan(inv_isValid, inv_nameLength, 0)
         if (inv_isValid) {
-            log(type="inv_violation", inv_name="name_length"))
+            log("invariantViolation", "getName", "name_length")
         }
     }
     set(worldState, ["name"], name)
