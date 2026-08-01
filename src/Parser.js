@@ -156,6 +156,7 @@ export class DalParser {
             args: [],
             body: []
         }
+        this.stack.push(node)
     }
 
     /**
