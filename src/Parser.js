@@ -149,12 +149,13 @@ export class DalParser {
      * }
      */
     processInvariant () {
+        const invariantName = this.tokens[++this.currPos].value;
         const node = {
             type: "invariant",
+            invariantName: invariantName,
             args: [],
             body: []
         }
-        this.stack.push(node)
     }
 
     /**
