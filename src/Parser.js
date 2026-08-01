@@ -144,9 +144,9 @@ export class DalParser {
     }
 
     /**
-     * Processes while block.
+     * Processes invariant block.
      * 
-     * while (condition) {
+     * invariant {
      * 
      * }
      */
