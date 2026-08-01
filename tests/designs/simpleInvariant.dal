@@ -8,14 +8,14 @@ behavior addNewLineToDisplay {
 behavior getName {
     create(name=name, type="string", role="name", description="Any name")
     getInput(name, "Provide Name: ")
-    invariant {
-        # Prevent reaching getFirstLetterOfName behavior
-        # if invariant is violated
-        #prevent(getFirstLetterOfName)
-        getLength(nameLength, name)
-        isGreaterThan(isValid, nameLength, 0)
-        if (isValid) {
-            #logInvaraiantViolation(behaviorName, invariantId)
+    invariant name_length {
+        # Log the inv metadata and the violation, it will be used by engine to determine
+        # root cause and if behavior prevents behavior in semantically invalid state.
+        log(type="inv_prevent", inv_name="name_length", prevent="getFirstLetterOfName")
+        getLength(inv_nameLength, name)
+        isGreaterThan(inv_isValid, inv_nameLength, 0)
+        if (inv_isValid) {
+            log(type="inv_violation", inv_name="name_length"))
         }
     }
     set(worldState, ["name"], name)
