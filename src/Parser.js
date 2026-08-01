@@ -77,8 +77,6 @@ export class DalParser {
             this.processWhile();
         } else if (token.value === "invariant") {
             this.processInvariant();
-        } else if (token.value === "prevent") {
-            // TODO: add metadata to invariant block
         } else if (token.type === "IDENTIFIER") {
             this.processCmd(token.value);
         }
