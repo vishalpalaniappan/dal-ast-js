@@ -23,376 +23,440 @@
     },
     {
         "type": "IDENTIFIER",
-        "value": "reverse_name_persist",
+        "value": "simple_invariant_test",
         "startLineno": 1,
         "startColno": 10,
-        "endLineno": 1,
-        "endColno": 29
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 1,
-        "startColno": 30,
         "endLineno": 1,
         "endColno": 30
     },
     {
-        "type": "RPAREN",
+        "type": "QUOTE",
         "startLineno": 1,
         "startColno": 31,
         "endLineno": 1,
         "endColno": 31
     },
     {
-        "type": "IDENTIFIER",
-        "value": "behavior",
-        "startLineno": 4,
-        "startColno": 1,
-        "endLineno": 4,
-        "endColno": 8
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "b_createDatabaseConnection",
-        "startLineno": 4,
-        "startColno": 10,
-        "endLineno": 4,
-        "endColno": 35
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "create",
-        "startLineno": 5,
-        "startColno": 5,
-        "endLineno": 5,
-        "endColno": 10
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 5,
-        "startColno": 11,
-        "endLineno": 5,
-        "endColno": 11
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "name=connection",
-        "startLineno": 5,
-        "startColno": 12,
-        "endLineno": 5,
-        "endColno": 26
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 5,
-        "startColno": 27,
-        "endLineno": 5,
-        "endColno": 27
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "type=",
-        "startLineno": 5,
-        "startColno": 29,
-        "endLineno": 5,
-        "endColno": 33
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 5,
-        "startColno": 34,
-        "endLineno": 5,
-        "endColno": 34
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "object",
-        "startLineno": 5,
-        "startColno": 35,
-        "endLineno": 5,
-        "endColno": 40
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 5,
-        "startColno": 41,
-        "endLineno": 5,
-        "endColno": 41
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 5,
-        "startColno": 42,
-        "endLineno": 5,
-        "endColno": 42
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "role=",
-        "startLineno": 5,
-        "startColno": 44,
-        "endLineno": 5,
-        "endColno": 48
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 5,
-        "startColno": 49,
-        "endLineno": 5,
-        "endColno": 49
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "connection",
-        "startLineno": 5,
-        "startColno": 50,
-        "endLineno": 5,
-        "endColno": 59
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 5,
-        "startColno": 60,
-        "endLineno": 5,
-        "endColno": 60
-    },
-    {
         "type": "RPAREN",
-        "startLineno": 5,
-        "startColno": 61,
-        "endLineno": 5,
-        "endColno": 61
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "_connectToDatabase",
-        "startLineno": 6,
-        "startColno": 5,
-        "endLineno": 6,
-        "endColno": 22
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 6,
-        "startColno": 23,
-        "endLineno": 6,
-        "endColno": 23
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "connection",
-        "startLineno": 6,
-        "startColno": 24,
-        "endLineno": 6,
-        "endColno": 33
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 6,
-        "startColno": 34,
-        "endLineno": 6,
-        "endColno": 34
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "set",
-        "startLineno": 7,
-        "startColno": 5,
-        "endLineno": 7,
-        "endColno": 7
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 7,
-        "startColno": 8,
-        "endLineno": 7,
-        "endColno": 8
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "worldState",
-        "startLineno": 7,
-        "startColno": 9,
-        "endLineno": 7,
-        "endColno": 18
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 7,
-        "startColno": 19,
-        "endLineno": 7,
-        "endColno": 19
-    },
-    {
-        "type": "LBRACKET",
-        "startLineno": 7,
-        "startColno": 21,
-        "endLineno": 7,
-        "endColno": 21
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 7,
-        "startColno": 22,
-        "endLineno": 7,
-        "endColno": 22
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "connection",
-        "startLineno": 7,
-        "startColno": 23,
-        "endLineno": 7,
+        "startLineno": 1,
+        "startColno": 32,
+        "endLineno": 1,
         "endColno": 32
     },
     {
-        "type": "QUOTE",
-        "startLineno": 7,
-        "startColno": 33,
-        "endLineno": 7,
-        "endColno": 33
-    },
-    {
-        "type": "RBRACKET",
-        "startLineno": 7,
-        "startColno": 34,
-        "endLineno": 7,
-        "endColno": 34
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 7,
-        "startColno": 35,
-        "endLineno": 7,
-        "endColno": 35
+        "type": "IDENTIFIER",
+        "value": "behavior",
+        "startLineno": 3,
+        "startColno": 1,
+        "endLineno": 3,
+        "endColno": 8
     },
     {
         "type": "IDENTIFIER",
-        "value": "connection",
-        "startLineno": 7,
-        "startColno": 37,
-        "endLineno": 7,
-        "endColno": 46
+        "value": "addNewLineToDisplay",
+        "startLineno": 3,
+        "startColno": 10,
+        "endLineno": 3,
+        "endColno": 28
+    },
+    {
+        "type": "LBRACE",
+        "startLineno": 3,
+        "startColno": 30,
+        "endLineno": 3,
+        "endColno": 30
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "display",
+        "startLineno": 4,
+        "startColno": 5,
+        "endLineno": 4,
+        "endColno": 11
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 4,
+        "startColno": 12,
+        "endLineno": 4,
+        "endColno": 12
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 4,
+        "startColno": 13,
+        "endLineno": 4,
+        "endColno": 13
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "f''",
+        "startLineno": 4,
+        "startColno": 14,
+        "endLineno": 4,
+        "endColno": 16
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 4,
+        "startColno": 17,
+        "endLineno": 4,
+        "endColno": 17
     },
     {
         "type": "RPAREN",
-        "startLineno": 7,
-        "startColno": 47,
-        "endLineno": 7,
-        "endColno": 47
+        "startLineno": 4,
+        "startColno": 18,
+        "endLineno": 4,
+        "endColno": 18
     },
     {
         "type": "IDENTIFIER",
         "value": "select",
-        "startLineno": 8,
+        "startLineno": 5,
         "startColno": 5,
-        "endLineno": 8,
+        "endLineno": 5,
         "endColno": 10
     },
     {
         "type": "LPAREN",
-        "startLineno": 8,
+        "startLineno": 5,
         "startColno": 11,
-        "endLineno": 8,
+        "endLineno": 5,
         "endColno": 11
     },
     {
         "type": "IDENTIFIER",
-        "value": "b_createCursor",
-        "startLineno": 8,
+        "value": "getName",
+        "startLineno": 5,
         "startColno": 12,
-        "endLineno": 8,
-        "endColno": 25
+        "endLineno": 5,
+        "endColno": 18
     },
     {
         "type": "RPAREN",
-        "startLineno": 8,
-        "startColno": 26,
-        "endLineno": 8,
-        "endColno": 26
+        "startLineno": 5,
+        "startColno": 19,
+        "endLineno": 5,
+        "endColno": 19
     },
     {
         "type": "RBRACE",
-        "startLineno": 9,
+        "startLineno": 6,
         "startColno": 1,
-        "endLineno": 9,
+        "endLineno": 6,
         "endColno": 1
     },
     {
         "type": "IDENTIFIER",
         "value": "behavior",
-        "startLineno": 11,
+        "startLineno": 8,
         "startColno": 1,
-        "endLineno": 11,
+        "endLineno": 8,
         "endColno": 8
     },
     {
         "type": "IDENTIFIER",
-        "value": "b_createCursor",
-        "startLineno": 11,
+        "value": "getName",
+        "startLineno": 8,
         "startColno": 10,
-        "endLineno": 11,
-        "endColno": 23
+        "endLineno": 8,
+        "endColno": 16
     },
     {
         "type": "LBRACE",
-        "startLineno": 11,
-        "startColno": 25,
-        "endLineno": 11,
-        "endColno": 25
+        "startLineno": 8,
+        "startColno": 18,
+        "endLineno": 8,
+        "endColno": 18
     },
     {
         "type": "IDENTIFIER",
         "value": "create",
-        "startLineno": 12,
+        "startLineno": 9,
         "startColno": 5,
-        "endLineno": 12,
+        "endLineno": 9,
         "endColno": 10
     },
     {
         "type": "LPAREN",
-        "startLineno": 12,
+        "startLineno": 9,
         "startColno": 11,
-        "endLineno": 12,
+        "endLineno": 9,
         "endColno": 11
     },
     {
         "type": "IDENTIFIER",
-        "value": "name=cursor",
+        "value": "name=name",
+        "startLineno": 9,
+        "startColno": 12,
+        "endLineno": 9,
+        "endColno": 20
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 9,
+        "startColno": 21,
+        "endLineno": 9,
+        "endColno": 21
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "type=",
+        "startLineno": 9,
+        "startColno": 23,
+        "endLineno": 9,
+        "endColno": 27
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 9,
+        "startColno": 28,
+        "endLineno": 9,
+        "endColno": 28
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "string",
+        "startLineno": 9,
+        "startColno": 29,
+        "endLineno": 9,
+        "endColno": 34
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 9,
+        "startColno": 35,
+        "endLineno": 9,
+        "endColno": 35
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 9,
+        "startColno": 36,
+        "endLineno": 9,
+        "endColno": 36
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "role=",
+        "startLineno": 9,
+        "startColno": 38,
+        "endLineno": 9,
+        "endColno": 42
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 9,
+        "startColno": 43,
+        "endLineno": 9,
+        "endColno": 43
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "name",
+        "startLineno": 9,
+        "startColno": 44,
+        "endLineno": 9,
+        "endColno": 47
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 9,
+        "startColno": 48,
+        "endLineno": 9,
+        "endColno": 48
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 9,
+        "startColno": 49,
+        "endLineno": 9,
+        "endColno": 49
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "description=",
+        "startLineno": 9,
+        "startColno": 51,
+        "endLineno": 9,
+        "endColno": 62
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 9,
+        "startColno": 63,
+        "endLineno": 9,
+        "endColno": 63
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "Any name",
+        "startLineno": 9,
+        "startColno": 64,
+        "endLineno": 9,
+        "endColno": 71
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 9,
+        "startColno": 72,
+        "endLineno": 9,
+        "endColno": 72
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 9,
+        "startColno": 73,
+        "endLineno": 9,
+        "endColno": 73
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "getInput",
+        "startLineno": 10,
+        "startColno": 5,
+        "endLineno": 10,
+        "endColno": 12
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 10,
+        "startColno": 13,
+        "endLineno": 10,
+        "endColno": 13
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "name",
+        "startLineno": 10,
+        "startColno": 14,
+        "endLineno": 10,
+        "endColno": 17
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 10,
+        "startColno": 18,
+        "endLineno": 10,
+        "endColno": 18
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 10,
+        "startColno": 20,
+        "endLineno": 10,
+        "endColno": 20
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "Provide Name: ",
+        "startLineno": 10,
+        "startColno": 21,
+        "endLineno": 10,
+        "endColno": 34
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 10,
+        "startColno": 35,
+        "endLineno": 10,
+        "endColno": 35
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 10,
+        "startColno": 36,
+        "endLineno": 10,
+        "endColno": 36
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "invariant",
+        "startLineno": 11,
+        "startColno": 5,
+        "endLineno": 11,
+        "endColno": 13
+    },
+    {
+        "type": "LBRACE",
+        "startLineno": 11,
+        "startColno": 16,
+        "endLineno": 11,
+        "endColno": 16
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "log",
+        "startLineno": 12,
+        "startColno": 9,
+        "endLineno": 12,
+        "endColno": 11
+    },
+    {
+        "type": "LPAREN",
         "startLineno": 12,
         "startColno": 12,
+        "endLineno": 12,
+        "endColno": 12
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 12,
+        "startColno": 13,
+        "endLineno": 12,
+        "endColno": 13
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "invariant",
+        "startLineno": 12,
+        "startColno": 14,
         "endLineno": 12,
         "endColno": 22
     },
     {
-        "type": "COMMA",
+        "type": "QUOTE",
         "startLineno": 12,
         "startColno": 23,
         "endLineno": 12,
         "endColno": 23
     },
     {
-        "type": "IDENTIFIER",
-        "value": "type=",
+        "type": "COMMA",
         "startLineno": 12,
-        "startColno": 25,
+        "startColno": 24,
         "endLineno": 12,
-        "endColno": 29
+        "endColno": 24
     },
     {
         "type": "QUOTE",
         "startLineno": 12,
-        "startColno": 30,
+        "startColno": 26,
         "endLineno": 12,
-        "endColno": 30
+        "endColno": 26
     },
     {
         "type": "IDENTIFIER",
-        "value": "object",
+        "value": "getName",
         "startLineno": 12,
-        "startColno": 31,
+        "startColno": 27,
         "endLineno": 12,
-        "endColno": 36
+        "endColno": 33
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 12,
+        "startColno": 34,
+        "endLineno": 12,
+        "endColno": 34
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 12,
+        "startColno": 35,
+        "endLineno": 12,
+        "endColno": 35
     },
     {
         "type": "QUOTE",
@@ -402,34 +466,26 @@
         "endColno": 37
     },
     {
-        "type": "COMMA",
+        "type": "IDENTIFIER",
+        "value": "name_length",
         "startLineno": 12,
         "startColno": 38,
         "endLineno": 12,
-        "endColno": 38
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "role=",
-        "startLineno": 12,
-        "startColno": 40,
-        "endLineno": 12,
-        "endColno": 44
+        "endColno": 48
     },
     {
         "type": "QUOTE",
         "startLineno": 12,
-        "startColno": 45,
+        "startColno": 49,
         "endLineno": 12,
-        "endColno": 45
+        "endColno": 49
     },
     {
-        "type": "IDENTIFIER",
-        "value": "cursor",
+        "type": "COMMA",
         "startLineno": 12,
-        "startColno": 46,
+        "startColno": 50,
         "endLineno": 12,
-        "endColno": 51
+        "endColno": 50
     },
     {
         "type": "QUOTE",
@@ -439,37 +495,66 @@
         "endColno": 52
     },
     {
-        "type": "RPAREN",
+        "type": "IDENTIFIER",
+        "value": "name",
         "startLineno": 12,
         "startColno": 53,
         "endLineno": 12,
-        "endColno": 53
+        "endColno": 56
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 12,
+        "startColno": 57,
+        "endLineno": 12,
+        "endColno": 57
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 12,
+        "startColno": 58,
+        "endLineno": 12,
+        "endColno": 58
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 12,
+        "startColno": 60,
+        "endLineno": 12,
+        "endColno": 60
     },
     {
         "type": "IDENTIFIER",
-        "value": "get",
-        "startLineno": 13,
-        "startColno": 5,
-        "endLineno": 13,
-        "endColno": 7
+        "value": "getFirstLetterOfBookName",
+        "startLineno": 12,
+        "startColno": 61,
+        "endLineno": 12,
+        "endColno": 84
     },
     {
-        "type": "LPAREN",
-        "startLineno": 13,
-        "startColno": 8,
-        "endLineno": 13,
-        "endColno": 8
+        "type": "QUOTE",
+        "startLineno": 12,
+        "startColno": 85,
+        "endLineno": 12,
+        "endColno": 85
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 12,
+        "startColno": 86,
+        "endLineno": 12,
+        "endColno": 86
     },
     {
         "type": "IDENTIFIER",
-        "value": "connection",
+        "value": "_getLength",
         "startLineno": 13,
         "startColno": 9,
         "endLineno": 13,
         "endColno": 18
     },
     {
-        "type": "COMMA",
+        "type": "LPAREN",
         "startLineno": 13,
         "startColno": 19,
         "endLineno": 13,
@@ -477,28 +562,14 @@
     },
     {
         "type": "IDENTIFIER",
-        "value": "worldState",
+        "value": "inv_nameLength",
         "startLineno": 13,
-        "startColno": 21,
-        "endLineno": 13,
-        "endColno": 30
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 13,
-        "startColno": 31,
-        "endLineno": 13,
-        "endColno": 31
-    },
-    {
-        "type": "LBRACKET",
-        "startLineno": 13,
-        "startColno": 33,
+        "startColno": 20,
         "endLineno": 13,
         "endColno": 33
     },
     {
-        "type": "QUOTE",
+        "type": "COMMA",
         "startLineno": 13,
         "startColno": 34,
         "endLineno": 13,
@@ -506,1476 +577,895 @@
     },
     {
         "type": "IDENTIFIER",
-        "value": "connection",
+        "value": "name",
         "startLineno": 13,
-        "startColno": 35,
+        "startColno": 36,
         "endLineno": 13,
-        "endColno": 44
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 13,
-        "startColno": 45,
-        "endLineno": 13,
-        "endColno": 45
-    },
-    {
-        "type": "RBRACKET",
-        "startLineno": 13,
-        "startColno": 46,
-        "endLineno": 13,
-        "endColno": 46
+        "endColno": 39
     },
     {
         "type": "RPAREN",
         "startLineno": 13,
-        "startColno": 47,
+        "startColno": 40,
         "endLineno": 13,
-        "endColno": 47
+        "endColno": 40
     },
     {
         "type": "IDENTIFIER",
-        "value": "_createCursor",
+        "value": "_isEqual",
         "startLineno": 14,
-        "startColno": 5,
+        "startColno": 9,
+        "endLineno": 14,
+        "endColno": 16
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 14,
+        "startColno": 17,
         "endLineno": 14,
         "endColno": 17
     },
     {
-        "type": "LPAREN",
+        "type": "IDENTIFIER",
+        "value": "inv_isValid",
         "startLineno": 14,
         "startColno": 18,
         "endLineno": 14,
-        "endColno": 18
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "cursor",
-        "startLineno": 14,
-        "startColno": 19,
-        "endLineno": 14,
-        "endColno": 24
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 14,
-        "startColno": 25,
-        "endLineno": 14,
-        "endColno": 25
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "connection",
-        "startLineno": 14,
-        "startColno": 27,
-        "endLineno": 14,
-        "endColno": 36
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 14,
-        "startColno": 37,
-        "endLineno": 14,
-        "endColno": 37
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "set",
-        "startLineno": 15,
-        "startColno": 5,
-        "endLineno": 15,
-        "endColno": 7
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 15,
-        "startColno": 8,
-        "endLineno": 15,
-        "endColno": 8
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "worldState",
-        "startLineno": 15,
-        "startColno": 9,
-        "endLineno": 15,
-        "endColno": 18
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 15,
-        "startColno": 19,
-        "endLineno": 15,
-        "endColno": 19
-    },
-    {
-        "type": "LBRACKET",
-        "startLineno": 15,
-        "startColno": 21,
-        "endLineno": 15,
-        "endColno": 21
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 15,
-        "startColno": 22,
-        "endLineno": 15,
-        "endColno": 22
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "cursor",
-        "startLineno": 15,
-        "startColno": 23,
-        "endLineno": 15,
         "endColno": 28
     },
     {
-        "type": "QUOTE",
-        "startLineno": 15,
+        "type": "COMMA",
+        "startLineno": 14,
         "startColno": 29,
-        "endLineno": 15,
+        "endLineno": 14,
         "endColno": 29
     },
     {
-        "type": "RBRACKET",
-        "startLineno": 15,
-        "startColno": 30,
-        "endLineno": 15,
-        "endColno": 30
+        "type": "IDENTIFIER",
+        "value": "inv_nameLength",
+        "startLineno": 14,
+        "startColno": 31,
+        "endLineno": 14,
+        "endColno": 44
     },
     {
         "type": "COMMA",
-        "startLineno": 15,
-        "startColno": 31,
-        "endLineno": 15,
-        "endColno": 31
+        "startLineno": 14,
+        "startColno": 45,
+        "endLineno": 14,
+        "endColno": 45
     },
     {
         "type": "IDENTIFIER",
-        "value": "cursor",
-        "startLineno": 15,
-        "startColno": 33,
-        "endLineno": 15,
-        "endColno": 38
+        "value": "0",
+        "startLineno": 14,
+        "startColno": 47,
+        "endLineno": 14,
+        "endColno": 47
     },
     {
         "type": "RPAREN",
-        "startLineno": 15,
-        "startColno": 39,
-        "endLineno": 15,
-        "endColno": 39
+        "startLineno": 14,
+        "startColno": 48,
+        "endLineno": 14,
+        "endColno": 48
     },
     {
         "type": "IDENTIFIER",
-        "value": "select",
-        "startLineno": 16,
-        "startColno": 5,
-        "endLineno": 16,
+        "value": "if",
+        "startLineno": 15,
+        "startColno": 9,
+        "endLineno": 15,
         "endColno": 10
     },
     {
         "type": "LPAREN",
-        "startLineno": 16,
-        "startColno": 11,
-        "endLineno": 16,
-        "endColno": 11
+        "startLineno": 15,
+        "startColno": 12,
+        "endLineno": 15,
+        "endColno": 12
     },
     {
         "type": "IDENTIFIER",
-        "value": "b_createTable",
-        "startLineno": 16,
-        "startColno": 12,
-        "endLineno": 16,
+        "value": "inv_isValid",
+        "startLineno": 15,
+        "startColno": 13,
+        "endLineno": 15,
+        "endColno": 23
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 15,
+        "startColno": 24,
+        "endLineno": 15,
         "endColno": 24
+    },
+    {
+        "type": "LBRACE",
+        "startLineno": 15,
+        "startColno": 26,
+        "endLineno": 15,
+        "endColno": 26
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "log",
+        "startLineno": 16,
+        "startColno": 13,
+        "endLineno": 16,
+        "endColno": 15
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 16,
+        "startColno": 16,
+        "endLineno": 16,
+        "endColno": 16
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 16,
+        "startColno": 17,
+        "endLineno": 16,
+        "endColno": 17
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "invariantViolation",
+        "startLineno": 16,
+        "startColno": 18,
+        "endLineno": 16,
+        "endColno": 35
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 16,
+        "startColno": 36,
+        "endLineno": 16,
+        "endColno": 36
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 16,
+        "startColno": 37,
+        "endLineno": 16,
+        "endColno": 37
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 16,
+        "startColno": 39,
+        "endLineno": 16,
+        "endColno": 39
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "getName",
+        "startLineno": 16,
+        "startColno": 40,
+        "endLineno": 16,
+        "endColno": 46
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 16,
+        "startColno": 47,
+        "endLineno": 16,
+        "endColno": 47
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 16,
+        "startColno": 48,
+        "endLineno": 16,
+        "endColno": 48
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 16,
+        "startColno": 50,
+        "endLineno": 16,
+        "endColno": 50
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "name_length",
+        "startLineno": 16,
+        "startColno": 51,
+        "endLineno": 16,
+        "endColno": 61
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 16,
+        "startColno": 62,
+        "endLineno": 16,
+        "endColno": 62
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 16,
+        "startColno": 63,
+        "endLineno": 16,
+        "endColno": 63
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 16,
+        "startColno": 65,
+        "endLineno": 16,
+        "endColno": 65
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "getFirstLetterOfBookName",
+        "startLineno": 16,
+        "startColno": 66,
+        "endLineno": 16,
+        "endColno": 89
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 16,
+        "startColno": 90,
+        "endLineno": 16,
+        "endColno": 90
     },
     {
         "type": "RPAREN",
         "startLineno": 16,
-        "startColno": 25,
+        "startColno": 91,
         "endLineno": 16,
-        "endColno": 25
+        "endColno": 91
     },
     {
         "type": "RBRACE",
         "startLineno": 17,
-        "startColno": 1,
+        "startColno": 9,
         "endLineno": 17,
-        "endColno": 1
+        "endColno": 9
     },
     {
-        "type": "IDENTIFIER",
-        "value": "behavior",
-        "startLineno": 19,
-        "startColno": 1,
-        "endLineno": 19,
-        "endColno": 8
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "b_createTable",
-        "startLineno": 19,
-        "startColno": 10,
-        "endLineno": 19,
-        "endColno": 22
-    },
-    {
-        "type": "LBRACE",
-        "startLineno": 19,
-        "startColno": 24,
-        "endLineno": 19,
-        "endColno": 24
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "get",
-        "startLineno": 20,
+        "type": "RBRACE",
+        "startLineno": 18,
         "startColno": 5,
-        "endLineno": 20,
+        "endLineno": 18,
+        "endColno": 5
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "set",
+        "startLineno": 19,
+        "startColno": 5,
+        "endLineno": 19,
         "endColno": 7
     },
     {
         "type": "LPAREN",
-        "startLineno": 20,
+        "startLineno": 19,
         "startColno": 8,
-        "endLineno": 20,
+        "endLineno": 19,
         "endColno": 8
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "cursor",
-        "startLineno": 20,
-        "startColno": 9,
-        "endLineno": 20,
-        "endColno": 14
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 20,
-        "startColno": 15,
-        "endLineno": 20,
-        "endColno": 15
     },
     {
         "type": "IDENTIFIER",
         "value": "worldState",
-        "startLineno": 20,
-        "startColno": 17,
-        "endLineno": 20,
-        "endColno": 26
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 20,
-        "startColno": 27,
-        "endLineno": 20,
-        "endColno": 27
-    },
-    {
-        "type": "LBRACKET",
-        "startLineno": 20,
-        "startColno": 29,
-        "endLineno": 20,
-        "endColno": 29
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 20,
-        "startColno": 30,
-        "endLineno": 20,
-        "endColno": 30
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "cursor",
-        "startLineno": 20,
-        "startColno": 31,
-        "endLineno": 20,
-        "endColno": 36
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 20,
-        "startColno": 37,
-        "endLineno": 20,
-        "endColno": 37
-    },
-    {
-        "type": "RBRACKET",
-        "startLineno": 20,
-        "startColno": 38,
-        "endLineno": 20,
-        "endColno": 38
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 20,
-        "startColno": 39,
-        "endLineno": 20,
-        "endColno": 39
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "_createTable",
-        "startLineno": 21,
-        "startColno": 5,
-        "endLineno": 21,
-        "endColno": 16
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 21,
-        "startColno": 17,
-        "endLineno": 21,
-        "endColno": 17
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "null",
-        "startLineno": 21,
-        "startColno": 18,
-        "endLineno": 21,
-        "endColno": 21
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 21,
-        "startColno": 22,
-        "endLineno": 21,
-        "endColno": 22
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "cursor",
-        "startLineno": 21,
-        "startColno": 24,
-        "endLineno": 21,
-        "endColno": 29
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 21,
-        "startColno": 30,
-        "endLineno": 21,
-        "endColno": 30
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "select",
-        "startLineno": 22,
-        "startColno": 5,
-        "endLineno": 22,
-        "endColno": 10
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 22,
-        "startColno": 11,
-        "endLineno": 22,
-        "endColno": 11
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "b_commitConnection",
-        "startLineno": 22,
-        "startColno": 12,
-        "endLineno": 22,
-        "endColno": 29
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 22,
-        "startColno": 30,
-        "endLineno": 22,
-        "endColno": 30
-    },
-    {
-        "type": "RBRACE",
-        "startLineno": 23,
-        "startColno": 1,
-        "endLineno": 23,
-        "endColno": 1
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "behavior",
-        "startLineno": 25,
-        "startColno": 1,
-        "endLineno": 25,
-        "endColno": 8
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "b_commitConnection",
-        "startLineno": 25,
-        "startColno": 10,
-        "endLineno": 25,
-        "endColno": 27
-    },
-    {
-        "type": "LBRACE",
-        "startLineno": 25,
-        "startColno": 29,
-        "endLineno": 25,
-        "endColno": 29
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "get",
-        "startLineno": 26,
-        "startColno": 5,
-        "endLineno": 26,
-        "endColno": 7
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 26,
-        "startColno": 8,
-        "endLineno": 26,
-        "endColno": 8
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "connection",
-        "startLineno": 26,
+        "startLineno": 19,
         "startColno": 9,
-        "endLineno": 26,
+        "endLineno": 19,
         "endColno": 18
     },
     {
         "type": "COMMA",
-        "startLineno": 26,
+        "startLineno": 19,
         "startColno": 19,
-        "endLineno": 26,
+        "endLineno": 19,
         "endColno": 19
     },
     {
-        "type": "IDENTIFIER",
-        "value": "worldState",
-        "startLineno": 26,
-        "startColno": 21,
-        "endLineno": 26,
-        "endColno": 30
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 26,
-        "startColno": 31,
-        "endLineno": 26,
-        "endColno": 31
-    },
-    {
         "type": "LBRACKET",
-        "startLineno": 26,
-        "startColno": 33,
-        "endLineno": 26,
-        "endColno": 33
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 26,
-        "startColno": 34,
-        "endLineno": 26,
-        "endColno": 34
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "connection",
-        "startLineno": 26,
-        "startColno": 35,
-        "endLineno": 26,
-        "endColno": 44
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 26,
-        "startColno": 45,
-        "endLineno": 26,
-        "endColno": 45
-    },
-    {
-        "type": "RBRACKET",
-        "startLineno": 26,
-        "startColno": 46,
-        "endLineno": 26,
-        "endColno": 46
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 26,
-        "startColno": 47,
-        "endLineno": 26,
-        "endColno": 47
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "_commitConnection",
-        "startLineno": 27,
-        "startColno": 5,
-        "endLineno": 27,
+        "startLineno": 19,
+        "startColno": 21,
+        "endLineno": 19,
         "endColno": 21
     },
     {
-        "type": "LPAREN",
-        "startLineno": 27,
+        "type": "QUOTE",
+        "startLineno": 19,
         "startColno": 22,
-        "endLineno": 27,
+        "endLineno": 19,
         "endColno": 22
     },
     {
         "type": "IDENTIFIER",
-        "value": "null",
-        "startLineno": 27,
+        "value": "name",
+        "startLineno": 19,
         "startColno": 23,
-        "endLineno": 27,
+        "endLineno": 19,
         "endColno": 26
     },
     {
-        "type": "COMMA",
-        "startLineno": 27,
+        "type": "QUOTE",
+        "startLineno": 19,
         "startColno": 27,
-        "endLineno": 27,
+        "endLineno": 19,
         "endColno": 27
     },
     {
-        "type": "IDENTIFIER",
-        "value": "connection",
-        "startLineno": 27,
+        "type": "RBRACKET",
+        "startLineno": 19,
+        "startColno": 28,
+        "endLineno": 19,
+        "endColno": 28
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 19,
         "startColno": 29,
-        "endLineno": 27,
-        "endColno": 38
+        "endLineno": 19,
+        "endColno": 29
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "name",
+        "startLineno": 19,
+        "startColno": 31,
+        "endLineno": 19,
+        "endColno": 34
     },
     {
         "type": "RPAREN",
-        "startLineno": 27,
-        "startColno": 39,
-        "endLineno": 27,
-        "endColno": 39
+        "startLineno": 19,
+        "startColno": 35,
+        "endLineno": 19,
+        "endColno": 35
     },
     {
         "type": "IDENTIFIER",
         "value": "select",
-        "startLineno": 28,
+        "startLineno": 20,
         "startColno": 5,
-        "endLineno": 28,
+        "endLineno": 20,
         "endColno": 10
     },
     {
         "type": "LPAREN",
-        "startLineno": 28,
+        "startLineno": 20,
         "startColno": 11,
-        "endLineno": 28,
+        "endLineno": 20,
         "endColno": 11
     },
     {
         "type": "IDENTIFIER",
-        "value": "b_receiveName",
-        "startLineno": 28,
+        "value": "getFirstLetterOfName",
+        "startLineno": 20,
         "startColno": 12,
-        "endLineno": 28,
-        "endColno": 24
+        "endLineno": 20,
+        "endColno": 31
     },
     {
         "type": "RPAREN",
-        "startLineno": 28,
-        "startColno": 25,
-        "endLineno": 28,
-        "endColno": 25
+        "startLineno": 20,
+        "startColno": 32,
+        "endLineno": 20,
+        "endColno": 32
     },
     {
         "type": "RBRACE",
-        "startLineno": 29,
+        "startLineno": 21,
         "startColno": 1,
-        "endLineno": 29,
+        "endLineno": 21,
         "endColno": 1
     },
     {
         "type": "IDENTIFIER",
         "value": "behavior",
-        "startLineno": 31,
+        "startLineno": 23,
         "startColno": 1,
-        "endLineno": 31,
+        "endLineno": 23,
         "endColno": 8
     },
     {
         "type": "IDENTIFIER",
-        "value": "b_receiveName",
-        "startLineno": 31,
+        "value": "getFirstLetterOfName",
+        "startLineno": 23,
         "startColno": 10,
-        "endLineno": 31,
-        "endColno": 22
+        "endLineno": 23,
+        "endColno": 29
     },
     {
         "type": "LBRACE",
-        "startLineno": 31,
-        "startColno": 24,
-        "endLineno": 31,
-        "endColno": 24
+        "startLineno": 23,
+        "startColno": 31,
+        "endLineno": 23,
+        "endColno": 31
     },
     {
         "type": "IDENTIFIER",
         "value": "create",
-        "startLineno": 32,
+        "startLineno": 24,
         "startColno": 5,
-        "endLineno": 32,
+        "endLineno": 24,
         "endColno": 10
     },
     {
         "type": "LPAREN",
-        "startLineno": 32,
+        "startLineno": 24,
         "startColno": 11,
-        "endLineno": 32,
+        "endLineno": 24,
         "endColno": 11
     },
     {
         "type": "IDENTIFIER",
-        "value": "name=name",
-        "startLineno": 32,
+        "value": "name=firstLetter",
+        "startLineno": 24,
         "startColno": 12,
-        "endLineno": 32,
-        "endColno": 20
+        "endLineno": 24,
+        "endColno": 27
     },
     {
         "type": "COMMA",
-        "startLineno": 32,
-        "startColno": 21,
-        "endLineno": 32,
-        "endColno": 21
+        "startLineno": 24,
+        "startColno": 28,
+        "endLineno": 24,
+        "endColno": 28
     },
     {
         "type": "IDENTIFIER",
         "value": "type=",
-        "startLineno": 32,
-        "startColno": 23,
-        "endLineno": 32,
-        "endColno": 27
+        "startLineno": 24,
+        "startColno": 30,
+        "endLineno": 24,
+        "endColno": 34
     },
     {
         "type": "QUOTE",
-        "startLineno": 32,
-        "startColno": 28,
-        "endLineno": 32,
-        "endColno": 28
+        "startLineno": 24,
+        "startColno": 35,
+        "endLineno": 24,
+        "endColno": 35
     },
     {
         "type": "IDENTIFIER",
         "value": "string",
-        "startLineno": 32,
-        "startColno": 29,
-        "endLineno": 32,
-        "endColno": 34
+        "startLineno": 24,
+        "startColno": 36,
+        "endLineno": 24,
+        "endColno": 41
     },
     {
         "type": "QUOTE",
-        "startLineno": 32,
-        "startColno": 35,
-        "endLineno": 32,
-        "endColno": 35
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 32,
-        "startColno": 36,
-        "endLineno": 32,
-        "endColno": 36
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "role=",
-        "startLineno": 32,
-        "startColno": 38,
-        "endLineno": 32,
+        "startLineno": 24,
+        "startColno": 42,
+        "endLineno": 24,
         "endColno": 42
     },
     {
-        "type": "QUOTE",
-        "startLineno": 32,
+        "type": "COMMA",
+        "startLineno": 24,
         "startColno": 43,
-        "endLineno": 32,
+        "endLineno": 24,
         "endColno": 43
     },
     {
         "type": "IDENTIFIER",
-        "value": "name",
-        "startLineno": 32,
-        "startColno": 44,
-        "endLineno": 32,
-        "endColno": 47
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 32,
-        "startColno": 48,
-        "endLineno": 32,
-        "endColno": 48
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 32,
-        "startColno": 49,
-        "endLineno": 32,
+        "value": "role=",
+        "startLineno": 24,
+        "startColno": 45,
+        "endLineno": 24,
         "endColno": 49
     },
     {
-        "type": "IDENTIFIER",
-        "value": "_receiveName",
-        "startLineno": 33,
-        "startColno": 5,
-        "endLineno": 33,
-        "endColno": 16
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 33,
-        "startColno": 17,
-        "endLineno": 33,
-        "endColno": 17
+        "type": "QUOTE",
+        "startLineno": 24,
+        "startColno": 50,
+        "endLineno": 24,
+        "endColno": 50
     },
     {
         "type": "IDENTIFIER",
-        "value": "name",
-        "startLineno": 33,
-        "startColno": 18,
-        "endLineno": 33,
-        "endColno": 21
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 33,
-        "startColno": 22,
-        "endLineno": 33,
-        "endColno": 22
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "set",
-        "startLineno": 34,
-        "startColno": 5,
-        "endLineno": 34,
-        "endColno": 7
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 34,
-        "startColno": 8,
-        "endLineno": 34,
-        "endColno": 8
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "worldState",
-        "startLineno": 34,
-        "startColno": 9,
-        "endLineno": 34,
-        "endColno": 18
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 34,
-        "startColno": 19,
-        "endLineno": 34,
-        "endColno": 19
-    },
-    {
-        "type": "LBRACKET",
-        "startLineno": 34,
-        "startColno": 21,
-        "endLineno": 34,
-        "endColno": 21
+        "value": "firstLetter",
+        "startLineno": 24,
+        "startColno": 51,
+        "endLineno": 24,
+        "endColno": 61
     },
     {
         "type": "QUOTE",
-        "startLineno": 34,
-        "startColno": 22,
-        "endLineno": 34,
-        "endColno": 22
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "name",
-        "startLineno": 34,
-        "startColno": 23,
-        "endLineno": 34,
-        "endColno": 26
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 34,
-        "startColno": 27,
-        "endLineno": 34,
-        "endColno": 27
-    },
-    {
-        "type": "RBRACKET",
-        "startLineno": 34,
-        "startColno": 28,
-        "endLineno": 34,
-        "endColno": 28
+        "startLineno": 24,
+        "startColno": 62,
+        "endLineno": 24,
+        "endColno": 62
     },
     {
         "type": "COMMA",
-        "startLineno": 34,
-        "startColno": 29,
-        "endLineno": 34,
-        "endColno": 29
+        "startLineno": 24,
+        "startColno": 63,
+        "endLineno": 24,
+        "endColno": 63
     },
     {
         "type": "IDENTIFIER",
-        "value": "name",
-        "startLineno": 34,
-        "startColno": 31,
-        "endLineno": 34,
-        "endColno": 34
+        "value": "description=",
+        "startLineno": 24,
+        "startColno": 65,
+        "endLineno": 24,
+        "endColno": 76
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 24,
+        "startColno": 77,
+        "endLineno": 24,
+        "endColno": 77
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "First letter of a name.",
+        "startLineno": 24,
+        "startColno": 78,
+        "endLineno": 24,
+        "endColno": 100
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 24,
+        "startColno": 101,
+        "endLineno": 24,
+        "endColno": 101
     },
     {
         "type": "RPAREN",
-        "startLineno": 34,
-        "startColno": 35,
-        "endLineno": 34,
-        "endColno": 35
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "select",
-        "startLineno": 35,
-        "startColno": 5,
-        "endLineno": 35,
-        "endColno": 10
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 35,
-        "startColno": 11,
-        "endLineno": 35,
-        "endColno": 11
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "b_reverse",
-        "startLineno": 35,
-        "startColno": 12,
-        "endLineno": 35,
-        "endColno": 20
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 35,
-        "startColno": 21,
-        "endLineno": 35,
-        "endColno": 21
-    },
-    {
-        "type": "RBRACE",
-        "startLineno": 36,
-        "startColno": 1,
-        "endLineno": 36,
-        "endColno": 1
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "behavior",
-        "startLineno": 38,
-        "startColno": 1,
-        "endLineno": 38,
-        "endColno": 8
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "b_reverse",
-        "startLineno": 38,
-        "startColno": 10,
-        "endLineno": 38,
-        "endColno": 18
-    },
-    {
-        "type": "LBRACE",
-        "startLineno": 38,
-        "startColno": 20,
-        "endLineno": 38,
-        "endColno": 20
+        "startLineno": 24,
+        "startColno": 102,
+        "endLineno": 24,
+        "endColno": 102
     },
     {
         "type": "IDENTIFIER",
         "value": "get",
-        "startLineno": 39,
+        "startLineno": 25,
         "startColno": 5,
-        "endLineno": 39,
+        "endLineno": 25,
         "endColno": 7
     },
     {
         "type": "LPAREN",
-        "startLineno": 39,
+        "startLineno": 25,
         "startColno": 8,
-        "endLineno": 39,
+        "endLineno": 25,
         "endColno": 8
     },
     {
         "type": "IDENTIFIER",
         "value": "name",
-        "startLineno": 39,
+        "startLineno": 25,
         "startColno": 9,
-        "endLineno": 39,
+        "endLineno": 25,
         "endColno": 12
     },
     {
         "type": "COMMA",
-        "startLineno": 39,
+        "startLineno": 25,
         "startColno": 13,
-        "endLineno": 39,
+        "endLineno": 25,
         "endColno": 13
     },
     {
         "type": "IDENTIFIER",
         "value": "worldState",
-        "startLineno": 39,
+        "startLineno": 25,
         "startColno": 15,
-        "endLineno": 39,
+        "endLineno": 25,
         "endColno": 24
     },
     {
         "type": "COMMA",
-        "startLineno": 39,
+        "startLineno": 25,
         "startColno": 25,
-        "endLineno": 39,
+        "endLineno": 25,
         "endColno": 25
     },
     {
         "type": "LBRACKET",
-        "startLineno": 39,
+        "startLineno": 25,
         "startColno": 27,
-        "endLineno": 39,
+        "endLineno": 25,
         "endColno": 27
     },
     {
         "type": "QUOTE",
-        "startLineno": 39,
+        "startLineno": 25,
         "startColno": 28,
-        "endLineno": 39,
+        "endLineno": 25,
         "endColno": 28
     },
     {
         "type": "IDENTIFIER",
         "value": "name",
-        "startLineno": 39,
+        "startLineno": 25,
         "startColno": 29,
-        "endLineno": 39,
+        "endLineno": 25,
         "endColno": 32
     },
     {
         "type": "QUOTE",
-        "startLineno": 39,
+        "startLineno": 25,
         "startColno": 33,
-        "endLineno": 39,
+        "endLineno": 25,
         "endColno": 33
     },
     {
         "type": "RBRACKET",
-        "startLineno": 39,
+        "startLineno": 25,
         "startColno": 34,
-        "endLineno": 39,
+        "endLineno": 25,
         "endColno": 34
     },
     {
         "type": "RPAREN",
-        "startLineno": 39,
+        "startLineno": 25,
         "startColno": 35,
-        "endLineno": 39,
+        "endLineno": 25,
         "endColno": 35
     },
     {
         "type": "IDENTIFIER",
-        "value": "_reverse",
-        "startLineno": 40,
+        "value": "getFromPos",
+        "startLineno": 26,
         "startColno": 5,
-        "endLineno": 40,
-        "endColno": 12
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 40,
-        "startColno": 13,
-        "endLineno": 40,
-        "endColno": 13
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "reversedName",
-        "startLineno": 40,
-        "startColno": 14,
-        "endLineno": 40,
-        "endColno": 25
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 40,
-        "startColno": 26,
-        "endLineno": 40,
-        "endColno": 26
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "name",
-        "startLineno": 40,
-        "startColno": 28,
-        "endLineno": 40,
-        "endColno": 31
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 40,
-        "startColno": 32,
-        "endLineno": 40,
-        "endColno": 32
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "set",
-        "startLineno": 41,
-        "startColno": 5,
-        "endLineno": 41,
-        "endColno": 7
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 41,
-        "startColno": 8,
-        "endLineno": 41,
-        "endColno": 8
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "worldState",
-        "startLineno": 41,
-        "startColno": 9,
-        "endLineno": 41,
-        "endColno": 18
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 41,
-        "startColno": 19,
-        "endLineno": 41,
-        "endColno": 19
-    },
-    {
-        "type": "LBRACKET",
-        "startLineno": 41,
-        "startColno": 21,
-        "endLineno": 41,
-        "endColno": 21
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 41,
-        "startColno": 22,
-        "endLineno": 41,
-        "endColno": 22
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "reversedName",
-        "startLineno": 41,
-        "startColno": 23,
-        "endLineno": 41,
-        "endColno": 34
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 41,
-        "startColno": 35,
-        "endLineno": 41,
-        "endColno": 35
-    },
-    {
-        "type": "RBRACKET",
-        "startLineno": 41,
-        "startColno": 36,
-        "endLineno": 41,
-        "endColno": 36
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 41,
-        "startColno": 37,
-        "endLineno": 41,
-        "endColno": 37
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "reversedName",
-        "startLineno": 41,
-        "startColno": 39,
-        "endLineno": 41,
-        "endColno": 50
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 41,
-        "startColno": 51,
-        "endLineno": 41,
-        "endColno": 51
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "select",
-        "startLineno": 42,
-        "startColno": 5,
-        "endLineno": 42,
-        "endColno": 10
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 42,
-        "startColno": 11,
-        "endLineno": 42,
-        "endColno": 11
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "b_writeToDatabase",
-        "startLineno": 42,
-        "startColno": 12,
-        "endLineno": 42,
-        "endColno": 28
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 42,
-        "startColno": 29,
-        "endLineno": 42,
-        "endColno": 29
-    },
-    {
-        "type": "RBRACE",
-        "startLineno": 43,
-        "startColno": 1,
-        "endLineno": 43,
-        "endColno": 1
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "behavior",
-        "startLineno": 45,
-        "startColno": 1,
-        "endLineno": 45,
-        "endColno": 8
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "b_writeToDatabase",
-        "startLineno": 45,
-        "startColno": 10,
-        "endLineno": 45,
-        "endColno": 26
-    },
-    {
-        "type": "LBRACE",
-        "startLineno": 45,
-        "startColno": 28,
-        "endLineno": 45,
-        "endColno": 28
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "get",
-        "startLineno": 46,
-        "startColno": 5,
-        "endLineno": 46,
-        "endColno": 7
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 46,
-        "startColno": 8,
-        "endLineno": 46,
-        "endColno": 8
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "cursor",
-        "startLineno": 46,
-        "startColno": 9,
-        "endLineno": 46,
+        "endLineno": 26,
         "endColno": 14
     },
     {
-        "type": "COMMA",
-        "startLineno": 46,
+        "type": "LPAREN",
+        "startLineno": 26,
         "startColno": 15,
-        "endLineno": 46,
+        "endLineno": 26,
         "endColno": 15
     },
     {
         "type": "IDENTIFIER",
-        "value": "worldState",
-        "startLineno": 46,
-        "startColno": 17,
-        "endLineno": 46,
+        "value": "firstLetter",
+        "startLineno": 26,
+        "startColno": 16,
+        "endLineno": 26,
         "endColno": 26
     },
     {
         "type": "COMMA",
-        "startLineno": 46,
+        "startLineno": 26,
         "startColno": 27,
-        "endLineno": 46,
+        "endLineno": 26,
         "endColno": 27
     },
     {
-        "type": "LBRACKET",
-        "startLineno": 46,
+        "type": "IDENTIFIER",
+        "value": "name",
+        "startLineno": 26,
         "startColno": 29,
-        "endLineno": 46,
-        "endColno": 29
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 46,
-        "startColno": 30,
-        "endLineno": 46,
-        "endColno": 30
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "cursor",
-        "startLineno": 46,
-        "startColno": 31,
-        "endLineno": 46,
-        "endColno": 36
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 46,
-        "startColno": 37,
-        "endLineno": 46,
-        "endColno": 37
-    },
-    {
-        "type": "RBRACKET",
-        "startLineno": 46,
-        "startColno": 38,
-        "endLineno": 46,
-        "endColno": 38
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 46,
-        "startColno": 39,
-        "endLineno": 46,
-        "endColno": 39
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "get",
-        "startLineno": 47,
-        "startColno": 5,
-        "endLineno": 47,
-        "endColno": 7
-    },
-    {
-        "type": "LPAREN",
-        "startLineno": 47,
-        "startColno": 8,
-        "endLineno": 47,
-        "endColno": 8
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "reversedName",
-        "startLineno": 47,
-        "startColno": 9,
-        "endLineno": 47,
-        "endColno": 20
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 47,
-        "startColno": 21,
-        "endLineno": 47,
-        "endColno": 21
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "worldState",
-        "startLineno": 47,
-        "startColno": 23,
-        "endLineno": 47,
+        "endLineno": 26,
         "endColno": 32
     },
     {
         "type": "COMMA",
-        "startLineno": 47,
+        "startLineno": 26,
         "startColno": 33,
-        "endLineno": 47,
+        "endLineno": 26,
         "endColno": 33
     },
     {
-        "type": "LBRACKET",
-        "startLineno": 47,
+        "type": "IDENTIFIER",
+        "value": "0",
+        "startLineno": 26,
         "startColno": 35,
-        "endLineno": 47,
+        "endLineno": 26,
         "endColno": 35
     },
     {
-        "type": "QUOTE",
-        "startLineno": 47,
+        "type": "RPAREN",
+        "startLineno": 26,
         "startColno": 36,
-        "endLineno": 47,
+        "endLineno": 26,
         "endColno": 36
     },
     {
         "type": "IDENTIFIER",
-        "value": "reversedName",
-        "startLineno": 47,
-        "startColno": 37,
-        "endLineno": 47,
-        "endColno": 48
-    },
-    {
-        "type": "QUOTE",
-        "startLineno": 47,
-        "startColno": 49,
-        "endLineno": 47,
-        "endColno": 49
-    },
-    {
-        "type": "RBRACKET",
-        "startLineno": 47,
-        "startColno": 50,
-        "endLineno": 47,
-        "endColno": 50
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 47,
-        "startColno": 51,
-        "endLineno": 47,
-        "endColno": 51
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "_writeToDatabase",
-        "startLineno": 48,
+        "value": "display",
+        "startLineno": 27,
         "startColno": 5,
-        "endLineno": 48,
-        "endColno": 20
+        "endLineno": 27,
+        "endColno": 11
     },
     {
         "type": "LPAREN",
-        "startLineno": 48,
-        "startColno": 21,
-        "endLineno": 48,
-        "endColno": 21
+        "startLineno": 27,
+        "startColno": 12,
+        "endLineno": 27,
+        "endColno": 12
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 27,
+        "startColno": 13,
+        "endLineno": 27,
+        "endColno": 13
     },
     {
         "type": "IDENTIFIER",
-        "value": "null",
-        "startLineno": 48,
-        "startColno": 22,
-        "endLineno": 48,
-        "endColno": 25
+        "value": "f'First Letter: {firstLetter}'",
+        "startLineno": 27,
+        "startColno": 14,
+        "endLineno": 27,
+        "endColno": 43
     },
     {
-        "type": "COMMA",
-        "startLineno": 48,
-        "startColno": 26,
-        "endLineno": 48,
-        "endColno": 26
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "cursor",
-        "startLineno": 48,
-        "startColno": 28,
-        "endLineno": 48,
-        "endColno": 33
-    },
-    {
-        "type": "COMMA",
-        "startLineno": 48,
-        "startColno": 34,
-        "endLineno": 48,
-        "endColno": 34
-    },
-    {
-        "type": "IDENTIFIER",
-        "value": "reversedName",
-        "startLineno": 48,
-        "startColno": 36,
-        "endLineno": 48,
-        "endColno": 47
+        "type": "QUOTE",
+        "startLineno": 27,
+        "startColno": 44,
+        "endLineno": 27,
+        "endColno": 44
     },
     {
         "type": "RPAREN",
-        "startLineno": 48,
-        "startColno": 48,
-        "endLineno": 48,
+        "startLineno": 27,
+        "startColno": 45,
+        "endLineno": 27,
+        "endColno": 45
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "set",
+        "startLineno": 28,
+        "startColno": 5,
+        "endLineno": 28,
+        "endColno": 7
+    },
+    {
+        "type": "LPAREN",
+        "startLineno": 28,
+        "startColno": 8,
+        "endLineno": 28,
+        "endColno": 8
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "worldState",
+        "startLineno": 28,
+        "startColno": 9,
+        "endLineno": 28,
+        "endColno": 18
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 28,
+        "startColno": 19,
+        "endLineno": 28,
+        "endColno": 19
+    },
+    {
+        "type": "LBRACKET",
+        "startLineno": 28,
+        "startColno": 21,
+        "endLineno": 28,
+        "endColno": 21
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 28,
+        "startColno": 22,
+        "endLineno": 28,
+        "endColno": 22
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "firstLetter",
+        "startLineno": 28,
+        "startColno": 23,
+        "endLineno": 28,
+        "endColno": 33
+    },
+    {
+        "type": "QUOTE",
+        "startLineno": 28,
+        "startColno": 34,
+        "endLineno": 28,
+        "endColno": 34
+    },
+    {
+        "type": "RBRACKET",
+        "startLineno": 28,
+        "startColno": 35,
+        "endLineno": 28,
+        "endColno": 35
+    },
+    {
+        "type": "COMMA",
+        "startLineno": 28,
+        "startColno": 36,
+        "endLineno": 28,
+        "endColno": 36
+    },
+    {
+        "type": "IDENTIFIER",
+        "value": "firstLetter",
+        "startLineno": 28,
+        "startColno": 38,
+        "endLineno": 28,
         "endColno": 48
+    },
+    {
+        "type": "RPAREN",
+        "startLineno": 28,
+        "startColno": 49,
+        "endLineno": 28,
+        "endColno": 49
     },
     {
         "type": "IDENTIFIER",
         "value": "select",
-        "startLineno": 49,
+        "startLineno": 29,
         "startColno": 5,
-        "endLineno": 49,
+        "endLineno": 29,
         "endColno": 10
     },
     {
         "type": "LPAREN",
-        "startLineno": 49,
+        "startLineno": 29,
         "startColno": 11,
-        "endLineno": 49,
+        "endLineno": 29,
         "endColno": 11
     },
     {
         "type": "IDENTIFIER",
-        "value": "b_commitConnection",
-        "startLineno": 49,
+        "value": "addNewLineToDisplay",
+        "startLineno": 29,
         "startColno": 12,
-        "endLineno": 49,
-        "endColno": 29
-    },
-    {
-        "type": "RPAREN",
-        "startLineno": 49,
-        "startColno": 30,
-        "endLineno": 49,
+        "endLineno": 29,
         "endColno": 30
     },
     {
+        "type": "RPAREN",
+        "startLineno": 29,
+        "startColno": 31,
+        "endLineno": 29,
+        "endColno": 31
+    },
+    {
         "type": "RBRACE",
-        "startLineno": 50,
+        "startLineno": 30,
         "startColno": 1,
-        "endLineno": 50,
+        "endLineno": 30,
         "endColno": 1
     },
     {
         "type": "IDENTIFIER",
         "value": "run",
-        "startLineno": 52,
+        "startLineno": 32,
         "startColno": 1,
-        "endLineno": 52,
+        "endLineno": 32,
         "endColno": 3
     },
     {
         "type": "LPAREN",
-        "startLineno": 52,
+        "startLineno": 32,
         "startColno": 4,
-        "endLineno": 52,
+        "endLineno": 32,
         "endColno": 4
     },
     {
         "type": "IDENTIFIER",
-        "value": "b_createDatabaseConnection",
-        "startLineno": 52,
+        "value": "addNewLineToDisplay",
+        "startLineno": 32,
         "startColno": 5,
-        "endLineno": 52,
-        "endColno": 30
+        "endLineno": 32,
+        "endColno": 23
     },
     {
         "type": "RPAREN",
-        "startLineno": 52,
-        "startColno": 31,
-        "endLineno": 52,
-        "endColno": 31
+        "startLineno": 32,
+        "startColno": 24,
+        "endLineno": 32,
+        "endColno": 24
     }
 ]
