@@ -15,7 +15,7 @@ behavior getName {
         getLength(nameLength, name)
         isGreaterThan(isValid, nameLength, 0)
         if (isValid) {
-            #assert(true)
+            #logInvaraiantViolation(behaviorName, invariantId)
         }
     }
     set(worldState, ["name"], name)
