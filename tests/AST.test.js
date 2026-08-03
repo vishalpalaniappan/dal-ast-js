@@ -39,4 +39,15 @@ describe("tests ast genertor from dal file", () => {
         );
     });
 
+    it("tests actor ast generation", async () => {
+        const filePath = resolve(__dirname, "./designs/actorTest.dal")
+        const source = await readFile(filePath)
+        const ast = new DalAstGenerator().run(source.toString());
+        const ast_output_path = resolve(__dirname, "./output/ast_actor.json")
+        await writeFile(
+            ast_output_path,
+            JSON.stringify(ast, null, 4)
+        );
+    });
+
 });
