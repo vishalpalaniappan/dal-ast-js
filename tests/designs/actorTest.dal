@@ -1,0 +1,15 @@
+design("asdf")
+
+actor receiver {
+    behavior test {
+        run(test)
+    }
+}
+
+actor processor {
+    behavior test {
+
+    }
+
+    run (test)
+}

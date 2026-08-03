@@ -6,13 +6,13 @@
             "design_name": [
                 {
                     "type": "string",
-                    "value": "library_manager"
+                    "value": "reverse_name_persist"
                 }
             ]
         },
         {
             "type": "behavior",
-            "behaviorName": "createBasket",
+            "behaviorName": "b_createDatabaseConnection",
             "body": [
                 {
                     "type": "cmd",
@@ -20,37 +20,25 @@
                     "args": [
                         {
                             "type": "name",
-                            "value": "name=basket"
+                            "value": "name=connection"
                         },
                         {
                             "type": "name",
-                            "value": "type=\"list\""
+                            "value": "type=\"object\""
                         },
                         {
                             "type": "name",
-                            "value": "role=\"basket\""
-                        },
-                        {
-                            "type": "name",
-                            "value": "accepts=\"book\""
+                            "value": "role=\"connection\""
                         }
                     ]
                 },
                 {
-                    "type": "cmd",
-                    "command": "set",
+                    "type": "registeredCmd",
+                    "command": "_connectToDatabase",
                     "args": [
                         {
-                            "type": "string",
-                            "value": "basket"
-                        },
-                        {
-                            "type": "list",
-                            "value": []
-                        },
-                        {
-                            "type": "list",
-                            "value": []
+                            "type": "name",
+                            "value": "connection"
                         }
                     ]
                 },
@@ -65,12 +53,12 @@
                         {
                             "type": "list",
                             "value": [
-                                "basket"
+                                "connection"
                             ]
                         },
                         {
                             "type": "name",
-                            "value": "basket"
+                            "value": "connection"
                         }
                     ]
                 },
@@ -80,7 +68,7 @@
                     "args": [
                         {
                             "type": "name",
-                            "value": "getChoice"
+                            "value": "b_createCursor"
                         }
                     ]
                 }
@@ -88,77 +76,57 @@
         },
         {
             "type": "behavior",
-            "behaviorName": "getChoice",
+            "behaviorName": "b_createCursor",
             "body": [
                 {
                     "type": "cmd",
-                    "command": "getInput",
+                    "command": "create",
                     "args": [
                         {
                             "type": "name",
-                            "value": "choice"
+                            "value": "name=cursor"
                         },
                         {
-                            "type": "string",
-                            "value": "\nGet user choice (a for add book, g for get book, else exit): "
+                            "type": "name",
+                            "value": "type=\"object\""
+                        },
+                        {
+                            "type": "name",
+                            "value": "role=\"cursor\""
                         }
                     ]
                 },
                 {
                     "type": "cmd",
-                    "command": "log",
+                    "command": "get",
                     "args": [
                         {
-                            "type": "string",
-                            "value": "getChoice"
-                        },
-                        {
-                            "type": "string",
-                            "value": "choice"
-                        },
-                        {
-                            "type": "string",
-                            "value": "string"
+                            "type": "name",
+                            "value": "connection"
                         },
                         {
                             "type": "name",
-                            "value": "choice"
+                            "value": "worldState"
+                        },
+                        {
+                            "type": "list",
+                            "value": [
+                                "connection"
+                            ]
                         }
                     ]
                 },
                 {
-                    "type": "cmd",
-                    "command": "isEqual",
+                    "type": "registeredCmd",
+                    "command": "_createCursor",
                     "args": [
                         {
                             "type": "name",
-                            "value": "choice"
-                        },
-                        {
-                            "type": "string",
-                            "value": "a"
+                            "value": "cursor"
                         },
                         {
                             "type": "name",
-                            "value": "isAdd"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "isEqual",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "choice"
-                        },
-                        {
-                            "type": "string",
-                            "value": "g"
-                        },
-                        {
-                            "type": "name",
-                            "value": "isGet"
+                            "value": "connection"
                         }
                     ]
                 },
@@ -173,118 +141,12 @@
                         {
                             "type": "list",
                             "value": [
-                                "choice"
+                                "cursor"
                             ]
                         },
                         {
                             "type": "name",
-                            "value": "choice"
-                        }
-                    ]
-                },
-                {
-                    "type": "if",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "isAdd"
-                        }
-                    ],
-                    "body": [
-                        {
-                            "type": "cmd",
-                            "command": "select",
-                            "args": [
-                                {
-                                    "type": "name",
-                                    "value": "getName"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "if",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "isGet"
-                        }
-                    ],
-                    "body": [
-                        {
-                            "type": "cmd",
-                            "command": "select",
-                            "args": [
-                                {
-                                    "type": "name",
-                                    "value": "getBookFromBasket"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "behavior",
-            "behaviorName": "getBookFromBasket",
-            "body": [
-                {
-                    "type": "cmd",
-                    "command": "get",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "basket"
-                        },
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "basket"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "removeFromPos",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "book"
-                        },
-                        {
-                            "type": "name",
-                            "value": "basket"
-                        },
-                        {
-                            "type": "number",
-                            "value": 0
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "set",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "book"
-                            ]
-                        },
-                        {
-                            "type": "name",
-                            "value": "book"
+                            "value": "cursor"
                         }
                     ]
                 },
@@ -294,7 +156,7 @@
                     "args": [
                         {
                             "type": "name",
-                            "value": "getFirstLetterOfBookName"
+                            "value": "b_createTable"
                         }
                     ]
                 }
@@ -302,7 +164,7 @@
         },
         {
             "type": "behavior",
-            "behaviorName": "getFirstLetterOfBookName",
+            "behaviorName": "b_createTable",
             "body": [
                 {
                     "type": "cmd",
@@ -310,7 +172,7 @@
                     "args": [
                         {
                             "type": "name",
-                            "value": "book"
+                            "value": "cursor"
                         },
                         {
                             "type": "name",
@@ -319,76 +181,22 @@
                         {
                             "type": "list",
                             "value": [
-                                "book"
+                                "cursor"
                             ]
                         }
                     ]
                 },
                 {
-                    "type": "cmd",
-                    "command": "get",
+                    "type": "registeredCmd",
+                    "command": "_createTable",
                     "args": [
                         {
-                            "type": "name",
-                            "value": "name"
+                            "type": "null",
+                            "value": null
                         },
                         {
                             "type": "name",
-                            "value": "book"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "name"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "getFromPos",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "firstLetter"
-                        },
-                        {
-                            "type": "name",
-                            "value": "name"
-                        },
-                        {
-                            "type": "number",
-                            "value": 0
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "display",
-                    "args": [
-                        {
-                            "type": "string",
-                            "value": "f'Got book named {name} and it has first letter {firstLetter}'"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "set",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "firstLetter"
-                            ]
-                        },
-                        {
-                            "type": "name",
-                            "value": "firstLetter"
+                            "value": "cursor"
                         }
                     ]
                 },
@@ -398,7 +206,7 @@
                     "args": [
                         {
                             "type": "name",
-                            "value": "getChoice"
+                            "value": "b_commitConnection"
                         }
                     ]
                 }
@@ -406,7 +214,7 @@
         },
         {
             "type": "behavior",
-            "behaviorName": "displayChoice",
+            "behaviorName": "b_commitConnection",
             "body": [
                 {
                     "type": "cmd",
@@ -414,7 +222,7 @@
                     "args": [
                         {
                             "type": "name",
-                            "value": "choice"
+                            "value": "connection"
                         },
                         {
                             "type": "name",
@@ -423,18 +231,22 @@
                         {
                             "type": "list",
                             "value": [
-                                "choice"
+                                "connection"
                             ]
                         }
                     ]
                 },
                 {
-                    "type": "cmd",
-                    "command": "display",
+                    "type": "registeredCmd",
+                    "command": "_commitConnection",
                     "args": [
                         {
-                            "type": "string",
-                            "value": "f'User Choice: {choice}'"
+                            "type": "null",
+                            "value": null
+                        },
+                        {
+                            "type": "name",
+                            "value": "connection"
                         }
                     ]
                 },
@@ -444,7 +256,7 @@
                     "args": [
                         {
                             "type": "name",
-                            "value": "getChoice"
+                            "value": "b_receiveName"
                         }
                     ]
                 }
@@ -452,7 +264,7 @@
         },
         {
             "type": "behavior",
-            "behaviorName": "getName",
+            "behaviorName": "b_receiveName",
             "body": [
                 {
                     "type": "cmd",
@@ -473,35 +285,9 @@
                     ]
                 },
                 {
-                    "type": "cmd",
-                    "command": "getInput",
+                    "type": "registeredCmd",
+                    "command": "_receiveName",
                     "args": [
-                        {
-                            "type": "name",
-                            "value": "name"
-                        },
-                        {
-                            "type": "string",
-                            "value": "\nPlease enter book name: "
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "log",
-                    "args": [
-                        {
-                            "type": "string",
-                            "value": "getName"
-                        },
-                        {
-                            "type": "string",
-                            "value": "name"
-                        },
-                        {
-                            "type": "string",
-                            "value": "string"
-                        },
                         {
                             "type": "name",
                             "value": "name"
@@ -534,7 +320,7 @@
                     "args": [
                         {
                             "type": "name",
-                            "value": "createBook"
+                            "value": "b_reverse"
                         }
                     ]
                 }
@@ -542,7 +328,7 @@
         },
         {
             "type": "behavior",
-            "behaviorName": "createBook",
+            "behaviorName": "b_reverse",
             "body": [
                 {
                     "type": "cmd",
@@ -565,54 +351,12 @@
                     ]
                 },
                 {
-                    "type": "cmd",
-                    "command": "create",
+                    "type": "registeredCmd",
+                    "command": "_reverse",
                     "args": [
                         {
                             "type": "name",
-                            "value": "name=book"
-                        },
-                        {
-                            "type": "name",
-                            "value": "type=\"object\""
-                        },
-                        {
-                            "type": "name",
-                            "value": "role=\"book\""
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "set",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "book"
-                        },
-                        {
-                            "type": "list",
-                            "value": []
-                        },
-                        {
-                            "type": "object",
-                            "value": {}
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "set",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "book"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "name"
-                            ]
+                            "value": "reversedName"
                         },
                         {
                             "type": "name",
@@ -631,28 +375,12 @@
                         {
                             "type": "list",
                             "value": [
-                                "book"
+                                "reversedName"
                             ]
                         },
                         {
                             "type": "name",
-                            "value": "book"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "remove",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "name"
-                            ]
+                            "value": "reversedName"
                         }
                     ]
                 },
@@ -662,7 +390,7 @@
                     "args": [
                         {
                             "type": "name",
-                            "value": "addBookToBasket"
+                            "value": "b_writeToDatabase"
                         }
                     ]
                 }
@@ -670,7 +398,7 @@
         },
         {
             "type": "behavior",
-            "behaviorName": "addBookToBasket",
+            "behaviorName": "b_writeToDatabase",
             "body": [
                 {
                     "type": "cmd",
@@ -678,7 +406,7 @@
                     "args": [
                         {
                             "type": "name",
-                            "value": "book"
+                            "value": "cursor"
                         },
                         {
                             "type": "name",
@@ -687,7 +415,7 @@
                         {
                             "type": "list",
                             "value": [
-                                "book"
+                                "cursor"
                             ]
                         }
                     ]
@@ -698,7 +426,7 @@
                     "args": [
                         {
                             "type": "name",
-                            "value": "basket"
+                            "value": "reversedName"
                         },
                         {
                             "type": "name",
@@ -707,66 +435,26 @@
                         {
                             "type": "list",
                             "value": [
-                                "basket"
+                                "reversedName"
                             ]
                         }
                     ]
                 },
                 {
-                    "type": "cmd",
-                    "command": "insert",
+                    "type": "registeredCmd",
+                    "command": "_writeToDatabase",
                     "args": [
                         {
-                            "type": "name",
-                            "value": "basket"
-                        },
-                        {
-                            "type": "list",
-                            "value": []
+                            "type": "null",
+                            "value": null
                         },
                         {
                             "type": "name",
-                            "value": "book"
-                        },
-                        {
-                            "type": "number",
-                            "value": 0
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "set",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "basket"
-                            ]
+                            "value": "cursor"
                         },
                         {
                             "type": "name",
-                            "value": "basket"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "remove",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "book"
-                            ]
+                            "value": "reversedName"
                         }
                     ]
                 },
@@ -776,53 +464,7 @@
                     "args": [
                         {
                             "type": "name",
-                            "value": "showBasket"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "behavior",
-            "behaviorName": "showBasket",
-            "body": [
-                {
-                    "type": "cmd",
-                    "command": "get",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "basket"
-                        },
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "basket"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "display",
-                    "args": [
-                        {
-                            "type": "string",
-                            "value": "f'Basket Contents: {basket}'"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "select",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "getChoice"
+                            "value": "b_commitConnection"
                         }
                     ]
                 }
@@ -834,7 +476,7 @@
             "args": [
                 {
                     "type": "name",
-                    "value": "createBasket"
+                    "value": "b_createDatabaseConnection"
                 }
             ]
         }
