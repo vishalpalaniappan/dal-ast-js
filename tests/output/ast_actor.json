@@ -17,16 +17,15 @@
                 {
                     "type": "behavior",
                     "behaviorName": "test",
-                    "body": [
+                    "body": []
+                },
+                {
+                    "type": "cmd",
+                    "command": "run",
+                    "args": [
                         {
-                            "type": "cmd",
-                            "command": "run",
-                            "args": [
-                                {
-                                    "type": "name",
-                                    "value": "test"
-                                }
-                            ]
+                            "type": "name",
+                            "value": "test"
                         }
                     ]
                 }

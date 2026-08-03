@@ -2,8 +2,8 @@ design("asdf")
 
 actor receiver {
     behavior test {
-        run(test)
     }
+    run(test)
 }
 
 actor processor {
