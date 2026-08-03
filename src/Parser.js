@@ -75,7 +75,11 @@ export class DalParser {
             this.processFor();
         } else if (token.value === "while") {
             this.processWhile();
-        }else if (token.type === "IDENTIFIER") {
+        } else if (token.value === "invariant") {
+            this.processInvariant();
+        } else if (token.value === "actor") {
+            this.processActor();
+        } else if (token.type === "IDENTIFIER") {
             this.processCmd(token.value);
         }
     }
@@ -123,6 +127,23 @@ export class DalParser {
     }
 
     /**
+     * Processes the actor block.
+     * 
+     * actor <actor_name>(args1, arg2...argN) {
+     * 
+     * }
+     */
+    processActor () {
+        const actorName = this.tokens[++this.currPos].value;
+        const node = {
+            type: "actor",
+            actorName: actorName,
+            body: []
+        }
+        this.stack.push(node)
+    }
+
+    /**
      * Processes if block.
      * 
      * if (condition) {
@@ -134,6 +155,24 @@ export class DalParser {
         const node = {
             type: "if",
             args: parsedArgs,
+            body: []
+        }
+        this.stack.push(node)
+    }
+
+    /**
+     * Processes invariant block.
+     * 
+     * invariant {
+     * 
+     * }
+     */
+    processInvariant () {
+        const invariantName = this.tokens[++this.currPos].value;
+        const node = {
+            type: "invariant",
+            invariantName: invariantName,
+            args: [],
             body: []
         }
         this.stack.push(node)
@@ -208,11 +247,16 @@ export class DalParser {
      * Process design keyword.
      * 
      * cmd(args1, arg2...argN)
+     * 
+     * Type:
+     * _cmd -> "registeredCmd"
+     * cmd -> "cmd"
      */
     processCmd (cmd) {
         const parsedArgs = new ArgsParser(this.getArgs()).run();
+        const type = (cmd[0] === "_")?"registeredCmd":"cmd";
         const node = {
-            "type": "cmd",
+            "type": type,
             "command": cmd,
             "args": parsedArgs
         }
