@@ -77,6 +77,8 @@ export class DalParser {
             this.processWhile();
         } else if (token.value === "invariant") {
             this.processInvariant();
+        } else if (token.value === "actor") {
+            this.processActor();
         } else if (token.type === "IDENTIFIER") {
             this.processCmd(token.value);
         }
@@ -119,6 +121,23 @@ export class DalParser {
         const node = {
             type: "behavior",
             behaviorName: behaviorName,
+            body: []
+        }
+        this.stack.push(node)
+    }
+
+    /**
+     * Processes the actor block.
+     * 
+     * actor <actor_name>(args1, arg2...argN) {
+     * 
+     * }
+     */
+    processActor () {
+        const actorName = this.tokens[++this.currPos].value;
+        const node = {
+            type: "actor",
+            actorName: actorName,
             body: []
         }
         this.stack.push(node)
