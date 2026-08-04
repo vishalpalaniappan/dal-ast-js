@@ -1,6 +1,7 @@
 design("asdf")
 
 actor receiver {
+    include("test")
     behavior test {
     }
     run(test)

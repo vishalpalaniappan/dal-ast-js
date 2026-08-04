@@ -79,6 +79,8 @@ export class DalParser {
             this.processInvariant();
         } else if (token.value === "actor") {
             this.processActor();
+        } else if (token.value === "include") {
+            this.processInclude();
         } else if (token.type === "IDENTIFIER") {
             this.processCmd(token.value);
         }
@@ -129,7 +131,7 @@ export class DalParser {
     /**
      * Processes the actor block.
      * 
-     * actor <actor_name>(args1, arg2...argN) {
+     * actor <actor_name> {
      * 
      * }
      */
@@ -141,6 +143,24 @@ export class DalParser {
             body: []
         }
         this.stack.push(node)
+    }
+
+    
+
+    /**
+     * Processes the include block.
+     * 
+     * include("config.json","a.py",...)
+     */
+    processInclude () {
+        const parsedArgs = new ArgsParser(this.getArgs()).run();
+
+        const includes = parsedArgs.map((arg) => arg["value"]);
+
+        // TODO: Validate that include is added inside actor block
+
+        const s = this.stack[this.stack.length - 1];
+        s.includes = includes;
     }
 
     /**
