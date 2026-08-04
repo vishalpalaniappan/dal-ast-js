@@ -1,7 +1,7 @@
 design("asdf")
 
 actor receiver {
-    include("test")
+    include("test.py", "sample.json")
     behavior test {
     }
     run(test)
