@@ -33,7 +33,7 @@ npm run test
 
 To run specific test case:
 ```sh
-npm run test tests/Lexer.test.js
+npm run test tests/AST.test.js
 ```
 
 Run the lexer.test.js while providing it with a design file with a .dal extension. This will produce an AST output. Currently, I am reading the designs from the designs folder and writing the ast's to the output folder.
