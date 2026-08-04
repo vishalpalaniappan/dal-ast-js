@@ -1,79 +1,118 @@
-design ("library_manager")
+design("library_manager")
 
-behavior createBasket {
-    create(name=basket, type="list", role="basket", accepts="book")
-    set("basket",[],[])
-    set(worldState, ["basket"], basket)
-    select(getChoice)
-}
+actor librarian {
+    # Used to include files in the synthesized output
+    # This would mean that registered.py should be included in the
+    # synthesized output folder. I will also use this to add an import
+    # statement to the synthesized actor.
+    include("registered.py")
 
-behavior getChoice {
-    getInput(choice, "\nGet user choice (a for add book, g for get book, else exit): ")
-    log("getChoice", "choice", "string", choice )
-    isEqual(choice, "a", isAdd)
-    isEqual(choice, "g", isGet)
-    set(worldState, ["choice"], choice)
-    if (isAdd) {
+    behavior createBasket {
+        create(name=basket, type="list", role="basket", accepts="book")
+        set("basket",[],[])
+        worldStateManager(null, "add", "basket", basket, False)
+        select(getChoice)
+    }
+
+    behavior getChoice {
+        getInput(choice, "\nGet user choice (a for add book, g for get book, else exit): ")
+        worldStateManager(null, "add", "choice", choice, True)
+        select(evaluateChoice)
+    }
+
+    behavior evaluateChoice {
+        worldStateManager(choice, "getValue", "choice")
+        isEqual(choice, "a", isAdd)
+        isEqual(choice, "g", isGet)
+        if (isAdd) {
+            select(addBookChoice)
+        }
+        if (isGet) {
+            select(getBookChoice)
+        }
+    }
+
+    behavior addBookChoice {
         select(getName)
     }
-    if (isGet) {
+
+    behavior getBookChoice {
+        invariant  {
+            worldStateManager(basket, "getValue", "basket")
+            _getLength(numBooks,  basket)
+            _isEqual(inv_isInvalid, numBooks, 0)
+            if (inv_isInvalid) {
+                log("invariantViolation", "getChoice", "books_in_basket", "getBookFromBasket")
+            }
+        }
         select(getBookFromBasket)
     }
-}
 
-behavior getBookFromBasket {
-    get(basket, worldState, ["basket"])
-    removeFromPos(book, basket, 0)
-    set(worldState, ["book"], book)
-    select(getFirstLetterOfBookName)
-}
+    behavior getBookFromBasket {
+        worldStateManager(basket, "getValue", "basket")
+        removeFromPos(book, basket, 0)
+        worldStateManager(null, "add", "book", book, False)
+        select(getFirstLetterOfBookName)
+    }
 
-behavior getFirstLetterOfBookName {
-    get(book, worldState, ["book"])
-    get(name, book, ["name"])
-    getFromPos(firstLetter, name, 0)
-    display("f'Got book named {name} and it has first letter {firstLetter}'")
-    set(worldState, ["firstLetter"], firstLetter)
-    select(getChoice)
-}
+    behavior getFirstLetterOfBookName {
+        worldStateManager(book, "getValue", "book")
 
-behavior displayChoice {
-    get(choice, worldState, ["choice"])
-    display("f'User Choice: {choice}'")
-    select(getChoice)
-}
+        get(name, book, ["name"])
+        getFromPos(firstLetter, name, 0)
+        display("f'Got book named {name} and it has first letter {firstLetter}'")
+        worldStateManager(null, "add", "firstLetter", firstLetter, False)
+        worldStateManager(null, "remove", "firstLetter")
+        worldStateManager(null, "remove", "book")
+        select(getChoice)
+    }
 
-behavior getName {
-    create(name=name, type="string", role="name")
-    getInput(name, "\nPlease enter book name: ")
-    log("getName", "name", "string", name )
-    set(worldState, ["name"], name)
-    select(createBook)
-}
+    behavior displayChoice {
+        worldStateManager(choice, "getValue", "choice")
+        display("f'User Choice: {choice}'")
+        select(getChoice)
+    }
 
-behavior createBook {
-    get(name, worldState, ["name"])
-    create(name=book, type="object", role="book")
-    set(book, [], {})
-    set(book, ["name"], name)
-    set(worldState, ["book"], book)
-    remove(worldState, ["name"])
-    select(addBookToBasket)
-}
+    behavior getName {
+        create(name=name, type="string", role="name")
+        getInput(name, "\nPlease enter book name: ")
+        invariant  {
+            #log("invariant", "getName", "name_length", "name", "getFirstLetterOfBookName")
+            _getLength(name_length,  name)
+            _isEqual(inv_isInvalid, name_length, 0)
+            if (inv_isInvalid) {
+                log("invariantViolation", "getName", "name_length", "getFirstLetterOfBookName")
+            }
+        }
+        worldStateManager(null, "add", "name", name, True)
+        
+        select(createBook)
+    }
 
-behavior addBookToBasket {
-    get(book, worldState, ["book"])
-    get(basket, worldState, ["basket"])
-    insert(basket, [], book, 0)
-    set(worldState, ["basket"], basket)
-    remove(worldState, ["book"])
-    select(showBasket)
-}
+    behavior createBook {
+        worldStateManager(name, "getValue", "name")
+        create(name=book, type="object", role="book")
+        set(book, [], {})
+        set(book, ["name"], name)
+        worldStateManager(null, "add", "book", book, False)
+        worldStateManager(null, "remove", "name")
+        select(addBookToBasket)
+    }
 
-behavior showBasket {
-    get(basket, worldState, ["basket"])
-    display("f'Basket Contents: {basket}'")
-    select(getChoice)
-}
+    behavior addBookToBasket {
+        worldStateManager(book, "get", "book")
+        worldStateManager(basket, "getValue", "basket")
+        insert(basket, [], book, 0)
+        worldStateManager(null, "update", "basket", basket)
+        worldStateManager(null, "remove", "book")
+        select(showBasket)
+    }
 
-run(createBasket)
+    behavior showBasket {
+        worldStateManager(basket, "getValue", "basket")
+        display("f'Basket Contents: {basket}'")
+        select(getChoice)
+    }
+
+    run(createBasket)
+}

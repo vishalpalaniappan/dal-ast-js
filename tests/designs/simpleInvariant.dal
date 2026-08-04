@@ -1,0 +1,32 @@
+design ("simple_invariant_test")
+
+behavior addNewLineToDisplay {
+    display("f''")
+    select(getName)
+}
+
+behavior getName {
+    create(name=name, type="string", role="name", description="Any name")
+    getInput(name, "Provide Name: ")
+    invariant  {
+        log("invariant", "getName", "name_length", "name", "getFirstLetterOfBookName")
+        _getLength(inv_nameLength, name)
+        _isEqual(inv_isValid, inv_nameLength, 0)
+        if (inv_isValid) {
+            log("invariantViolation", "getName", "name_length", "getFirstLetterOfBookName")
+        }
+    }
+    set(worldState, ["name"], name)
+    select(getFirstLetterOfName)
+}
+
+behavior getFirstLetterOfName {
+    create(name=firstLetter, type="string", role="firstLetter", description="First letter of a name.")
+    get(name, worldState, ["name"])
+    getFromPos(firstLetter, name, 0)
+    display("f'First Letter: {firstLetter}'")
+    set(worldState, ["firstLetter"], firstLetter)
+    select(addNewLineToDisplay)
+}
+
+run(addNewLineToDisplay)

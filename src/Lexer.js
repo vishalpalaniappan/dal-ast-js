@@ -59,10 +59,13 @@ export class DalLexer {
     processCurrentPosition(character) {
         this.colno++;
 
-        if (character == " ") {
+        if (character === " " || character === "\t" || character === "\r") {
             this.addAccumulatedIdentifierToken();
             return;
-        } else if (character == "\n") {
+        }
+
+        if (character === "\n") {
+            this.addAccumulatedIdentifierToken();
             this.lineno++;
             this.colno = 0;
             return;
@@ -70,6 +73,10 @@ export class DalLexer {
 
         const token = this.getToken(character);
         if (token) {
+            if (token === "HASH") {
+                this.scanToNewLine();
+                return;
+            }
             this.addAccumulatedIdentifierToken();
             this.addToken(token);
             if (token === "QUOTE") {
@@ -78,6 +85,33 @@ export class DalLexer {
             return;
         }
         this.addToAccumulator(character);
+    }
+
+    /**
+     * Scan to new line to ignore comment.
+     * @returns {null}
+     */
+    scanToNewLine() {
+        while (this.currPos < this.source.length) {
+            const character = this.source[this.currPos];
+
+            if (character === "\n") {
+                this.lineno++;
+                this.colno = 0;
+                return;
+            }
+
+            if (character === "\r") {
+                if (this.source[this.currPos + 1] === "\n") {
+                    this.currPos++;
+                }
+                this.lineno++;
+                this.colno = 0;
+                return;
+            }
+
+            this.currPos++;
+        }
     }
 
     /**

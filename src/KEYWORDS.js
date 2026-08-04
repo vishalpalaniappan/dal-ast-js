@@ -4,7 +4,10 @@ let KEYWORDS = [
     "if",
     "else",
     "for",
-    "while"
+    "while",
+    "invariant",
+    "actor",
+    "include"
 ]
 KEYWORDS = Object.freeze(KEYWORDS);
 

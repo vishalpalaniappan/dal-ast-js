@@ -1,0 +1,16 @@
+design("asdf")
+
+actor receiver {
+    include("test.py", "sample.json")
+    behavior test {
+    }
+    run(test)
+}
+
+actor processor {
+    behavior test {
+
+    }
+
+    run (test)
+}
