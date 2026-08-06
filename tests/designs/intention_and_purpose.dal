@@ -13,11 +13,11 @@ actor librarian {
             create(name=basket, type="list", role="basket", accepts="book")
             set("basket",[],[])
             worldStateManager(null, "add", "basket", basket, False)
-            selectIntention(allowUserToInteractWithLibrary)
+            end()
         }
     }
 
-    intention allowUserToInteractWithLibrary{
+    intention getUserAction{
         purpose ("Allows the user to interact with the library")
         start(getChoice)
         behavior getChoice {
@@ -31,44 +31,13 @@ actor librarian {
             purpose ("Dispaly the choice that the user selected.")
             worldStateManager(choice, "getValue", "choice")
             display("f'User Choice: {choice}'")
-            select(evaluateChoice)
+            end()
         }
-
-        behavior evaluateChoice {
-            purpose ("Identify which action they selected.")
-            worldStateManager(choice, "getValue", "choice")
-            isEqual(choice, "a", isAdd)
-            isEqual(choice, "g", isGet)
-            if (isAdd) {
-                select(addBookChoice)
-            }
-            if (isGet) {
-                select(getBookChoice)
-            }
-        }
-
-        behavior addBookChoice {
-            purpose ("Select the action to add a book to library.")
-            selectIntention(AddBookToLibrary)
-        }
-        behavior getBookChoice {
-            purpose("Select the action to get a books first name")
-            invariant  {
-                worldStateManager(basket, "getValue", "basket")
-                _getLength(numBooks,  basket)
-                _isEqual(inv_isInvalid, numBooks, 0)
-                if (inv_isInvalid) {
-                    log("invariantViolation", "getChoice", "books_in_basket", "getBookFromBasket")
-                }
-            }
-            selectIntention(getFirstLetterOfBookName)
-        }
-
     }
 
 
 
-    intention getFirstLetterOfBookName {
+    intention getBook {
         purpose("Get the first letter of the books name in the library.")
         start(getBookFromBasket)
         behavior getBookFromBasket {
@@ -89,7 +58,7 @@ actor librarian {
             worldStateManager(null, "add", "firstLetter", firstLetter, False)
             worldStateManager(null, "remove", "firstLetter")
             worldStateManager(null, "remove", "book")
-            selectIntention(allowUserToInteractWithLibrary)
+            end()
         }
     }
 
@@ -137,9 +106,23 @@ actor librarian {
             purpose("Show the user that the book was added to basket.")
             worldStateManager(basket, "getValue", "basket")
             display("f'Basket Contents: {basket}'")
-            selectIntention(allowUserToInteractWithLibrary)
+            end()
         }
     }
 
-    run(createBasket)
+    run {
+        exhibitIntention(initializeWorld)
+
+        while (True) {
+            exhibitIntention(getUserAction)
+
+            if selectedAction(a) {
+                exhibitIntention(AddBookToLibrary)
+            }
+
+            if selectedAction(g) {
+                exhibitIntention(getFirstLetterOfBookName)
+            }
+        }
+    }
 }
