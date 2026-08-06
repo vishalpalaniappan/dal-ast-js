@@ -163,7 +163,8 @@ export class DalParser {
         if ("includes" in s) {
             s.includes.push(includes)
         } else {
-            s.includes = [includes];
+            s.includes = [];
+            s.includes.push(includes)
         }
     }
 
