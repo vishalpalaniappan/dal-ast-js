@@ -160,7 +160,11 @@ export class DalParser {
         // TODO: Validate that include is added inside actor block
 
         const s = this.stack[this.stack.length - 1];
-        s.includes = includes;
+        if ("includes" in s) {
+            s.includes.push(includes)
+        } else {
+            s.includes = [includes];
+        }
     }
 
     /**
