@@ -3,7 +3,6 @@ design("library_manager")
 actor librarian {
     purpose("Allows users to interact with the library to store and access books.")
     include("registered.py")
-    start(initializeWorld)
 
     intention initializeWorld {
         purpose("Create the participants in the library.")
@@ -34,8 +33,6 @@ actor librarian {
             end()
         }
     }
-
-
 
     intention GetBookFromLibrary {
         purpose("Get the first letter of the books name in the library.")
@@ -111,6 +108,13 @@ actor librarian {
     }
 
     run {
+        # Note: 
+        # This is just pseudocode, these will be exrpessed through
+        # the behaviors of the actor. The compositional system becomes
+        # clear, behaviors express intentions that are composed of
+        # behaviors. The invariants rise naturally through the
+        # compositional system.
+
         exhibitIntention(initializeWorld)
 
         while (True) {
