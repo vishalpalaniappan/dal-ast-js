@@ -116,12 +116,18 @@ actor librarian {
         while (True) {
             exhibitIntention(getUserAction)
 
-            if selectedAction(a) {
+            worldStateManager(selectedAction, "getValue", "choice")
+
+            if (selectedAction == "a") {
                 exhibitIntention(AddBookToLibrary)
             }
 
-            if selectedAction(g) {
+            if (selectedAction == "g") {
                 exhibitIntention(getFirstLetterOfBookName)
+            }
+
+            if (selectedAction == "exit") {
+                break
             }
         }
     }
