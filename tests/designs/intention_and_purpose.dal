@@ -1,0 +1,140 @@
+design("library_manager")
+
+actor librarian {
+    purpose("Allows users to interact with the library to store and access books.")
+    include("registered.py")
+
+    intention initializeWorld {
+        purpose("Create the participants in the library.")
+        behavior createBasket {
+            purpose("Create the basket to hold the books in the library")
+            create(name=basket, type="list", role="basket", accepts="book")
+            set("basket",[],[])
+            worldStateManager(null, "add", "basket", basket, False)
+            select(getChoice)
+        }
+    }
+
+    intention allowUserToInteractWithLibrary{
+        purpose ("Allows the user to interact with the library")
+        behavior getChoice {
+            purpose ("Accept the user action in the library.")
+            getInput(choice, "\nGet user choice (a for add book, g for get book, else exit): ")
+            worldStateManager(null, "add", "choice", choice, True)
+            select(displayChoice)
+        }
+
+        behavior displayChoice {
+            purpose ("Dispaly the choice that the user selected.")
+            worldStateManager(choice, "getValue", "choice")
+            display("f'User Choice: {choice}'")
+            select(evaluateChoice)
+        }
+
+        behavior evaluateChoice {
+            purpose ("Identify which action they selected.")
+            worldStateManager(choice, "getValue", "choice")
+            isEqual(choice, "a", isAdd)
+            isEqual(choice, "g", isGet)
+            if (isAdd) {
+                select(addBookChoice)
+            }
+            if (isGet) {
+                select(getBookChoice)
+            }
+        }
+
+        behavior addBookChoice {
+            purpose ("Select the action to add a book to library.")
+            select(getName)
+        }
+        behavior getBookChoice {
+            purpose("Select the action to get a books first name")
+            invariant  {
+                worldStateManager(basket, "getValue", "basket")
+                _getLength(numBooks,  basket)
+                _isEqual(inv_isInvalid, numBooks, 0)
+                if (inv_isInvalid) {
+                    log("invariantViolation", "getChoice", "books_in_basket", "getBookFromBasket")
+                }
+            }
+            select(getBookFromBasket)
+        }
+
+    }
+
+
+
+    intention getFirstLetterOfBookName {
+        purpose("Get the first letter of the books name in the library.")
+        behavior getBookFromBasket {
+            purpose ("Get the book from the basket")
+            worldStateManager(basket, "getValue", "basket")
+            removeFromPos(book, basket, 0)
+            worldStateManager(null, "add", "book", book, False)
+            select(getFirstLetterOfBookName)
+        }
+
+        behavior getFirstLetterOfBookName {
+            purpose ("Get the first letter of the books name")
+            worldStateManager(book, "getValue", "book")
+
+            get(name, book, ["name"])
+            getFromPos(firstLetter, name, 0)
+            display("f'Got book named {name} and it has first letter {firstLetter}'")
+            worldStateManager(null, "add", "firstLetter", firstLetter, False)
+            worldStateManager(null, "remove", "firstLetter")
+            worldStateManager(null, "remove", "book")
+            select(getChoice)
+        }
+    }
+
+    intention AddBookToLibrary {
+        purpose("Add a book to the library.")
+        behavior getName {
+            purpose("Get the name of the book.")
+            create(name=name, type="string", role="name")
+            getInput(name, "\nPlease enter book name: ")
+            invariant  {
+                _getLength(name_length,  name)
+                _isEqual(inv_isInvalid, name_length, 0)
+                if (inv_isInvalid) {
+                    log("invariantViolation", "getName", "name_length", "getFirstLetterOfBookName")
+                }
+            }
+            worldStateManager(null, "add", "name", name, True)
+            
+            select(createBook)
+        }
+
+        behavior createBook {
+            purpose("Create the book.")
+            worldStateManager(name, "getValue", "name")
+            create(name=book, type="object", role="book")
+            set(book, [], {})
+            set(book, ["name"], name)
+            worldStateManager(null, "add", "book", book, False)
+            worldStateManager(null, "remove", "name")
+            select(addBookToBasket)
+        }
+
+        behavior addBookToBasket {
+            purpose("Add the book to the basket.")
+            worldStateManager(book, "get", "book")
+            worldStateManager(basket, "getValue", "basket")
+            insert(basket, [], book, 0)
+            worldStateManager(null, "update", "basket", basket)
+            worldStateManager(null, "remove", "book")
+            select(showBasket)
+        }
+
+        behavior showBasket {
+            purpose("Show the user that the book was added to basket.")
+            worldStateManager(basket, "getValue", "basket")
+            display("f'Basket Contents: {basket}'")
+            select(getChoice)
+        }
+    }
+
+    run(createBasket)
+}
