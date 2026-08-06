@@ -4,7 +4,7 @@ actor librarian {
     purpose("Allows users to interact with the library to store and access books.")
     include("registered.py")
 
-    intention initializeWorld {
+    behavior initializeWorld {
         purpose("Create the participants in the library.")
         start(createBasket)
         behavior createBasket {
@@ -16,7 +16,7 @@ actor librarian {
         }
     }
 
-    intention getUserAction{
+    behavior getUserAction{
         purpose ("Allows the user to interact with the library")
         start(getChoice)
         behavior getChoice {
@@ -34,7 +34,7 @@ actor librarian {
         }
     }
 
-    intention GetBookFromLibrary {
+    behavior GetBookFromLibrary {
         purpose("Get the first letter of the books name in the library.")
         start(getBookFromBasket)
         behavior getBookFromBasket {
@@ -59,7 +59,7 @@ actor librarian {
         }
     }
 
-    intention AddBookToLibrary {
+    behavior AddBookToLibrary {
         purpose("Add a book to the library.")
         start(getName)
         behavior getName {
@@ -115,19 +115,19 @@ actor librarian {
         # behaviors. The invariants rise naturally through the
         # compositional system.
 
-        exhibitIntention(initializeWorld)
+        exhibitBehavior(initializeWorld)
 
         while (True) {
-            exhibitIntention(getUserAction)
+            exhibitBehavior(getUserAction)
 
             worldStateManager(selectedAction, "getValue", "choice")
 
             if (selectedAction == "a") {
-                exhibitIntention(AddBookToLibrary)
+                exhibitBehavior(AddBookToLibrary)
             }
 
             if (selectedAction == "g") {
-                exhibitIntention(GetBookFromLibrary)
+                exhibitBehavior(GetBookFromLibrary)
             }
 
             if (selectedAction == "exit") {
