@@ -12,7 +12,7 @@ actor librarian {
             create(name=basket, type="list", role="basket", accepts="book")
             set("basket",[],[])
             worldStateManager(null, "add", "basket", basket, False)
-            end()
+            select(getUserAction)
         }
     }
 
@@ -30,7 +30,19 @@ actor librarian {
             purpose ("Dispaly the choice that the user selected.")
             worldStateManager(choice, "getValue", "choice")
             display("f'User Choice: {choice}'")
-            end()
+        }
+        select(evaluateUserAction)
+    }
+
+    behavior evaluateUserAction {
+        worldStateManager(choice, "getValue", "choice")
+        isEqual(choice, "a", isAdd)
+        isEqual(choice, "g", isGet)
+        if (isAdd) {
+            select(AddBookToLibrary)
+        }
+        if (isGet) {
+            select(GetBookFromLibrary)
         }
     }
 
@@ -55,8 +67,8 @@ actor librarian {
             worldStateManager(null, "add", "firstLetter", firstLetter, False)
             worldStateManager(null, "remove", "firstLetter")
             worldStateManager(null, "remove", "book")
-            end()
         }
+        select(createBook)
     }
 
     behavior AddBookToLibrary {
@@ -75,7 +87,7 @@ actor librarian {
             }
             worldStateManager(null, "add", "name", name, True)
             
-            select(createBook)
+            select(getUserAction)
         }
 
         behavior createBook {
@@ -103,36 +115,9 @@ actor librarian {
             purpose("Show the user that the book was added to basket.")
             worldStateManager(basket, "getValue", "basket")
             display("f'Basket Contents: {basket}'")
-            end()
         }
+        select(getUserAction)
     }
 
-    run {
-        # Note: 
-        # This is just pseudocode, these will be exrpessed through
-        # the behaviors of the actor. The compositional system becomes
-        # clear, behaviors express intentions that are composed of
-        # behaviors. The invariants rise naturally through the
-        # compositional system.
-
-        exhibitBehavior(initializeWorld)
-
-        while (True) {
-            exhibitBehavior(getUserAction)
-
-            worldStateManager(selectedAction, "getValue", "choice")
-
-            if (selectedAction == "a") {
-                exhibitBehavior(AddBookToLibrary)
-            }
-
-            if (selectedAction == "g") {
-                exhibitBehavior(GetBookFromLibrary)
-            }
-
-            if (selectedAction == "exit") {
-                break
-            }
-        }
-    }
+    run(initializeWorld)
 }
