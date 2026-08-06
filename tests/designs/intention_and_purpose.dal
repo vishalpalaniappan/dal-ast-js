@@ -37,7 +37,7 @@ actor librarian {
 
 
 
-    intention getBook {
+    intention GetBookFromLibrary {
         purpose("Get the first letter of the books name in the library.")
         start(getBookFromBasket)
         behavior getBookFromBasket {
@@ -123,7 +123,7 @@ actor librarian {
             }
 
             if (selectedAction == "g") {
-                exhibitIntention(getFirstLetterOfBookName)
+                exhibitIntention(GetBookFromLibrary)
             }
 
             if (selectedAction == "exit") {
