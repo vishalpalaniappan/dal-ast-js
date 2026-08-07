@@ -3,7 +3,6 @@ design("library_manager")
 actor librarian {
     design {
         purpose("Allows users to interact with the library to store and access books.")
-        include("registered.py")
         include_design("AddBookToLibrary.dal")
         include_design("GetBookFromLibrary.dal")
         include_design("GetUserAction.dal")
