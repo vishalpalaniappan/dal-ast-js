@@ -1,0 +1,45 @@
+behavior AddBookToLibrary {
+    behavior getName {
+        purpose("Get the name of the book.")
+        create(name=name, type="string", role="name")
+        getInput(name, "\nPlease enter book name: ")
+        invariant  {
+            _getLength(name_length,  name)
+            _isEqual(inv_isInvalid, name_length, 0)
+            if (inv_isInvalid) {
+                log("invariantViolation", "getName", "name_length", "getFirstLetterOfBookName")
+            }
+        }
+        worldStateManager(null, "add", "name", name, True)
+        select(getUserAction)
+    }
+
+    behavior createBook {
+        purpose("Create the book.")
+        worldStateManager(name, "getValue", "name")
+        create(name=book, type="object", role="book")
+        set(book, [], {})
+        set(book, ["name"], name)
+        worldStateManager(null, "add", "book", book, False)
+        worldStateManager(null, "remove", "name")
+        select(addBookToBasket)
+    }
+
+    behavior addBookToBasket {
+        purpose("Add the book to the basket.")
+        worldStateManager(book, "get", "book")
+        worldStateManager(basket, "getValue", "basket")
+        insert(basket, [], book, 0)
+        worldStateManager(null, "update", "basket", basket)
+        worldStateManager(null, "remove", "book")
+        select(showBasket)
+    }
+
+    behavior showBasket {
+        purpose("Show the user that the book was added to basket.")
+        worldStateManager(basket, "getValue", "basket")
+        display("f'Basket Contents: {basket}'")
+    }
+    
+    run(getName)
+}

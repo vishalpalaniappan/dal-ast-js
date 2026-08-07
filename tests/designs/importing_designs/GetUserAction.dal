@@ -1,0 +1,17 @@
+design AddBookToLibrary {
+
+    behavior getChoice {
+        purpose ("Accept the user action in the library.")
+        getInput(choice, "\nGet user choice (a for add book, g for get book, else exit): ")
+        worldStateManager(null, "add", "choice", choice, True)
+        select(displayChoice)
+    }
+
+    behavior displayChoice {
+        purpose ("Dispaly the choice that the user selected.")
+        worldStateManager(choice, "getValue", "choice")
+        display("f'User Choice: {choice}'")
+    }
+    
+    run(getChoice)
+}
