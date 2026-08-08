@@ -13,7 +13,7 @@ actor librarian {
             start(createBasket)
         }
 
-        behavior getUserAction{
+        behavior receiveUserAction{
             purpose ("Allows the user to interact with the library")
             exhibitBehavior(GetUserAction)
             select(evaluateUserAction)
@@ -25,11 +25,11 @@ actor librarian {
             isEqual(choice, "g", isGet)
             if (isAdd) {
                 exhibitBehavior(AddBookToLibrary)
-                select(getUserAction)
+                select(receiveUserAction)
             }
             if (isGet) {
                 exhibitBehavior(GetBookFromLibrary)
-                select(getUserAction)
+                select(receiveUserAction)
             }
         }
 

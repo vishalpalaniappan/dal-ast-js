@@ -1,0 +1,58 @@
+I'm using this folder to explore the syntax structure before I update the parser.
+
+For each behavior, there is a meaning. It is composed of behaviors which keep decomposing until it reaches the atomic meaning. The further up you go in the tree, there is more meaning and the further down you go, there is less meaning.
+
+```
+Design
+└── Behavior
+    ├── Behavior
+    │   ├── Atomic Transformation
+    │   ├── Atomic Transformation
+    │   └── Atomic Transformation
+    │
+    ├── Behavior
+    │   ├── Atomic Transformation
+    │   └── Atomic Transformation
+    │
+    └── Behavior
+        ├── Atomic Transformation
+        └── Atomic Transformation
+```
+
+So in my syntax, I am planning on exhibiting behavior, which is imported. It keeps decomposing until it reaches atomic and as you go up the nesting you reach the design. 
+
+The behaviors can be reused in the design using this approach.
+
+```
+design designName{
+    behavior initializeWorldState{
+        // create participants
+        select(A1)
+    }
+    behavior A1{
+        exhibitBehavior(compositeBehavior)
+        select(B1)
+    }
+    behavior B1{
+
+    }
+    run(A1)
+}
+```
+
+```
+design("designName")
+
+behavior compositeBehavior{
+    behavior A2{
+        atomicTransformation()
+        select(B)
+    }
+    behavior B2{
+
+    }
+    run(A2)
+}
+```
+
+This approachis far more scalable, behaviors can be reused in the design.
