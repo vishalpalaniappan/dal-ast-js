@@ -1,3 +1,5 @@
+design("library_manager")
+
 behavior AddBookToLibrary {
     behavior getName {
         purpose("Get the name of the book.")

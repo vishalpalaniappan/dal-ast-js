@@ -1,3 +1,5 @@
+design("library_manager")
+
 design InitializeWorld {
 
     behavior createBasket {
