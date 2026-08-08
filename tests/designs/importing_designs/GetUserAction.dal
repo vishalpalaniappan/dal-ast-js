@@ -1,6 +1,6 @@
 design("library_manager")
 
-design AddBookToLibrary {
+behavior GetUserAction {
 
     behavior getChoice {
         purpose ("Accept the user action in the library.")

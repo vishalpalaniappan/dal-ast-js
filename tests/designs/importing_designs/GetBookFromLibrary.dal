@@ -1,6 +1,6 @@
 design("library_manager")
 
-design AddBookToLibrary {
+behavior AddBookToLibrary {
 
     behavior getBookFromBasket {
         worldStateManager(basket, "getValue", "basket")
