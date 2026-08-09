@@ -1,0 +1,9 @@
+design(name="asdf")
+
+actor processor {
+    behavior test {
+
+    }
+
+    run (behavior="test")
+}

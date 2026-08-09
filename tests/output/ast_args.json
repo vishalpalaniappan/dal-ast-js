@@ -1,0 +1,37 @@
+{
+    "type": "root",
+    "body": [
+        {
+            "type": "design",
+            "design_name": [
+                {
+                    "arg": "name",
+                    "type": "name",
+                    "value": "\"asdf\""
+                }
+            ]
+        },
+        {
+            "type": "actor",
+            "actorName": "processor",
+            "body": [
+                {
+                    "type": "behavior",
+                    "behaviorName": "test",
+                    "body": []
+                },
+                {
+                    "type": "cmd",
+                    "command": "run",
+                    "args": [
+                        {
+                            "arg": "behavior",
+                            "type": "name",
+                            "value": "\"test\""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
