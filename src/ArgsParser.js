@@ -5,19 +5,22 @@ import { Untokenizer } from "./Untokenizer";
  * command(args...)
  * 
  * Example:
- * set(book, ["name"], "Harry Potter")
+ * set(name=book, keys=["name"], value="Harry Potter")
  * 
  * Returns:
  * [
  *      {
+ *          "arg": "name",
  *          "type": "name",
  *          "value": "book"
  *      },
  *      {
+ *          "arg": "keys",
  *          "type": "list",
  *          "value": ["name"]
  *      },
  *      {
+ *          "arg": "value",
  *          "type": "string",
  *          "value": "Harry Potter"
  *      }    
