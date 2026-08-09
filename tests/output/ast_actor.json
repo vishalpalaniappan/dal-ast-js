@@ -31,8 +31,10 @@
                 }
             ],
             "includes": [
-                "test.py",
-                "sample.json"
+                [
+                    "test.py",
+                    "sample.json"
+                ]
             ]
         },
         {

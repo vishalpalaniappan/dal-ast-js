@@ -25,9 +25,9 @@
                     "command": "run",
                     "args": [
                         {
-                            "arg": "behavior",
-                            "type": "name",
-                            "value": "\"test\""
+                            "arg": null,
+                            "type": "string",
+                            "value": "test"
                         }
                     ]
                 }

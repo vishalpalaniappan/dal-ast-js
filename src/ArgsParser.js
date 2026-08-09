@@ -126,9 +126,15 @@ export class ArgsParser {
     processGroup (tokens) {
         let type;
         let rawValue = new Untokenizer(tokens).buildString();
-
-        // Turns name="book" to arg= "name" and value = "book"
-        const [, arg, value] = rawValue.match(/^(\w+)=("[^"]*")$/);
+        const match = rawValue.match(/^([^=]+)=(.*)$/);
+        
+        let arg, value
+        if (match) {
+            [, arg, value] = match;
+        } else {
+            arg = null;
+            value = rawValue;
+        }
 
         if (tokens[0].type === "QUOTE") {
             type = "string";

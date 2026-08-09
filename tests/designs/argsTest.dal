@@ -5,5 +5,5 @@ actor processor {
 
     }
 
-    run (behavior="test")
+    run ("test")
 }
