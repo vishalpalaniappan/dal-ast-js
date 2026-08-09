@@ -1,6 +1,6 @@
 I'm using this folder to explore the syntax structure before I update the parser.
 
-For each behavior, there is a meaning. It is composed of behaviors which keep decomposing until it reaches the atomic meaning. The further up you go in the tree, there is more meaning and the further down you go, there is less meaning.
+For each behavior, there is a meaning. It is composed of behaviors which keep decomposing until it reaches the atomic meaning. The further up you go in the tree, there is more meaning and the further down you go, there is less meaning. Although, saying less meaning doesn't make it less valuable, its just that as you go higher up, more meaning is compressed into a smaller representation.
 
 So in my UI, I need to allow the user to be able to click on a behavior and expand into its composite meaning. This way the recursive meaning can be visualized interactively. Each level of recursion will load a new file that establishes that behavior.
 
@@ -57,4 +57,4 @@ behavior compositeBehavior{
 }
 ```
 
-This approachis far more scalable, behaviors can be reused in the design.
+This approach is far more scalable, behaviors can be reused in the design.
