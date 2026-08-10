@@ -1,9 +1,9 @@
-design(name="asdf")
+design(name="asdf",time="232134")
 
 actor processor {
     behavior test {
 
     }
 
-    run ("test")
+    run ("test",t=32)
 }

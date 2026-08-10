@@ -6,8 +6,11 @@
             "design_name": [
                 {
                     "arg": "name",
-                    "type": "name",
-                    "value": "\"asdf\""
+                    "value": "asdf"
+                },
+                {
+                    "arg": "time",
+                    "value": "232134"
                 }
             ]
         },
@@ -26,8 +29,12 @@
                     "args": [
                         {
                             "arg": null,
-                            "type": "string",
                             "value": "test"
+                        },
+                        {
+                            "arg": "t",
+                            "type": "number",
+                            "value": 32
                         }
                     ]
                 }
