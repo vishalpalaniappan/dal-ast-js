@@ -136,34 +136,27 @@ export class ArgsParser {
             value = rawValue;
         }
 
-        if (tokens[0].type === "QUOTE") {
-            type = "string";
-            value = JSON.parse(value)
-        } else if (tokens[0].type === "LBRACKET") {
-            type = "list"
-            value = JSON.parse(value)
-        } else if (tokens[0].type === "LBRACE") {
-            type = "object"
-            value = JSON.parse(value)
-        } else if (!Number.isNaN(Number(value))) {
+        let processedValue;
+        if (!Number.isNaN(Number(value))) {
             type = "number"
-            value = parseFloat(value)
+            processedValue = parseFloat(value)
+        } if (value === "true") {
+            type = "boolean";
+            processedValue = true;
+        } else if (value === "false") {
+            type = "boolean";
+            processedValue = false;
+        } else if (value === "null") {
+            type = "null";
+            processedValue = null;
         } else {
-            type = "name";
-            if (value === "true") {
-                value = true;
-            } else if (value === "false") {
-                value = false;
-            } else if (value === "null") {
-                type = "null";
-                value = null;
-            }
+            processedValue = JSON.parse(value);
         }
 
         return {
             arg: arg,
             type: type,
-            value: value
+            value: processedValue
         }
     }
 }
