@@ -1,4 +1,4 @@
-design(name="asdf",time="232134")
+design(name="asdf",time="232134",test=asdf)
 
 actor processor {
     behavior test {

@@ -135,12 +135,27 @@ export class ArgsParser {
             arg = null;
             value = rawValue;
         }
-
+        
+        /**
+         * TODO: I am doing a step here that should be done in the lexer. I should
+         * be tokenizing the args so that the prop, = and value are tokenized. Instead,
+         * I am untokenizing and then parsing. This is obviously wrong/bad practice
+         * because its moving the tokenizers responsibility here, so I will fix this.
+         */
         let processedValue;
-        if (!Number.isNaN(Number(value))) {
+        if (value [0] === "\"") {
+            type = "string"
+            processedValue = JSON.parse(value);
+        } else if (value [0] === "[") {
+            type = "list"
+            processedValue = JSON.parse(value);
+        } else if (value [0] === "{") {
+            type = "object"
+            processedValue = JSON.parse(value);
+        } else if (!Number.isNaN(Number(value))) {
             type = "number"
             processedValue = parseFloat(value)
-        } if (value === "true") {
+        } else if (value === "true") {
             type = "boolean";
             processedValue = true;
         } else if (value === "false") {
@@ -150,7 +165,8 @@ export class ArgsParser {
             type = "null";
             processedValue = null;
         } else {
-            processedValue = JSON.parse(value);
+            type = "name"
+            processedValue = value;
         }
 
         return {

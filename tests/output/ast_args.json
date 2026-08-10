@@ -6,11 +6,18 @@
             "design_name": [
                 {
                     "arg": "name",
+                    "type": "string",
                     "value": "asdf"
                 },
                 {
                     "arg": "time",
+                    "type": "string",
                     "value": "232134"
+                },
+                {
+                    "arg": "test",
+                    "type": "name",
+                    "value": "asdf"
                 }
             ]
         },
@@ -29,6 +36,7 @@
                     "args": [
                         {
                             "arg": null,
+                            "type": "string",
                             "value": "test"
                         },
                         {
