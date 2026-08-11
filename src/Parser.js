@@ -83,6 +83,8 @@ export class DalParser {
             this.processActor();
         } else if (token.value === "include") {
             this.processInclude();
+        } else if (token.value === "participant") {
+            this.processParticipant();
         } else if (token.type === "IDENTIFIER") {
             this.processCmd(token.value);
         }
@@ -147,7 +149,23 @@ export class DalParser {
         this.stack.push(node)
     }
 
-    
+    /**
+     * Processes the actor block.
+     * 
+     * actor <actor_name> {
+     * 
+     * }
+     */
+    processParticipant () {
+        const participantType = this.tokens[++this.currPos].value;
+        const node = {
+            type: "participant",
+            participantType: participantType,
+            body: []
+        }
+        this.stack.push(node)
+    }
+
 
     /**
      * Processes the include block.

@@ -8,7 +8,8 @@ let KEYWORDS = [
     "invariant",
     "actor",
     "include",
-    "select"
+    "select",
+    "participant"
 ]
 KEYWORDS = Object.freeze(KEYWORDS);
 
