@@ -5,479 +5,1277 @@
             "type": "design",
             "design_name": [
                 {
+                    "arg": null,
                     "type": "string",
-                    "value": "reverse_name_persist"
+                    "value": "library_manager"
                 }
             ]
         },
         {
-            "type": "behavior",
-            "behaviorName": "b_createDatabaseConnection",
+            "type": "actor",
+            "actorName": "librarian",
             "body": [
                 {
-                    "type": "cmd",
-                    "command": "create",
-                    "args": [
+                    "type": "behavior",
+                    "behaviorName": "createBasket",
+                    "body": [
                         {
-                            "type": "name",
-                            "value": "name=connection"
-                        },
-                        {
-                            "type": "name",
-                            "value": "type=\"object\""
-                        },
-                        {
-                            "type": "name",
-                            "value": "role=\"connection\""
-                        }
-                    ]
-                },
-                {
-                    "type": "registeredCmd",
-                    "command": "_connectToDatabase",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "connection"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "set",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "connection"
+                            "type": "cmd",
+                            "command": "set",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "string",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "list",
+                                    "value": []
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "list",
+                                    "value": []
+                                }
                             ]
                         },
                         {
-                            "type": "name",
-                            "value": "connection"
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "null",
+                                    "value": null
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "create"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": "value",
+                                    "type": "name",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "BASKET"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "BOOK_BASKET"
+                                },
+                                {
+                                    "arg": "is_input",
+                                    "type": "name",
+                                    "value": "False"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "select",
+                            "args": [],
+                            "body": [
+                                {
+                                    "type": "cmd",
+                                    "command": "goToBehavior",
+                                    "args": [
+                                        {
+                                            "arg": null,
+                                            "type": "name",
+                                            "value": "getChoice"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "behavior",
+                    "behaviorName": "getChoice",
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "getInput",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "choice"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "string",
+                                    "value": "\nGet user choice (a for add book, g for get book, else exit): "
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "null",
+                                    "value": null
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "create"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "choice"
+                                },
+                                {
+                                    "arg": "value",
+                                    "type": "name",
+                                    "value": "choice"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "CHOICE"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "USER_CHOICE"
+                                },
+                                {
+                                    "arg": "is_input",
+                                    "type": "name",
+                                    "value": "True"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "select",
+                            "args": [],
+                            "body": [
+                                {
+                                    "type": "cmd",
+                                    "command": "goToBehavior",
+                                    "args": [
+                                        {
+                                            "arg": null,
+                                            "type": "name",
+                                            "value": "displayChoice"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "behavior",
+                    "behaviorName": "displayChoice",
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "name",
+                                    "value": "choice"
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "getValue"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "choice"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "CHOICE"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "USER_CHOICE"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "display",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "string",
+                                    "value": "f'User Choice: {choice}'"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "select",
+                            "args": [],
+                            "body": [
+                                {
+                                    "type": "cmd",
+                                    "command": "goToBehavior",
+                                    "args": [
+                                        {
+                                            "arg": null,
+                                            "type": "name",
+                                            "value": "evaluateChoice"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "behavior",
+                    "behaviorName": "evaluateChoice",
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "name",
+                                    "value": "choice"
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "getValue"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "choice"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "CHOICE"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "USER_CHOICE"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "registeredCmd",
+                            "command": "_isEqual",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "isAdd"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "choice"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "string",
+                                    "value": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "registeredCmd",
+                            "command": "_isEqual",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "isGet"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "choice"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "string",
+                                    "value": "g"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "select",
+                            "args": [],
+                            "body": [
+                                {
+                                    "type": "if",
+                                    "args": [
+                                        {
+                                            "arg": null,
+                                            "type": "name",
+                                            "value": "isAdd"
+                                        }
+                                    ],
+                                    "body": [
+                                        {
+                                            "type": "cmd",
+                                            "command": "goToBehavior",
+                                            "args": [
+                                                {
+                                                    "arg": null,
+                                                    "type": "name",
+                                                    "value": "addBookChoice"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "if",
+                                    "args": [
+                                        {
+                                            "arg": null,
+                                            "type": "name",
+                                            "value": "isGet"
+                                        }
+                                    ],
+                                    "body": [
+                                        {
+                                            "type": "cmd",
+                                            "command": "goToBehavior",
+                                            "args": [
+                                                {
+                                                    "arg": null,
+                                                    "type": "name",
+                                                    "value": "getBookChoice"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "behavior",
+                    "behaviorName": "addBookChoice",
+                    "body": [
+                        {
+                            "type": "select",
+                            "args": [],
+                            "body": [
+                                {
+                                    "type": "cmd",
+                                    "command": "goToBehavior",
+                                    "args": [
+                                        {
+                                            "arg": null,
+                                            "type": "name",
+                                            "value": "getName"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "behavior",
+                    "behaviorName": "getBookChoice",
+                    "body": [
+                        {
+                            "type": "select",
+                            "args": [],
+                            "body": [
+                                {
+                                    "type": "cmd",
+                                    "command": "goToBehavior",
+                                    "args": [
+                                        {
+                                            "arg": null,
+                                            "type": "name",
+                                            "value": "getBookFromBasket"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "behavior",
+                    "behaviorName": "getBookFromBasket",
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "name",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "getValue"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "BASKET"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "BOOK_BASKET"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "registeredCmd",
+                            "command": "_getFromPosition",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "book"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "number",
+                                    "value": 0
+                                }
+                            ]
+                        },
+                        {
+                            "type": "registeredCmd",
+                            "command": "_removeFromPosition",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "null",
+                                    "value": null
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "number",
+                                    "value": 0
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "null",
+                                    "value": null
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "add"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "book"
+                                },
+                                {
+                                    "arg": "value",
+                                    "type": "name",
+                                    "value": "book"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "BOOK"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "BOOK_W_NAME"
+                                },
+                                {
+                                    "arg": "is_input",
+                                    "type": "name",
+                                    "value": "False"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "select",
+                            "args": [],
+                            "body": [
+                                {
+                                    "type": "cmd",
+                                    "command": "goToBehavior",
+                                    "args": [
+                                        {
+                                            "arg": null,
+                                            "type": "name",
+                                            "value": "getBookName"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "behavior",
+                    "behaviorName": "getBookName",
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "name",
+                                    "value": "book"
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "getValue"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "book"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "BOOK"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "BOOK_W_NAME"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "get",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "name"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "book"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "list",
+                                    "value": [
+                                        "name"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "null",
+                                    "value": null
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "add"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "name"
+                                },
+                                {
+                                    "arg": "value",
+                                    "type": "name",
+                                    "value": "name"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "NAME"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "BOOK_NAME"
+                                },
+                                {
+                                    "arg": "is_input",
+                                    "type": "name",
+                                    "value": "False"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "select",
+                            "args": [],
+                            "body": [
+                                {
+                                    "type": "cmd",
+                                    "command": "goToBehavior",
+                                    "args": [
+                                        {
+                                            "arg": null,
+                                            "type": "name",
+                                            "value": "getFirstLetterOfBookName"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "behavior",
+                    "behaviorName": "getFirstLetterOfBookName",
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "name",
+                                    "value": "name"
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "getValue"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "name"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "NAME"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "BOOK_NAME"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "registeredCmd",
+                            "command": "_getFromPosition",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "firstLetter"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "name"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "number",
+                                    "value": 0
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "display",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "string",
+                                    "value": "f'Got book named {name} and it has first letter {firstLetter}'"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "null",
+                                    "value": null
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "remove"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "book"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "select",
+                            "args": [],
+                            "body": [
+                                {
+                                    "type": "cmd",
+                                    "command": "goToBehavior",
+                                    "args": [
+                                        {
+                                            "arg": null,
+                                            "type": "name",
+                                            "value": "getChoice"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "behavior",
+                    "behaviorName": "getName",
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "getInput",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "name"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "string",
+                                    "value": "\nPlease enter book name: "
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "null",
+                                    "value": null
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "create"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "name"
+                                },
+                                {
+                                    "arg": "value",
+                                    "type": "name",
+                                    "value": "name"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "NAME"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "BOOK_NAME"
+                                },
+                                {
+                                    "arg": "is_input",
+                                    "type": "name",
+                                    "value": "True"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "select",
+                            "args": [],
+                            "body": [
+                                {
+                                    "type": "cmd",
+                                    "command": "goToBehavior",
+                                    "args": [
+                                        {
+                                            "arg": null,
+                                            "type": "name",
+                                            "value": "createBook"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "behavior",
+                    "behaviorName": "createBook",
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "name",
+                                    "value": "name"
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "getValue"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "name"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "NAME"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "BOOK_W_NAME"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "set",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "book"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "list",
+                                    "value": []
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "object",
+                                    "value": {}
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "set",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "book"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "list",
+                                    "value": [
+                                        "name"
+                                    ]
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "name"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "null",
+                                    "value": null
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "create"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "book"
+                                },
+                                {
+                                    "arg": "value",
+                                    "type": "name",
+                                    "value": "book"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "BOOK"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "BOOK_W_NAME"
+                                },
+                                {
+                                    "arg": "is_input",
+                                    "type": "name",
+                                    "value": "False"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "null",
+                                    "value": null
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "remove"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "name"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "select",
+                            "args": [],
+                            "body": [
+                                {
+                                    "type": "cmd",
+                                    "command": "goToBehavior",
+                                    "args": [
+                                        {
+                                            "arg": null,
+                                            "type": "name",
+                                            "value": "addBookToBasket"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "behavior",
+                    "behaviorName": "addBookToBasket",
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "name",
+                                    "value": "book"
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "get"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "book"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "BOOK"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "BOOK_W_NAME"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "name",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "getValue"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "BASKET"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "BOOK_BASKET"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "registeredCmd",
+                            "command": "_insertIntoList",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "name",
+                                    "value": "book"
+                                },
+                                {
+                                    "arg": null,
+                                    "type": "number",
+                                    "value": 0
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "null",
+                                    "value": null
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "update"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": "value",
+                                    "type": "name",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "BASKET"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "BOOK_BASKET"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "null",
+                                    "value": null
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "remove"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "book"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "select",
+                            "args": [],
+                            "body": [
+                                {
+                                    "type": "cmd",
+                                    "command": "goToBehavior",
+                                    "args": [
+                                        {
+                                            "arg": null,
+                                            "type": "name",
+                                            "value": "showBasket"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "behavior",
+                    "behaviorName": "showBasket",
+                    "body": [
+                        {
+                            "type": "cmd",
+                            "command": "worldStateManager",
+                            "args": [
+                                {
+                                    "arg": "save_in",
+                                    "type": "name",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": "transformation",
+                                    "type": "name",
+                                    "value": "getValue"
+                                },
+                                {
+                                    "arg": "name",
+                                    "type": "string",
+                                    "value": "basket"
+                                },
+                                {
+                                    "arg": "p_type",
+                                    "type": "string",
+                                    "value": "BASKET"
+                                },
+                                {
+                                    "arg": "p_role",
+                                    "type": "string",
+                                    "value": "BOOK_BASKET"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "cmd",
+                            "command": "display",
+                            "args": [
+                                {
+                                    "arg": null,
+                                    "type": "string",
+                                    "value": "f'Basket Contents: {basket}'"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "select",
+                            "args": [],
+                            "body": [
+                                {
+                                    "type": "cmd",
+                                    "command": "goToBehavior",
+                                    "args": [
+                                        {
+                                            "arg": null,
+                                            "type": "name",
+                                            "value": "getChoice"
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
                 {
                     "type": "cmd",
-                    "command": "select",
+                    "command": "run",
                     "args": [
                         {
+                            "arg": null,
                             "type": "name",
-                            "value": "b_createCursor"
+                            "value": "createBasket"
                         }
                     ]
                 }
-            ]
-        },
-        {
-            "type": "behavior",
-            "behaviorName": "b_createCursor",
-            "body": [
-                {
-                    "type": "cmd",
-                    "command": "create",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "name=cursor"
-                        },
-                        {
-                            "type": "name",
-                            "value": "type=\"object\""
-                        },
-                        {
-                            "type": "name",
-                            "value": "role=\"cursor\""
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "get",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "connection"
-                        },
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "connection"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "registeredCmd",
-                    "command": "_createCursor",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "cursor"
-                        },
-                        {
-                            "type": "name",
-                            "value": "connection"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "set",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "cursor"
-                            ]
-                        },
-                        {
-                            "type": "name",
-                            "value": "cursor"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "select",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "b_createTable"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "behavior",
-            "behaviorName": "b_createTable",
-            "body": [
-                {
-                    "type": "cmd",
-                    "command": "get",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "cursor"
-                        },
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "cursor"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "registeredCmd",
-                    "command": "_createTable",
-                    "args": [
-                        {
-                            "type": "null",
-                            "value": null
-                        },
-                        {
-                            "type": "name",
-                            "value": "cursor"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "select",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "b_commitConnection"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "behavior",
-            "behaviorName": "b_commitConnection",
-            "body": [
-                {
-                    "type": "cmd",
-                    "command": "get",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "connection"
-                        },
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "connection"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "registeredCmd",
-                    "command": "_commitConnection",
-                    "args": [
-                        {
-                            "type": "null",
-                            "value": null
-                        },
-                        {
-                            "type": "name",
-                            "value": "connection"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "select",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "b_receiveName"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "behavior",
-            "behaviorName": "b_receiveName",
-            "body": [
-                {
-                    "type": "cmd",
-                    "command": "create",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "name=name"
-                        },
-                        {
-                            "type": "name",
-                            "value": "type=\"string\""
-                        },
-                        {
-                            "type": "name",
-                            "value": "role=\"name\""
-                        }
-                    ]
-                },
-                {
-                    "type": "registeredCmd",
-                    "command": "_receiveName",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "name"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "set",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "name"
-                            ]
-                        },
-                        {
-                            "type": "name",
-                            "value": "name"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "select",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "b_reverse"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "behavior",
-            "behaviorName": "b_reverse",
-            "body": [
-                {
-                    "type": "cmd",
-                    "command": "get",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "name"
-                        },
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "name"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "registeredCmd",
-                    "command": "_reverse",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "reversedName"
-                        },
-                        {
-                            "type": "name",
-                            "value": "name"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "set",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "reversedName"
-                            ]
-                        },
-                        {
-                            "type": "name",
-                            "value": "reversedName"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "select",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "b_writeToDatabase"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "behavior",
-            "behaviorName": "b_writeToDatabase",
-            "body": [
-                {
-                    "type": "cmd",
-                    "command": "get",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "cursor"
-                        },
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "cursor"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "get",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "reversedName"
-                        },
-                        {
-                            "type": "name",
-                            "value": "worldState"
-                        },
-                        {
-                            "type": "list",
-                            "value": [
-                                "reversedName"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "registeredCmd",
-                    "command": "_writeToDatabase",
-                    "args": [
-                        {
-                            "type": "null",
-                            "value": null
-                        },
-                        {
-                            "type": "name",
-                            "value": "cursor"
-                        },
-                        {
-                            "type": "name",
-                            "value": "reversedName"
-                        }
-                    ]
-                },
-                {
-                    "type": "cmd",
-                    "command": "select",
-                    "args": [
-                        {
-                            "type": "name",
-                            "value": "b_commitConnection"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "cmd",
-            "command": "run",
-            "args": [
-                {
-                    "type": "name",
-                    "value": "b_createDatabaseConnection"
-                }
+            ],
+            "includes": [
+                [
+                    "registered.py"
+                ],
+                [
+                    "computable_units.py"
+                ]
             ]
         }
     ]
