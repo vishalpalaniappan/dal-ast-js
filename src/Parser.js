@@ -77,7 +77,9 @@ export class DalParser {
             this.processWhile();
         } else if (token.value === "invariant") {
             this.processInvariant();
-        } else if (token.value === "actor") {
+        } else if (token.value === "select") {
+            this.processSelect();
+        }else if (token.value === "actor") {
             this.processActor();
         } else if (token.value === "include") {
             this.processInclude();
@@ -202,6 +204,22 @@ export class DalParser {
         }
         this.stack.push(node)
     }
+    /**
+     * Processes select block.
+     * 
+     * select {
+     * 
+     * }
+     */
+    processSelect () {
+        const node = {
+            type: "select",
+            args: [],
+            body: []
+        }
+        this.stack.push(node)
+    }
+
 
     /**
      * Processes while block.

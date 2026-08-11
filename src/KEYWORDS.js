@@ -7,7 +7,8 @@ let KEYWORDS = [
     "while",
     "invariant",
     "actor",
-    "include"
+    "include",
+    "select"
 ]
 KEYWORDS = Object.freeze(KEYWORDS);
 
