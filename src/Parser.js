@@ -85,6 +85,8 @@ export class DalParser {
             this.processInclude();
         } else if (token.value === "participant") {
             this.processParticipant();
+        } else if (token.value === "compositeBehavior") {
+            this.processCompositeBehavior();
         } else if (token.type === "IDENTIFIER") {
             this.processCmd(token.value);
         }
@@ -126,6 +128,23 @@ export class DalParser {
         const behaviorName = this.tokens[++this.currPos].value;
         const node = {
             type: "behavior",
+            behaviorName: behaviorName,
+            body: []
+        }
+        this.stack.push(node)
+    }
+
+    /**
+     * Processes the behavior block.
+     * 
+     * behavior <behavior_name>(args1, arg2...argN) {
+     * 
+     * }
+     */
+    processCompositeBehavior () {
+        const behaviorName = this.tokens[++this.currPos].value;
+        const node = {
+            type: "compositeBehavior",
             behaviorName: behaviorName,
             body: []
         }

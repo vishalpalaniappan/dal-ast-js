@@ -9,7 +9,8 @@ let KEYWORDS = [
     "actor",
     "include",
     "select",
-    "participant"
+    "participant",
+    "compositeBehavior",
 ]
 KEYWORDS = Object.freeze(KEYWORDS);
 
