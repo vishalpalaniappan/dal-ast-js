@@ -1,0 +1,14 @@
+compositeBehavior <composite_behavior> {
+
+    behavior getBasket {
+        select {
+            goToBehavior(test2)
+        }
+    }
+
+    behavior getBook {
+        
+    }
+
+    run(getBasket)
+}
