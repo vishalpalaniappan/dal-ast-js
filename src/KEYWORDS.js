@@ -11,6 +11,7 @@ let KEYWORDS = [
     "select",
     "participant",
     "compositeBehavior",
+    "import"
 ]
 KEYWORDS = Object.freeze(KEYWORDS);
 

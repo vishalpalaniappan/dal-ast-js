@@ -87,6 +87,8 @@ export class DalParser {
             this.processParticipant();
         } else if (token.value === "compositeBehavior") {
             this.processCompositeBehavior();
+        } else if (token.value === "import") {
+            this.processImport();
         } else if (token.type === "IDENTIFIER") {
             this.processCmd(token.value);
         }
@@ -185,7 +187,6 @@ export class DalParser {
         this.stack.push(node)
     }
 
-
     /**
      * Processes the include block.
      * 
@@ -204,6 +205,27 @@ export class DalParser {
         } else {
             s.includes = [];
             s.includes.push(includes)
+        }
+    }
+
+    /**
+     * Processes the import command.
+     * 
+     * import("sample.dal")
+     */
+    processImport() {
+        const parsedArgs = new ArgsParser(this.getArgs()).run();
+
+        const imports = parsedArgs.map((arg) => arg["value"]);
+
+        // TODO: Validate that import is added inside actor block
+
+        const s = this.stack[this.stack.length - 1];
+        if ("imports" in s) {
+            s.imports.push(includes)
+        } else {
+            s.imports = [];
+            s.imports.push(imports)
         }
     }
 
