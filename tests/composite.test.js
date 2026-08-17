@@ -8,20 +8,20 @@ import { DalAstGenerator } from "../src/DalAstGenerator";
 
 describe("tests ast genertor from dal file", () => {
     it("tests import", async () => {
-        const filePath = resolve(__dirname, "./designs/hasImport.dal")
+        const filePath = resolve(__dirname, "./designs/compositeTest.dal")
         const source = await readFile(filePath)
         const ast = new DalAstGenerator().run(source.toString());
-        const ast_output_path = resolve(__dirname, "./output/hasImport.json")
+        const ast_output_path = resolve(__dirname, "./output/compositeTest.json")
         await writeFile(
             ast_output_path,
             JSON.stringify(ast, null, 4)
         );
     });
     it("tests composite", async () => {
-        const filePath = resolve(__dirname, "./designs/compositeBehavior.dal")
+        const filePath = resolve(__dirname, "./designs/average.dal")
         const source = await readFile(filePath)
         const ast = new DalAstGenerator().run(source.toString());
-        const ast_output_path = resolve(__dirname, "./output/compositeBehavior.json")
+        const ast_output_path = resolve(__dirname, "./output/average.json")
         await writeFile(
             ast_output_path,
             JSON.stringify(ast, null, 4)

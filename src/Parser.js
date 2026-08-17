@@ -144,13 +144,9 @@ export class DalParser {
      * }
      */
     processCompositeBehavior () {
-        const behaviorName = this.tokens[++this.currPos].value;
-        const node = {
-            type: "compositeBehavior",
-            behaviorName: behaviorName,
-            body: []
-        }
-        this.stack.push(node)
+        const parsedArgs = new ArgsParser(this.getArgs()).run();
+        this.ast["type"] = "compositeBehavior";
+        this.ast["name"] = parsedArgs;
     }
 
     /**
@@ -338,11 +334,8 @@ export class DalParser {
      */
     processDesignKeyword () {
         const parsedArgs = new ArgsParser(this.getArgs()).run();
-        const node = {
-            "type": "design",
-            "design_name": parsedArgs
-        }
-        this.stack[this.stack.length - 1].body.push(node); 
+        this.ast["type"] = "design";
+        this.ast["name"] = parsedArgs;
     }
 
     /**
