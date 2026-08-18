@@ -218,7 +218,7 @@ export class DalParser {
 
         const s = this.stack[this.stack.length - 1];
         if ("imports" in s) {
-            s.imports.push(includes)
+            s.imports.push(imports)
         } else {
             s.imports = [];
             s.imports.push(imports)
