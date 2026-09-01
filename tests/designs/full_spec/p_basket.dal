@@ -3,11 +3,13 @@ participant("basket")
 property(
     name="length"
     description="Number of books in basket"
+    type="number"
 )
 
 property(
     name="type"
     description="Type of object (list, object, str etc)"
+    type="string"
 )
 
 domain(
