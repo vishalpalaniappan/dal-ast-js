@@ -1,0 +1,23 @@
+participant("basket")
+
+property(
+    name="length"
+    description="Number of books in basket"
+)
+
+property(
+    name="type"
+    description="Type of object (list, object, str etc)"
+)
+
+domain(
+    contains="books"
+)
+
+dcs(
+    # Domain structure for compression
+)
+
+getLength()
+
+getType()
