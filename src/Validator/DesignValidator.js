@@ -17,6 +17,15 @@ export class DesignValidator {
     }
 
     run() {
+        /**
+         * TODO: I am going to create classes for each AST node type
+         * that will return the metadata for that node.
+         * 
+         * Using this same class, I will also be able to construct the
+         * node using new metadata. This will be used to inject the
+         * new nodes. Finally, I will also enable untokenizing using 
+         * this to visualize the AST that was built.
+         */
         this.processTree(this.ast);
         console.log(JSON.stringify(this.behaviors, null, 4));
     }
