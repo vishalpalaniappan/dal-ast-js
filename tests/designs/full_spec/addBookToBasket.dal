@@ -14,14 +14,39 @@ participant("position")
 #       Invariants
 #============================
 assert({
+    id:1,
     participants: ["basket"],
     condition: basket.type == "list"
 })
 assert({
+    id:2,
     participants: ["position"],
     condition: position.type == "int"
 })
 assert({
+    id:3,
     participants: ["basket", "position"],
     condition: position >= 0 && position < basket.length
 })
+
+#===========================
+#     Narrative
+#===========================
+generate{
+    {
+        type: "success",
+        sentence: f"I got the book at position {position} in the basket",
+    },
+    {
+        type: "fail_id_1",
+        sentence: f"I failed to get the book from the basket at position {position} because basket was not a list.",
+    },
+    {
+        type: "fail_id_2",
+        sentence: f"I failed to get the position from the basket because position was not an int",
+    },
+    {
+        type: "fail_id_3",
+        sentence: f"I failed to get the book at position {position} from the basket because the position was invalid given the size of the basket.",
+    }
+}
