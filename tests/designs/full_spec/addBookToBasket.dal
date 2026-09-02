@@ -35,13 +35,7 @@ modifies(
 
 reintroduces(
     {
-        name: "book",
-        props: [
-            {
-                name: "type",
-                value: "object"
-            }
-        ]
+        name: "book"
     }
 )
 
