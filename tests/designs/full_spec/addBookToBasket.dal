@@ -2,8 +2,6 @@ behavior("getBookFromBasket")
 
 description("Gets a book from the basket at the given position")
 
-argsOrder("basket","position")
-
 #============================
 #       Participants
 #============================
@@ -26,7 +24,9 @@ assert({
     condition: basket.type == "list",
     invalidValues: [
         {
-            value: [0],
+            value: {
+                basket: 0
+            },
             description: "Basket type is an int"
         }
     ]
@@ -37,7 +37,9 @@ assert({
     condition: position.type == "int",
     invalidValues: [
         {
-            value: ["random"],
+            value: {
+                position: "random"
+            },
             description: "Position type is an int"
         }
     ]
@@ -48,12 +50,12 @@ assert({
     condition: position >= 0 && position < basket.length,
     invalidValues: [
         {
-            value: [
-                [
+            value: {
+                basket: [
                     {"name":"book"}
                 ],
-                9
-            ],
+                position: 9
+            },
             description: "Basket has one book but 9th book was requested."
         }
     ]
@@ -65,18 +67,18 @@ assert({
 generate{
     {
         type: "success",
-        sentence: f"I got the book at position {position} in the basket",
+        sentence: f"The librarian got the book named {book['name']} at position {position} in the basket",
     },
     {
         type: "fail_id_1",
-        sentence: f"I failed to get the book from the basket at position {position} because basket was not a list.",
+        sentence: f"The librarian failed to get the book from the basket at position {position} because basket was not a list.",
     },
     {
         type: "fail_id_2",
-        sentence: f"I failed to get the position from the basket because position was not an int",
+        sentence: f"The librarian failed to get the position from the basket because position was not an int",
     },
     {
         type: "fail_id_3",
-        sentence: f"I failed to get the book at position {position} from the basket because the position was invalid given the size of the basket.",
+        sentence: f"The librarian failed to get the book at position {position} from the basket because the position was invalid given the size of the basket.",
     }
 }
