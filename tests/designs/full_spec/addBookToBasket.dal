@@ -11,7 +11,29 @@ participant(name="position", role="BASKET_GET_POSITION")
 #===============================
 #  Modification to World State
 #===============================
-returns("basket", "book")
+return(
+    {
+        name: "basket"
+    },
+    {
+        name: "book"
+    }
+)
+
+modifies(
+    {
+        name: "basket",
+        property: "length",
+        operation: subtraction,
+        value: 1
+    },
+    {
+        name: "book",
+        property: "type",
+        value: "object"
+    }
+)
+
 updateWorldState(name="basket", role="BASKET")
 updateWorldState(name="book", role="BOOK")
 
