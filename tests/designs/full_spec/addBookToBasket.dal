@@ -23,14 +23,25 @@ return(
 modifies(
     {
         name: "basket",
-        property: "length",
-        operation: subtraction,
-        value: 1
-    },
+        props: [
+            {
+                name: "length",
+                operation: "subtraction",
+                value: 1
+            }
+        ]
+    }
+)
+
+reintroduces(
     {
         name: "book",
-        property: "type",
-        value: "object"
+        props: [
+            {
+                name: "type",
+                value: "object"
+            }
+        ]
     }
 )
 
