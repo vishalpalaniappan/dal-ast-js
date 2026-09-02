@@ -8,7 +8,7 @@ property(
 
 property(
     name="type"
-    description="Type of object (list, object, str etc)"
+    description="Data type of participant (list, object, str etc)"
     type="string"
 )
 
