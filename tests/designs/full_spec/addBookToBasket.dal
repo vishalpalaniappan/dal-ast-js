@@ -16,17 +16,40 @@ participant("position")
 assert({
     id:1,
     participants: ["basket"],
-    condition: basket.type == "list"
+    condition: basket.type == "list",
+    invalidValues: [
+        {
+            value: [0],
+            description: "Basket type is an int"
+        }
+    ]
 })
 assert({
     id:2,
     participants: ["position"],
-    condition: position.type == "int"
+    condition: position.type == "int",
+    invalidValues: [
+        {
+            value: ["random"],
+            description: "Position type is an int"
+        }
+    ]
 })
 assert({
     id:3,
     participants: ["basket", "position"],
-    condition: position >= 0 && position < basket.length
+    condition: position >= 0 && position < basket.length,
+    invalidValues: [
+        {
+            value: [
+                [
+                    {"name":"book"}
+                ],
+                9
+            ],
+            description: "Basket has one book but 9th book was requested."
+        }
+    ]
 })
 
 #===========================
