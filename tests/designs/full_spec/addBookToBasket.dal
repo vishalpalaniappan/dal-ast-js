@@ -1,0 +1,27 @@
+behavior("getBookFromBasket")
+
+description("Gets a book from the basket at the given position")
+
+argsOrder("basket","position")
+
+#============================
+#       Participants
+#============================
+participant("basket")
+participant("position")
+
+#============================
+#       Invariants
+#============================
+assert({
+    participants: ["basket"],
+    condition: basket.type == "list"
+})
+assert({
+    participants: ["position"],
+    condition: position.type == "int"
+})
+assert({
+    participants: ["basket", "position"],
+    condition: position >= 0 && position < basket.length
+})
