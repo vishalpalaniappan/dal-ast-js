@@ -107,5 +107,9 @@ generate{
     {
         type: "fail_id_3",
         sentence: f"The librarian failed to get the book at position {position} from the basket because the position was invalid given the size of the basket.",
+    },
+    {
+        type: "unknown_failure",
+        sentence: f"The librarian failed to get the book at position {position} from the basket for an unknown reason, the necessary semantics to explain the failure are missing from the world.",
     }
 }
