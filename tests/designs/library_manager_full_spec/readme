@@ -1,7 +1,8 @@
 In this folder, I will create a more complete specification for the library manager design used to add a book to the shelf.
 
-This will involve setting up the following participants:
+This will involve setting up the following participants (with attributes), behaviors and invariants:
 
+Participants:
 - BookName
     - Attribute: Type (String)
     - Attribute: Length (Number)
@@ -16,20 +17,26 @@ This will involve setting up the following participants:
     - Attribute: Type (String)
     - Domain: Object with Books sorted using FirstLetterOfBookName
 
-Behavior:
+Behaviors:
 - Initialize World
     - Creates Shelf participant
+    - Selects GetBookName
 - GetBookName
     - Accepts Book Name from user
     - Creates BookName participant
+    - Selects CreateBook
 - CreateBook
     - Creates Book Using Name
     - Creates Book participant
+    - Selects GetFirstLetterOfBookName
 - GetFirstLetterOfBookName
+    - Invariant: BookName.length > 0
     - Gets First Letter of Book Name
     - Creates FirstLetterOfBookName participant
     - Removes BookName from world state
+    - Selects AddBookToShelf
 - AddBookToShelf
     - Adds Book To Shelf
     - Updates shelf in world state
     - Removes book from world state
+    - Selects GetBookName
