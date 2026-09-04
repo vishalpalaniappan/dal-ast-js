@@ -1,0 +1,35 @@
+In this folder, I will create a more complete specification for the library manager design used to add a book to the shelf.
+
+This will involve setting up the following participants:
+
+- BookName
+    - Attribute: Type (String)
+    - Attribute: Length (Number)
+    - Domain: Contains Letters
+- FirstLetterOfBookName
+    - Attribute: Type (String)
+    - Domain: Single Letter
+- Book
+    - Attribute: Type (String)
+    - Domain: Contains Object with Book Name in Name Key
+- Shelf
+    - Attribute: Type (String)
+    - Domain: Object with Books sorted using FirstLetterOfBookName
+
+Behavior:
+- Initialize World
+    - Creates Shelf participant
+- GetBookName
+    - Accepts Book Name from user
+    - Creates BookName participant
+- CreateBook
+    - Creates Book Using Name
+    - Creates Book participant
+- GetFirstLetterOfBookName
+    - Gets First Letter of Book Name
+    - Creates FirstLetterOfBookName participant
+    - Removes BookName from world state
+- AddBookToShelf
+    - Adds Book To Shelf
+    - Updates shelf in world state
+    - Removes book from world state
