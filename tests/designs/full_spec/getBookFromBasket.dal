@@ -1,0 +1,120 @@
+behavior("getBookFromBasket")
+
+description("Gets a book from the basket at the given position")
+
+#============================
+#       Participants
+#============================
+participant(name="basket", role="BASKET")
+participant(name="position", role="BASKET_GET_POSITION")
+
+#===============================
+#  Modification to World State
+#===============================
+return(
+    {
+        name: "basket"
+    },
+    {
+        name: "book"
+    }
+)
+
+modifies(
+    {
+        name: "basket",
+        props: [
+            {
+                name: "length",
+                operation: "subtraction",
+                value: 1
+            }
+        ]
+    }
+)
+
+reintroduces(
+    {
+        name: "book"
+    }
+)
+
+updateWorldState(name="basket", role="BASKET")
+updateWorldState(name="book", role="BOOK")
+
+removeFromWorldState(name="position", role="BASKET_GET_POSITION")
+
+#============================
+#       Invariants
+#============================
+assert({
+    id:1,
+    participants: ["basket"],
+    condition: basket.type == "list",
+    description: "Basket type must be a list",
+    invalidValues: [
+        {
+            value: {
+                basket: 0
+            },
+            description: "Basket type is an integer."
+        }
+    ]
+})
+assert({
+    id:2,
+    participants: ["position"],
+    condition: position.type == "int",
+    description: "Position type must be an integer.",
+    invalidValues: [
+        {
+            value: {
+                position: "random"
+            },
+            description: "Position type is a string."
+        }
+    ]
+})
+assert({
+    id:3,
+    participants: ["basket", "position"],
+    condition: position >= 0 && position < basket.length,
+    description:"Position of accessed book must be within the number of books in the basket.",
+    invalidValues: [
+        {
+            value: {
+                basket: [
+                    {"name":"book"}
+                ],
+                position: 9
+            },
+            description: "Basket has one book in it but the 9th book was requested."
+        }
+    ]
+})
+
+#===========================
+#     Narrative
+#===========================
+generate{
+    {
+        type: "success",
+        sentence: f"The librarian got the book named {book['name']} at position {position} in the basket",
+    },
+    {
+        type: "fail_id_1",
+        sentence: f"The librarian failed to get the book from the basket at position {position} because the basket was not a list.",
+    },
+    {
+        type: "fail_id_2",
+        sentence: f"The librarian failed to get the position from the basket because position was not an integer.",
+    },
+    {
+        type: "fail_id_3",
+        sentence: f"The librarian failed to get the book at position {position} from the basket because the position was invalid given the size of the basket.",
+    },
+    {
+        type: "unknown_failure",
+        sentence: f"The librarian failed to get the book at position {position} from the basket for an unknown reason, the necessary semantics to explain the meaning of the failure are missing from the world.",
+    }
+}

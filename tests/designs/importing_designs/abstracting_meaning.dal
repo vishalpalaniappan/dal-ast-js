@@ -1,0 +1,38 @@
+design("library_manager")
+
+actor librarian {
+    design {
+        purpose("Allows users to interact with the library to store and access books.")
+        include_design("AddBookToLibrary.dal")
+        include_design("GetBookFromLibrary.dal")
+        include_design("GetUserAction.dal")
+        include_design("InitializeWorld.dal")
+
+        behavior initializeWorld {
+            purpose("Create the participants in the library.")
+            start(createBasket)
+        }
+
+        behavior receiveUserAction{
+            purpose ("Allows the user to interact with the library")
+            exhibitBehavior(GetUserAction)
+            select(evaluateUserAction)
+        }
+
+        behavior evaluateUserAction {
+            worldStateManager(choice, "getValue", "choice")
+            isEqual(choice, "a", isAdd)
+            isEqual(choice, "g", isGet)
+            if (isAdd) {
+                exhibitBehavior(AddBookToLibrary)
+                select(receiveUserAction)
+            }
+            if (isGet) {
+                exhibitBehavior(GetBookFromLibrary)
+                select(receiveUserAction)
+            }
+        }
+
+        run(initializeWorld)
+    }
+}

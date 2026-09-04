@@ -5,19 +5,22 @@ import { Untokenizer } from "./Untokenizer";
  * command(args...)
  * 
  * Example:
- * set(book, ["name"], "Harry Potter")
+ * set(name=book, keys=["name"], value="Harry Potter")
  * 
  * Returns:
  * [
  *      {
+ *          "arg": "name",
  *          "type": "name",
  *          "value": "book"
  *      },
  *      {
+ *          "arg": "keys",
  *          "type": "list",
  *          "value": ["name"]
  *      },
  *      {
+ *          "arg": "value",
  *          "type": "string",
  *          "value": "Harry Potter"
  *      }    
@@ -122,34 +125,54 @@ export class ArgsParser {
      */
     processGroup (tokens) {
         let type;
-        let value = new Untokenizer(tokens).buildString();
-        if (tokens[0].type === "QUOTE") {
-            type = "string";
-            value = JSON.parse(value)
-        } else if (tokens[0].type === "LBRACKET") {
+        let rawValue = new Untokenizer(tokens).buildString();
+        const match = rawValue.match(/^([^=]+)=(.*)$/);
+        
+        let arg, value
+        if (match) {
+            [, arg, value] = match;
+        } else {
+            arg = null;
+            value = rawValue;
+        }
+        
+        /**
+         * TODO: I am doing a step here that should be done in the lexer. I should
+         * be tokenizing the args so that the prop, = and value are tokenized. Instead,
+         * I am untokenizing and then parsing. This is obviously wrong/bad practice
+         * because its moving the tokenizers responsibility here, so I will fix this.
+         */
+        let processedValue;
+        if (value [0] === "\"") {
+            type = "string"
+            processedValue = JSON.parse(value);
+        } else if (value [0] === "[") {
             type = "list"
-            value = JSON.parse(value)
-        } else if (tokens[0].type === "LBRACE") {
+            processedValue = JSON.parse(value);
+        } else if (value [0] === "{") {
             type = "object"
-            value = JSON.parse(value)
+            processedValue = JSON.parse(value);
         } else if (!Number.isNaN(Number(value))) {
             type = "number"
-            value = parseFloat(value)
+            processedValue = parseFloat(value)
+        } else if (value === "true") {
+            type = "boolean";
+            processedValue = true;
+        } else if (value === "false") {
+            type = "boolean";
+            processedValue = false;
+        } else if (value === "null") {
+            type = "null";
+            processedValue = null;
         } else {
-            type = "name";
-            if (value === "true") {
-                value = true;
-            } else if (value === "false") {
-                value = false;
-            } else if (value === "null") {
-                type = "null";
-                value = null;
-            }
+            type = "name"
+            processedValue = value;
         }
 
         return {
+            arg: arg,
             type: type,
-            value: value
+            value: processedValue
         }
     }
 }

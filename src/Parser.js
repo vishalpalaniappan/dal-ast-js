@@ -77,10 +77,18 @@ export class DalParser {
             this.processWhile();
         } else if (token.value === "invariant") {
             this.processInvariant();
-        } else if (token.value === "actor") {
+        } else if (token.value === "select") {
+            this.processSelect();
+        }else if (token.value === "actor") {
             this.processActor();
         } else if (token.value === "include") {
             this.processInclude();
+        } else if (token.value === "participant") {
+            this.processParticipant();
+        } else if (token.value === "compositeBehavior") {
+            this.processCompositeBehavior();
+        } else if (token.value === "import") {
+            this.processImport();
         } else if (token.type === "IDENTIFIER") {
             this.processCmd(token.value);
         }
@@ -129,6 +137,19 @@ export class DalParser {
     }
 
     /**
+     * Processes the behavior block.
+     * 
+     * behavior <behavior_name>(args1, arg2...argN) {
+     * 
+     * }
+     */
+    processCompositeBehavior () {
+        const parsedArgs = new ArgsParser(this.getArgs()).run();
+        this.ast["type"] = "compositeBehavior";
+        this.ast["name"] = parsedArgs;
+    }
+
+    /**
      * Processes the actor block.
      * 
      * actor <actor_name> {
@@ -145,7 +166,22 @@ export class DalParser {
         this.stack.push(node)
     }
 
-    
+    /**
+     * Processes the actor block.
+     * 
+     * actor <actor_name> {
+     * 
+     * }
+     */
+    processParticipant () {
+        const participantType = this.tokens[++this.currPos].value;
+        const node = {
+            type: "participant",
+            participantType: participantType,
+            body: []
+        }
+        this.stack.push(node)
+    }
 
     /**
      * Processes the include block.
@@ -165,6 +201,27 @@ export class DalParser {
         } else {
             s.includes = [];
             s.includes.push(includes)
+        }
+    }
+
+    /**
+     * Processes the import command.
+     * 
+     * import("sample.dal")
+     */
+    processImport() {
+        const parsedArgs = new ArgsParser(this.getArgs()).run();
+
+        const imports = parsedArgs.map((arg) => arg["value"]);
+
+        // TODO: Validate that import is added inside actor block
+
+        const s = this.stack[this.stack.length - 1];
+        if ("imports" in s) {
+            s.imports.push(imports)
+        } else {
+            s.imports = [];
+            s.imports.push(imports)
         }
     }
 
@@ -202,6 +259,22 @@ export class DalParser {
         }
         this.stack.push(node)
     }
+    /**
+     * Processes select block.
+     * 
+     * select {
+     * 
+     * }
+     */
+    processSelect () {
+        const node = {
+            type: "select",
+            args: [],
+            body: []
+        }
+        this.stack.push(node)
+    }
+
 
     /**
      * Processes while block.
@@ -261,11 +334,8 @@ export class DalParser {
      */
     processDesignKeyword () {
         const parsedArgs = new ArgsParser(this.getArgs()).run();
-        const node = {
-            "type": "design",
-            "design_name": parsedArgs
-        }
-        this.stack[this.stack.length - 1].body.push(node); 
+        this.ast["type"] = "design";
+        this.ast["name"] = parsedArgs;
     }
 
     /**
