@@ -42,6 +42,8 @@ reintroduces(
 updateWorldState(name="basket", role="BASKET")
 updateWorldState(name="book", role="BOOK")
 
+removeFromWorldState(name="position", role="BASKET_GET_POSITION")
+
 #============================
 #       Invariants
 #============================
