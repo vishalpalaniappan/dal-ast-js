@@ -49,12 +49,13 @@ assert({
     id:1,
     participants: ["basket"],
     condition: basket.type == "list",
+    description: "Basket type must be a list",
     invalidValues: [
         {
             value: {
                 basket: 0
             },
-            description: "Basket type is an int"
+            description: "Basket type is an integer."
         }
     ]
 })
@@ -62,12 +63,13 @@ assert({
     id:2,
     participants: ["position"],
     condition: position.type == "int",
+    description: "Position type must be an integer.",
     invalidValues: [
         {
             value: {
                 position: "random"
             },
-            description: "Position type is an int"
+            description: "Position type is a string."
         }
     ]
 })
@@ -75,6 +77,7 @@ assert({
     id:3,
     participants: ["basket", "position"],
     condition: position >= 0 && position < basket.length,
+    description:"Position of accessed book must be within the number of books in the basket.",
     invalidValues: [
         {
             value: {
@@ -83,7 +86,7 @@ assert({
                 ],
                 position: 9
             },
-            description: "Basket has one book but 9th book was requested."
+            description: "Basket has one book in it but the 9th book was requested."
         }
     ]
 })
@@ -98,11 +101,11 @@ generate{
     },
     {
         type: "fail_id_1",
-        sentence: f"The librarian failed to get the book from the basket at position {position} because basket was not a list.",
+        sentence: f"The librarian failed to get the book from the basket at position {position} because the basket was not a list.",
     },
     {
         type: "fail_id_2",
-        sentence: f"The librarian failed to get the position from the basket because position was not an int",
+        sentence: f"The librarian failed to get the position from the basket because position was not an integer.",
     },
     {
         type: "fail_id_3",
@@ -110,6 +113,6 @@ generate{
     },
     {
         type: "unknown_failure",
-        sentence: f"The librarian failed to get the book at position {position} from the basket for an unknown reason, the necessary semantics to explain the failure are missing from the world.",
+        sentence: f"The librarian failed to get the book at position {position} from the basket for an unknown reason, the necessary semantics to explain the meaning of the failure are missing from the world.",
     }
 }
