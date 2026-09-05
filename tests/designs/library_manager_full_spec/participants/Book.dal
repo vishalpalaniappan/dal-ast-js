@@ -1,1 +1,27 @@
-participant("Shelf")
+participant("Book")
+
+description("Book that contains a name")
+
+property(
+    name="type"
+    description="Data type of participant (list, object, str etc)"
+    type="string"
+    get="getType"
+)
+
+domain(
+    type="object",
+    keys={
+        type="string",
+        value="name"
+    },
+    value={
+        type="string",
+        contains="BookName"
+    }
+)
+
+dcs (
+    # Inherent domain
+    # Domain structure for compression
+)

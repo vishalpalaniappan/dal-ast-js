@@ -1,1 +1,20 @@
 participant("BookName")
+
+description("Name of the book")
+
+property(
+    name="type"
+    description="Data type of participant (list, object, str etc)"
+    type="string"
+    get="getType"
+)
+
+domain(
+    type="string",
+    contains="letter"
+)
+
+dcs (
+    # Inherent domain
+    # Domain structure for compression
+)
