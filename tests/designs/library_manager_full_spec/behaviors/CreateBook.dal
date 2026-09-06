@@ -23,6 +23,18 @@ introduces(
     }
 )
 
+modifies(
+    {
+        name: "book",
+        props: [
+            {
+                name: "type",
+                value: "object"
+            }
+        ]
+    }
+)
+
 updateWorldState(name="book", role="BOOK")
 
 #===========================

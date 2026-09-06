@@ -23,6 +23,18 @@ introduces(
     }
 )
 
+modifies(
+    {
+        name: "first_letter",
+        props: [
+            {
+                name: "type",
+                value: "string"
+            }
+        ]
+    }
+)
+
 updateWorldState(name="first_letter", role="FIRST_LETTER")
 removeFromWorldState(name="book_name", role="BOOK_NAME")
 
@@ -33,7 +45,7 @@ assert({
     id:1,
     participants: ["book_name"],
     condition: book_name.length > 0,
-    description: "Book name must be at least one character in length.",
+    description: "Book name must have at least one character.",
     invalidValues: [
         {
             value: {
@@ -51,5 +63,9 @@ generate{
     {
         type: "success",
         sentence: f"Got the first letter {first_letter} from book with name {book_name}.",
-    }
+    },
+    {
+        type: "fail_id_1",
+        sentence: f"The librarian failed to get the first letter from book with name {book_name} because it did not contain atleast one letter.",
+    },
 }

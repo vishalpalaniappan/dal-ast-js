@@ -25,6 +25,18 @@ introduces(
     }
 )
 
+modifies(
+    {
+        name: "shelf",
+        props: [
+            {
+                name: "type",
+                value: "object"
+            }
+        ]
+    }
+)
+
 updateWorldState(name="shelf", role="SHELF")
 updateWorldState(name="book_name_prompt", role="NAME_PROMPT")
 
