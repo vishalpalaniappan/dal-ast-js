@@ -1,1 +1,39 @@
 behavior("InitializeWorld")
+
+description("Initializes the world with the shelf and the prompt to get book name")
+
+#===============================
+#  Modification to World State
+#===============================
+return(
+    {
+        name: "shelf"
+    },
+    {
+        name: "book_name_prompt"
+    }
+)
+
+introduces(
+    {
+        name: "shelf"
+        role: "SHELF"
+    },
+    {
+        name: "book_name_prompt"
+        role: "NAME_PROMPT"
+    }
+)
+
+updateWorldState(name="shelf", role="SHELF")
+updateWorldState(name="book_name_prompt", role="NAME_PROMPT")
+
+#===========================
+#     Narrative
+#===========================
+generate{
+    {
+        type: "success",
+        sentence: f"Initialized the world state with the shelf and prompt to get book name.",
+    }
+}
