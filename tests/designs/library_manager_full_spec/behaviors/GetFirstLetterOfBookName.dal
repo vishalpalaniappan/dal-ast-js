@@ -1,1 +1,55 @@
 behavior("GetFirstLetterOfBookName")
+
+description("Creates a book with the given name.")
+
+#============================
+#       Participants
+#============================
+participant(name="book_name", role="BOOK_NAME")
+
+#===============================
+#  Modification to World State
+#===============================
+return(
+    {
+        firstLetter: "firstLetterOfBookName"
+    }
+)
+
+introduces(
+    {
+        name: "first_letter"
+        role: "FIRST_LETTER"
+    }
+)
+
+updateWorldState(name="first_letter", role="FIRST_LETTER")
+removeFromWorldState(name="book_name", role="BOOK_NAME")
+
+#============================
+#       Invariants
+#============================
+assert({
+    id:1,
+    participants: ["book_name"],
+    condition: book_name.length > 0,
+    description: "Book name must be at least one character in length.",
+    invalidValues: [
+        {
+            value: {
+                book_name: ""
+            },
+            description: "Empty book name"
+        }
+    ]
+})
+
+#===========================
+#     Narrative
+#===========================
+generate{
+    {
+        type: "success",
+        sentence: f"Got the first letter {first_letter} from book with name {book_name}.",
+    }
+}

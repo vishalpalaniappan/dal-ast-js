@@ -24,7 +24,6 @@ introduces(
 )
 
 updateWorldState(name="book", role="BOOK")
-removeFromWorldState(name="book_name", role="BOOK_NAME")
 
 #===========================
 #     Narrative
