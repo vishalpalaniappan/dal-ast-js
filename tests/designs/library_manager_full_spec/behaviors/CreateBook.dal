@@ -1,0 +1,53 @@
+behavior("CreateBook")
+
+description("Creates a book with the given name.")
+
+#============================
+#       Participants
+#============================
+participant(name="book_name", role="BOOK_NAME")
+
+#===============================
+#  Modification to World State
+#===============================
+return(
+    {
+        book: "book"
+    }
+)
+
+introduces(
+    {
+        name: "book"
+        role: "BOOK"
+    }
+)
+
+modifies(
+    {
+        name: "book",
+        props: [
+            {
+                name: "type",
+                value: "object"
+            }
+        ]
+    }
+)
+
+updateWorldState(name="book", role="BOOK")
+
+#============================
+#       Invariants
+#============================
+# TODO: Add invariant that book_name must be of type string
+
+#===========================
+#     Narrative
+#===========================
+generate{
+    {
+        type: "success",
+        sentence: f"Created a book with the name {book_name}.",
+    }
+}

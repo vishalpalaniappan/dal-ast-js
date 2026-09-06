@@ -8,7 +8,7 @@ import { DalAstGenerator } from "../src/DalAstGenerator";
 
 describe("tests ast genertor from dal file", () => {
     it("basic source", async () => {
-        const filePath = resolve(__dirname, "./designs/reverse_name_persist.dal")
+        const filePath = resolve(__dirname, "./designs/library_manager.dal")
         const source = await readFile(filePath)
         const lexer = new DalLexer(source.toString());
 
@@ -28,7 +28,7 @@ describe("tests ast genertor from dal file", () => {
     });
 
     it("tests direct ast generation", async () => {
-        const filePath = resolve(__dirname, "./designs/reverse_name_persist.dal")
+        const filePath = resolve(__dirname, "./designs/library_manager.dal")
         const source = await readFile(filePath)
         const ast = new DalAstGenerator().run(source.toString());
         const ast_output_path = resolve(__dirname, "./output/ast_direct_gen.json")
@@ -39,7 +39,7 @@ describe("tests ast genertor from dal file", () => {
     });
 
     it("tests actor ast generation", async () => {
-        const filePath = resolve(__dirname, "./designs/actorTest.dal")
+        const filePath = resolve(__dirname, "./designs/library_manager.dal")
         const source = await readFile(filePath)
         const ast = new DalAstGenerator().run(source.toString());
         const ast_output_path = resolve(__dirname, "./output/ast_actor.json")

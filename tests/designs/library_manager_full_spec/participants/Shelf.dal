@@ -1,0 +1,28 @@
+participant("Shelf")
+
+description("Shelf for books sorted by first letter of book name")
+
+property(
+    name="type"
+    description="Data type of participant (list, object, str etc)"
+    type="string"
+    get="getType"
+)
+
+domain(
+    type="object",
+    keys={
+        type="string",
+        length=1,
+        contains="letter"
+    },
+    value={
+        type="list",
+        contains="book"
+    }
+)
+
+dcs (
+    # Inherent domain
+    # Domain structure for compression
+)
