@@ -1,4 +1,4 @@
-behavior("GetBookname")
+behavior("GetBookName")
 
 description("Gets the book name from the user.")
 
