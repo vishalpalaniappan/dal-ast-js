@@ -55,6 +55,7 @@ assert({
         }
     ]
 })
+# TODO: Add invariant that book_name must be of type string
 
 #===========================
 #     Narrative

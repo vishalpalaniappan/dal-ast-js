@@ -37,6 +37,11 @@ modifies(
 
 updateWorldState(name="book", role="BOOK")
 
+#============================
+#       Invariants
+#============================
+# TODO: Add invariant that book_name must be of type string
+
 #===========================
 #     Narrative
 #===========================
