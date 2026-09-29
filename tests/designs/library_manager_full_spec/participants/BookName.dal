@@ -9,12 +9,14 @@ property(
     get="getType"
 )
 
+property(
+    name="length"
+    description="Number of letters in the book name"
+    type="number"
+    get="getLength"
+)
+
 domain(
     type="string",
     contains="letter"
-)
-
-dcs (
-    # Inherent domain
-    # Domain structure for compression
 )
