@@ -4,7 +4,9 @@ import {readFile, unlink, writeFile} from "fs/promises"
 import { DalParser } from "../src/Parser";
 import { DalLexer} from "../src/Lexer";
 import { DalAstGenerator } from "../src/DalAstGenerator";
+import { ensureDir } from "./utils";
 
+ensureDir("./tests/output")
 
 describe("tests ast genertor from dal file", () => {
     it("basic source", async () => {
