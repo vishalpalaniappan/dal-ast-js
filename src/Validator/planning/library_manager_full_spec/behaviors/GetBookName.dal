@@ -1,0 +1,43 @@
+behavior("GetBookName")
+
+description("Gets the book name from the user.")
+
+#===============================
+#  Modification to World State
+#===============================
+return(
+    {
+        name: "book_name"
+    }
+)
+
+introduces(
+    {
+        name: "book_name"
+        role: "BOOK_NAME"
+    }
+)
+
+modifies(
+    {
+        name: "book_name",
+        props: [
+            {
+                name: "type",
+                value: "string"
+            }
+        ]
+    }
+)
+
+updateWorldState(name="book_name", role="BOOK_NAME")
+
+#===========================
+#     Narrative
+#===========================
+generate{
+    {
+        type: "success",
+        sentence: f"Got a book named {book_name} from the visitor.",
+    }
+}
