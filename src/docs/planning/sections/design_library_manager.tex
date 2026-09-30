@@ -1,1 +1,18 @@
-For the first design, I will be using a simple library manager because it exposes a lot of features while keeping the implementation simple. I will first informally discuss the meaning of the world and then I will formalize it using the design abstraction language. Then I will discuss the kinds of reasoning that can be done and identify the necessary features that the tool must have. Then I will describe how the meaning can be established using a semantic toolkit and automatically constructed as a closed semantic world. 
+For the first design, I will be using a simple library manager because it exposes a lot of features while keeping the implementation simple. I will first informally discuss the meaning of the world and then I will formalize it using the design abstraction language. Then I will discuss the kinds of reasoning that can be done and identify the necessary features that the tool must have. Then I will describe how the meaning can be established using a semantic toolkit and automatically constructed as a closed semantic world.
+
+\subsection{Brief}
+
+In this section, I will informally describe the library manager and its purpose. The objective of the library manager is to do the following:
+
+\begin{itemize}
+    \item Allow user to submit a book by providing its name and contents.
+    \item Allow the book to be stored in the library.
+    \item Allow user to checkout a book with a given name.
+    \item Allow the book to be accessed efficiently when given the book name.
+\end{itemize}
+
+Building on these objectives, the requirements of the design can be derived. It is clear that there must be a mechanism to prompt and allow the user to select which action (submit or checkout). There must be a mechanism to allow the user to submit a book name for both submission and checkout. 
+
+Internally the library has to have a mechanism for storing the books and for accessing them when prompted by the user. Since the books must be accessed efficiently, i.e. not search through every book to find it, we can sort the books using the first letter of their name onto smaller shelves and only search those shelves. There are of course, more efficient ways to speed much the search but this simple method is ok for this design.
+
+So now we already have a chance to take the first step towards using this framework. What I've described above begins to describe the world, there are objectives and the consequent requirements but in this framework, the meaning of the world is made completely unambiguous and computable, so the next step we take is to define the closed semantic world that establishes the library and then make it computable. 
