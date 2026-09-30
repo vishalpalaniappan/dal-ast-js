@@ -53,7 +53,7 @@ In the next section, I will informally establish the narratives in the library m
 
 \subsubsection{Informal Narratives of the Library Manager}
 
-First, I will informally share the narratives of the library manager world and I will demonstrate how reasoning works using the informal narrative. This is the process I am using to build designs, I have found that it helps to informally specify the world I am building before making the meaning more precise by building it with a semantic toolkit. However, as this framework becomes more mature, this step won't always be necessary as the semantic toolkit will already provide the meaning needed to establish the narratives and construct the computable semantic model.
+First, I will informally share the narratives of the library manager world and I will demonstrate how reasoning works using the informal narrative. This is the process I am using to build designs, I have found that it helps to informally specify the world I am building before making the meaning more precise by building it with a semantic toolkit. However, as this framework becomes more mature, this step won't always be necessary because the semantic toolkit will already provide the necessary meaning to establish the narratives and automatically construct the computable semantic model.
 
 \begin{greyquote}
 The librarian presents the user with the option to add a book or get a book from the library.\\
@@ -64,6 +64,8 @@ If the user selects the option to get a book, the librarian asks the user for th
 \end{greyquote}
 
 In the section above, an initial exploration of the narratives in the library manager world are established. From this narrative an example of reasoning about the meaning can be demonstrated. The librarian reads the first letter of the books name in two separate narratives with the expectation that there will be at least one letter in the name. However, when accepting the book name, the librarian does not verify that the book name has at least one letter in it, by reasoning about the informal narrative provided above, it is clear that the world is inconsistent because it is not possible for it to realize its intentions in conditions that it allows.
+
+Earlier, I mentioned that this step won't be necessary as the semantic toolkit becomes more mature and the software system will be automatically developed from the provided meaning. This is an important point because the computable semantic primitives initially populate the semantic toolkit and using those more meanings can be constructed using narratives like the ones I showed above. So you can develop the entire software system entirely through narratives by composing more and more meaning.
 
 In the next section, I will establish the meaning of the library manager itself as a computable semantic model by connecting all the behaviors to create the narrative flow by reasoning about the worlds meaning. Once this is done, since there is no ambiguity in the meaning of the world, an engine will be able to reason about the worlds meaning and the narratives that have been established.
 
