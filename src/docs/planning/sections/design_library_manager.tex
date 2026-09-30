@@ -49,12 +49,22 @@ The meaning itself can be built as composition of more meaning. This works the s
 
 This narrative can be decribed as a behavior of the design. The transformation modifies the world in an unambiguous way and produces an unambiguous world state after the transformation. After this narrative is exhibited, a subsequent narrative can be selected deterministically. In some cases, the meaning of the world state is reasoned about to select the next narrative and in other cases, it is directly selected. This chain of behaviors behaviors established through reasoning is what is referred to as the design.
 
-In the next section, I will be establishing the narratives in the library manager and reason about them. In the following section, I will establish the narratives as a computable semantic model and then I will establish the engine's ability to reason.
+In the next section, I will informally establish the narratives in the library manager and reason about them. 
 
-\subsubsection{Narratives of the Library Manager}
+\subsubsection{Informal Narratives of the Library Manager}
 
-First, I will informally share the complete narrative of the library manager world and then I will use it to identify all the participants, transformations and reasoning within the world. Also, I will demonstrate how reasoning works using the informal narrative. This is the process I am using to build designs, I have found that it helps to informally specify the world I am building before making the meaning more precise by building it with a semantic toolkit. In the next section, I will convert the narratives into a computable semantic model and then I will reason about them using an engine. 
+First, I will informally share the narratives of the library manager world and then I will use it to identify all the participants, transformations and reasoning within the world. Also, I will demonstrate how reasoning works using the informal narrative. This is the process I am using to build designs, I have found that it helps to informally specify the world I am building before making the meaning more precise by building it with a semantic toolkit. In the next section, I will convert the narratives into a computable semantic model and then I will reason about them using an engine. 
 
 \begin{greyquote}
-    T
+The librarian presents the user with the option to add a book or get a book from the library.\\
+
+If the user selects the option to add a book, the librarian accepts a book by asking the user for the name and content. Then the librarian reads the first letter of the books name to place the book on the relevant shelf. Then the user is once again asked which action they want to take.\\
+
+If the user selects the option to get a book, the librarian asks the user for the book name. The librarian reads the first letter of the book name and accesses the book from the relevant shelf. After the librarian provides the user the book, the user is once again asked which action they want to take.
 \end{greyquote}
+
+In the section above, an initial exploration of the narratives in the library manager world are established. From this narrative an example of reasoning about the meaning can be demonstrated, the librian reads the first letter of the books name in two separate narratives with the expectation that there will be atleast one letter in the name. However, when accepting the book name, the librarian does not verify that the book name has atleast one letter in it, by reasoning about the informal narrative provided above, it is clear that the world is inconsistent because it is not possible for it to realize its intentions in conditions that it allows.
+
+Ofcourse, this is a very informal narrative that I've shared. I found that it helps to first write it out in this way because it starts a process that can be refined. In the next section, I will formanlly define the meaning of all the participants and behaviors in the narrative, including the invariants on the transformation that establish conditions that must hold true. The meaning of the library manager itself will be established as a computable semantic model by connecting all the behaviors to create the narrative flow by reasoning about the worlds meaning. 
+
+Once this is done, since there is no ambiguity in the meaning of the world, an engine will be able to reason about the worlds meaning and the narratives that have been established. 
