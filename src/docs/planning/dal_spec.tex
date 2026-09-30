@@ -22,6 +22,17 @@
     right=1in
 ]{geometry}
 
+% Define custom grey quote box environment
+\newtcolorbox{greyquote}{
+  colback=black!5!white,       % Light grey background (5% black, 95% white)
+  colframe=black!20!white,     % Subtle grey border line
+  arc=3pt,                     % Slightly rounded corners
+  boxrule=0.5pt,               % Border thickness
+  left=15pt, right=15pt,       % Horizontal padding
+  top=12pt, bottom=12pt,       % Vertical padding
+  fontupper=\itshape,          % Italicized quote text
+}
+
 \begin{document}
 
 \newpage
