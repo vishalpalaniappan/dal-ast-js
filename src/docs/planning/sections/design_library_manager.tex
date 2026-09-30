@@ -30,20 +30,20 @@ A design can be described as a closed semantic world. A useful technique to esta
 Consider the following potential narrative:
 
 \begin{greyquote}
-    ``A librarian accepts a name from the user.''
+    A librarian accepts a name from the user
 \end{greyquote}
 
-Using my understanding of sentences and meaning from the english language, I can say that the participant are librarian, user, name. The transformation is ``accepts'' which seems to transfer ownership of the book name from the user to the librarian.
+Using my understanding of sentences and meaning from the english language, I can say that the \emph{participant} are \emph{librarian}, \emph{user}, \emph{name}. The transformation is \emph{accepts} which seems to transfer ownership of the book name from the user to the librarian.
 
 However, it isn't my interpretation of the meaning that is relevant, it is the meaning established by the computable semantic module that is realized by the software system. So this then requires the meaning of librarian, user, name and the transformation accepts to be established using the Design Abstraction Language and this allows the engine to reason about its meaning. Also, since the transformations are built from computable semantic primitives, the meaning becomes executable.
 
 After esablishing the computable model, a narrative could be as shown below. 
 
 \begin{greyquote}
-    ``librarian prompt name from user.''
+    prompt name from user then transfer name to librarian
 \end{greyquote}
 
-In this example, the transformation `prompt`' states that name transfers ownership from user to librarian. The actual mechanism through which this happens is established by the meaning of prompt and when it involves the participant user, that can defined meaning recieving a value from the terminal. The meaning of the received value is that it is a name and it is transferred to the librarian participant.
+In this example, user is prompted for a name. The meaning of \emph{prompt} itself is esablished by the computable semantic model and in this case, it prompts the \emph{user} for a \emph{name} from the terminal. Then ownership of the \emph{name} is transferred to the \emph{librarian} participant. The then operator indicates that the transformations happen in a squence.
 
 The meaning itself can be built as composition of more meaning. This works the same way with language used by humans, the meaning of a lion includes all its attributes like its appearance, sound etc. So narratives can be established by composing computable meaning into higher level meaning.
 
