@@ -25,7 +25,7 @@ In this framework, we establish the meaning of the world as a computable semanti
 
 \subsubsection{The Nature of Meaning}
 
-A design can be described as a closed semantic world. A useful technique to establish the meaning of the world is to establish all the narratives that exist in this world. In this process, the meaning of the world itself comes more and more unambiguous by identifying the participants in then narratives, the reasoning about meaning in the narratives, the transformations made to the world state and the conditions under which those transformations will succeed. 
+A design can be described as a closed semantic world. A useful technique to establish the meaning of the world is to establish all the narratives that exist in this world. In this process, the meaning of the world itself becomes more and more unambiguous by identifying the participants in then narratives, reasoning about meaning in the narratives, the transformations made to the world state and the conditions under which those transformations will succeed. 
 
 Consider the following potential narrative:
 
@@ -33,9 +33,9 @@ Consider the following potential narrative:
     A librarian accepts a name from the user
 \end{greyquote}
 
-Using my understanding of sentences and meaning from the english language, I can say that the \emph{participant} are \emph{librarian}, \emph{user}, \emph{name}. The transformation is \emph{accepts} which seems to transfer ownership of the book name from the user to the librarian.
+Using my understanding of sentences and meaning from the english language, I can say that the participants are \emph{librarian}, \emph{user}, \emph{name}. The transformation is \emph{accepts}, which seems to transfer ownership of the book name from the user to the librarian.
 
-However, it isn't my interpretation of the meaning that is relevant, it is the meaning established by the computable semantic module that is realized by the software system. So this then requires the meaning of librarian, user, name and the transformation accepts to be established using the Design Abstraction Language and this allows the engine to reason about its meaning. Also, since the transformations are built from computable semantic primitives, the meaning becomes executable.
+However, my interpretation of the meaning that is irrelevant, what is relevant is the meaning established by the computable semantic module because that it is what is realized by the software system. So this then requires the meaning of \emph{librarian}, \emph{user}, \emph{name} and the transformation \emph{accepts} to be established using the Design Abstraction Language and this allows the engine to reason about its meaning. Also, since the transformations are built from computable semantic primitives, the meaning becomes executable.
 
 After establishing the computable model, a narrative could be as shown below. 
 
@@ -43,7 +43,7 @@ After establishing the computable model, a narrative could be as shown below.
     prompt for name from user then transfer name to librarian
 \end{greyquote}
 
-In this example, user is prompted for a name. The meaning of \emph{prompt} itself is established by the computable semantic model and in this case, it prompts the \emph{user} for a \emph{name} from the terminal. Then ownership of the \emph{name} is transferred to the \emph{librarian} participant. The \emph{then} operator indicates that the transformations happen in a sequence.
+In this example, user is prompted for a name. The meaning of \emph{prompt} itself is established by the computable semantic model and in this case, it prompts the \emph{user} for a \emph{name} from the terminal. Then ownership of the \emph{name} is transferred to the \emph{librarian} participant. The \emph{then} operator means that the transformations happen in a sequence.
 
 The meaning itself can be built as composition of more meaning. This works the same way with language used by humans, the meaning of a lion includes all its attributes like its appearance, sound etc. So narratives can be established by composing computable meaning into higher level meaning.
 
@@ -53,7 +53,7 @@ In the next section, I will informally establish the narratives in the library m
 
 \subsubsection{Informal Narratives of the Library Manager}
 
-First, I will informally share the narratives of the library manager world and I will demonstrate how reasoning works using the informal narrative. This is the process I am using to build designs, I have found that it helps to informally specify the world I am building before making the meaning more precise by building it with a semantic toolkit. In the next section, I will convert the narratives into a computable semantic model and then I will reason about them using an engine. 
+First, I will informally share the narratives of the library manager world and I will demonstrate how reasoning works using the informal narrative. This is the process I am using to build designs, I have found that it helps to informally specify the world I am building before making the meaning more precise by building it with a semantic toolkit. However, as this framework becomes more mature, this step won't always be necessary as the semantic toolkit will already provide the meaning needed to establish the narratives and construct the computable semantic model.
 
 \begin{greyquote}
 The librarian presents the user with the option to add a book or get a book from the library.\\
@@ -63,11 +63,9 @@ If the user selects the option to add a book, the librarian accepts a book by as
 If the user selects the option to get a book, the librarian asks the user for the book name. The librarian reads the first letter of the book name and accesses the book from the relevant shelf. After the librarian provides the user the book, the user is once again asked which action they want to take.
 \end{greyquote}
 
-In the section above, an initial exploration of the narratives in the library manager world are established. From this narrative an example of reasoning about the meaning can be demonstrated, the librarian reads the first letter of the books name in two separate narratives with the expectation that there will be at least one letter in the name. However, when accepting the book name, the librarian does not verify that the book name has at least one letter in it, by reasoning about the informal narrative provided above, it is clear that the world is inconsistent because it is not possible for it to realize its intentions in conditions that it allows.
+In the section above, an initial exploration of the narratives in the library manager world are established. From this narrative an example of reasoning about the meaning can be demonstrated. The librarian reads the first letter of the books name in two separate narratives with the expectation that there will be at least one letter in the name. However, when accepting the book name, the librarian does not verify that the book name has at least one letter in it, by reasoning about the informal narrative provided above, it is clear that the world is inconsistent because it is not possible for it to realize its intentions in conditions that it allows.
 
-Of course, this is a very informal narrative that I've shared. I found that it helps to first write it out in this way because it starts a process that can be refined. In the next section, I will formally define the meaning of all the participants and behaviors in the narrative, including the invariants on the transformation that establish conditions that must hold true. The meaning of the library manager itself will be established as a computable semantic model by connecting all the behaviors to create the narrative flow by reasoning about the worlds meaning. 
-
-Once this is done, since there is no ambiguity in the meaning of the world, an engine will be able to reason about the worlds meaning and the narratives that have been established. 
+In the next section, I will establish the meaning of the library manager itself as a computable semantic model by connecting all the behaviors to create the narrative flow by reasoning about the worlds meaning. Once this is done, since there is no ambiguity in the meaning of the world, an engine will be able to reason about the worlds meaning and the narratives that have been established.
 
 \subsection{Computable Semantic Model}
 
