@@ -19,10 +19,20 @@ The command structure itself is specified as shown below. Each command is specif
 design("Design Name")
 
 # Custom Command
-command(123, "String", [12,33,12], {"a":1})
+command(
+    number=123, 
+    string="String", 
+    arrayArg=[12,33,12], 
+    objArg={"a":1}
+)
 
 # Reusing structure to specify attributes
-attribute(123, "String", [12,33,12], {"a":1})
+property(
+    name="type"
+    description="Data type of participant (list, object, str etc)"
+    type="string"
+    get="getType"
+)
 \end{minted}
 
 \subsection{Control Flow}
