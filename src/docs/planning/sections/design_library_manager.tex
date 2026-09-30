@@ -51,9 +51,9 @@ This narrative can be described as a behavior of the design. The transformation 
 
 In the next section, I will informally establish the narratives in the library manager and reason about them. 
 
-\subsubsection{Informal Narratives of the Library Manager}
+\subsubsection{Narratives of the Library Manager}
 
-First, I will informally share the narratives of the library manager world and I will demonstrate how reasoning works using the informal narrative. This is the process I am using to build designs, I have found that it helps to informally specify the world I am building before making the meaning more precise by building it with a semantic toolkit. However, as this framework becomes more mature, this step won't always be necessary because the semantic toolkit will already provide the necessary meaning to establish the narratives and automatically construct the computable semantic model.
+First, I will informally share the narratives of the library manager world and I will demonstrate how reasoning works using the informal narrative. This is the process I am using to build designs, I have found that it helps to informally specify the world I am building before making the meaning more precise by building it with a semantic toolkit. However, as this framework becomes more mature, this step won't always be necessary because the semantic toolkit will already provide the necessary meaning to establish the narratives and automatically construct and reason about the computable semantic model.
 
 \begin{greyquote}
 The librarian presents the user with the option to add a book or get a book from the library.\\
@@ -65,13 +65,15 @@ If the user selects the option to get a book, the librarian asks the user for th
 
 In the section above, an initial exploration of the narratives in the library manager world are established. From this narrative an example of reasoning about the meaning can be demonstrated. The librarian reads the first letter of the books name in two separate narratives with the expectation that there will be at least one letter in the name. However, when accepting the book name, the librarian does not verify that the book name has at least one letter in it, by reasoning about the informal narrative provided above, it is clear that the world is inconsistent because it is not possible for it to realize its intentions in conditions that it allows.
 
-Earlier, I mentioned that this step won't be necessary as the semantic toolkit becomes more mature and the software system will be automatically developed from the provided meaning. This is an important point because the computable semantic primitives initially populate the semantic toolkit and using those more meanings can be constructed using narratives like the ones I showed above. So you can develop the entire software system entirely through narratives by composing more and more meaning.
+Earlier, I mentioned that this step won't be necessary as the semantic toolkit becomes more mature because software system will be automatically developed from the established meaning. This is an important point because the computable semantic primitives initially populate the semantic toolkit and using those more meanings can be constructed using narratives like the ones I showed above. So you can develop the entire software system entirely through narratives by composing more and more meaning until you reach the library manager.
 
-In the next section, I will establish the meaning of the library manager itself as a computable semantic model by connecting all the behaviors to create the narrative flow by reasoning about the worlds meaning. Once this is done, since there is no ambiguity in the meaning of the world, an engine will be able to reason about the worlds meaning and the narratives that have been established.
+I am intentionally building the design in this way to demonstrate how the meaning of the world is established because I think it is a useful to see. So in the next section, I will establish the meaning of the library manager itself as a computable semantic model by connecting all the behaviors to create the narrative flow by reasoning about the worlds meaning. Once this is done, since there is no ambiguity in the meaning of the world, an engine will be able to reason about the worlds meaning and the narratives that have been established. 
+
+It will be evident from the structure that is created that you can automatically create the structure if the necessary narrative is specified. This will be demonstrated by creating narratives from the structure. So then I will demonstrate how you can automatically construct this model from computable semantic primitives up to the library manager using narratives.
 
 \subsection{Computable Semantic Model}
 
-In this section, I will build the meaning of the library manager as a computable semantic model. I will start by defining the behaviors of the design at a high level and the narratives of the design. Then I will define the meaning of participants and transformations for each of the behaviors. The transformations themselves will be constructed from computable semantic primitives.
+In this section, I will manually build the meaning of the library manager as a computable semantic model. I will start by defining the behaviors of the design at a high level and the narratives of the design. Then I will define the meaning of participants and transformations for each of the behaviors. The transformations themselves will be constructed from computable semantic primitives.
 
 \begin{figure}[htbp]
     \centering
@@ -83,3 +85,11 @@ In this section, I will build the meaning of the library manager as a computable
 \end{figure}
 
 In Figure~\ref{fig:lib_man_narratives}, the narratives at the highest level of meaning in the library manager are provided. The narrative begins at the behavior get user choice and then branches to get or add book based on the choice the user makes. The meaning of each of these behaviors is specified through the meaning that composes it. The following sections will establish the meaning of each of the behaviors and recursively continue until computable semantic primitives are reached.
+
+More to come.
+
+\subsection{Composing Meaning using Narratives}
+
+In the previous section, I demonstrated how you can build the meaning of the world from the top to the bottom. I did this intentionally to demonstrate how meaning is constructed and how the design abstraction language is used to establish the computable semantic model. It is evident from the structure of the design that you can construct narratives using the established meaning.
+
+This means that the process I have established until now can be reversed, you can compose meaning from the computable semantic primitives up to the library manager. This means that you can use narratives to compose more meaning from the computable semantic primitives and then reason about it to verify its internal consistency. Then you can build more meaning using the new meaning added to the semantic toolkit. This automates development by automatically constructing the world specified by the meaning of the narratives and reasoning about it.
