@@ -53,7 +53,7 @@ In the next section, I will informally establish the narratives in the library m
 
 \subsubsection{Informal Narratives of the Library Manager}
 
-First, I will informally share the narratives of the library manager world and then I will use it to identify all the participants, transformations and reasoning within the world. Also, I will demonstrate how reasoning works using the informal narrative. This is the process I am using to build designs, I have found that it helps to informally specify the world I am building before making the meaning more precise by building it with a semantic toolkit. In the next section, I will convert the narratives into a computable semantic model and then I will reason about them using an engine. 
+First, I will informally share the narratives of the library manager world and I will demonstrate how reasoning works using the informal narrative. This is the process I am using to build designs, I have found that it helps to informally specify the world I am building before making the meaning more precise by building it with a semantic toolkit. In the next section, I will convert the narratives into a computable semantic model and then I will reason about them using an engine. 
 
 \begin{greyquote}
 The librarian presents the user with the option to add a book or get a book from the library.\\
@@ -65,7 +65,7 @@ If the user selects the option to get a book, the librarian asks the user for th
 
 In the section above, an initial exploration of the narratives in the library manager world are established. From this narrative an example of reasoning about the meaning can be demonstrated, the librian reads the first letter of the books name in two separate narratives with the expectation that there will be atleast one letter in the name. However, when accepting the book name, the librarian does not verify that the book name has atleast one letter in it, by reasoning about the informal narrative provided above, it is clear that the world is inconsistent because it is not possible for it to realize its intentions in conditions that it allows.
 
-Ofcourse, this is a very informal narrative that I've shared. I found that it helps to first write it out in this way because it starts a process that can be refined. In the next section, I will formanlly define the meaning of all the participants and behaviors in the narrative, including the invariants on the transformation that establish conditions that must hold true. The meaning of the library manager itself will be established as a computable semantic model by connecting all the behaviors to create the narrative flow by reasoning about the worlds meaning. 
+Ofcourse, this is a very informal narrative that I've shared. I found that it helps to first write it out in this way because it starts a process that can be refined. In the next section, I will formally define the meaning of all the participants and behaviors in the narrative, including the invariants on the transformation that establish conditions that must hold true. The meaning of the library manager itself will be established as a computable semantic model by connecting all the behaviors to create the narrative flow by reasoning about the worlds meaning. 
 
 Once this is done, since there is no ambiguity in the meaning of the world, an engine will be able to reason about the worlds meaning and the narratives that have been established. 
 
