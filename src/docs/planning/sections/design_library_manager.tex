@@ -43,10 +43,12 @@ After esablishing the computable model, a narrative could be as shown below.
     prompt name from user then transfer name to librarian
 \end{greyquote}
 
-In this example, user is prompted for a name. The meaning of \emph{prompt} itself is esablished by the computable semantic model and in this case, it prompts the \emph{user} for a \emph{name} from the terminal. Then ownership of the \emph{name} is transferred to the \emph{librarian} participant. The then operator indicates that the transformations happen in a squence.
+In this example, user is prompted for a name. The meaning of \emph{prompt} itself is esablished by the computable semantic model and in this case, it prompts the \emph{user} for a \emph{name} from the terminal. Then ownership of the \emph{name} is transferred to the \emph{librarian} participant. The \emph{then} operator indicates that the transformations happen in a squence.
 
 The meaning itself can be built as composition of more meaning. This works the same way with language used by humans, the meaning of a lion includes all its attributes like its appearance, sound etc. So narratives can be established by composing computable meaning into higher level meaning.
 
-This narrative can be decribed as a behavior of the design. The transformation modifies the world state before the behavior in an unambiguous way and produces a world state after. After this narrative is exhibited, a subsequent narrative can be selected. In some cases, the meaning of the world state is reasoned about to select the next narrative and in other cases, it is directly selected.
+This narrative can be decribed as a behavior of the design. The transformation modifies the world in an unambiguous way and produces an unambiguous world state after the transformation. After this narrative is exhibited, a subsequent narrative can be selected deterministically. In some cases, the meaning of the world state is reasoned about to select the next narrative and in other cases, it is directly selected. This chain of behaviors behaviors established through reasoning is what is referred to as the design.
 
-In the next section, I will establish all the narratives in the library manager and then I will work to establish the meaning of the narratives.
+\subsubsection{Narratives of the Library Manager}
+
+In this section, I will be establishing the narratives in the library manager and reason about them. In the next section, I will establish the narratives as a computable semantic model and then I will establish the engine's ability to reason.
