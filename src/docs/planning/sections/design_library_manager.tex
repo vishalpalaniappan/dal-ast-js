@@ -71,4 +71,15 @@ Once this is done, since there is no ambiguity in the meaning of the world, an e
 
 \subsection{Computable Semantic Model}
 
-In this section, I will build the meaning of the library manager as a computable semantic model. I will start by defining the behaviors of the design at a high level and the narratives of the design. Then I will define the necessary participants and transformations for each of the behaviors. The transformations themselves will be constructed from computable semantic primitives.
+In this section, I will build the meaning of the library manager as a computable semantic model. I will start by defining the behaviors of the design at a high level and the narratives of the design. Then I will define the meaning of participants and transformations for each of the behaviors. The transformations themselves will be constructed from computable semantic primitives.
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[
+        width=0.65\linewidth
+    ]{assets/high_level_narrative.svg}
+    \caption{High Level Meaning of Library Manager}
+    \label{fig:lib_man_narratives}
+\end{figure}
+
+In Figure~\ref{fig:lib_man_narratives}, the narratives at the highest level of meaning in the library manager are provided. The narrative begins at the behavior get user choice and then branches to get or add book based on the choice the user makes. The meaning of each of these behaviors is specified through the meaning that composes it. The following sections will establish the meaning of each of the behaviors and recursively continue until computable semantic primitives are reached.
