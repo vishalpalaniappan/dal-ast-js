@@ -1,10 +1,17 @@
-The same process will be repeated for a distributed design, in this case, it is a distributed rendering application. In this design, there is:
-- One node:
-    - that interfaces with the client and accepts jobs on one process
-    - assigns the jobs to the rendering machines on another process and also monitors that the jobs are completed
-- One database that stores the jobs and their states
-- Four rendering machines
+The same process will be repeated for a distributed design, in this case, it is a distributed rendering application. 
 
-The rendering jobs themselves are 3d files submitted by the user and they are split into X mb chunks and rendered one chunk at a time until its done.
+In this design, there is:
 
-This will be a very neat design because it will force me to really confront some more corner cases in this framework while also exploring a distributed design. The only design that I've worked with that has concurrency is the multi threaded text translator, so this will be interesting.
+\begin{itemize}
+    \item One node:
+        \begin{itemize}
+            \item that interfaces with the client and accepts jobs on one process
+            \item assigns the jobs to the rendering machines on another process and also monitors that the jobs are completed
+        \end{itemize}
+    \item One database that stores the jobs and their states
+    \item Four rendering machines
+\end{itemize}
+
+The rendering jobs themselves are 3d files submitted by the user and they are split into X mb chunks and rendered one chunk at a time until its done and then it is merged back together and shipped.
+
+This will be a very neat design because it will force me to really confront some more corner cases in this framework while also exploring a distributed design. The only design that I've explored in this process that has concurrency in it is the multi threaded text translator, so this will be interesting.
