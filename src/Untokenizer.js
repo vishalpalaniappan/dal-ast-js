@@ -31,4 +31,21 @@ export class Untokenizer {
 
         return str;
     }
+
+    /**
+     * This function accepts an AST and converts it into tokens that
+     * can be generated into a DAL source. Technically this method
+     * isn't necessary because I can just add to the DAL spec and then
+     * synthesize it directly. However, it would be great to be able to
+     * see the output of the invariant placement. I can also use this
+     * to perform some basic formatting of the script so it is consistent.
+     * 
+     * While placing invariants, the AST is where I will be injecting the
+     * actual invariants through the provenance of the participants in the
+     * transformation.
+     * @param {Object} ast 
+     */
+    astToTokens(ast) {
+
+    }
 }

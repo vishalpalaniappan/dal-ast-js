@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{svg}
+\usepackage{parskip}
+\usepackage[most]{tcolorbox}
+\usepackage{minted}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+]{hyperref}
+\usepackage[
+    top=0.5in,
+    bottom=1in,
+    left=1in,
+    right=1in
+]{geometry}
+
+% Define custom grey quote box environment
+\newtcolorbox{greyquote}{
+  colback=black!5!white,       % Light grey background (5% black, 95% white)
+  colframe=black!20!white,     % Subtle grey border line
+  arc=3pt,                     % Slightly rounded corners
+  boxrule=0.5pt,               % Border thickness
+  left=15pt, right=15pt,       % Horizontal padding
+  top=12pt, bottom=12pt,       % Vertical padding
+}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+% Define block styles
+\tikzstyle{block} = [rectangle, rounded corners, minimum width=2.5cm, minimum height=1cm, text centered, draw=black, fill=blue!15]
+\tikzstyle{arrow} = [thick, ->, >=Stealth]
+
+\begin{document}
+
+\newpage
+\section{Motivation}
+\input{sections/motivation.tex}
+ 
+\newpage
+\section{Design Abstraction Language}
+\input{sections/ast.tex}
+ 
+\newpage
+\section{Design - Library Manager}
+\input{sections/design_library_manager.tex}
+ 
+\newpage
+\section{Design - Bubble Sort}
+\input{sections/design_bubble_sort.tex}
+ 
+\newpage
+\section{Design - Distributed Rendering}
+\input{sections/design_distributed_rendering.tex}
+
+\end{document}

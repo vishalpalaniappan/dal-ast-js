@@ -1,0 +1,24 @@
+design("library_manager")
+
+behavior AddBookToLibrary {
+
+    behavior getBookFromBasket {
+        worldStateManager(basket, "getValue", "basket")
+        removeFromPos(book, basket, 0)
+        worldStateManager(null, "add", "book", book, False)
+        select(getFirstLetterOfBookName)
+    }
+
+    behavior getFirstLetterOfBookName {
+        worldStateManager(book, "getValue", "book")
+        get(name, book, ["name"])
+        getFromPos(firstLetter, name, 0)
+        display("f'Got book named {name} and it has first letter {firstLetter}'")
+        worldStateManager(null, "add", "firstLetter", firstLetter, False)
+        worldStateManager(null, "remove", "firstLetter")
+        worldStateManager(null, "remove", "book")
+        select(getChoice)
+    }
+    
+    run(getBookFromBasket)
+}

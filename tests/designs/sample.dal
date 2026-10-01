@@ -1,0 +1,13 @@
+design("test")
+
+behavior getName {
+    select {
+        goToBehavior(addBook)
+    }
+}
+
+behavior addBook {
+    select {
+        goToBehavior(getName)
+    }
+}

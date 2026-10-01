@@ -2,3 +2,28 @@ node_modules
 __pycache__
 *.clp.zst
 dist
+tests/output
+
+# LaTeX Folders to ignore
+svg-inkscape
+src/docs/planning/_minted-dal_spec/*
+src/docs/planning/_minted/*
+
+# LaTeX temporary/build files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+*.listing

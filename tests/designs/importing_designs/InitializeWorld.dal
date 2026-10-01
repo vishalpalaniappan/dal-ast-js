@@ -1,0 +1,14 @@
+design("library_manager")
+
+behavior InitializeWorld {
+
+    behavior createBasket {
+        purpose("Create the basket to hold the books in the library")
+        create(name=basket, type="list", role="basket", accepts="book")
+        set("basket",[],[])
+        worldStateManager(null, "add", "basket", basket, False)
+        select(getUserAction)
+    }
+    
+    run(createBasket)
+}

@@ -1,0 +1,102 @@
+For the first design, I will be using a simple library manager because it exposes a lot of features while keeping the implementation simple. I will first informally discuss the meaning of the world and then I will formalize it using the design abstraction language. Then I will discuss the kinds of reasoning that can be done and identify the necessary features that the tool must have. Then I will describe how the meaning can be established using a semantic toolkit and automatically constructed as a closed semantic world.
+
+\subsection{Brief}
+
+In this section, I will informally describe the library manager and its purpose. The objective of the library manager is to do the following:
+
+\begin{itemize}
+    \item Allow user to submit a book by providing its name and contents.
+    \item Allow the book to be stored in the library.
+    \item Allow user to checkout a book with a given name.
+    \item Allow the book to be accessed efficiently when given the book name.
+\end{itemize}
+
+Building on these objectives, the requirements of the design can be derived. It is clear that there must be a mechanism to prompt and allow the user to select which action (submit or checkout). There must be a mechanism to allow the user to submit a book name for both submission and checkout. 
+
+Internally the library has to have a mechanism for storing the books and for accessing them when prompted by the user. Since the books must be accessed efficiently, i.e. not search through every book to find it, we can sort the books using the first letter of their name onto smaller shelves and only search those shelves. There are of course, more efficient ways to speed up the search but this simple method is ok for this design.
+
+So now we already have a chance to take the first step towards using this framework. What I've described above begins to describe the world, there are objectives and the consequent requirements but in this framework, the meaning of the world is made completely unambiguous and computable, so the next step we take is to define the closed semantic world that establishes the meaning of the library as a computable model.
+
+\subsection{Eliminating Ambiguity}
+
+In the previous section, when describing the simple library manager, I was using many words whose meaning is established by the english language (Book, Library, User, Store etc.). It is because I know the meaning of these words that I was traditionally able to work towards the construction of a software system. The software development process was about establishing a design that realized unambiguous meaning and then implementing it in a programming language. However, this is also why it was possible to introduce bugs because it is an ambiguous process that has many translation steps while relying heavily on the skill of the developers to ensure that the system realizes its meaning and is internally consistent in its meaning.
+
+In this framework, we establish the meaning of the world as a computable semantic model. The meaning of a book isn't established by the english language, it is established by the semantic model. This isn't a new concept, semantic models have been used to debug the behavior of a design in many solutions but by building the semantic model using computable semantic primitives, the meaning itself is made executable. This eliminates the many intermediate steps where bugs can be introduced and in the process, it also allows for automatic reasoning about the meaning of the world to eliminate known failures. So in this section, I am now going to establish the meaning of the library manager as a computable model. Then I will reason about the model and then I will describe how the engine can reason about the established structure.
+
+\subsubsection{The Nature of Meaning}
+
+A design can be described as a closed semantic world. A useful technique to establish the meaning of the world is to establish all the narratives that exist in this world. In this process, the meaning of the world itself becomes more and more unambiguous by identifying the participants in then narratives, reasoning about meaning in the narratives, the transformations made to the world state and the conditions under which those transformations will succeed. 
+
+Consider the following potential narrative:
+
+\begin{greyquote}
+    A librarian accepts a name from the user
+\end{greyquote}
+
+Using my understanding of sentences and meaning from the english language, I can say that the participants are \emph{librarian}, \emph{user}, \emph{name}. The transformation is \emph{accepts}, which seems to transfer ownership of the book name from the user to the librarian.
+
+However, my interpretation of the meaning that is irrelevant, what is relevant is the meaning established by the computable semantic module because that it is what is realized by the software system. So this then requires the meaning of \emph{librarian}, \emph{user}, \emph{name} and the transformation \emph{accepts} to be established using the Design Abstraction Language and this allows the engine to reason about its meaning. Also, since the transformations are built from computable semantic primitives, the meaning becomes executable.
+
+After establishing the computable model, a narrative could take the form shown below:
+
+\begin{greyquote}
+    prompt for name from user then transfer name to librarian
+\end{greyquote}
+
+In this example, user is prompted for a name. The meaning of \emph{prompt} itself is established by the computable semantic model and in this case, it prompts the \emph{user} for a \emph{name} from the terminal. Then ownership of the \emph{name} is transferred to the \emph{librarian} participant. The \emph{then} operator means that the transformations happen in a sequence.
+
+The meaning itself can be built as composition of more meaning. This works the same way with language used by humans, the meaning of a lion includes all its attributes like its appearance, sound etc. So narratives can be established by composing computable meaning into higher level meaning.
+
+This narrative can be described as a behavior of the design. The transformation modifies the world in an unambiguous way and produces an unambiguous world state after the transformation. After this narrative is exhibited, a subsequent narrative can be selected deterministically. In some cases, the meaning of the world state is reasoned about to select the next narrative and in other cases, it is directly selected. This chain of behaviors established through reasoning is what is referred to as the design.
+
+In the next section, I will informally establish the narratives in the library manager and reason about them. 
+
+\subsubsection{Narratives of the Library Manager}
+
+First, I will informally share the narratives of the library manager world and I will demonstrate how reasoning works using the informal narrative. This is an intermediate step that will eventually be eliminated because the narratives will be constructed using meaning established by the semantic toolkit.
+
+\begin{greyquote}
+The librarian presents the user with the option to add a book or get a book from the library.\\
+
+If the user selects the option to add a book, the librarian accepts a book by asking the user for the name and content. Then the librarian reads the first letter of the books name to place the book on the relevant shelf. Then the user is once again asked which action they want to take.\\
+
+If the user selects the option to get a book, the librarian asks the user for the book name. The librarian reads the first letter of the book name and accesses the book from the relevant shelf. After the librarian provides the user the book, the user is once again asked which action they want to take.
+\end{greyquote}
+
+In the section above, an initial exploration of the narratives in the library manager world are established. From this narrative an example of reasoning about the meaning can be demonstrated. The librarian reads the first letter of the books name in two separate narratives with the expectation that there will be at least one letter in the name. However, when accepting the book name, the librarian does not verify that the book name has at least one letter in it, by reasoning about the informal narrative provided above, it is clear that the world is inconsistent because it is not possible for it to realize its intentions in conditions that it allows.
+
+Earlier, I mentioned that this step won't be necessary when the semantic toolkit becomes more mature because the software system will be automatically constructed from the established meaning. This is an important point because the computable semantic primitives initially populate the semantic toolkit and using them, more meanings can be constructed using narratives like the ones I showed above. So you can develop the entire software system entirely through narratives by composing more and more meaning until you reach the library manager.
+
+I am intentionally building the design in this way to demonstrate how the meaning of the world is established because I think it is a useful to see. So in the next section, I will establish the meaning of the library manager itself as a computable semantic model by connecting all the behaviors to create the narrative flow by reasoning about the worlds meaning. Once this is done, since there is no ambiguity in the meaning of the world, an engine will be able to reason about it.
+
+It will be evident from the structure that is created that you can automatically create the structure if the necessary narrative is specified. This will be demonstrated by creating narratives from the structure. So then I will demonstrate how you can automatically construct this model from computable semantic primitives up to the library manager using narratives.
+
+\subsection{Computable Semantic Model}
+
+In this section, I will manually build the meaning of the library manager as a computable semantic model. I will start by defining the behaviors of the design at a high level and the narratives of the design. Then I will define the meaning of participants and transformations for each of the behaviors. The transformations themselves will be constructed from computable semantic primitives.
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[
+        width=0.65\linewidth
+    ]{assets/high_level_narrative.svg}
+    \caption{High Level Meaning of Library Manager}
+    \label{fig:lib_man_narratives}
+\end{figure}
+
+In Figure~\ref{fig:lib_man_narratives}, the narratives at the highest level of meaning in the library manager are provided. The narrative begins at the behavior get user choice and then branches to get or add book based on the choice the user makes. The meaning of each of these behaviors is specified through the meaning that composes it. The following sections will establish the meaning of each of the behaviors and recursively continue until computable semantic primitives are reached.
+
+More to come. 
+
+TODO// 
+I will break down the meaning of each of the behaviors and recurse until I reach the primitives. Then I will show how you can construct meaningful narratives from the structure defined by the computable semantic model I create through this process. Then it will become clear how the meaningful narratives can automatically create the computable semantic model and how the engine can reason about it. Using this, I will also present the scope of what the primitives need to establish.
+
+\subsection{Composing Meaning using Narratives}
+
+In the previous section, I demonstrated how you can build the meaning of the world from the highest level of meaning down to the primitives. I did this intentionally to demonstrate how meaning is constructed and how the design abstraction language is used to establish meaning using the computable semantic model. It is evident from the structure of the design that you can construct narratives using the established meaning and structure.
+
+This means that the process I have established can now be reversed, you can compose meaning from the computable semantic primitives up to the library manager. As a result, you can build more meaning by establishing narratives constructed using the primitives and reason about it using the engine. Then you can build more meaning using the new meaning that was established by the narrative. This automates development by automatically constructing the world specified by the meaning of the narratives and reasoning about it.
+
+The process I am describing will be somewhat familiar to developers because they traditionally used the mechanical primitives of a programming language to realize the meaning of the software system. In traditional approaches, the meaning remains in the developers head and in conjunction with the skill of the developer, the purpose of traditional software development approaches was an attempt to create a structured process that composes meaning of the software system using the programming language. 
+
+However, in this framework, the primitives of the programming language have meaning and they can be used to construct more meaning. Constructing a software system becomes a process of composing meaning by establishing the narratives which define the meaning and reasoning about it. Once the necessary meaning has been composed, the software system can be automatically synthesized from the meaning. 
