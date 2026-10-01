@@ -86,10 +86,17 @@ In this section, I will manually build the meaning of the library manager as a c
 
 In Figure~\ref{fig:lib_man_narratives}, the narratives at the highest level of meaning in the library manager are provided. The narrative begins at the behavior get user choice and then branches to get or add book based on the choice the user makes. The meaning of each of these behaviors is specified through the meaning that composes it. The following sections will establish the meaning of each of the behaviors and recursively continue until computable semantic primitives are reached.
 
-More to come.
+More to come. 
+
+TODO// 
+I will break down the meaning of each of the behaviors and recurse until I reach the primitives. Then I will show how you can construct meaningful narratives from the structure defined by the computable semantic model I create through this process. Then it will become clear how the meaningful narratives can automatically create the computable semantic model and how the engine can reason about it. Using this, I will also present the scope of what the primitives need to establish.
 
 \subsection{Composing Meaning using Narratives}
 
-In the previous section, I demonstrated how you can build the meaning of the world from the top to the bottom manually. I did this intentionally to demonstrate how meaning is constructed and how the design abstraction language is used to establish the computable semantic model. It is evident from the structure of the design that you can construct narratives using the established meaning and structure.
+In the previous section, I demonstrated how you can build the meaning of the world from the highest level of meaning down to the primitives. I did this intentionally to demonstrate how meaning is constructed and how the design abstraction language is used to establish meaning using the computable semantic model. It is evident from the structure of the design that you can construct narratives using the established meaning and structure.
 
-This means that the process I have established until now can be reversed, you can compose meaning from the computable semantic primitives up to the library manager. As a result, you can build more meaning by establishing narratives constructed using the computable semantic primitives and reason about it using the engine. Then you can build more meaning using the new meaning that was established by the narrative. This automates development by automatically constructing the world specified by the meaning of the narratives and reasoning about it.
+This means that the process I have established can now be reversed, you can compose meaning from the computable semantic primitives up to the library manager. As a result, you can build more meaning by establishing narratives constructed using the primitives and reason about it using the engine. Then you can build more meaning using the new meaning that was established by the narrative. This automates development by automatically constructing the world specified by the meaning of the narratives and reasoning about it.
+
+The process I am describing will be somewhat familiar to developers because they traditionally used the mechanical primitives of a programming language to realize the meaning of the software system. In traditional approaches, the meaning remains in the developers head and in conjunction with the skill of the developer, the purpose of traditional software development approaches was an attempt to create a structured process that composes meaning of the software system using the programming language. 
+
+However, in this framework, the primitives of the programming language have meaning and they can be used to construct more meaning. Constructing a software system becomes a process of composing meaning by establishing the narratives which define the meaning and reasoning about it. Once the necessary meaning has been composed, the software system can be automatically synthesized from the meaning. 
